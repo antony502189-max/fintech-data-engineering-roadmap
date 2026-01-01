@@ -1,0 +1,14 @@
+name: Learning resource
+description: Suggest a primary source, article or video with a practical outcome
+body:
+  - type: input
+    attributes:
+      label: URL and author
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Relevance
+      description: Format, language, lesson IDs, exercise to try after reading, and version caveats.
+    validations:
+      required: true
