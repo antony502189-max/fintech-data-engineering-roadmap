@@ -1,0 +1,15 @@
+name: Bug or incorrect financial example
+description: A reproducible problem with code, exercises or lesson semantics
+body:
+  - type: textarea
+    attributes:
+      label: Expected and actual result
+      description: Include exercise or lesson ID, exact command, Python version and synthetic input only.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Minimal reproduction
+      description: No credentials, real payment payload, card numbers or personal documents.
+    validations:
+      required: true
