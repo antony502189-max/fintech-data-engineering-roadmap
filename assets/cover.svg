@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Fintech Data Engineering Roadmap</title><desc id="desc">From raw events to trustworthy money. One hundred lessons and forty practical exercises.</desc>
+<rect width="1200" height="360" rx="20" fill="#0b1220"/>
+<path d="M800 0v360M920 0v360M1040 0v360M1160 0v360M760 80h440M760 200h440M760 320h440" stroke="#1b2a40" stroke-width="1"/>
+<text x="58" y="72" font-family="Arial,sans-serif" font-size="16" letter-spacing="4" fill="#62dfc0">OPEN LEARNING / FINANCIAL DATA</text>
+<text x="58" y="146" font-family="Arial,sans-serif" font-weight="700" font-size="53" fill="#f3f6fb">Fintech Data</text>
+<text x="58" y="206" font-family="Arial,sans-serif" font-weight="700" font-size="53" fill="#f3f6fb">Engineering Roadmap</text>
+<text x="60" y="258" font-family="Arial,sans-serif" font-size="21" fill="#b6c4d9">From raw events to trustworthy money.</text>
+<text x="60" y="313" font-family="Arial,sans-serif" font-size="17" fill="#62dfc0">100 LESSONS     /     40 EXERCISES     /     RUNNABLE LAB</text>
+<path d="M862 122h210v120H862z" fill="#14253b" stroke="#345776"/>
+<text x="890" y="165" font-family="monospace" font-size="19" fill="#b6c4d9">EVENT → LEDGER</text>
+<text x="903" y="211" font-family="monospace" font-size="27" fill="#62dfc0">Σ = 0</text>
+<circle cx="860" cy="284" r="8" fill="#62dfc0"/><circle cx="966" cy="284" r="8" fill="#62dfc0"/><circle cx="1072" cy="284" r="8" fill="#62dfc0"/>
+<path d="M868 284h90m16 0h90" stroke="#62dfc0" stroke-width="2"/>
+</svg>
