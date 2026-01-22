@@ -1,0 +1,1501 @@
+{
+  "E01": [
+    {
+      "input": {
+        "amount": "10.01",
+        "currency": "USD"
+      },
+      "expected": 1001
+    },
+    {
+      "input": {
+        "amount": "1.234",
+        "currency": "KWD"
+      },
+      "expected": 1234
+    },
+    {
+      "input": {
+        "amount": "1.1",
+        "currency": "JPY"
+      },
+      "expected": "invalid"
+    },
+    {
+      "input": {
+        "amount": 0.1,
+        "currency": "USD"
+      },
+      "expected": "invalid"
+    }
+  ],
+  "E02": [
+    {
+      "input": {
+        "timestamp": "2026-01-02T01:00:00+03:00"
+      },
+      "expected": "2026-01-01"
+    },
+    {
+      "input": {
+        "timestamp": "2026-01-02T01:00:00"
+      },
+      "expected": "invalid"
+    }
+  ],
+  "E03": [
+    {
+      "input": {
+        "event_id": "e",
+        "payment_id": "p",
+        "kind": "captured",
+        "amount_minor": 100,
+        "currency": "USD",
+        "event_time": "2026-01-01T12:00:00+00:00",
+        "received_at": "2026-01-01T12:00:00+00:00"
+      },
+      "expected": "accepted"
+    },
+    {
+      "input": {
+        "event_id": "e",
+        "payment_id": "p",
+        "kind": "captured",
+        "amount_minor": true,
+        "currency": "USD",
+        "event_time": "2026-01-01T12:00:00+00:00",
+        "received_at": "2026-01-01T12:00:00+00:00"
+      },
+      "expected": "rejected"
+    },
+    {
+      "input": {
+        "event_id": "e",
+        "payment_id": "p",
+        "kind": "captured",
+        "amount_minor": 100,
+        "currency": "USD",
+        "event_time": "2026-01-01T12:00:00+00:00",
+        "received_at": "2026-01-01T12:00:00+00:00",
+        "extra": "new"
+      },
+      "expected": "rejected"
+    }
+  ],
+  "E04": [
+    {
+      "input": {
+        "expected": [
+          "a",
+          "b"
+        ],
+        "received": [
+          "a",
+          "a",
+          "c"
+        ]
+      },
+      "expected": {
+        "missing": [
+          "b"
+        ],
+        "unexpected": [
+          "c"
+        ]
+      }
+    },
+    {
+      "input": {
+        "expected": [],
+        "received": []
+      },
+      "expected": {
+        "missing": [],
+        "unexpected": []
+      }
+    }
+  ],
+  "E05": [
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ]
+        ]
+      },
+      "expected": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "input": {
+        "events": []
+      },
+      "expected": [
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "E06": [
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ]
+        ]
+      },
+      "expected": [
+        [
+          "USD",
+          17700
+        ]
+      ]
+    },
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ],
+          [
+            "e5",
+            "p3",
+            "captured",
+            5000,
+            "EUR",
+            5
+          ]
+        ]
+      },
+      "expected": [
+        [
+          "EUR",
+          5000
+        ],
+        [
+          "USD",
+          17700
+        ]
+      ]
+    }
+  ],
+  "E07": [
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ]
+        ]
+      },
+      "expected": [
+        [
+          "p1",
+          "refunded"
+        ],
+        [
+          "p2",
+          "captured"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "events": [
+          [
+            "a",
+            "p",
+            "captured",
+            1,
+            "USD",
+            1
+          ],
+          [
+            "b",
+            "p",
+            "fee",
+            1,
+            "USD",
+            1
+          ]
+        ]
+      },
+      "expected": [
+        [
+          "p",
+          "fee"
+        ]
+      ]
+    }
+  ],
+  "E08": [
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ]
+        ]
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "events": [
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ],
+          [
+            "e2",
+            "p1",
+            "fee",
+            300,
+            "USD",
+            2
+          ],
+          [
+            "e3",
+            "p1",
+            "refunded",
+            2000,
+            "USD",
+            3
+          ],
+          [
+            "e4",
+            "p2",
+            "captured",
+            10000,
+            "USD",
+            4
+          ],
+          [
+            "e1",
+            "p1",
+            "captured",
+            10000,
+            "USD",
+            1
+          ]
+        ]
+      },
+      "expected": [
+        [
+          "e1",
+          2
+        ]
+      ]
+    }
+  ],
+  "E09": [
+    {
+      "input": {
+        "customer": "c",
+        "at": "2026-01-02",
+        "versions": [
+          {
+            "customer": "c",
+            "from": "2026-01-01",
+            "to": "2026-01-02",
+            "tier": "basic"
+          },
+          {
+            "customer": "c",
+            "from": "2026-01-02",
+            "to": null,
+            "tier": "premium"
+          }
+        ]
+      },
+      "expected": "premium"
+    },
+    {
+      "input": {
+        "customer": "x",
+        "at": "2026-01-02",
+        "versions": []
+      },
+      "expected": null
+    }
+  ],
+  "E10": [
+    {
+      "input": {
+        "opening": 1000,
+        "flows": [
+          100,
+          -30,
+          200
+        ]
+      },
+      "expected": {
+        "flow": 270,
+        "closing": 1270
+      }
+    },
+    {
+      "input": {
+        "opening": 1000,
+        "flows": []
+      },
+      "expected": {
+        "flow": 0,
+        "closing": 1000
+      }
+    }
+  ],
+  "E11": [
+    {
+      "input": {
+        "facts": [
+          {
+            "payment": "p1",
+            "merchant": "m1",
+            "amount": 100
+          },
+          {
+            "payment": "p2",
+            "merchant": "m9",
+            "amount": 100
+          }
+        ],
+        "merchants": {
+          "m1": "Shop"
+        }
+      },
+      "expected": [
+        {
+          "payment": "p1",
+          "name": "Shop",
+          "amount": 100
+        },
+        {
+          "payment": "p2",
+          "name": "UNKNOWN",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "input": {
+        "facts": [],
+        "merchants": {}
+      },
+      "expected": []
+    }
+  ],
+  "E12": [
+    {
+      "input": {
+        "business_at": "2026-01-31",
+        "known_at": "2026-01-31",
+        "versions": [
+          {
+            "effective": "2026-01-01",
+            "recorded": "2026-01-01",
+            "rate": 1
+          },
+          {
+            "effective": "2026-01-01",
+            "recorded": "2026-02-05",
+            "rate": 2
+          }
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "input": {
+        "business_at": "2026-01-31",
+        "known_at": "2026-02-06",
+        "versions": [
+          {
+            "effective": "2026-01-01",
+            "recorded": "2026-01-01",
+            "rate": 1
+          },
+          {
+            "effective": "2026-01-01",
+            "recorded": "2026-02-05",
+            "rate": 2
+          }
+        ]
+      },
+      "expected": 2
+    }
+  ],
+  "E13": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "amount": 100
+        },
+        {
+          "id": "a",
+          "amount": 100
+        }
+      ],
+      "expected": {
+        "unique": 1,
+        "duplicates": 1
+      }
+    },
+    {
+      "input": [
+        {
+          "id": "a",
+          "amount": 100
+        },
+        {
+          "id": "a",
+          "amount": 101
+        }
+      ],
+      "expected": "conflict"
+    }
+  ],
+  "E14": [
+    {
+      "input": [
+        {
+          "seq": 2,
+          "id": "a",
+          "op": "upsert",
+          "value": 2
+        },
+        {
+          "seq": 1,
+          "id": "a",
+          "op": "upsert",
+          "value": 1
+        }
+      ],
+      "expected": {
+        "a": 2
+      }
+    },
+    {
+      "input": [
+        {
+          "seq": 1,
+          "id": "a",
+          "op": "upsert",
+          "value": 1
+        },
+        {
+          "seq": 2,
+          "id": "a",
+          "op": "delete"
+        }
+      ],
+      "expected": {}
+    }
+  ],
+  "E15": [
+    {
+      "input": {
+        "start": "a",
+        "pages": {
+          "a": {
+            "ids": [
+              "1",
+              "2"
+            ],
+            "next": "b"
+          },
+          "b": {
+            "ids": [
+              "2",
+              "3"
+            ],
+            "next": null
+          }
+        }
+      },
+      "expected": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "input": {
+        "start": "a",
+        "pages": {
+          "a": {
+            "ids": [],
+            "next": "a"
+          }
+        }
+      },
+      "expected": "cycle"
+    }
+  ],
+  "E16": [
+    {
+      "input": {
+        "version": 1,
+        "amount": 123
+      },
+      "expected": 123
+    },
+    {
+      "input": {
+        "version": 2,
+        "amount": "1.23"
+      },
+      "expected": 123
+    },
+    {
+      "input": {
+        "version": 3,
+        "amount": "1.23"
+      },
+      "expected": "invalid"
+    },
+    {
+      "input": {
+        "version": 1,
+        "amount": true
+      },
+      "expected": "invalid"
+    }
+  ],
+  "E17": [
+    {
+      "input": {
+        "start": "2026-01-01",
+        "end": "2026-01-03",
+        "partitions": [
+          {
+            "day": "2026-01-01",
+            "bytes": 100
+          },
+          {
+            "day": "2026-01-02",
+            "bytes": 200
+          },
+          {
+            "day": "2026-01-03",
+            "bytes": 300
+          }
+        ]
+      },
+      "expected": 300
+    },
+    {
+      "input": {
+        "start": "2026-01-01",
+        "end": "2026-01-01",
+        "partitions": []
+      },
+      "expected": 0
+    }
+  ],
+  "E18": [
+    {
+      "input": {
+        "sizes": [
+          2,
+          2,
+          2,
+          7,
+          1
+        ],
+        "target": 5
+      },
+      "expected": [
+        4,
+        2,
+        7,
+        1
+      ]
+    },
+    {
+      "input": {
+        "sizes": [],
+        "target": 5
+      },
+      "expected": []
+    }
+  ],
+  "E19": [
+    {
+      "input": {
+        "keys": [
+          "a",
+          "a",
+          "a",
+          "b"
+        ],
+        "threshold": 0.5
+      },
+      "expected": [
+        "a"
+      ]
+    },
+    {
+      "input": {
+        "keys": [],
+        "threshold": 0.5
+      },
+      "expected": []
+    }
+  ],
+  "E20": [
+    {
+      "input": {
+        "watermark": 100,
+        "allowed_lateness": 10,
+        "events": [
+          {
+            "id": "a",
+            "time": 89
+          },
+          {
+            "id": "b",
+            "time": 90
+          },
+          {
+            "id": "c",
+            "time": 101
+          }
+        ]
+      },
+      "expected": {
+        "on_time": [
+          "b",
+          "c"
+        ],
+        "late": [
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "watermark": 100,
+        "allowed_lateness": 0,
+        "events": []
+      },
+      "expected": {
+        "on_time": [],
+        "late": []
+      }
+    }
+  ],
+  "E21": [
+    {
+      "input": {
+        "publish": [
+          "check"
+        ],
+        "check": [
+          "ingest"
+        ],
+        "ingest": []
+      },
+      "expected": [
+        "ingest",
+        "check",
+        "publish"
+      ]
+    },
+    {
+      "input": {
+        "a": [
+          "b"
+        ],
+        "b": [
+          "a"
+        ]
+      },
+      "expected": "cycle"
+    }
+  ],
+  "E22": [
+    {
+      "input": [
+        "rate_limit",
+        "schema",
+        "conflict",
+        "unknown"
+      ],
+      "expected": [
+        "retry",
+        "quarantine",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "input": [],
+      "expected": []
+    }
+  ],
+  "E23": [
+    {
+      "input": {
+        "checkpoint": 5,
+        "events": [
+          {
+            "received_seq": 6,
+            "event_day": "2026-01-01"
+          },
+          {
+            "received_seq": 5,
+            "event_day": "2026-01-03"
+          }
+        ]
+      },
+      "expected": [
+        "2026-01-01"
+      ]
+    },
+    {
+      "input": {
+        "checkpoint": 6,
+        "events": [
+          {
+            "received_seq": 6,
+            "event_day": "2026-01-01"
+          }
+        ]
+      },
+      "expected": []
+    }
+  ],
+  "E24": [
+    {
+      "input": {
+        "complete": true,
+        "checks_pass": true,
+        "critical_exceptions": 0,
+        "candidate": "v2",
+        "previous": "v1"
+      },
+      "expected": "v2"
+    },
+    {
+      "input": {
+        "complete": false,
+        "checks_pass": true,
+        "critical_exceptions": 0,
+        "candidate": "v2",
+        "previous": "v1"
+      },
+      "expected": "v1"
+    },
+    {
+      "input": {
+        "complete": true,
+        "checks_pass": true,
+        "critical_exceptions": 1,
+        "candidate": "v2",
+        "previous": "v1"
+      },
+      "expected": "v1"
+    }
+  ],
+  "E25": [
+    {
+      "input": {
+        "expected_events": [
+          [
+            "a",
+            "USD"
+          ],
+          [
+            "b",
+            "EUR"
+          ]
+        ],
+        "postings": [
+          {
+            "event": "a",
+            "currency": "USD",
+            "amount": 100
+          },
+          {
+            "event": "a",
+            "currency": "USD",
+            "amount": -100
+          }
+        ]
+      },
+      "expected": [
+        "b:EUR"
+      ]
+    },
+    {
+      "input": {
+        "expected_events": [
+          [
+            "a",
+            "USD"
+          ]
+        ],
+        "postings": [
+          {
+            "event": "a",
+            "currency": "USD",
+            "amount": 100
+          },
+          {
+            "event": "a",
+            "currency": "USD",
+            "amount": -99
+          }
+        ]
+      },
+      "expected": [
+        "a:USD"
+      ]
+    }
+  ],
+  "E26": [
+    {
+      "input": {
+        "expected": {
+          "p1:USD": 100,
+          "p2:EUR": 50
+        },
+        "actual": {
+          "p1:USD": 99,
+          "p3:USD": 20
+        }
+      },
+      "expected": {
+        "p1:USD": "amount_mismatch",
+        "p2:EUR": "missing_external",
+        "p3:USD": "unexpected_external"
+      }
+    },
+    {
+      "input": {
+        "expected": {
+          "p:USD": 0
+        },
+        "actual": {
+          "p:USD": 0
+        }
+      },
+      "expected": {
+        "p:USD": "matched"
+      }
+    }
+  ],
+  "E27": [
+    {
+      "input": {
+        "minor": 10000,
+        "from": "USD",
+        "to": "USD",
+        "rate": "0.91"
+      },
+      "expected": 9100
+    },
+    {
+      "input": {
+        "minor": 100,
+        "from": "JPY",
+        "to": "KWD",
+        "rate": "0.002"
+      },
+      "expected": 200
+    },
+    {
+      "input": {
+        "minor": 1,
+        "from": "USD",
+        "to": "USD",
+        "rate": "0.5"
+      },
+      "expected": 0
+    }
+  ],
+  "E28": [
+    {
+      "input": {
+        "payment": 1200,
+        "due": {
+          "fee": 100,
+          "interest": 200,
+          "principal": 1000
+        }
+      },
+      "expected": {
+        "fee": 100,
+        "interest": 200,
+        "principal": 900,
+        "unallocated": 0
+      }
+    },
+    {
+      "input": {
+        "payment": 2000,
+        "due": {
+          "fee": 100,
+          "interest": 200,
+          "principal": 1000
+        }
+      },
+      "expected": {
+        "fee": 100,
+        "interest": 200,
+        "principal": 1000,
+        "unallocated": 700
+      }
+    }
+  ],
+  "E29": [
+    {
+      "input": [
+        1,
+        2,
+        3,
+        100
+      ],
+      "expected": 100
+    },
+    {
+      "input": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "input": [],
+      "expected": null
+    }
+  ],
+  "E30": [
+    {
+      "input": {
+        "changed": "fee",
+        "downstream": {
+          "fee": [
+            "net"
+          ],
+          "net": [
+            "report"
+          ],
+          "count": []
+        }
+      },
+      "expected": [
+        "net",
+        "report"
+      ]
+    },
+    {
+      "input": {
+        "changed": "a",
+        "downstream": {
+          "a": [
+            "b"
+          ],
+          "b": [
+            "a"
+          ]
+        }
+      },
+      "expected": [
+        "b"
+      ]
+    }
+  ],
+  "E31": [
+    {
+      "input": {
+        "expected": {
+          "a": 100,
+          "b": 200
+        },
+        "actual": {
+          "a": 100,
+          "c": 200
+        }
+      },
+      "expected": {
+        "complete": false,
+        "amounts_match": false
+      }
+    },
+    {
+      "input": {
+        "expected": {
+          "a": 100
+        },
+        "actual": {
+          "a": 99
+        }
+      },
+      "expected": {
+        "complete": true,
+        "amounts_match": false
+      }
+    }
+  ],
+  "E32": [
+    {
+      "input": {
+        "backup": {
+          "a": 100
+        },
+        "journal": [
+          {
+            "id": "a",
+            "amount": 100
+          },
+          {
+            "id": "b",
+            "amount": 200
+          }
+        ]
+      },
+      "expected": {
+        "a": 100,
+        "b": 200
+      }
+    },
+    {
+      "input": {
+        "backup": {
+          "a": 100
+        },
+        "journal": [
+          {
+            "id": "a",
+            "amount": 99
+          }
+        ]
+      },
+      "expected": "conflict"
+    }
+  ],
+  "E33": [
+    {
+      "input": {
+        "policy": {
+          "reader": [
+            "read_mart"
+          ]
+        },
+        "role": "reader",
+        "action": "read_raw"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "policy": {
+          "reader": [
+            "read_mart"
+          ]
+        },
+        "role": "reader",
+        "action": "read_mart"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "policy": {},
+        "role": "admin",
+        "action": "read_raw"
+      },
+      "expected": false
+    }
+  ],
+  "E34": [
+    {
+      "input": {
+        "payment_id": "p",
+        "currency": "USD",
+        "amount_minor": 100,
+        "name": "SYNTHETIC",
+        "new_sensitive_field": "SYNTHETIC"
+      },
+      "expected": {
+        "payment_id": "p",
+        "currency": "USD",
+        "amount_minor": 100
+      }
+    },
+    {
+      "input": {
+        "name": "SYNTHETIC"
+      },
+      "expected": {}
+    }
+  ],
+  "E35": [
+    {
+      "input": {
+        "scanned_gb": "100",
+        "price_gb": "0.005",
+        "hours": "2",
+        "price_hour": "0.30"
+      },
+      "expected": "1.10"
+    },
+    {
+      "input": {
+        "scanned_gb": "1",
+        "price_gb": "0.005",
+        "hours": "0",
+        "price_hour": "1"
+      },
+      "expected": "0.01"
+    }
+  ],
+  "E36": [
+    {
+      "input": {
+        "today": "2026-02-01",
+        "records": [
+          {
+            "id": "a",
+            "expiry": "2026-01-01",
+            "hold": true
+          },
+          {
+            "id": "b",
+            "expiry": "2026-02-01",
+            "hold": false
+          },
+          {
+            "id": "c",
+            "expiry": "2026-03-01",
+            "hold": false
+          }
+        ]
+      },
+      "expected": [
+        "b"
+      ]
+    },
+    {
+      "input": {
+        "today": "2026-02-01",
+        "records": []
+      },
+      "expected": []
+    }
+  ],
+  "E37": [
+    {
+      "input": {
+        "payment": "p",
+        "currency": "USD",
+        "decision_at": "2026-01-02",
+        "events": [
+          {
+            "payment": "p",
+            "currency": "USD",
+            "amount": 100,
+            "event_time": "2026-01-01",
+            "received_at": "2026-01-03"
+          }
+        ]
+      },
+      "expected": 0
+    },
+    {
+      "input": {
+        "payment": "p",
+        "currency": "USD",
+        "decision_at": "2026-01-04",
+        "events": [
+          {
+            "payment": "p",
+            "currency": "USD",
+            "amount": 100,
+            "event_time": "2026-01-01",
+            "received_at": "2026-01-03"
+          }
+        ]
+      },
+      "expected": 100
+    }
+  ],
+  "E38": [
+    {
+      "input": [
+        {
+          "answer": "100",
+          "expected": "100",
+          "forbidden": false
+        },
+        {
+          "answer": "secret",
+          "expected": "abstain",
+          "forbidden": true
+        }
+      ],
+      "expected": {
+        "total": 2,
+        "correct": 1,
+        "critical_failures": 1
+      }
+    },
+    {
+      "input": [],
+      "expected": {
+        "total": 0,
+        "correct": 0,
+        "critical_failures": 0
+      }
+    }
+  ],
+  "E39": [
+    {
+      "input": {
+        "role": "support",
+        "documents": [
+          {
+            "id": "public",
+            "allowed_roles": [
+              "support",
+              "finance"
+            ]
+          },
+          {
+            "id": "fraud",
+            "allowed_roles": [
+              "finance"
+            ]
+          }
+        ]
+      },
+      "expected": [
+        "public"
+      ]
+    },
+    {
+      "input": {
+        "role": "unknown",
+        "documents": [
+          {
+            "id": "public",
+            "allowed_roles": [
+              "support"
+            ]
+          }
+        ]
+      },
+      "expected": []
+    }
+  ],
+  "E40": [
+    {
+      "input": {
+        "total_events": 6,
+        "expected_events": 6,
+        "ledger_balanced": true,
+        "critical_exceptions": 0,
+        "source_version": "fixture-v1"
+      },
+      "expected": "publish"
+    },
+    {
+      "input": {
+        "total_events": 6,
+        "expected_events": 6,
+        "ledger_balanced": true,
+        "critical_exceptions": 2,
+        "source_version": "fixture-v1"
+      },
+      "expected": "blocked"
+    },
+    {
+      "input": {
+        "total_events": 5,
+        "expected_events": 6,
+        "ledger_balanced": true,
+        "critical_exceptions": 0,
+        "source_version": "fixture-v1"
+      },
+      "expected": "blocked"
+    }
+  ]
+}
