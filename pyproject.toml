@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fintech-dwh-lab"
+version = "1.0.0"
+description = "A dependency-free synthetic payments warehouse teaching lab"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.setuptools.packages.find]
+include = ["fintech_lab*"]
+
+[tool.setuptools.package-data]
+fintech_lab = ["*.sql"]
