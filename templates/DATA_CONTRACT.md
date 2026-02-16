@@ -1,0 +1,23 @@
+# Contract: data product
+
+**Owner:** ... **Version:** ... **Consumers:** ... **Source:** ...
+
+| Поле | Тип | Meaning | Nullability | Unit / timezone |
+|---|---|---|---|---|
+| event_id | string | business identity | non-null | source namespace |
+| amount_minor | integer | positive magnitude | non-null | currency exponent |
+| currency | string | currency code | non-null | supported set |
+
+**Grain:** ... **Unique key:** ... **Ordering:** ... **Dedup/conflict policy:** ...
+
+**Event time:** ... **Knowledge time:** ... **Business calendar:** ... **Late horizon:** ...
+
+**Metric formula:** ... **Sign convention:** ... **Exclusions:** ... **Not revenue unless defined:** ...
+
+**Completeness source:** manifest/control totals ... **SLI/SLO:** ... **Publish gate:** ...
+
+**Compatibility:** additive/breaking changes, versions, overlap ...
+
+**Access/minimization:** ... **Retention policy owner/version:** ...
+
+**Examples:** correct, duplicate, conflicting, late, missing. **Checks:** paths and commands. **Recovery:** replay/backfill/closed-period procedure.
