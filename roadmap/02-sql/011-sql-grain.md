@@ -30,3 +30,12 @@ COUNT без уточнения grain попадает в KPI «число тр�
 ## Проверка результата
 
 На фикстуре получаются 6 событий и 3 payment_id; объяснение каждого числа сохранено.
+
+## Вопрос для самопроверки
+
+Когда distinct payment_id тоже может быть неверной метрикой?
+
+## Что читать дальше
+
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
