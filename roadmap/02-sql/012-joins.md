@@ -30,3 +30,12 @@ SUM(DISTINCT amount) удаляет одинаковые по сумме раз�
 ## Проверка результата
 
 Два разных платежа по 10000 учитываются оба; adding fee не увеличивает gross capture.
+
+## Вопрос для самопроверки
+
+Чем join к историческому dimension отличается от join к текущему справочнику?
+
+## Что читать дальше
+
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
