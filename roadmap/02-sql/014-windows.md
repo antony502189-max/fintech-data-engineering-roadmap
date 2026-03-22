@@ -18,3 +18,7 @@
 2. Определи tie-breaker
 3. Зафиксируй оконный frame
 4. Проверь одинаковые timestamps.
+
+## Практическое задание
+
+Напиши накопительный net по валюте с ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW; сравни с итогом GROUP BY.
