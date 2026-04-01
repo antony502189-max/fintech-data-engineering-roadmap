@@ -30,3 +30,12 @@ INSERT OR IGNORE проглатывает конфликт ключа и скр�
 ## Проверка результата
 
 Повтор даёт duplicates=1; изменение business field вызывает исключение и rollback.
+
+## Вопрос для самопроверки
+
+Почему payment_id недостаточен для дедупликации refund и fee?
+
+## Что читать дальше
+
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
