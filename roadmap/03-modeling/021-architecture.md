@@ -22,3 +22,7 @@ OLTP оптимизирует короткие операции над теку�
 ## Практическое задание
 
 Составь decision table для PostgreSQL replica, облачного DWH и Iceberg для учебного fintech.
+
+## Типичная ошибка и её последствия
+
+Выбирают lakehouse ради моды и получают сложность catalog, maintenance и нескольких engines без нужного workload.
