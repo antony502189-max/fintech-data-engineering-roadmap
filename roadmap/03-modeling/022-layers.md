@@ -30,3 +30,12 @@ Raw сохраняет доказательство получения; staging 
 ## Проверка результата
 
 Для net_minor есть один путь происхождения и одно место определения знака события.
+
+## Вопрос для самопроверки
+
+В каком слое следует хранить бизнес-правило комиссии и почему?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
