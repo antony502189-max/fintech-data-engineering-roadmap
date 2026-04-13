@@ -30,3 +30,11 @@ Capture и refund — поток; merchant balance на каждую дату �
 ## Проверка результата
 
 В документации указаны допустимые SUM dimensions и запрет суммирования balance по времени.
+
+## Вопрос для самопроверки
+
+Какие вопросы accumulating snapshot не сможет ответить без event history?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
