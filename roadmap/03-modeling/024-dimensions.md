@@ -11,3 +11,10 @@ Natural key приходит из источника, surrogate key задаёт
 ## Пример из финтеха
 
 Capture пришёл раньше профиля merchant. INNER JOIN не должен выбросить денежное событие.
+
+## Порядок реализации
+
+1. Назови namespace
+2. Выбери surrogate key
+3. Определи unknown member
+4. Добавь процедуру late dimension repair.
