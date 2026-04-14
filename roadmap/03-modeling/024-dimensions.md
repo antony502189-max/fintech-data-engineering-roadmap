@@ -18,3 +18,7 @@ Capture пришёл раньше профиля merchant. INNER JOIN не до�
 2. Выбери surrogate key
 3. Определи unknown member
 4. Добавь процедуру late dimension repair.
+
+## Практическое задание
+
+Смоделируй отсутствующего merchant в справочнике и докажи сохранение денежного итога.
