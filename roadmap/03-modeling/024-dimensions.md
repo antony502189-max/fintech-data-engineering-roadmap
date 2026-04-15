@@ -30,3 +30,11 @@ Capture пришёл раньше профиля merchant. INNER JOIN не до�
 ## Проверка результата
 
 Контрольный итог фактов до и после dimension join одинаков; unknown виден отдельно.
+
+## Вопрос для самопроверки
+
+Почему общий merchant_id из двух провайдеров не обязательно идентифицирует одного merchant?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
