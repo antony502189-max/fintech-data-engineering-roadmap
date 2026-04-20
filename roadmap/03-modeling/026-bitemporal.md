@@ -30,3 +30,12 @@ Valid time описывает, когда факт считался действ
 ## Проверка результата
 
 Запрос original возвращает старый тариф, restated — исправленный; оба имеют отдельную метку.
+
+## Вопрос для самопроверки
+
+Как выбрать тариф, если effective date раньше момента его получения?
+
+## Что читать дальше
+
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
