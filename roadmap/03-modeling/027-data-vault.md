@@ -30,3 +30,12 @@ Merchant из CRM и процессинга имеет разные ключи �
 ## Проверка результата
 
 Модель сохраняет source и load time; указано, как аналитик получит понятную витрину.
+
+## Вопрос для самопроверки
+
+Какая проблема оправдывает Vault именно в твоём проекте, а не вообще?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
