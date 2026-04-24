@@ -30,3 +30,12 @@ Refund может быть доставлен раньше capture. Времен
 ## Проверка результата
 
 Перестановка delivery order сохраняет итог денежных событий; невозможные переходы видны в quality report.
+
+## Вопрос для самопроверки
+
+Почему статус «успешно» недостаточен для вычисления движения денег?
+
+## Что читать дальше
+
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
