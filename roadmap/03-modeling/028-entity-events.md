@@ -18,3 +18,7 @@ Refund может быть доставлен раньше capture. Времен
 2. Назови порядок источника
 3. Отдели financial events
 4. Определи обработку out-of-order.
+
+## Практическое задание
+
+Нарисуй переходы authorise, capture, partial refund, full refund; отметь, какие создают движение денег.
