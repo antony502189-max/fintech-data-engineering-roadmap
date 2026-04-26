@@ -18,3 +18,7 @@
 2. Укажи sign convention
 3. Назови owner
 4. Добавь численный пример и исключения.
+
+## Практическое задание
+
+Сделай metric contract для gross capture и net cash; отдельно опиши, почему revenue не реализован.
