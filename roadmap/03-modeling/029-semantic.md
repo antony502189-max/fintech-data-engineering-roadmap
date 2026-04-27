@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Контракт не смешивает revenue и cash; численный пример совпадает с лабораторией.
+
+## Вопрос для самопроверки
+
+Как изменить определение метрики и сохранить сравнимость исторических отчётов?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
