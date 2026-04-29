@@ -30,3 +30,12 @@ Lineage отвечает, какие источники и преобразов�
 ## Проверка результата
 
 Независимый читатель воспроизводит USD 12200 за 1 января по raw данным.
+
+## Вопрос для самопроверки
+
+Какая минимальная информация делает отчёт доказуемым спустя год?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
