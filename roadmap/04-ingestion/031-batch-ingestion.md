@@ -18,3 +18,7 @@ Settlement за 1 января поступает дважды: одинаков
 2. Сохрани hash и row count
 3. Проверь totals
 4. Зафиксируй ready после commit.
+
+## Практическое задание
+
+Спроектируй manifest с period, currency totals, content hash и version. Смоделируй повтор и исправление.
