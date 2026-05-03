@@ -11,3 +11,10 @@ Connector должен соблюдать лимиты, timeout и retry policy 
 ## Пример из финтеха
 
 Тысячи merchants опрашиваются каждый час; после outage все workers одновременно начинают retry.
+
+## Порядок реализации
+
+1. Назови rate limit
+2. Ограничь concurrency
+3. Добавь bounded queue
+4. Сохраняй cursor после записи.
