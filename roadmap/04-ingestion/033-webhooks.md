@@ -18,3 +18,7 @@ Webhook endpoint проверяет подпись по исходным bytes �
 2. Сохрани delivery metadata
 3. Сделай durable enqueue
 4. Дедуплицируй business event.
+
+## Практическое задание
+
+Напиши sequence diagram для timeout после enqueue. Реальный HTTP endpoint не входит в лабораторию; разработай его как расширение.
