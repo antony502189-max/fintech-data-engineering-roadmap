@@ -11,3 +11,10 @@ CDC считывает изменения database log, включая insert, u
 ## Пример из финтеха
 
 Update статуса payment не равен новой capture проводке. Иначе каждая служебная правка увеличит оборот.
+
+## Порядок реализации
+
+1. Назови source tables
+2. Определи snapshot boundary
+3. Сохраняй operation и source position
+4. Раздели CDC state и domain events.
