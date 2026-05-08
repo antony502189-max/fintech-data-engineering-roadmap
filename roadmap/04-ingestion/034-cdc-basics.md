@@ -18,3 +18,7 @@ Update статуса payment не равен новой capture проводк�
 2. Определи snapshot boundary
 3. Сохраняй operation и source position
 4. Раздели CDC state и domain events.
+
+## Практическое задание
+
+Нарисуй поток PostgreSQL → Debezium → Kafka → raw. Для каждого поля укажи source или delivery semantics.
