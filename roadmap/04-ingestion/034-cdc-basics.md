@@ -22,3 +22,7 @@ Update статуса payment не равен новой capture проводк�
 ## Практическое задание
 
 Нарисуй поток PostgreSQL → Debezium → Kafka → raw. Для каждого поля укажи source или delivery semantics.
+
+## Типичная ошибка и её последствия
+
+Все CDC inserts принимают за новые платежи, включая snapshot существующих записей.
