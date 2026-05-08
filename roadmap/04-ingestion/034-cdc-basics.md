@@ -30,3 +30,11 @@ Update статуса payment не равен новой capture проводк�
 ## Проверка результата
 
 Документ объясняет, как snapshot не создаёт двойной счёт, и как delete меняет current state.
+
+## Вопрос для самопроверки
+
+Когда CDC не может восстановить всю бизнес-историю из текущей OLTP таблицы?
+
+## Что читать дальше
+
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
