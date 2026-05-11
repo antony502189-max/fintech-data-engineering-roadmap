@@ -30,3 +30,11 @@ Snapshot запускают заново и смешивают старую и �
 ## Проверка результата
 
 Результат сходится с контрольным source snapshot при заданной позиции; поколения raw различимы.
+
+## Вопрос для самопроверки
+
+Как доказать отсутствие пробела между последней snapshot строкой и первым change event?
+
+## Что читать дальше
+
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
