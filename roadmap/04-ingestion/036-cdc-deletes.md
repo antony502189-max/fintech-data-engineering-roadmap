@@ -18,3 +18,7 @@ Delete event сообщает удаление строки. Tombstone може�
 2. Раздели delete и reversal
 3. Проверь policy history
 4. Назови ключ lineage после удаления.
+
+## Практическое задание
+
+Создай три сценария: hard delete profile, soft delete merchant, refund payment; опиши разные результаты в DWH.
