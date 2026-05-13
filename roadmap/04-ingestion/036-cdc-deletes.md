@@ -22,3 +22,7 @@ Delete event сообщает удаление строки. Tombstone може�
 ## Практическое задание
 
 Создай три сценария: hard delete profile, soft delete merchant, refund payment; опиши разные результаты в DWH.
+
+## Типичная ошибка и её последствия
+
+Каскадное удаление dimension уничтожает денежные факты; tombstone трактуют как нулевую сумму.
