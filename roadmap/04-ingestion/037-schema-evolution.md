@@ -11,3 +11,10 @@ Additive field может быть совместимым, но strict consumer 
 ## Пример из финтеха
 
 Провайдер меняет amount с integer cents на decimal string major units; прежний код увеличивает или уменьшает суммы в сто раз.
+
+## Порядок реализации
+
+1. Опиши compatibility policy
+2. Добавь schema version
+3. Проверь старый и новый fixtures
+4. Запланируй switch и rollback.
