@@ -30,3 +30,12 @@ Additive field может быть совместимым, но strict consumer 
 ## Проверка результата
 
 Неизвестная версия попадает в quarantine; обе поддержанные версии дают одинаковые minor units.
+
+## Вопрос для самопроверки
+
+Почему сохранение имени колонки не доказывает совместимость контракта?
+
+## Что читать дальше
+
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
