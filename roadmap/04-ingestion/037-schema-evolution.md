@@ -18,3 +18,7 @@ Additive field может быть совместимым, но strict consumer 
 2. Добавь schema version
 3. Проверь старый и новый fixtures
 4. Запланируй switch и rollback.
+
+## Практическое задание
+
+Измени payload в копии validate и напиши migration plan для двух versions.
