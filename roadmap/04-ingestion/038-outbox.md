@@ -18,3 +18,7 @@ Payment capture фиксируется вместе с outbox entry; паден�
 2. Запиши в одной transaction
 3. Сделай relay retryable
 4. Добавь consumer identity check.
+
+## Практическое задание
+
+Составь SQL transaction и crash matrix для publish-before-mark и mark-before-publish.
