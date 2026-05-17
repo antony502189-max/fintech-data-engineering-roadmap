@@ -22,3 +22,7 @@ Payment capture фиксируется вместе с outbox entry; паден�
 ## Практическое задание
 
 Составь SQL transaction и crash matrix для publish-before-mark и mark-before-publish.
+
+## Типичная ошибка и её последствия
+
+Сначала ставят published=true, потом отправляют; сбой между действиями теряет событие.
