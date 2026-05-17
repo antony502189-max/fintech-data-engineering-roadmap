@@ -11,3 +11,10 @@ Outbox записывается в той же database transaction, что и �
 ## Пример из финтеха
 
 Payment capture фиксируется вместе с outbox entry; падение relay не теряет намерение сообщить о capture.
+
+## Порядок реализации
+
+1. Определи outbox schema
+2. Запиши в одной transaction
+3. Сделай relay retryable
+4. Добавь consumer identity check.
