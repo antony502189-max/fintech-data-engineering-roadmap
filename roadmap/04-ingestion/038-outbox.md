@@ -30,3 +30,12 @@ Payment capture фиксируется вместе с outbox entry; паден�
 ## Проверка результата
 
 Публикация может повторяться, но успешный бизнес commit не остаётся без outbox entry.
+
+## Вопрос для самопроверки
+
+Почему outbox не даёт автоматическое exactly-once во внешнем sink?
+
+## Что читать дальше
+
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
