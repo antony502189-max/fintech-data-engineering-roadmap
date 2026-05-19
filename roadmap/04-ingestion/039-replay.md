@@ -11,3 +11,10 @@ Replay применяет сохранённый вход заново; backfill
 ## Пример из финтеха
 
 Исправлена ошибка комиссии за январь; пересчёт должен сохранить старый published dataset и показать diff.
+
+## Порядок реализации
+
+1. Назови affected partitions
+2. Создай shadow output
+3. Сверь totals
+4. Выполни controlled publish.
