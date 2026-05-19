@@ -18,3 +18,7 @@ Replay применяет сохранённый вход заново; backfill
 2. Создай shadow output
 3. Сверь totals
 4. Выполни controlled publish.
+
+## Практическое задание
+
+Напиши план backfill для e6 и отдельный план изменения sign fee. Для второго нужен новый dataset version.
