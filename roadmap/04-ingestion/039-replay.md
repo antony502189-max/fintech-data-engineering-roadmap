@@ -30,3 +30,12 @@ Replay применяет сохранённый вход заново; backfill
 ## Проверка результата
 
 До публикации доступны old и candidate totals, критерии acceptance и rollback target.
+
+## Вопрос для самопроверки
+
+Когда replay прежнего входа всё равно даёт другой результат?
+
+## Что читать дальше
+
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
