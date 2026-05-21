@@ -11,3 +11,10 @@ Run metadata связывает source partition, input hash, code revision, sch
 ## Пример из финтеха
 
 Финансовая команда спрашивает, почему p3 появился в отчёте позже: нужны event_time, received_at и run_id.
+
+## Порядок реализации
+
+1. Задай run schema
+2. Раздели operational и business totals
+3. Сохраняй rejected count
+4. Прикрепи manifest к published output.
