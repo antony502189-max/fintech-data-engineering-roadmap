@@ -30,3 +30,12 @@ Run metadata связывает source partition, input hash, code revision, sch
 ## Проверка результата
 
 Для каждого итогового периода доступны hash входа, версия преобразования и контрольные суммы по валюте.
+
+## Вопрос для самопроверки
+
+Как обнаружить «успешную» загрузку неполного файла?
+
+## Что читать дальше
+
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
