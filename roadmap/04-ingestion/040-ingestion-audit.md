@@ -18,3 +18,7 @@ Run metadata связывает source partition, input hash, code revision, sch
 2. Раздели operational и business totals
 3. Сохраняй rejected count
 4. Прикрепи manifest к published output.
+
+## Практическое задание
+
+Создай sample manifest для лаборатории с 6 accepted, 0 rejected и 6 duplicate при replay.
