@@ -22,3 +22,7 @@ Run metadata связывает source partition, input hash, code revision, sch
 ## Практическое задание
 
 Создай sample manifest для лаборатории с 6 accepted, 0 rejected и 6 duplicate при replay.
+
+## Типичная ошибка и её последствия
+
+Логи содержат только duration и status=success; полноту денежных событий проверить нельзя.
