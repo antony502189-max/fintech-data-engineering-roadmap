@@ -30,3 +30,12 @@ Columnar layout позволяет читать нужные колонки, а 
 ## Проверка результата
 
 Отчёт различает file format и table format; измерены время, размер и scanned bytes.
+
+## Вопрос для самопроверки
+
+Почему маленькое число колонок запроса помогает columnar storage сильнее, чем SELECT *?
+
+## Что читать дальше
+
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
