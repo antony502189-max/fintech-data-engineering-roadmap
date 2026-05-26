@@ -18,3 +18,7 @@ Partition по merchant_id создаёт тысячи маленьких фай
 2. Оцени кардинальность
 3. Выбери умеренный temporal partition
 4. Проверь late data update.
+
+## Практическое задание
+
+Для 10000 merchants и 365 дней сравни число partitions для day, merchant и day+merchant.
