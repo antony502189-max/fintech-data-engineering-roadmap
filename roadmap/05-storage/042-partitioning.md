@@ -22,3 +22,7 @@ Partition по merchant_id создаёт тысячи маленьких фай
 ## Практическое задание
 
 Для 10000 merchants и 365 дней сравни число partitions для day, merchant и day+merchant.
+
+## Типичная ошибка и её последствия
+
+Партиционируют по каждому уникальному payment_id; metadata overhead доминирует над полезным чтением.
