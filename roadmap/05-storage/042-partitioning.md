@@ -30,3 +30,12 @@ Partition по merchant_id создаёт тысячи маленьких фай
 ## Проверка результата
 
 Decision содержит ожидаемые bytes per partition, pruning и процедуру пересчёта старого дня.
+
+## Вопрос для самопроверки
+
+Что произойдёт с pruning, если фильтр оборачивает partition column неподдерживаемой функцией?
+
+## Что читать дальше
+
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
+- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — первичная документация; ищи раздел по теме урока.
