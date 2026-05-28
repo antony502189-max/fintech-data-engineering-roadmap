@@ -11,3 +11,10 @@ Table format управляет metadata, snapshots и набором файло
 ## Пример из финтеха
 
 Исправленный январь публикуется новым snapshot, читатели получают целостную версию.
+
+## Порядок реализации
+
+1. Опиши catalog
+2. Назови read и write engines
+3. Зафиксируй format compatibility
+4. Запланируй maintenance.
