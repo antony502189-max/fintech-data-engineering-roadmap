@@ -18,3 +18,7 @@ Table format управляет metadata, snapshots и набором файло
 2. Назови read и write engines
 3. Зафиксируй format compatibility
 4. Запланируй maintenance.
+
+## Практическое задание
+
+Спроектируй payments Iceberg table и процесс shadow backfill; обозначь, что local SQLite lab не реализует Iceberg.
