@@ -26,3 +26,7 @@ Table format управляет metadata, snapshots и набором файло
 ## Типичная ошибка и её последствия
 
 Удаляют «старые» files вручную, не проверяя ссылки активных snapshots.
+
+## Проверка результата
+
+План cleanup содержит retention, активные readers и dry run review.
