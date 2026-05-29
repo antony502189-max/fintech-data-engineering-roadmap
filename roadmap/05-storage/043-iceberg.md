@@ -22,3 +22,7 @@ Table format управляет metadata, snapshots и набором файло
 ## Практическое задание
 
 Спроектируй payments Iceberg table и процесс shadow backfill; обозначь, что local SQLite lab не реализует Iceberg.
+
+## Типичная ошибка и её последствия
+
+Удаляют «старые» files вручную, не проверяя ссылки активных snapshots.
