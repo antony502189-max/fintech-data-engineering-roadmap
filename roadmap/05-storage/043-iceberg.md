@@ -30,3 +30,11 @@ Table format управляет metadata, snapshots и набором файло
 ## Проверка результата
 
 План cleanup содержит retention, активные readers и dry run review.
+
+## Вопрос для самопроверки
+
+Почему time travel перестаёт работать после удаления нужных snapshots и файлов?
+
+## Что читать дальше
+
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
