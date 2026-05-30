@@ -3,3 +3,7 @@
 ## Результат обучения
 
 Сравнить managed warehouse по требованиям, а не по бренду.
+
+## Как это работает
+
+Managed DWH снимает часть управления инфраструктурой, но оставляет modeling, permissions, workload isolation и cost control. Billing может зависеть от scanned data, compute duration или выделенной ёмкости. Выбор зависит от workload, региона, интеграций и требований команды; универсального победителя нет.
