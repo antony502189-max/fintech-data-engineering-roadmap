@@ -18,3 +18,7 @@ Ad-hoc запрос сканирует весь raw payload за год и ра�
 2. Выбери одну платформу для trial
 3. Установи budget alerts
 4. Измерь representative queries.
+
+## Практическое задание
+
+Сделай таблицу BigQuery, Snowflake и PostgreSQL: latency, стоимость эксперимента, isolation, maintenance. Актуальные цены проверяй перед оплатой.
