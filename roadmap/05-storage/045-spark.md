@@ -18,3 +18,7 @@ Spark распараллеливает вычисления по partitions. Shu
 2. Найди shuffle
 3. Измерь skew
 4. Сравни оптимизации на одной fixture.
+
+## Практическое задание
+
+Создай design benchmark group by merchant и currency; для реального запуска расширения сохрани Spark version и task metrics.
