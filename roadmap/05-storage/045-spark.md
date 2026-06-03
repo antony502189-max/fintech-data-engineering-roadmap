@@ -22,3 +22,7 @@ Spark распараллеливает вычисления по partitions. Shu
 ## Практическое задание
 
 Создай design benchmark group by merchant и currency; для реального запуска расширения сохрани Spark version и task metrics.
+
+## Типичная ошибка и её последствия
+
+collect используют для удобства записи JSON; driver падает, хотя executors свободны.
