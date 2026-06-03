@@ -26,3 +26,7 @@ Spark распараллеливает вычисления по partitions. Shu
 ## Типичная ошибка и её последствия
 
 collect используют для удобства записи JSON; driver падает, хотя executors свободны.
+
+## Проверка результата
+
+Отчёт содержит partition sizes, shuffle bytes и max task duration.
