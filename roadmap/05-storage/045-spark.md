@@ -30,3 +30,11 @@ collect используют для удобства записи JSON; driver �
 ## Проверка результата
 
 Отчёт содержит partition sizes, shuffle bytes и max task duration.
+
+## Вопрос для самопроверки
+
+Когда repartition добавляет стоимость, не ускоряя вычисление?
+
+## Что читать дальше
+
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
