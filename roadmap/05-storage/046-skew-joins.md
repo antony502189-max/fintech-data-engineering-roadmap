@@ -30,3 +30,11 @@ Merchant «unknown» объединяет большой объём фактов
 ## Проверка результата
 
 Решение содержит оценку памяти, distribution и результат на hot-key fixture.
+
+## Вопрос для самопроверки
+
+Почему случайное salting фактов без соответствующего правила для dimension ломает join?
+
+## Что читать дальше
+
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
