@@ -11,3 +11,10 @@ Kafka упорядочивает записи внутри partition; глоба
 ## Пример из финтеха
 
 Capture и refund одного payment желательно обрабатывать по согласованному порядку, но межплатёжный global order обычно не нужен.
+
+## Порядок реализации
+
+1. Выбери key
+2. Определи consumer group
+3. Нарисуй commit sequence
+4. Проверь rebalance recovery.
