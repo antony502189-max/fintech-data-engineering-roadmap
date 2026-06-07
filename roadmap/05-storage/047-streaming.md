@@ -18,3 +18,7 @@ Capture и refund одного payment желательно обрабатыва
 2. Определи consumer group
 3. Нарисуй commit sequence
 4. Проверь rebalance recovery.
+
+## Практическое задание
+
+Составь два сценария падения: до sink commit и после sink commit до offset ack.
