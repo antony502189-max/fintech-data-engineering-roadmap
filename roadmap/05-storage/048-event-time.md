@@ -11,3 +11,10 @@ Event time описывает время действия, processing time — �
 ## Пример из финтеха
 
 e6 приходит через два дня и относится к старому daily total; закрытое окно не делает его несуществующим.
+
+## Порядок реализации
+
+1. Выбери allowed lateness
+2. Определи side output
+3. Назови correction policy
+4. Свяжи stream total с batch reconciliation.
