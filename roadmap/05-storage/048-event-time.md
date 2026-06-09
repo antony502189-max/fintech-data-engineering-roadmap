@@ -18,3 +18,7 @@ e6 приходит через два дня и относится к старо
 2. Определи side output
 3. Назови correction policy
 4. Свяжи stream total с batch reconciliation.
+
+## Практическое задание
+
+Нарисуй timeline e1 и e6; покажи provisional, updated и closed totals.
