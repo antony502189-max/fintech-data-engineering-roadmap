@@ -30,3 +30,11 @@ Watermark называют гарантией отсутствия будущи�
 ## Проверка результата
 
 Для события за пределом lateness есть проверяемый маршрут, а не silent drop.
+
+## Вопрос для самопроверки
+
+Когда допустимо оставить late event только в аналитическом correction report?
+
+## Что читать дальше
+
+- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — первичная документация; ищи раздел по теме урока.
