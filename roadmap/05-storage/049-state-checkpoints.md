@@ -7,3 +7,7 @@
 ## Как это работает
 
 Stateful processor хранит агрегаты, timers и progress. Consistent checkpoint связывает состояние с позициями источника. Sink должен поддерживать нужную commit semantics, иначе checkpoint не предотвращает повтор внешней записи. Retention state и ключей дедупликации ограничивает горизонт безопасного replay.
+
+## Пример из финтеха
+
+Consumer восстановился из вчерашнего checkpoint, но external settlement email уже был отправлен.
