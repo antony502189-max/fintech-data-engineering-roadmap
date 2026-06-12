@@ -11,3 +11,10 @@ Stateful processor хранит агрегаты, timers и progress. Consistent
 ## Пример из финтеха
 
 Consumer восстановился из вчерашнего checkpoint, но external settlement email уже был отправлен.
+
+## Порядок реализации
+
+1. Опиши state
+2. Назови durable checkpoint storage
+3. Проверь sink protocol
+4. Смоделируй replay за retention.
