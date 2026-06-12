@@ -18,3 +18,7 @@ Consumer восстановился из вчерашнего checkpoint, но e
 2. Назови durable checkpoint storage
 3. Проверь sink protocol
 4. Смоделируй replay за retention.
+
+## Практическое задание
+
+Составь state lifecycle для dedup event_id с TTL 7 дней и replay за 30 дней.
