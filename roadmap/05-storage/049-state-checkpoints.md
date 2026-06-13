@@ -30,3 +30,12 @@ TTL удаляет ключи раньше допустимого replay; ста
 ## Проверка результата
 
 План связывает TTL с replay horizon или сохраняет persistent sink uniqueness.
+
+## Вопрос для самопроверки
+
+Какие внешние side effects не покрывает восстановление streaming state?
+
+## Что читать дальше
+
+- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — первичная документация; ищи раздел по теме урока.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
