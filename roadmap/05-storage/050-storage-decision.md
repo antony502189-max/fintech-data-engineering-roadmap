@@ -30,3 +30,12 @@ Batch проще пересчитывать и сверять; stream быстр
 ## Проверка результата
 
 ADR содержит критерий выбора и способ сверки provisional и final results.
+
+## Вопрос для самопроверки
+
+Какой измеримый эффект оправдает переход с hourly batch на stream?
+
+## Что читать дальше
+
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
