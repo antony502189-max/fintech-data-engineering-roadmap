@@ -18,3 +18,7 @@ Ingestion сохраняет raw events, dbt model собирает capture fact
 2. Определи refs
 3. Добавь tests
 4. Раздели dev и production.
+
+## Практическое задание
+
+Перепиши mart_daily_cash как проектную dbt model; обозначь выбранный adapter и обязательные fixture tests.
