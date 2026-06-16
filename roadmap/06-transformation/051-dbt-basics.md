@@ -11,3 +11,10 @@ dbt строит SQL models и зависимости, выражаемые че
 ## Пример из финтеха
 
 Ingestion сохраняет raw events, dbt model собирает capture fact и денежную витрину.
+
+## Порядок реализации
+
+1. Назови source tables
+2. Определи refs
+3. Добавь tests
+4. Раздели dev и production.
