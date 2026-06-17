@@ -30,3 +30,11 @@ Ingestion сохраняет raw events, dbt model собирает capture fact
 ## Проверка результата
 
 Model документирована по grain; freshness и completeness проверяются отдельно.
+
+## Вопрос для самопроверки
+
+Какие виды загрузки источников не решает сам dbt?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
