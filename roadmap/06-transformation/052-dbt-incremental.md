@@ -18,3 +18,7 @@ Late capture обновляет старый день; merge по сегодня
 2. Назови unique_key
 3. Найди affected periods
 4. Проверь full refresh equivalence.
+
+## Практическое задание
+
+Напиши pseudo dbt model и тест-план для двух последовательных runs с e6.
