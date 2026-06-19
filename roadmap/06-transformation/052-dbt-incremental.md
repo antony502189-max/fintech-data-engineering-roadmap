@@ -26,3 +26,7 @@ Late capture обновляет старый день; merge по сегодня
 ## Типичная ошибка и её последствия
 
 Дубликаты source приводят к неопределённому merge или ошибке; unique_key считают очисткой входа.
+
+## Проверка результата
+
+На fixture incremental и full outputs совпадают после replay и late event.
