@@ -11,3 +11,10 @@ unique_key задаёт match при поддерживаемой incremental st
 ## Пример из финтеха
 
 Late capture обновляет старый день; merge по сегодняшней дате его не исправляет.
+
+## Порядок реализации
+
+1. Выбери strategy для adapter
+2. Назови unique_key
+3. Найди affected periods
+4. Проверь full refresh equivalence.
