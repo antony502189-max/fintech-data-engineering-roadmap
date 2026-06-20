@@ -30,3 +30,11 @@ Late capture обновляет старый день; merge по сегодня
 ## Проверка результата
 
 На fixture incremental и full outputs совпадают после replay и late event.
+
+## Вопрос для самопроверки
+
+Когда incremental_predicate может исключить нужную целевую строку из merge?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
