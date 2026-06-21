@@ -18,3 +18,7 @@ Daily mart за 1 января строится 3 января при backfill �
 2. Вырази dependencies
 3. Добавь source-ready condition
 4. Передавай параметры явно.
+
+## Практическое задание
+
+Нарисуй DAG ingest → checks → transform → reconciliation → publish, укажи входной период каждой задачи.
