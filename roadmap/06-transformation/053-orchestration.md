@@ -11,3 +11,10 @@ Orchestrator управляет зависимостями, retries, наблю�
 ## Пример из финтеха
 
 Daily mart за 1 января строится 3 января при backfill и должна сохранить январский interval.
+
+## Порядок реализации
+
+1. Определи interval
+2. Вырази dependencies
+3. Добавь source-ready condition
+4. Передавай параметры явно.
