@@ -22,3 +22,7 @@ Daily mart за 1 января строится 3 января при backfill �
 ## Практическое задание
 
 Нарисуй DAG ingest → checks → transform → reconciliation → publish, укажи входной период каждой задачи.
+
+## Типичная ошибка и её последствия
+
+Каждая task вычисляет yesterday от now; backfill пересчитывает один и тот же вчерашний день.
