@@ -30,3 +30,11 @@ Daily mart за 1 января строится 3 января при backfill �
 ## Проверка результата
 
 Повтор запуска одного interval выбирает тот же input manifest и dataset scope.
+
+## Вопрос для самопроверки
+
+Чем logical date отличается от фактического времени старта job?
+
+## Что читать дальше
+
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
