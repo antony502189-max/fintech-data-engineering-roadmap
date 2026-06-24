@@ -18,3 +18,7 @@ SQL task завершила insert, но worker потерял соединен�
 2. Определи attempt timeout
 3. Добавь bounded backoff
 4. Проверь post-commit retry.
+
+## Практическое задание
+
+Для пяти ошибок выбери retry, quarantine или fail: 429, invalid currency, deadlock, missing file, conflicting event_id.
