@@ -22,3 +22,7 @@ SQL task завершила insert, но worker потерял соединен�
 ## Практическое задание
 
 Для пяти ошибок выбери retry, quarantine или fail: 429, invalid currency, deadlock, missing file, conflicting event_id.
+
+## Типичная ошибка и её последствия
+
+Любой exception повторяют десять раз; контрактная ошибка блокирует очередь и увеличивает нагрузку.
