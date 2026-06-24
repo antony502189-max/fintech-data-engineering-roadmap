@@ -30,3 +30,12 @@ SQL task завершила insert, но worker потерял соединен�
 ## Проверка результата
 
 Каждая ошибка имеет действие, максимальный бюджет и сигнал владельцу.
+
+## Вопрос для самопроверки
+
+Почему retry при неизвестном результате COMMIT требует идемпотентного sink?
+
+## Что читать дальше
+
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
