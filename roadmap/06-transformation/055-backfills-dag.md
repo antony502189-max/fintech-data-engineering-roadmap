@@ -22,3 +22,7 @@ Backfill создаёт конкуренцию за source, warehouse и schedul
 ## Практическое задание
 
 Составь run plan на месяц с batch size, stop condition и rollback dataset.
+
+## Типичная ошибка и её последствия
+
+Backfill запускают с тем же SLA и unlimited parallelism; источник OLTP перегружается.
