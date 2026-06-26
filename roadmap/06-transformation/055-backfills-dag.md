@@ -18,3 +18,7 @@ Backfill создаёт конкуренцию за source, warehouse и schedul
 2. Ограничь concurrency
 3. Проверь canary day
 4. Публикуй по согласованному scope.
+
+## Практическое задание
+
+Составь run plan на месяц с batch size, stop condition и rollback dataset.
