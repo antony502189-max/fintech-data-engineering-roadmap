@@ -26,3 +26,7 @@ Backfill создаёт конкуренцию за source, warehouse и schedul
 ## Типичная ошибка и её последствия
 
 Backfill запускают с тем же SLA и unlimited parallelism; источник OLTP перегружается.
+
+## Проверка результата
+
+Plan включает daily workload reservation, ETA assumption и измеримый abort threshold.
