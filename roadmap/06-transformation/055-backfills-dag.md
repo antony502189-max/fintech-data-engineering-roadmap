@@ -30,3 +30,12 @@ Backfill запускают с тем же SLA и unlimited parallelism; ист�
 ## Проверка результата
 
 Plan включает daily workload reservation, ETA assumption и измеримый abort threshold.
+
+## Вопрос для самопроверки
+
+Когда безопаснее сделать shadow rebuild, чем обновлять partitions на месте?
+
+## Что читать дальше
+
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
