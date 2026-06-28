@@ -11,3 +11,10 @@ Compute и publish — разные стадии. Candidate dataset строит
 ## Пример из финтеха
 
 USD partition готова, EUR ещё строится; отчёт за день не должен выглядеть окончательно завершённым.
+
+## Порядок реализации
+
+1. Создай candidate version
+2. Выполни quality и reconciliation
+3. Опубликуй указатель
+4. Сохрани previous version.
