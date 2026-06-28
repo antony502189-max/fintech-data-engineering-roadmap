@@ -18,3 +18,7 @@ USD partition готова, EUR ещё строится; отчёт за ден�
 2. Выполни quality и reconciliation
 3. Опубликуй указатель
 4. Сохрани previous version.
+
+## Практическое задание
+
+Разработай manifest для daily cash с обеими валютами и одним published version.
