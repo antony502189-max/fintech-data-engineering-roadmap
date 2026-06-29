@@ -26,3 +26,7 @@ USD partition готова, EUR ещё строится; отчёт за ден�
 ## Типичная ошибка и её последствия
 
 Пишут directly в открытую consumer table и обновляют строки по одной.
+
+## Проверка результата
+
+Consumer читает либо old complete, либо new complete; partial state отсутствует в сценарии сбоя.
