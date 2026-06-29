@@ -30,3 +30,12 @@ USD partition готова, EUR ещё строится; отчёт за ден�
 ## Проверка результата
 
 Consumer читает либо old complete, либо new complete; partial state отсутствует в сценарии сбоя.
+
+## Вопрос для самопроверки
+
+Как обеспечить согласованную публикацию нескольких взаимозависимых marts?
+
+## Что читать дальше
+
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
