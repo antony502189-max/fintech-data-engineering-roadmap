@@ -18,3 +18,7 @@
 2. Установи namespace
 3. Назначь permissions
 4. Запрети случайную публикацию в prod.
+
+## Практическое задание
+
+Напиши environment matrix: source, sink, identity, retention и разрешённые операции.
