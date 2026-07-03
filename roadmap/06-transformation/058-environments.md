@@ -26,3 +26,7 @@
 ## Типичная ошибка и её последствия
 
 Одна переменная schema случайно направляет dev job в production table.
+
+## Проверка результата
+
+Запуск без production identity не может записать production namespace.
