@@ -22,3 +22,7 @@
 ## Практическое задание
 
 Напиши environment matrix: source, sink, identity, retention и разрешённые операции.
+
+## Типичная ошибка и её последствия
+
+Одна переменная schema случайно направляет dev job в production table.
