@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Запуск без production identity не может записать production namespace.
+
+## Вопрос для самопроверки
+
+Почему masked dataset не обязательно является анонимным?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
