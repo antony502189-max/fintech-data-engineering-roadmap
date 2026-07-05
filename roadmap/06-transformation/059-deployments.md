@@ -7,3 +7,7 @@
 ## Как это работает
 
 Expand-contract добавляет новую форму, переводит consumers и затем удаляет старую. Длительность overlap определяется использованием и retention. Destructive schema change требует миграции данных и rollback strategy; revert кода не восстанавливает удалённые колонки. Versioned dataset облегчает сравнение.
+
+## Пример из финтеха
+
+currency переименовывают в settlement_currency, потому что появляется presentment_currency.
