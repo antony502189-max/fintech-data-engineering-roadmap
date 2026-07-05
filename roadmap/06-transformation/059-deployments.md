@@ -11,3 +11,10 @@ Expand-contract добавляет новую форму, переводит con
 ## Пример из финтеха
 
 currency переименовывают в settlement_currency, потому что появляется presentment_currency.
+
+## Порядок реализации
+
+1. Добавь новую колонку
+2. Backfill old data
+3. Переведи consumers
+4. Удали old после проверки использования.
