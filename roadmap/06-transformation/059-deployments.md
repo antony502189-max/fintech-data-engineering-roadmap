@@ -18,3 +18,7 @@ currency переименовывают в settlement_currency, потому ч�
 2. Backfill old data
 3. Переведи consumers
 4. Удали old после проверки использования.
+
+## Практическое задание
+
+Составь migration plan с шагами, acceptance и recoverability для двух валютных полей.
