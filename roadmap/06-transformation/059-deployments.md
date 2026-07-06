@@ -30,3 +30,12 @@ currency переименовывают в settlement_currency, потому ч�
 ## Проверка результата
 
 Старый и новый reader работают в overlap; удаления имеют отдельное решение.
+
+## Вопрос для самопроверки
+
+Когда rollback deployment не может восстановить прежние данные?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
