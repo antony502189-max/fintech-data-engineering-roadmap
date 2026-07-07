@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Дежурный видит missing_external и должен понять, это поздний файл или потерянный payment.
+
+## Порядок реализации
+
+1. Назови тип alert
+2. Свяжи с check
+3. Дай diagnostic query
+4. Укажи escalation и publish rule.
