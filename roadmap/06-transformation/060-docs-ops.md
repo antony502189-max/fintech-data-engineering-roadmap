@@ -18,3 +18,7 @@
 2. Свяжи с check
 3. Дай diagnostic query
 4. Укажи escalation и publish rule.
+
+## Практическое задание
+
+Напиши runbook для p3 mismatch и p9 unexpected external на fixture.
