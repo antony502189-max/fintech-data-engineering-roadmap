@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Новый читатель воспроизводит диагностику в чистом local окружении.
+
+## Вопрос для самопроверки
+
+Какая часть runbook устаревает быстрее всего и как её проверять автоматически?
+
+## Что читать дальше
+
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
