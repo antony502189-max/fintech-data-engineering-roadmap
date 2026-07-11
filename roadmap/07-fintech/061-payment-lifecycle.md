@@ -30,3 +30,12 @@ Capture 10000 и частичный refund 2000 дают поток 8000 до к
 ## Проверка результата
 
 Для каждого этапа указано, создаёт ли он факт потока, состояние или ожидаемое обязательство.
+
+## Вопрос для самопроверки
+
+Почему paid, captured и settled нельзя считать универсальными синонимами?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
