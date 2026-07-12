@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Capture дебетует processor_receivable и кредитует merchant_payable в условной схеме laboratory.
+
+## Порядок реализации
+
+1. Назови perspective ledger
+2. Запиши sign convention
+3. Построй postings
+4. Проверь баланс и независимый source total.
