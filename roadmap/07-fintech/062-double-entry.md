@@ -30,3 +30,12 @@ Capture дебетует processor_receivable и кредитует merchant_pay
 ## Проверка результата
 
 Тест ловит imbalance; reconciliation ловит сумму, которую баланс пропустил.
+
+## Вопрос для самопроверки
+
+Какая ошибка остаётся возможной, если все проводки идеально сбалансированы?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
