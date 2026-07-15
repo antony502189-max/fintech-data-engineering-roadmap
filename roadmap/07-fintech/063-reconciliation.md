@@ -30,3 +30,12 @@ p3 ожидает 2500, внешний файл содержит 2400; p9 ест
 ## Проверка результата
 
 Отчёт содержит matched, mismatch, missing и unexpected без потери строк.
+
+## Вопрос для самопроверки
+
+Когда одно внешнее payout требует many-to-many allocation вместо match payment_id?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
