@@ -11,3 +11,10 @@ Refund возвращает деньги клиенту; reversal компенс
 ## Пример из финтеха
 
 Платёж 10000, комиссия 300 и refund 2000 дают synthetic net cash 7700; возврат fee не моделируется автоматически.
+
+## Порядок реализации
+
+1. Определи event kinds
+2. Свяжи refund с capture
+3. Проверь cumulative refunded
+4. Объясни fee policy.
