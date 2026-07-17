@@ -18,3 +18,7 @@ Refund возвращает деньги клиенту; reversal компенс
 2. Свяжи refund с capture
 3. Проверь cumulative refunded
 4. Объясни fee policy.
+
+## Практическое задание
+
+Расширь проектную схему refund_id и original_capture_id; добавь два partial refunds и over-refund check.
