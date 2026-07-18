@@ -30,3 +30,12 @@ Refund и chargeback по одному основанию учитываются
 ## Проверка результата
 
 Сумма возвратов контролируется по capture и currency; новая policy version явно названа.
+
+## Вопрос для самопроверки
+
+Как отличить повтор доставки refund от двух одинаковых частичных возвратов?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
