@@ -11,3 +11,10 @@ Cutoff определяет границу бизнес-периода, complete
 ## Пример из финтеха
 
 e6 пришёл 3 января; отчёт 1 января изменяется только через объяснимую процедуру correction.
+
+## Порядок реализации
+
+1. Определи business calendar
+2. Назови expected inputs
+3. Зафиксируй close approval
+4. Сохрани original и restated versions.
