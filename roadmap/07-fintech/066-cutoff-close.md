@@ -26,3 +26,7 @@ e6 пришёл 3 января; отчёт 1 января изменяется �
 ## Типичная ошибка и её последствия
 
 Job success принимают за completeness; отсутствующий provider file проходит как нулевой.
+
+## Проверка результата
+
+Closed report имеет input manifest, report version, timestamp и отдельную correction trail.
