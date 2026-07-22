@@ -30,3 +30,12 @@ Job success принимают за completeness; отсутствующий pro
 ## Проверка результата
 
 Closed report имеет input manifest, report version, timestamp и отдельную correction trail.
+
+## Вопрос для самопроверки
+
+Почему календарный день источника может отличаться от дня финансового признания?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
