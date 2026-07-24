@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Synthetic payment 1200 распределяется: fee 100, interest 200, principal 900 при заданном учебном порядке.
+
+## Порядок реализации
+
+1. Опиши loan events
+2. Зафиксируй waterfall
+3. Раздели balance components
+4. Проверь conservation of allocation.
