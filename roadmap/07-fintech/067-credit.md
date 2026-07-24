@@ -18,3 +18,7 @@ Synthetic payment 1200 распределяется: fee 100, interest 200, prin
 2. Зафиксируй waterfall
 3. Раздели balance components
 4. Проверь conservation of allocation.
+
+## Практическое задание
+
+Реализуй распределение платежа по заданным задолженностям; overflow сохрани отдельно как unallocated.
