@@ -30,3 +30,12 @@ Synthetic payment 1200 распределяется: fee 100, interest 200, prin
 ## Проверка результата
 
 Сумма allocations плюс unallocated равна payment, ни одна компонента не становится отрицательной.
+
+## Вопрос для самопроверки
+
+Почему нельзя суммировать daily principal balance для получения месячной выдачи?
+
+## Что читать дальше
+
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
