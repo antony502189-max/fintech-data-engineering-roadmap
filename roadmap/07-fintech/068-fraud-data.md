@@ -18,3 +18,7 @@ Dispute в феврале сообщает о риске январского п
 2. Сохрани feature availability
 3. Назови label maturity
 4. Проверь temporal split.
+
+## Практическое задание
+
+Используй capture_total_at для e6 и сравни decision до и после arrival; спроектируй label table.
