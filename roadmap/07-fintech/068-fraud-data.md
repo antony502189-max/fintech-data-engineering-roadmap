@@ -30,3 +30,11 @@ Event_time filter проходит, но received_at не проверяется
 ## Проверка результата
 
 До arrival feature p3=0, после=2500; training contract содержит knowledge cutoff.
+
+## Вопрос для самопроверки
+
+Как delayed label влияет на оценку последних недель модели?
+
+## Что читать дальше
+
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
