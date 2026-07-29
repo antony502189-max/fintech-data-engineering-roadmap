@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Каждое поле имеет purpose и access; отсутствуют реальные персональные сведения.
+
+## Вопрос для самопроверки
+
+Какие вопросы должен решить compliance owner, прежде чем инженер настроит retention?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
