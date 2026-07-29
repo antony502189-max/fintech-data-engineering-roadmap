@@ -18,3 +18,7 @@
 2. Раздели identifiers и evidence
 3. Назначь owner policy
 4. Сохрани version и decision time.
+
+## Практическое задание
+
+Составь synthetic schema kyc_decisions без документов клиентов; добавь RBAC и retention matrix.
