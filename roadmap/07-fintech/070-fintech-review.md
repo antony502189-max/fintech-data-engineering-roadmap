@@ -22,3 +22,7 @@ Fixture показывает matched p1,p2, mismatch p3 и unexpected p9; пуб
 ## Практическое задание
 
 Подготовь acceptance dossier для synthetic daily cash и приложи две нерешённые причины из reconcile.
+
+## Типичная ошибка и её последствия
+
+Отчёт выпускают потому, что код красивый и все инфраструктурные checks зелёные.
