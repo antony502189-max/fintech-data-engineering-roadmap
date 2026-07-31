@@ -18,3 +18,7 @@ Fixture показывает matched p1,p2, mismatch p3 и unexpected p9; пуб
 2. Выполни financial checks
 3. Классифицируй exceptions
 4. Реши provisional или blocked publish.
+
+## Практическое задание
+
+Подготовь acceptance dossier для synthetic daily cash и приложи две нерешённые причины из reconcile.
