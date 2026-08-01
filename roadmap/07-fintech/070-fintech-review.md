@@ -30,3 +30,12 @@ Fixture показывает matched p1,p2, mismatch p3 и unexpected p9; пуб
 ## Проверка результата
 
 Dossier различает технические и финансовые проверки и содержит ограничения модели.
+
+## Вопрос для самопроверки
+
+Какой набор доказательств нужен, чтобы снять блокировку final publication?
+
+## Что читать дальше
+
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
