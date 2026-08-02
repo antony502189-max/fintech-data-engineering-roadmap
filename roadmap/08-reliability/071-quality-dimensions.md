@@ -18,3 +18,7 @@ Freshness измеряет задержку, completeness — наличие о�
 2. Выбери checks
 3. Раздели critical и informational
 4. Определи publish gate.
+
+## Практическое задание
+
+Создай четыре нарушенные fixtures: late, missing, wrong amount, contradictory currency.
