@@ -30,3 +30,12 @@ Freshness измеряет задержку, completeness — наличие о�
 ## Проверка результата
 
 Каждый fixture падает по соответствующей проверке и не маскируется общим score.
+
+## Вопрос для самопроверки
+
+Как получить независимый expected set, если источник не публикует manifest?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
