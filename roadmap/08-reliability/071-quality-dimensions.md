@@ -22,3 +22,7 @@ Freshness измеряет задержку, completeness — наличие о�
 ## Практическое задание
 
 Создай четыре нарушенные fixtures: late, missing, wrong amount, contradictory currency.
+
+## Типичная ошибка и её последствия
+
+Максимальный timestamp считают гарантией полноты; один свежий event скрывает тысячи пропущенных.
