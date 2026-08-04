@@ -7,3 +7,7 @@
 ## Как это работает
 
 Latency имеет старт и конец: source time, received_at, transformed_at или published_at. Percentile требует конкретного определения и знаменателя. Максимальная event_time в таблице не показывает задержку каждой записи. Idle source нужно отличать от broken ingestion через heartbeat или expected volume.
+
+## Пример из финтеха
+
+Большинство платежей приходит за секунду, но e6 запаздывает на два дня.
