@@ -18,3 +18,7 @@ Latency имеет старт и конец: source time, received_at, transform
 2. Нормализуй UTC
 3. Выбери percentile rule
 4. Раздели idle и failure.
+
+## Практическое задание
+
+Посчитай delays fixture и nearest-rank p95. Объясни, почему tiny dataset плохо оценивает production tail.
