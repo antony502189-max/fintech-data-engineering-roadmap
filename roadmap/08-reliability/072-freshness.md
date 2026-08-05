@@ -22,3 +22,7 @@ Latency имеет старт и конец: source time, received_at, transform
 ## Практическое задание
 
 Посчитай delays fixture и nearest-rank p95. Объясни, почему tiny dataset плохо оценивает production tail.
+
+## Типичная ошибка и её последствия
+
+Смешивают business time и server-local time; негативную задержку заменяют нулём.
