@@ -26,3 +26,7 @@ Latency имеет старт и конец: source time, received_at, transform
 ## Типичная ошибка и её последствия
 
 Смешивают business time и server-local time; негативную задержку заменяют нулём.
+
+## Проверка результата
+
+В отчёте указаны count, units, percentile method и отклонённые timestamps.
