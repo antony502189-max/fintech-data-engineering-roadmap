@@ -30,3 +30,12 @@ Latency имеет старт и конец: source time, received_at, transform
 ## Проверка результата
 
 В отчёте указаны count, units, percentile method и отклонённые timestamps.
+
+## Вопрос для самопроверки
+
+Когда отсутствие новых событий означает нормальное поведение источника?
+
+## Что читать дальше
+
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
