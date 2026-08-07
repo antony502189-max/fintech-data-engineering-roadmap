@@ -18,3 +18,7 @@ Mismatch p3 связывается с delivery e6, run_id и settlement file ver
 2. Установи structured log schema
 3. Выдели финансовые metrics
 4. Добавь lineage reference.
+
+## Практическое задание
+
+Напиши sample JSON logs для ingest и reconcile без payment details сверх synthetic identifiers.
