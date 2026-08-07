@@ -22,3 +22,7 @@ Mismatch p3 связывается с delivery e6, run_id и settlement file ver
 ## Практическое задание
 
 Напиши sample JSON logs для ingest и reconcile без payment details сверх synthetic identifiers.
+
+## Типичная ошибка и её последствия
+
+Логируют полный payload, включая реквизиты; диагностика создаёт новую утечку.
