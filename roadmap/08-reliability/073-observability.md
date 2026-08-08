@@ -30,3 +30,11 @@ Mismatch p3 связывается с delivery e6, run_id и settlement file ver
 ## Проверка результата
 
 По одному event_id можно найти run и input version; logs не содержат секретов.
+
+## Вопрос для самопроверки
+
+Почему trace успешного HTTP запроса не доказывает completeness DWH?
+
+## Что читать дальше
+
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
