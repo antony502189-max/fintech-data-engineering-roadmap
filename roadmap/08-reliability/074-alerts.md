@@ -18,3 +18,7 @@ p3 mismatch на 100 minor units имеет конкретное денежно�
 2. Назови owner
 3. Добавь runbook link
 4. Проверь false positive cases.
+
+## Практическое задание
+
+Составь alert для missing settlement и amount mismatch с units и cutoffs.
