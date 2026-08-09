@@ -11,3 +11,10 @@ Alert должен указывать affected data product, impact, owner и п
 ## Пример из финтеха
 
 p3 mismatch на 100 minor units имеет конкретное денежное воздействие; падение dev notebook — другое.
+
+## Порядок реализации
+
+1. Определи severity
+2. Назови owner
+3. Добавь runbook link
+4. Проверь false positive cases.
