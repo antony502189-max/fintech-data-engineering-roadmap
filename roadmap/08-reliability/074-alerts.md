@@ -30,3 +30,12 @@ p3 mismatch на 100 minor units имеет конкретное денежно�
 ## Проверка результата
 
 Получатель понимает affected date/currency и действие без чтения всего DAG.
+
+## Вопрос для самопроверки
+
+Почему доля успешных tasks может улучшиться, а пользовательская надёжность ухудшиться?
+
+## Что читать дальше
+
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
