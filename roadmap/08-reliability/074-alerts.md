@@ -22,3 +22,7 @@ p3 mismatch на 100 minor units имеет конкретное денежно�
 ## Практическое задание
 
 Составь alert для missing settlement и amount mismatch с units и cutoffs.
+
+## Типичная ошибка и её последствия
+
+Алерт «job failed» не сообщает, какой период отчёта недоступен и кто страдает.
