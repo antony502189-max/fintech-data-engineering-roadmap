@@ -18,3 +18,7 @@
 2. Зафиксируй scope
 3. Построй shadow correction
 4. Проверь и сообщи владельцам.
+
+## Практическое задание
+
+Напиши incident timeline для sign bug, включая обнаружение, containment, repair и verification.
