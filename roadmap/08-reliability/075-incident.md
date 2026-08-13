@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Есть affected consumer list, before-after totals и проверка восстановленного периода.
+
+## Вопрос для самопроверки
+
+Как различить root cause и событие, которое лишь обнаружило ошибку?
+
+## Что читать дальше
+
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
