@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Изменение fee sign затрагивает net cash, но не count distinct payments.
+
+## Порядок реализации
+
+1. Создай dependency graph
+2. Отметь metric columns
+3. Добавь внешние consumers
+4. Выдели affected versions.
