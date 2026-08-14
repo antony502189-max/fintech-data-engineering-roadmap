@@ -18,3 +18,7 @@
 2. Отметь metric columns
 3. Добавь внешние consumers
 4. Выдели affected versions.
+
+## Практическое задание
+
+Построй reachability для raw fee → daily cash → report и независимой payment count ветки.
