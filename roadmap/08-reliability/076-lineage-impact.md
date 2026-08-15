@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Scope содержит прямо и косвенно затронутые продукты и явно неизвестные consumers.
+
+## Вопрос для самопроверки
+
+Когда table lineage слишком груб для планирования безопасного backfill?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
