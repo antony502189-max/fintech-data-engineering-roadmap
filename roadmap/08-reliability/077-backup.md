@@ -30,3 +30,12 @@ RPO ограничивает допустимую потерю данных во
 ## Проверка результата
 
 Восстановленный dataset равен эталону, время drill и остаточная потеря измерены.
+
+## Вопрос для самопроверки
+
+Какие metadata могут сделать сохранённые data files практически бесполезными?
+
+## Что читать дальше
+
+- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
