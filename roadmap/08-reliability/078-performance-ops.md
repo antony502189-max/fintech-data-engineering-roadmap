@@ -30,3 +30,12 @@ Capacity зависит от объёма, распределения ключе
 ## Проверка результата
 
 Расчёт использует spare capacity и указывает, что при processing<=arrival backlog не сокращается.
+
+## Вопрос для самопроверки
+
+Почему doubling workers не гарантирует doubling useful throughput?
+
+## Что читать дальше
+
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
