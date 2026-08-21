@@ -18,3 +18,7 @@ Fault injection выбирает конкретное нарушение: duplic
 2. Сохрани baseline
 3. Внеси одно нарушение
 4. Проверь detection и recovery.
+
+## Практическое задание
+
+Пройди drills в labs/fault-drills.md и запиши before-after invariants.
