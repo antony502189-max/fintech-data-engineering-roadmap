@@ -18,3 +18,7 @@ Local lab проходит tests, но не тестирует реальный 
 2. Назови missing checks
 3. Определи owner каждого gap
 4. Реши учебный или operational status.
+
+## Практическое задание
+
+Составь readiness matrix для capstone с колонками requirement, evidence, scope и limitation.
