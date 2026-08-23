@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Local lab проходит tests, но не тестирует реальный webhook signature, Kafka rebalance и cloud permissions.
+
+## Порядок реализации
+
+1. Сопоставь requirements и evidence
+2. Назови missing checks
+3. Определи owner каждого gap
+4. Реши учебный или operational status.
