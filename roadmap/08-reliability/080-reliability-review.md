@@ -22,3 +22,7 @@ Local lab проходит tests, но не тестирует реальный 
 ## Практическое задание
 
 Составь readiness matrix для capstone с колонками requirement, evidence, scope и limitation.
+
+## Типичная ошибка и её последствия
+
+README называет систему production-ready только потому, что CI зелёный.
