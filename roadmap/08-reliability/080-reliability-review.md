@@ -30,3 +30,12 @@ README называет систему production-ready только потом�
 ## Проверка результата
 
 Матрица различает local verified, simulated и design-only capabilities.
+
+## Вопрос для самопроверки
+
+Что нужно дополнительно проверить перед запуском такого pipeline на реальных платежах?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
