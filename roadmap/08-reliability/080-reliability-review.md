@@ -26,3 +26,7 @@ Local lab проходит tests, но не тестирует реальный 
 ## Типичная ошибка и её последствия
 
 README называет систему production-ready только потому, что CI зелёный.
+
+## Проверка результата
+
+Матрица различает local verified, simulated и design-only capabilities.
