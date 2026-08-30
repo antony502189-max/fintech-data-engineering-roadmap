@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Webhook signing secret и API key не должны появляться в issue reproduction.
+
+## Порядок реализации
+
+1. Назови secret owner
+2. Определи retrieval
+3. Проверь redaction
+4. Составь rotation sequence.
