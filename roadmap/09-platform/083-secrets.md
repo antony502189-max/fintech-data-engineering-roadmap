@@ -18,3 +18,7 @@ Webhook signing secret и API key не должны появляться в issu
 2. Определи retrieval
 3. Проверь redaction
 4. Составь rotation sequence.
+
+## Практическое задание
+
+Сделай synthetic config schema с именами переменных без значений; проверь exception logging.
