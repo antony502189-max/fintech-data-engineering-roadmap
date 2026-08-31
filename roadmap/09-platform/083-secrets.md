@@ -30,3 +30,12 @@ Webhook signing secret и API key не должны появляться в issu
 ## Проверка результата
 
 Repo и sample logs содержат только placeholders; rotation не зависит от одного ручного шага.
+
+## Вопрос для самопроверки
+
+Почему скрытие секрета в UI логов не отменяет его попадание в backend storage?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [Pro Git book](https://git-scm.com/book/en/v2) — первичная документация; ищи раздел по теме урока.
