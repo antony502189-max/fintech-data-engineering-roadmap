@@ -26,3 +26,7 @@ Webhook signing secret и API key не должны появляться в issu
 ## Типичная ошибка и её последствия
 
 Печатают полный requests object с headers; authorization попадает в общий лог.
+
+## Проверка результата
+
+Repo и sample logs содержат только placeholders; rotation не зависит от одного ручного шага.
