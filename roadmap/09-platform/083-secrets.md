@@ -22,3 +22,7 @@ Webhook signing secret и API key не должны появляться в issu
 ## Практическое задание
 
 Сделай synthetic config schema с именами переменных без значений; проверь exception logging.
+
+## Типичная ошибка и её последствия
+
+Печатают полный requests object с headers; authorization попадает в общий лог.
