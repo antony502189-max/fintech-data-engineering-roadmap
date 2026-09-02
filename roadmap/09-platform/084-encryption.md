@@ -18,3 +18,7 @@ TLS защищает транспорт, encryption at rest — сохранён
 2. Укажи TLS hops
 3. Назови key owners
 4. Проверь decrypt permissions.
+
+## Практическое задание
+
+Составь threat model source→raw→mart→export с одним конкретным нарушением на каждой границе.
