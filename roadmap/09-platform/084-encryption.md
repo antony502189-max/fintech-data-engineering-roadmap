@@ -30,3 +30,11 @@ TLS защищает транспорт, encryption at rest — сохранён
 ## Проверка результата
 
 Модель явно описывает identities, data locations и разрешённые decrypt paths.
+
+## Вопрос для самопроверки
+
+Как потеря encryption key влияет на восстановление из backup?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
