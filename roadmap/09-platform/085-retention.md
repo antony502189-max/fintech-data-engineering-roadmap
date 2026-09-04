@@ -18,3 +18,7 @@ Profile projection и ledger evidence могут иметь разные сро�
 2. Определи expiry
 3. Учти hold
 4. Проверь derivatives и backups.
+
+## Практическое задание
+
+На synthetic records реализуй decision delete/keep по заданной дате expiry и hold; это не юридическая рекомендация.
