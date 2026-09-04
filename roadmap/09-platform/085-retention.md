@@ -11,3 +11,10 @@ Retention зависит от категории данных, целей и п�
 ## Пример из финтеха
 
 Profile projection и ledger evidence могут иметь разные сроки и ограничения.
+
+## Порядок реализации
+
+1. Собери policy input
+2. Определи expiry
+3. Учти hold
+4. Проверь derivatives и backups.
