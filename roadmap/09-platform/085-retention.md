@@ -22,3 +22,7 @@ Profile projection и ledger evidence могут иметь разные сро�
 ## Практическое задание
 
 На synthetic records реализуй decision delete/keep по заданной дате expiry и hold; это не юридическая рекомендация.
+
+## Типичная ошибка и её последствия
+
+Удаляют только raw, оставляя PII в marts, logs и резервных копиях.
