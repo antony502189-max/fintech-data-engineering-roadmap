@@ -30,3 +30,12 @@ Profile projection и ledger evidence могут иметь разные сро�
 ## Проверка результата
 
 Каждое решение содержит policy version, reason и lineage scope.
+
+## Вопрос для самопроверки
+
+Какие владельцы должны согласовать противоречие retention и preservation требований?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
