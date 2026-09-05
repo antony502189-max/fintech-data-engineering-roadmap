@@ -26,3 +26,7 @@ Profile projection и ledger evidence могут иметь разные сро�
 ## Типичная ошибка и её последствия
 
 Удаляют только raw, оставляя PII в marts, logs и резервных копиях.
+
+## Проверка результата
+
+Каждое решение содержит policy version, reason и lineage scope.
