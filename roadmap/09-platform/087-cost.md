@@ -18,3 +18,7 @@ Backfill за год стоит больше обычного daily run и тр�
 2. Подставь synthetic prices
 3. Рассчитай normal и backfill
 4. Добавь budget gate.
+
+## Практическое задание
+
+Реализуй estimate при заданной цене за GB и compute hour; проверь units и rounding.
