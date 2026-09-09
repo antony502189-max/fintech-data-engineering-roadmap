@@ -11,3 +11,10 @@ Cost per run, per GB и per published dataset помогают связать т
 ## Пример из финтеха
 
 Backfill за год стоит больше обычного daily run и требует отдельного бюджета.
+
+## Порядок реализации
+
+1. Назови cost components
+2. Подставь synthetic prices
+3. Рассчитай normal и backfill
+4. Добавь budget gate.
