@@ -30,3 +30,12 @@ Backfill за год стоит больше обычного daily run и тр�
 ## Проверка результата
 
 Расчёт содержит assumptions, currency и объём, а не «примерно дешево».
+
+## Вопрос для самопроверки
+
+Почему уменьшение runtime может увеличить стоимость при более дорогом compute tier?
+
+## Что читать дальше
+
+- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — первичная документация; ищи раздел по теме урока.
+- [Snowflake documentation](https://docs.snowflake.com/en/) — первичная документация; ищи раздел по теме урока.
