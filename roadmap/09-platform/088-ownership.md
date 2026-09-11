@@ -7,3 +7,7 @@
 ## Как это работает
 
 Платформа предоставляет paved paths, общие contracts, observability и безопасные defaults. Доменные команды отвечают за смысл и качество своих моделей. Распределённое ownership требует discoverability и escalation. Каталог без актуальных owners не решает поддержку. Self-service не равен отсутствию review денежных изменений.
+
+## Пример из финтеха
+
+Finance team меняет метрику, platform team поддерживает CI и publish mechanism.
