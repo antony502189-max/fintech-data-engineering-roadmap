@@ -22,3 +22,7 @@ Finance team меняет метрику, platform team поддерживает
 ## Практическое задание
 
 Напиши service catalog card для daily cash: owner, purpose, contract, dependencies и support.
+
+## Типичная ошибка и её последствия
+
+Платформенная команда становится владельцем всех бизнес-определений и блокирует развитие.
