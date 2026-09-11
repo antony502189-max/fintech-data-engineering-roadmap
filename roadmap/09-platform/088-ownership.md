@@ -18,3 +18,7 @@ Finance team меняет метрику, platform team поддерживает
 2. Определи standard path
 3. Установи ownership metadata
 4. Измерь usability.
+
+## Практическое задание
+
+Напиши service catalog card для daily cash: owner, purpose, contract, dependencies и support.
