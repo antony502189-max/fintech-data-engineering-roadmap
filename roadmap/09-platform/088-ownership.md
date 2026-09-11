@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Finance team меняет метрику, platform team поддерживает CI и publish mechanism.
+
+## Порядок реализации
+
+1. Назови users платформы
+2. Определи standard path
+3. Установи ownership metadata
+4. Измерь usability.
