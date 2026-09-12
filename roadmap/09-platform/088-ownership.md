@@ -30,3 +30,12 @@ Finance team меняет метрику, platform team поддерживает
 ## Проверка результата
 
 Потребитель находит owner и version без личного знакомства с авторами.
+
+## Вопрос для самопроверки
+
+Как определить, что self-service уменьшает нагрузку на поддержку, а не переносит её на пользователей?
+
+## Что читать дальше
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
