@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Reader создал full raw export в публично доступном bucket, обходя смысл restricted mart.
+
+## Порядок реализации
+
+1. Перечисли export paths
+2. Назначь owners
+3. Ограничь destination
+4. Проверь lifecycle копий.
