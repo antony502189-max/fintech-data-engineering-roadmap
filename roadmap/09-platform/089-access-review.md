@@ -7,3 +7,7 @@
 ## Как это работает
 
 Правила warehouse не защищают скачанный CSV автоматически. Exports создают новые copies с отдельными readers и retention. Access audit должен видеть identities, действия и resources, но не записывать секреты. Периодический review проверяет актуальность роли и необходимость доступа.
+
+## Пример из финтеха
+
+Reader создал full raw export в публично доступном bucket, обходя смысл restricted mart.
