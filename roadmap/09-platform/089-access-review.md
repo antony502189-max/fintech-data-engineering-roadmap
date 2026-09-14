@@ -26,3 +26,7 @@ Reader создал full raw export в публично доступном bucke
 ## Типичная ошибка и её последствия
 
 Проверяют только IAM в DWH и забывают публичные URLs выгрузок.
+
+## Проверка результата
+
+Для всех destination есть access policy и retention; неучтённые exports видны как gap.
