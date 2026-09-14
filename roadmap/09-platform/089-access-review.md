@@ -22,3 +22,7 @@ Reader создал full raw export в публично доступном bucke
 ## Практическое задание
 
 Сделай data-flow inventory для warehouse, notebook, CSV и BI extract; отметь каждую новую копию.
+
+## Типичная ошибка и её последствия
+
+Проверяют только IAM в DWH и забывают публичные URLs выгрузок.
