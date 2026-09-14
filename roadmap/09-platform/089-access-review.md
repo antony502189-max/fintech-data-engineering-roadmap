@@ -18,3 +18,7 @@ Reader создал full raw export в публично доступном bucke
 2. Назначь owners
 3. Ограничь destination
 4. Проверь lifecycle копий.
+
+## Практическое задание
+
+Сделай data-flow inventory для warehouse, notebook, CSV и BI extract; отметь каждую новую копию.
