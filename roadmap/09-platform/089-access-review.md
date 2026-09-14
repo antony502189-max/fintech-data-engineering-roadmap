@@ -30,3 +30,12 @@ Reader создал full raw export в публично доступном bucke
 ## Проверка результата
 
 Для всех destination есть access policy и retention; неучтённые exports видны как gap.
+
+## Вопрос для самопроверки
+
+Как отзывать доступ к уже скопированным данным и какие ограничения у этого действия?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
