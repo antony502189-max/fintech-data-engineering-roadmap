@@ -11,3 +11,10 @@ Architecture review оценивает failure modes, ownership, security, cost 
 ## Пример из финтеха
 
 Batch SQLite достаточен для обучения; реальная multi-tenant платформа требует другого isolation и масштабирования.
+
+## Порядок реализации
+
+1. Запиши ADR
+2. Назови assumptions
+3. Выдели measured и untested
+4. Определи следующий scaling trigger.
