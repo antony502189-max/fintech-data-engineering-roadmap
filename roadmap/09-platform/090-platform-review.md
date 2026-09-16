@@ -18,3 +18,7 @@ Batch SQLite достаточен для обучения; реальная mult
 2. Назови assumptions
 3. Выдели measured и untested
 4. Определи следующий scaling trigger.
+
+## Практическое задание
+
+Составь plan перехода synthetic lab→PostgreSQL→managed DWH по измеримым ограничениям.
