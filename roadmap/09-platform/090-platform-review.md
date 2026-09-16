@@ -22,3 +22,7 @@ Batch SQLite достаточен для обучения; реальная mult
 ## Практическое задание
 
 Составь plan перехода synthetic lab→PostgreSQL→managed DWH по измеримым ограничениям.
+
+## Типичная ошибка и её последствия
+
+Сразу внедряют Kubernetes, Kafka и lakehouse без команды эксплуатации и требований latency.
