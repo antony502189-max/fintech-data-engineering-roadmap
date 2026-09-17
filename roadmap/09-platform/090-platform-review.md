@@ -30,3 +30,12 @@ Batch SQLite достаточен для обучения; реальная mult
 ## Проверка результата
 
 ADR содержит условия перехода, cost, migration scope и проверяемый rollback plan.
+
+## Вопрос для самопроверки
+
+Какое измерение докажет, что именно compute стал bottleneck, а не источник или sink?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
