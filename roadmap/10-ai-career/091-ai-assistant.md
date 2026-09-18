@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Ассистент предлагает SUM(DISTINCT amount) как исправление fanout и теряет одинаковые платежи.
+
+## Порядок реализации
+
+1. Дай synthetic schema
+2. Запроси assumptions
+3. Проверь numerical fixture
+4. Прочитай diff перед merge.
