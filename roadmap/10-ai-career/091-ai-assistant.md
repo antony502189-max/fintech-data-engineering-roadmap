@@ -18,3 +18,7 @@
 2. Запроси assumptions
 3. Проверь numerical fixture
 4. Прочитай diff перед merge.
+
+## Практическое задание
+
+Составь prompt для review joins и затем проверь предложенный query на двух одинаковых capture.
