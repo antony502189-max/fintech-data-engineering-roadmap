@@ -30,3 +30,12 @@
 ## Проверка результата
 
 Есть input schema, version, test evidence и вручную подтверждённая формула.
+
+## Вопрос для самопроверки
+
+Какие финансовые ошибки может скрыть синтаксически правильный AI-generated SQL?
+
+## Что читать дальше
+
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
