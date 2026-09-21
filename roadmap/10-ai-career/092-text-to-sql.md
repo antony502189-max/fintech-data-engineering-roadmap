@@ -26,3 +26,7 @@ LLM output — недоверенный текст. Production query execution �
 ## Типичная ошибка и её последствия
 
 Зелёный read-only query всё равно раскрывает raw PII и сканирует огромный набор.
+
+## Проверка результата
+
+Tests покрывают unknown metric, forbidden table, expensive query и unsupported statement.
