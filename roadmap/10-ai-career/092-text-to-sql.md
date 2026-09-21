@@ -18,3 +18,7 @@ LLM output — недоверенный текст. Production query execution �
 2. Ограничь database identity
 3. Валидируй AST
 4. Выполни bounded query.
+
+## Практическое задание
+
+Создай design spec и adversarial test list; не запускай произвольные AI SQL в своей базе.
