@@ -30,3 +30,12 @@ LLM output — недоверенный текст. Production query execution �
 ## Проверка результата
 
 Tests покрывают unknown metric, forbidden table, expensive query и unsupported statement.
+
+## Вопрос для самопроверки
+
+Почему read-only identity не защищает от раскрытия лишних данных?
+
+## Что читать дальше
+
+- [OWASP LLM applications project](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — первичная документация; ищи раздел по теме урока.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
