@@ -22,3 +22,7 @@ LLM output — недоверенный текст. Production query execution �
 ## Практическое задание
 
 Создай design spec и adversarial test list; не запускай произвольные AI SQL в своей базе.
+
+## Типичная ошибка и её последствия
+
+Зелёный read-only query всё равно раскрывает raw PII и сканирует огромный набор.
