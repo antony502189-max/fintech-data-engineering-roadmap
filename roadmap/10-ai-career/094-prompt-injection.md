@@ -18,3 +18,7 @@ Chunk каталога содержит «игнорируй ограничен�
 2. Ограничь tools
 3. Привяжи authority к identity
 4. Добавь adversarial cases.
+
+## Практическое задание
+
+Составь пять инъекций в synthetic docs и expected policy decision для каждой.
