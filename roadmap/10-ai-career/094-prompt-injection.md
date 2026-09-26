@@ -30,3 +30,11 @@ Chunk каталога содержит «игнорируй ограничен�
 ## Проверка результата
 
 Design содержит разрешённые действия независимо от текста retrieved chunk.
+
+## Вопрос для самопроверки
+
+Почему инструкция внутри документа не может разрешить доступ к restricted table?
+
+## Что читать дальше
+
+- [OWASP LLM applications project](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — первичная документация; ищи раздел по теме урока.
