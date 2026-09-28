@@ -30,3 +30,12 @@ Evaluation dataset должен отражать реальные вопросы
 ## Проверка результата
 
 Scorecard отдельно показывает financial correctness, citation validity и critical failure count.
+
+## Вопрос для самопроверки
+
+Почему тестирование на вопросах, созданных тем же prompt, может завысить оценку?
+
+## Что читать дальше
+
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
+- [OWASP LLM applications project](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — первичная документация; ищи раздел по теме урока.
