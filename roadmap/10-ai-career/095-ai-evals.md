@@ -22,3 +22,7 @@ Evaluation dataset должен отражать реальные вопросы
 ## Практическое задание
 
 В offline eval scorecard посчитай pass rate и число forbidden disclosures для набора ответов.
+
+## Типичная ошибка и её последствия
+
+Один общий average выглядит хорошо, хотя критический forbidden case провален.
