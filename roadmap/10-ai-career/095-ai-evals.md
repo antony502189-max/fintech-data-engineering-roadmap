@@ -18,3 +18,7 @@ Evaluation dataset должен отражать реальные вопросы
 2. Определи rubric
 3. Раздели critical failures
 4. Сохрани model и prompt versions.
+
+## Практическое задание
+
+В offline eval scorecard посчитай pass rate и число forbidden disclosures для набора ответов.
