@@ -26,3 +26,7 @@ Evaluation dataset должен отражать реальные вопросы
 ## Типичная ошибка и её последствия
 
 Один общий average выглядит хорошо, хотя критический forbidden case провален.
+
+## Проверка результата
+
+Scorecard отдельно показывает financial correctness, citation validity и critical failure count.
