@@ -7,3 +7,7 @@
 ## Как это работает
 
 Feature store помогает управлять definitions, materialization и serving, но не гарантирует правильный event/knowledge cutoff автоматически. Online value и training value должны иметь согласованные semantics. TTL, late arrivals и entity keys влияют на доступность. Leakage test нужен независимо от продукта.
+
+## Пример из финтеха
+
+Признак p3 не должен содержать capture, который ещё не был получен системой.
