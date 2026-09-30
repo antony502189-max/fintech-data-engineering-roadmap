@@ -18,3 +18,7 @@ Feature store помогает управлять definitions, materialization �
 2. Назови cutoff
 3. Проверь availability
 4. Сравни online и historical semantics.
+
+## Практическое задание
+
+Запусти features tests и расширь свою реализацию rolling window с received_at constraint.
