@@ -22,3 +22,7 @@ Feature store помогает управлять definitions, materialization �
 ## Практическое задание
 
 Запусти features tests и расширь свою реализацию rolling window с received_at constraint.
+
+## Типичная ошибка и её последствия
+
+Offline feature использует исправленную историю, недоступную online в момент решения.
