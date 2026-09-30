@@ -11,3 +11,10 @@ Feature store помогает управлять definitions, materialization �
 ## Пример из финтеха
 
 Признак p3 не должен содержать capture, который ещё не был получен системой.
+
+## Порядок реализации
+
+1. Определи entity и feature
+2. Назови cutoff
+3. Проверь availability
+4. Сравни online и historical semantics.
