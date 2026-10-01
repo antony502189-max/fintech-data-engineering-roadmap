@@ -30,3 +30,11 @@ Offline feature использует исправленную историю, н
 ## Проверка результата
 
 Для каждого decision_at набор использованных событий имеет допустимые timestamps.
+
+## Вопрос для самопроверки
+
+Какие отличия между event_time и ingestion_time должны быть записаны в feature definition?
+
+## Что читать дальше
+
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
