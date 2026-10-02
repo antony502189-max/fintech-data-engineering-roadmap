@@ -7,3 +7,7 @@
 ## Как это работает
 
 Model version без data version не воспроизводит эксперимент. Dataset manifest фиксирует sources, cutoff, feature definitions, label maturity и split. Monitoring отслеживает coverage, distributions и delayed performance. Training code не должен незаметно переопределять бизнес-метрики источника.
+
+## Пример из финтеха
+
+Fraud model обучается на январских решениях с labels, известными к марту; это фиксированный horizon.
