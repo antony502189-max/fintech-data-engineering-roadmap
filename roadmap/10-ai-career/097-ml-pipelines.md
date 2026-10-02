@@ -18,3 +18,7 @@ Fraud model обучается на январских решениях с label
 2. Зафиксируй split
 3. Определи label maturity
 4. Добавь leakage checks.
+
+## Практическое задание
+
+Создай synthetic train manifest с temporal split и запиши, какие последние decisions исключены из-за незрелых labels.
