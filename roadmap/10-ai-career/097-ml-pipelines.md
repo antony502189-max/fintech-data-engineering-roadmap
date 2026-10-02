@@ -11,3 +11,10 @@ Model version без data version не воспроизводит экспери
 ## Пример из финтеха
 
 Fraud model обучается на январских решениях с labels, известными к марту; это фиксированный horizon.
+
+## Порядок реализации
+
+1. Сохрани dataset manifest
+2. Зафиксируй split
+3. Определи label maturity
+4. Добавь leakage checks.
