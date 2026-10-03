@@ -22,3 +22,7 @@ Fraud model обучается на январских решениях с label
 ## Практическое задание
 
 Создай synthetic train manifest с temporal split и запиши, какие последние decisions исключены из-за незрелых labels.
+
+## Типичная ошибка и её последствия
+
+Каждый retrain читает latest tables; изменение истории делает старые experiments неповторимыми.
