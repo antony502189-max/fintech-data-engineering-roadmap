@@ -30,3 +30,12 @@ Fraud model обучается на январских решениях с label
 ## Проверка результата
 
 Manifest позволяет получить тот же set entity/decision keys и labels.
+
+## Вопрос для самопроверки
+
+Почему version model artifact недостаточна для аудита ML решения?
+
+## Что читать дальше
+
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
