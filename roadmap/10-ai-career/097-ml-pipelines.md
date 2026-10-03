@@ -26,3 +26,7 @@ Fraud model обучается на январских решениях с label
 ## Типичная ошибка и её последствия
 
 Каждый retrain читает latest tables; изменение истории делает старые experiments неповторимыми.
+
+## Проверка результата
+
+Manifest позволяет получить тот же set entity/decision keys и labels.
