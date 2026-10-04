@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Спроектируй daily settlement и near-real-time fraud, сохранив согласованную денежную историю.
+
+## Порядок реализации
+
+1. Уточни requirements
+2. Нарисуй data flow
+3. Разбери crash points
+4. Оцени cost и ownership.
