@@ -30,3 +30,13 @@
 ## Проверка результата
 
 Ответ включает mismatch handling, late data, versioned publish и recovery drill.
+
+## Вопрос для самопроверки
+
+Как поменяется дизайн при требовании восстановить прошлое знание, а не только текущую истину?
+
+## Что читать дальше
+
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
