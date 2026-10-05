@@ -26,3 +26,7 @@
 ## Типичная ошибка и её последствия
 
 Сразу рисуют Kafka→Spark→Snowflake и не объясняют, как обнаружится пропавший платёж.
+
+## Проверка результата
+
+Ответ включает mismatch handling, late data, versioned publish и recovery drill.
