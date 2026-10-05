@@ -18,3 +18,7 @@
 2. Нарисуй data flow
 3. Разбери crash points
 4. Оцени cost и ownership.
+
+## Практическое задание
+
+Проведи 30-minute design interview с самим собой; запиши пять assumptions и три альтернативы.
