@@ -18,3 +18,7 @@ Synthetic payments project объясняет e6 late arrival, p3 mismatch и ex
 2. Добавь reproducible commands
 3. Сохрани expected output
 4. Напиши limitations.
+
+## Практическое задание
+
+Собери portfolio README из projects rubric и приложи один fault drill с восстановлением.
