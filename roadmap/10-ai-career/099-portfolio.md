@@ -11,3 +11,10 @@
 ## Пример из финтеха
 
 Synthetic payments project объясняет e6 late arrival, p3 mismatch и exact money, а не имитирует настоящий банк.
+
+## Порядок реализации
+
+1. Выбери capstone
+2. Добавь reproducible commands
+3. Сохрани expected output
+4. Напиши limitations.
