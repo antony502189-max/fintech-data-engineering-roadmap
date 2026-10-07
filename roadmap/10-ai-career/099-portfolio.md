@@ -22,3 +22,7 @@ Synthetic payments project объясняет e6 late arrival, p3 mismatch и ex
 ## Практическое задание
 
 Собери portfolio README из projects rubric и приложи один fault drill с восстановлением.
+
+## Типичная ошибка и её последствия
+
+Пишут «обрабатывает миллиарды событий», хотя проверили только шесть строк.
