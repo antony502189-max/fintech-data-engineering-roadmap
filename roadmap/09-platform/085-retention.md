@@ -1,49 +1,49 @@
-# 085. Retention, deletion и legal hold как policy
+# 085. Retention, deletion, and holds
 
-## Результат обучения
+## Learning outcome
 
-Реализовать утверждённые правила хранения без произвольных сроков.
+Implement approved policy without inventing universal deadlines.
 
-## Как это работает
+## How it works
 
-Retention зависит от категории данных, целей и применимой политики. Инженер реализует правила и evidence их применения; универсальный срок для всего финтеха не существует. Legal hold или другие утверждённые исключения могут приостанавливать deletion. Backups и производные datasets тоже входят в scope.
+Retention depends on data category, purpose, and applicable policy. Engineers implement rules and evidence; there is no universal fintech retention period. Approved holds may suspend deletion. Include backups and derived datasets in scope.
 
-## Пример из финтеха
+## Fintech example
 
-Profile projection и ledger evidence могут иметь разные сроки и ограничения.
+Profiles and ledger evidence can follow different retention rules.
 
-## Порядок реализации
+## Implementation steps
 
-1. Собери policy input
-2. Определи expiry
-3. Учти hold
-4. Проверь derivatives и backups.
+1. Obtain policy inputs
+2. Define expiry
+3. Apply holds
+4. Include derivatives and backups.
 
-## Практическое задание
+## Practical assignment
 
-На synthetic records реализуй decision delete/keep по заданной дате expiry и hold; это не юридическая рекомендация.
+For synthetic records, implement keep/delete decisions from supplied expiry dates and hold flags. This is not legal advice.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Удаляют только raw, оставляя PII в marts, logs и резервных копиях.
+Deleting only raw data leaves personal fields in marts, logs, and backups.
 
-## Проверка результата
+## Verify the result
 
-Каждое решение содержит policy version, reason и lineage scope.
+Each decision records policy version, reason, and lineage scope.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие владельцы должны согласовать противоречие retention и preservation требований?
+Who should resolve contradictory preservation and deletion requirements?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/085-retention/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/085-retention/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/084-encryption.md) · [Следующий шаг](../09-platform/086-iac.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/084-encryption.md) · [Next step](../09-platform/086-iac.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

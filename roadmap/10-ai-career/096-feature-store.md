@@ -1,48 +1,48 @@
-# 096. Feature store и point-in-time корректность
+# 096. Feature stores and point-in-time correctness
 
-## Результат обучения
+## Learning outcome
 
-Согласовать определения offline и online признаков.
+Align offline and online feature meaning.
 
-## Как это работает
+## How it works
 
-Feature store помогает управлять definitions, materialization и serving, но не гарантирует правильный event/knowledge cutoff автоматически. Online value и training value должны иметь согласованные semantics. TTL, late arrivals и entity keys влияют на доступность. Leakage test нужен независимо от продукта.
+Feature stores manage definitions, materialization, and serving but do not automatically establish correct event and knowledge cutoffs. Training and serving semantics must agree. TTL, lateness, and entity keys influence availability. Leakage checks are needed regardless of product choice.
 
-## Пример из финтеха
+## Fintech example
 
-Признак p3 не должен содержать capture, который ещё не был получен системой.
+p3's feature must exclude a capture not yet received at decision time.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи entity и feature
-2. Назови cutoff
-3. Проверь availability
-4. Сравни online и historical semantics.
+1. Define entity and feature
+2. Specify cutoffs
+3. Check availability
+4. Compare online and historical semantics.
 
-## Практическое задание
+## Practical assignment
 
-Запусти features tests и расширь свою реализацию rolling window с received_at constraint.
+Run feature tests and extend your rolling-window copy with receipt-time constraints.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Offline feature использует исправленную историю, недоступную online в момент решения.
+Using corrected offline history introduces information unavailable to historical online decisions.
 
-## Проверка результата
+## Verify the result
 
-Для каждого decision_at набор использованных событий имеет допустимые timestamps.
+Every decision's contributing events satisfy explicit availability timestamps.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие отличия между event_time и ingestion_time должны быть записаны в feature definition?
+Which event-time and ingestion-time distinctions belong in the feature definition?
 
-## Что читать дальше
+## Further reading
 
-- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/096-feature-store/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/096-feature-store/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/095-ai-evals.md) · [Следующий шаг](../10-ai-career/097-ml-pipelines.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/095-ai-evals.md) · [Next step](../10-ai-career/097-ml-pipelines.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

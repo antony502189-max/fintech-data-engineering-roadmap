@@ -1,49 +1,49 @@
-# 060. Документация как часть эксплуатационного контракта
+# 060. Documentation as an operational contract
 
-## Результат обучения
+## Learning outcome
 
-Сделать pipeline понятным для дежурного и нового инженера.
+Make a pipeline understandable to on-call engineers and newcomers.
 
-## Как это работает
+## How it works
 
-Полезная документация объясняет purpose, grain, owner, SLA, источники, lineage, recovery и ограничения. Она должна ссылаться на выполняемые проверки и команды. Runbook описывает конкретный сигнал и первые действия; архитектурный обзор объясняет причины выбора. «Следите за логами» не является процедурой восстановления.
+Useful documentation defines purpose, grain, ownership, SLOs, sources, lineage, recovery, and limitations. Link executable checks and commands. A runbook starts from a concrete signal; an architecture overview explains decisions. “Watch the logs” is not a recovery procedure.
 
-## Пример из финтеха
+## Fintech example
 
-Дежурный видит missing_external и должен понять, это поздний файл или потерянный payment.
+An on-call engineer must distinguish a late settlement file from a lost payment.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови тип alert
-2. Свяжи с check
-3. Дай diagnostic query
-4. Укажи escalation и publish rule.
+1. Name alert types
+2. Link checks
+3. Provide diagnostic queries
+4. State escalation and publication rules.
 
-## Практическое задание
+## Practical assignment
 
-Напиши runbook для p3 mismatch и p9 unexpected external на fixture.
+Write runbooks for p3 mismatch and p9 unexpected external using the fixture.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Команды восстановления зависят от неописанного рабочего каталога и скрытых credentials.
+Recovery commands depend on undocumented directories or credentials.
 
-## Проверка результата
+## Verify the result
 
-Новый читатель воспроизводит диагностику в чистом local окружении.
+A newcomer reproduces diagnosis in a clean local environment.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая часть runbook устаревает быстрее всего и как её проверять автоматически?
+Which runbook details become stale fastest, and how can they be checked automatically?
 
-## Что читать дальше
+## Further reading
 
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/060-docs-ops/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/060-docs-ops/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/059-deployments.md) · [Следующий шаг](../07-fintech/061-payment-lifecycle.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/059-deployments.md) · [Next step](../07-fintech/061-payment-lifecycle.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

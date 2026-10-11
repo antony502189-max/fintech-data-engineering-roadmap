@@ -1,48 +1,48 @@
-# 084. Шифрование, ключи и границы доступа
+# 084. Encryption, keys, and access boundaries
 
-## Результат обучения
+## Learning outcome
 
-Различать защиту канала, хранения и прав пользователя.
+Separate transport protection, storage encryption, and authorization.
 
-## Как это работает
+## How it works
 
-TLS защищает транспорт, encryption at rest — сохранённые данные, IAM — разрешённые действия. Они дополняют друг друга. Пользователь с законным SELECT может получить plaintext, поэтому encryption не заменяет access control. Ключи и backup recovery требуют отдельного управления и ownership.
+TLS protects transport; encryption at rest protects stored data; IAM governs actions. They complement one another. Authorized readers can still obtain plaintext, so encryption cannot replace access controls. Key ownership and recovery are separate concerns.
 
-## Пример из финтеха
+## Fintech example
 
-Зашифрованный raw bucket остаётся доступным слишком широкой аналитической роли.
+An encrypted raw bucket remains accessible to an overly broad analyst role.
 
-## Порядок реализации
+## Implementation steps
 
-1. Нарисуй trust boundaries
-2. Укажи TLS hops
-3. Назови key owners
-4. Проверь decrypt permissions.
+1. Map trust boundaries
+2. Identify TLS hops
+3. Assign key owners
+4. Check decrypt permissions.
 
-## Практическое задание
+## Practical assignment
 
-Составь threat model source→raw→mart→export с одним конкретным нарушением на каждой границе.
+Model threats along source→raw→mart→export and one failure at each boundary.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Фраза «всё зашифровано» закрывает review без проверки, кто умеет расшифровать.
+“Everything is encrypted” ends review without checking who can decrypt it.
 
-## Проверка результата
+## Verify the result
 
-Модель явно описывает identities, data locations и разрешённые decrypt paths.
+Document identities, locations, and authorized decryption paths.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как потеря encryption key влияет на восстановление из backup?
+How does losing an encryption key affect backup recovery?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/084-encryption/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/084-encryption/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/083-secrets.md) · [Следующий шаг](../09-platform/085-retention.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/083-secrets.md) · [Next step](../09-platform/085-retention.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

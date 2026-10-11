@@ -1,48 +1,48 @@
-# 043. Iceberg, snapshots и эволюция таблиц
+# 043. Iceberg snapshots and table evolution
 
-## Результат обучения
+## Learning outcome
 
-Различать snapshot таблицы, файлы данных и catalog.
+Distinguish table snapshots, data files, and catalogs.
 
-## Как это работает
+## How it works
 
-Table format управляет metadata, snapshots и набором файлов, видимым читателю. Atomic commit меняет metadata pointer; файлы могут существовать до публикации. Schema и partition evolution требуют поддержки движка и version compatibility. Snapshot retention и orphan cleanup — эксплуатационные операции с последствиями.
+Table formats manage metadata, snapshots, and the files visible to a reader. Atomic commits switch metadata references; files may exist before publication. Schema and partition evolution depend on engine compatibility. Snapshot expiration and orphan cleanup have recovery consequences.
 
-## Пример из финтеха
+## Fintech example
 
-Исправленный январь публикуется новым snapshot, читатели получают целостную версию.
+A corrected January dataset becomes a new snapshot; readers should see a complete version.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши catalog
-2. Назови read и write engines
-3. Зафиксируй format compatibility
-4. Запланируй maintenance.
+1. Specify the catalog
+2. Identify engines
+3. Pin format compatibility
+4. Plan maintenance.
 
-## Практическое задание
+## Practical assignment
 
-Спроектируй payments Iceberg table и процесс shadow backfill; обозначь, что local SQLite lab не реализует Iceberg.
+Design a payments Iceberg table and shadow backfill. State that the SQLite lab does not implement Iceberg.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Удаляют «старые» files вручную, не проверяя ссылки активных snapshots.
+Manually deleting old-looking files can remove files referenced by active snapshots.
 
-## Проверка результата
+## Verify the result
 
-План cleanup содержит retention, активные readers и dry run review.
+Cleanup accounts for retention, active readers, and review of a dry run.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему time travel перестаёт работать после удаления нужных snapshots и файлов?
+Why does time travel stop working after its required snapshots or files are removed?
 
-## Что читать дальше
+## Further reading
 
-- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/043-iceberg/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/043-iceberg/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/042-partitioning.md) · [Следующий шаг](../05-storage/044-cloud-dwh.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/042-partitioning.md) · [Next step](../05-storage/044-cloud-dwh.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

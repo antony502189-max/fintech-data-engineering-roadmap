@@ -1,49 +1,49 @@
-# 091. ИИ как помощник инженера данных
+# 091. AI as a data-engineering assistant
 
-## Результат обучения
+## Learning outcome
 
-Использовать ИИ для черновиков, сохраняя проверку результата.
+Use AI drafts while retaining responsibility for verification.
 
-## Как это работает
+## How it works
 
-ИИ полезен для объяснения, генерации fixture tests и первого варианта SQL. Он может уверенно придумать колонку, ссылку или guarantee. Ответ становится допустимым изменением только после проверки contract, query plan и meaningful tests. Внешнему сервису не передают real payment payload без утверждённого разрешения.
+AI can explain concepts, propose fixture tests, and draft SQL. It can also invent columns, links, or guarantees confidently. A draft becomes an acceptable change only after contract, query-plan, and meaningful-test verification. Do not send real payment payloads externally without approved authorization.
 
-## Пример из финтеха
+## Fintech example
 
-Ассистент предлагает SUM(DISTINCT amount) как исправление fanout и теряет одинаковые платежи.
+An assistant proposes SUM(DISTINCT amount) to repair fanout and drops distinct equal-value payments.
 
-## Порядок реализации
+## Implementation steps
 
-1. Дай synthetic schema
-2. Запроси assumptions
-3. Проверь numerical fixture
-4. Прочитай diff перед merge.
+1. Provide synthetic schema
+2. Ask for assumptions
+3. Verify numerical fixtures
+4. Review the diff before merge.
 
-## Практическое задание
+## Practical assignment
 
-Составь prompt для review joins и затем проверь предложенный query на двух одинаковых capture.
+Write a join-review prompt and test its suggested query on two equal capture amounts.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Копируют убедительное объяснение в PR без запуска; AI error превращается в официальное правило.
+Copying a persuasive explanation without execution makes an AI error an official rule.
 
-## Проверка результата
+## Verify the result
 
-Есть input schema, version, test evidence и вручную подтверждённая формула.
+Retain schema inputs, versions, test evidence, and a reviewed formula.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие финансовые ошибки может скрыть синтаксически правильный AI-generated SQL?
+Which financial mistakes can hide in syntactically valid AI-generated SQL?
 
-## Что читать дальше
+## Further reading
 
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/091-ai-assistant/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/091-ai-assistant/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/090-platform-review.md) · [Следующий шаг](../10-ai-career/092-text-to-sql.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/090-platform-review.md) · [Next step](../10-ai-career/092-text-to-sql.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

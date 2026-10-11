@@ -2,7 +2,7 @@
   {
     "id": 1,
     "module": "01-foundations",
-    "title": "Роль инженера данных и границы DWH",
+    "title": "The data engineer's role and DWH boundaries",
     "path": "roadmap/01-foundations/001-roles.md",
     "sources": [
       "kimball"
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "module": "01-foundations",
-    "title": "Требования, SLA и стоимость ошибки",
+    "title": "Requirements, SLAs, and the cost of errors",
     "path": "roadmap/01-foundations/002-requirements.md",
     "sources": [
       "opentelemetry"
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "module": "01-foundations",
-    "title": "Python для надёжных пайплайнов",
+    "title": "Python for reliable pipelines",
     "path": "roadmap/01-foundations/003-python.md",
     "sources": [
       "python",
@@ -30,7 +30,7 @@
   {
     "id": 4,
     "module": "01-foundations",
-    "title": "Терминал, процессы и коды завершения",
+    "title": "Terminals, processes, and exit codes",
     "path": "roadmap/01-foundations/004-cli-linux.md",
     "sources": [
       "python"
@@ -39,7 +39,7 @@
   {
     "id": 5,
     "module": "01-foundations",
-    "title": "Git, ревью и воспроизводимость",
+    "title": "Git, review, and reproducibility",
     "path": "roadmap/01-foundations/005-git.md",
     "sources": [
       "git"
@@ -48,7 +48,7 @@
   {
     "id": 6,
     "module": "01-foundations",
-    "title": "Тестирование от функций до финансовых инвариантов",
+    "title": "Testing functions and financial invariants",
     "path": "roadmap/01-foundations/006-testing.md",
     "sources": [
       "python",
@@ -58,7 +58,7 @@
   {
     "id": 7,
     "module": "01-foundations",
-    "title": "HTTP, API и пагинация",
+    "title": "HTTP, APIs, and pagination",
     "path": "roadmap/01-foundations/007-http.md",
     "sources": [
       "webhooks",
@@ -68,7 +68,7 @@
   {
     "id": 8,
     "module": "01-foundations",
-    "title": "Контейнеры и локальное окружение",
+    "title": "Containers and local environments",
     "path": "roadmap/01-foundations/008-containers.md",
     "sources": [
       "docker"
@@ -77,7 +77,7 @@
   {
     "id": 9,
     "module": "01-foundations",
-    "title": "Время, валюты и единицы измерения",
+    "title": "Time, currencies, and units",
     "path": "roadmap/01-foundations/009-time-money.md",
     "sources": [
       "stripe",
@@ -87,7 +87,7 @@
   {
     "id": 10,
     "module": "01-foundations",
-    "title": "Распределённые системы без магии",
+    "title": "Distributed systems without magic",
     "path": "roadmap/01-foundations/010-systems.md",
     "sources": [
       "kafka",
@@ -97,7 +97,7 @@
   {
     "id": 11,
     "module": "02-sql",
-    "title": "SQL: сначала grain, потом SELECT",
+    "title": "SQL: grain before SELECT",
     "path": "roadmap/02-sql/011-sql-grain.md",
     "sources": [
       "postgres",
@@ -107,7 +107,7 @@
   {
     "id": 12,
     "module": "02-sql",
-    "title": "JOIN и размножение денежных сумм",
+    "title": "JOINs and monetary fanout",
     "path": "roadmap/02-sql/012-joins.md",
     "sources": [
       "postgres",
@@ -117,7 +117,7 @@
   {
     "id": 13,
     "module": "02-sql",
-    "title": "NULL, отсутствующие события и неизвестные значения",
+    "title": "NULL, missing events, and unknown values",
     "path": "roadmap/02-sql/013-nulls.md",
     "sources": [
       "postgres"
@@ -126,7 +126,7 @@
   {
     "id": 14,
     "module": "02-sql",
-    "title": "Оконные функции и детерминированный порядок",
+    "title": "Window functions and deterministic ordering",
     "path": "roadmap/02-sql/014-windows.md",
     "sources": [
       "postgres"
@@ -135,7 +135,7 @@
   {
     "id": 15,
     "module": "02-sql",
-    "title": "Транзакции и атомарность batch",
+    "title": "Transactions and batch atomicity",
     "path": "roadmap/02-sql/015-transactions.md",
     "sources": [
       "postgres",
@@ -145,7 +145,7 @@
   {
     "id": 16,
     "module": "02-sql",
-    "title": "Индексы и планы запросов",
+    "title": "Indexes and query plans",
     "path": "roadmap/02-sql/016-indexes.md",
     "sources": [
       "postgres",
@@ -155,7 +155,7 @@
   {
     "id": 17,
     "module": "02-sql",
-    "title": "Инкрементальные модели и границы окна",
+    "title": "Incremental models and window boundaries",
     "path": "roadmap/02-sql/017-incremental-sql.md",
     "sources": [
       "dbt",
@@ -165,7 +165,7 @@
   {
     "id": 18,
     "module": "02-sql",
-    "title": "Дедупликация и конфликтующие ключи",
+    "title": "Deduplication and conflicting keys",
     "path": "roadmap/02-sql/018-dedup-sql.md",
     "sources": [
       "idempotency",
@@ -175,7 +175,7 @@
   {
     "id": 19,
     "module": "02-sql",
-    "title": "SQL-проверки качества и контрольные итоги",
+    "title": "SQL quality checks and control totals",
     "path": "roadmap/02-sql/019-query-quality.md",
     "sources": [
       "dbt",
@@ -185,7 +185,7 @@
   {
     "id": 20,
     "module": "02-sql",
-    "title": "Ревью SQL и переносимость диалектов",
+    "title": "SQL review and dialect portability",
     "path": "roadmap/02-sql/020-sql-review.md",
     "sources": [
       "postgres",
@@ -195,7 +195,7 @@
   {
     "id": 21,
     "module": "03-modeling",
-    "title": "OLTP, DWH, lake и lakehouse",
+    "title": "OLTP, warehouses, lakes, and lakehouses",
     "path": "roadmap/03-modeling/021-architecture.md",
     "sources": [
       "postgres",
@@ -205,7 +205,7 @@
   {
     "id": 22,
     "module": "03-modeling",
-    "title": "Raw, staging, core и marts",
+    "title": "Raw, staging, core, and marts",
     "path": "roadmap/03-modeling/022-layers.md",
     "sources": [
       "kimball",
@@ -215,7 +215,7 @@
   {
     "id": 23,
     "module": "03-modeling",
-    "title": "Факты: transaction, snapshot, accumulating",
+    "title": "Transaction, periodic, and accumulating facts",
     "path": "roadmap/03-modeling/023-facts.md",
     "sources": [
       "kimball"
@@ -224,7 +224,7 @@
   {
     "id": 24,
     "module": "03-modeling",
-    "title": "Измерения, ключи и неизвестный участник",
+    "title": "Dimensions, keys, and unknown members",
     "path": "roadmap/03-modeling/024-dimensions.md",
     "sources": [
       "kimball"
@@ -233,7 +233,7 @@
   {
     "id": 25,
     "module": "03-modeling",
-    "title": "SCD2 и полуоткрытые интервалы",
+    "title": "SCD2 and half-open intervals",
     "path": "roadmap/03-modeling/025-scd2.md",
     "sources": [
       "kimball",
@@ -243,7 +243,7 @@
   {
     "id": 26,
     "module": "03-modeling",
-    "title": "Битемпоральность и «что мы знали тогда»",
+    "title": "Bitemporal data and past knowledge",
     "path": "roadmap/03-modeling/026-bitemporal.md",
     "sources": [
       "postgres",
@@ -253,7 +253,7 @@
   {
     "id": 27,
     "module": "03-modeling",
-    "title": "Data Vault: hubs, links и satellites",
+    "title": "Data Vault: hubs, links, and satellites",
     "path": "roadmap/03-modeling/027-data-vault.md",
     "sources": [
       "kimball",
@@ -263,7 +263,7 @@
   {
     "id": 28,
     "module": "03-modeling",
-    "title": "Состояние сущности и история событий",
+    "title": "Entity state and event history",
     "path": "roadmap/03-modeling/028-entity-events.md",
     "sources": [
       "webhooks",
@@ -273,7 +273,7 @@
   {
     "id": 29,
     "module": "03-modeling",
-    "title": "Семантический слой и единые показатели",
+    "title": "Semantic layers and shared metrics",
     "path": "roadmap/03-modeling/029-semantic.md",
     "sources": [
       "kimball",
@@ -283,7 +283,7 @@
   {
     "id": 30,
     "module": "03-modeling",
-    "title": "Ревью модели и карта lineage",
+    "title": "Model review and lineage",
     "path": "roadmap/03-modeling/030-model-review.md",
     "sources": [
       "kimball",
@@ -293,7 +293,7 @@
   {
     "id": 31,
     "module": "04-ingestion",
-    "title": "Batch ingestion и контроль партий",
+    "title": "Batch ingestion and batch controls",
     "path": "roadmap/04-ingestion/031-batch-ingestion.md",
     "sources": [
       "python",
@@ -303,7 +303,7 @@
   {
     "id": 32,
     "module": "04-ingestion",
-    "title": "Коннекторы API и backpressure",
+    "title": "API connectors and backpressure",
     "path": "roadmap/04-ingestion/032-api-connectors.md",
     "sources": [
       "webhooks",
@@ -313,7 +313,7 @@
   {
     "id": 33,
     "module": "04-ingestion",
-    "title": "Webhooks: подпись, повтор и порядок",
+    "title": "Webhooks: signatures, repeats, and ordering",
     "path": "roadmap/04-ingestion/033-webhooks.md",
     "sources": [
       "webhooks",
@@ -323,7 +323,7 @@
   {
     "id": 34,
     "module": "04-ingestion",
-    "title": "CDC, WAL и изменения состояния",
+    "title": "CDC, WAL, and state changes",
     "path": "roadmap/04-ingestion/034-cdc-basics.md",
     "sources": [
       "debezium"
@@ -332,7 +332,7 @@
   {
     "id": 35,
     "module": "04-ingestion",
-    "title": "Snapshot и переход к потоку",
+    "title": "Snapshots and the handoff to streaming",
     "path": "roadmap/04-ingestion/035-cdc-snapshots.md",
     "sources": [
       "debezium"
@@ -341,7 +341,7 @@
   {
     "id": 36,
     "module": "04-ingestion",
-    "title": "Deletes, tombstones и retention",
+    "title": "Deletes, tombstones, and retention",
     "path": "roadmap/04-ingestion/036-cdc-deletes.md",
     "sources": [
       "debezium"
@@ -350,7 +350,7 @@
   {
     "id": 37,
     "module": "04-ingestion",
-    "title": "Эволюция схемы и совместимость",
+    "title": "Schema evolution and compatibility",
     "path": "roadmap/04-ingestion/037-schema-evolution.md",
     "sources": [
       "debezium",
@@ -360,7 +360,7 @@
   {
     "id": 38,
     "module": "04-ingestion",
-    "title": "Transactional outbox и публикация событий",
+    "title": "Transactional outbox",
     "path": "roadmap/04-ingestion/038-outbox.md",
     "sources": [
       "postgres",
@@ -370,7 +370,7 @@
   {
     "id": 39,
     "module": "04-ingestion",
-    "title": "Replay, backfill и исправление истории",
+    "title": "Replay, backfill, and historical corrections",
     "path": "roadmap/04-ingestion/039-replay.md",
     "sources": [
       "airflow",
@@ -380,7 +380,7 @@
   {
     "id": 40,
     "module": "04-ingestion",
-    "title": "Audit metadata и доказательство полноты",
+    "title": "Audit metadata and completeness evidence",
     "path": "roadmap/04-ingestion/040-ingestion-audit.md",
     "sources": [
       "opentelemetry",
@@ -390,7 +390,7 @@
   {
     "id": 41,
     "module": "05-storage",
-    "title": "Колончатое хранение и Parquet",
+    "title": "Columnar storage and Parquet",
     "path": "roadmap/05-storage/041-columnar.md",
     "sources": [
       "iceberg",
@@ -400,7 +400,7 @@
   {
     "id": 42,
     "module": "05-storage",
-    "title": "Партиционирование и правильный ключ",
+    "title": "Partitioning and key selection",
     "path": "roadmap/05-storage/042-partitioning.md",
     "sources": [
       "iceberg",
@@ -410,7 +410,7 @@
   {
     "id": 43,
     "module": "05-storage",
-    "title": "Iceberg, snapshots и эволюция таблиц",
+    "title": "Iceberg snapshots and table evolution",
     "path": "roadmap/05-storage/043-iceberg.md",
     "sources": [
       "iceberg"
@@ -419,7 +419,7 @@
   {
     "id": 44,
     "module": "05-storage",
-    "title": "Облачный DWH: стоимость, роли и эксплуатация",
+    "title": "Managed warehouses: cost, roles, and operation",
     "path": "roadmap/05-storage/044-cloud-dwh.md",
     "sources": [
       "bigquery",
@@ -429,7 +429,7 @@
   {
     "id": 45,
     "module": "05-storage",
-    "title": "Spark: partitions, shuffle и память",
+    "title": "Spark partitions, shuffle, and memory",
     "path": "roadmap/05-storage/045-spark.md",
     "sources": [
       "spark"
@@ -438,7 +438,7 @@
   {
     "id": 46,
     "module": "05-storage",
-    "title": "Skew, broadcast и стратегии JOIN",
+    "title": "Skew, broadcast, and join strategies",
     "path": "roadmap/05-storage/046-skew-joins.md",
     "sources": [
       "spark"
@@ -447,7 +447,7 @@
   {
     "id": 47,
     "module": "05-storage",
-    "title": "Kafka: partitions, offsets и порядок",
+    "title": "Kafka partitions, offsets, and ordering",
     "path": "roadmap/05-storage/047-streaming.md",
     "sources": [
       "kafka"
@@ -456,7 +456,7 @@
   {
     "id": 48,
     "module": "05-storage",
-    "title": "Event time, watermarks и поздние события",
+    "title": "Event time, watermarks, and late data",
     "path": "roadmap/05-storage/048-event-time.md",
     "sources": [
       "flink"
@@ -465,7 +465,7 @@
   {
     "id": 49,
     "module": "05-storage",
-    "title": "Состояние stream и checkpoint recovery",
+    "title": "Stream state and checkpoint recovery",
     "path": "roadmap/05-storage/049-state-checkpoints.md",
     "sources": [
       "flink",
@@ -475,7 +475,7 @@
   {
     "id": 50,
     "module": "05-storage",
-    "title": "Выбор batch или stream без переусложнения",
+    "title": "Choosing batch or streaming",
     "path": "roadmap/05-storage/050-storage-decision.md",
     "sources": [
       "kafka",
@@ -485,7 +485,7 @@
   {
     "id": 51,
     "module": "06-transformation",
-    "title": "dbt, зависимости моделей и контракты",
+    "title": "dbt models, dependencies, and contracts",
     "path": "roadmap/06-transformation/051-dbt-basics.md",
     "sources": [
       "dbt"
@@ -494,7 +494,7 @@
   {
     "id": 52,
     "module": "06-transformation",
-    "title": "dbt incremental, unique key и late updates",
+    "title": "dbt incremental models and late updates",
     "path": "roadmap/06-transformation/052-dbt-incremental.md",
     "sources": [
       "dbt"
@@ -503,7 +503,7 @@
   {
     "id": 53,
     "module": "06-transformation",
-    "title": "Оркестрация: dependencies и data intervals",
+    "title": "Orchestration dependencies and data intervals",
     "path": "roadmap/06-transformation/053-orchestration.md",
     "sources": [
       "airflow"
@@ -512,7 +512,7 @@
   {
     "id": 54,
     "module": "06-transformation",
-    "title": "Retries, timeouts и идемпотентные задачи",
+    "title": "Retries, timeouts, and idempotent tasks",
     "path": "roadmap/06-transformation/054-retry-design.md",
     "sources": [
       "airflow",
@@ -522,7 +522,7 @@
   {
     "id": 55,
     "module": "06-transformation",
-    "title": "Оркестрация backfill и ресурсные лимиты",
+    "title": "Backfill orchestration and resource limits",
     "path": "roadmap/06-transformation/055-backfills-dag.md",
     "sources": [
       "airflow",
@@ -532,7 +532,7 @@
   {
     "id": 56,
     "module": "06-transformation",
-    "title": "Атомарная публикация и ready-marker",
+    "title": "Atomic publication and readiness markers",
     "path": "roadmap/06-transformation/056-publish.md",
     "sources": [
       "iceberg",
@@ -542,7 +542,7 @@
   {
     "id": 57,
     "module": "06-transformation",
-    "title": "CI для кода, контрактов и моделей",
+    "title": "CI for code, contracts, and models",
     "path": "roadmap/06-transformation/057-ci-data.md",
     "sources": [
       "git",
@@ -552,7 +552,7 @@
   {
     "id": 58,
     "module": "06-transformation",
-    "title": "Dev, stage и production данные",
+    "title": "Development, staging, and production",
     "path": "roadmap/06-transformation/058-environments.md",
     "sources": [
       "aws",
@@ -562,7 +562,7 @@
   {
     "id": 59,
     "module": "06-transformation",
-    "title": "Миграции моделей и обратная совместимость",
+    "title": "Model migrations and compatibility",
     "path": "roadmap/06-transformation/059-deployments.md",
     "sources": [
       "dbt",
@@ -572,7 +572,7 @@
   {
     "id": 60,
     "module": "06-transformation",
-    "title": "Документация как часть эксплуатационного контракта",
+    "title": "Documentation as an operational contract",
     "path": "roadmap/06-transformation/060-docs-ops.md",
     "sources": [
       "airflow",
@@ -582,7 +582,7 @@
   {
     "id": 61,
     "module": "07-fintech",
-    "title": "Жизненный цикл платежа",
+    "title": "The payment lifecycle",
     "path": "roadmap/07-fintech/061-payment-lifecycle.md",
     "sources": [
       "stripe",
@@ -592,7 +592,7 @@
   {
     "id": 62,
     "module": "07-fintech",
-    "title": "Двойная запись и контроль сохранения суммы",
+    "title": "Double entry and conservation checks",
     "path": "roadmap/07-fintech/062-double-entry.md",
     "sources": [
       "stripe",
@@ -602,7 +602,7 @@
   {
     "id": 63,
     "module": "07-fintech",
-    "title": "Сверка внутренних и внешних денег",
+    "title": "Internal and external reconciliation",
     "path": "roadmap/07-fintech/063-reconciliation.md",
     "sources": [
       "stripe",
@@ -612,7 +612,7 @@
   {
     "id": 64,
     "module": "07-fintech",
-    "title": "Частичные возвраты, комиссии и reversals",
+    "title": "Partial refunds, fees, and reversals",
     "path": "roadmap/07-fintech/064-refunds.md",
     "sources": [
       "stripe",
@@ -622,7 +622,7 @@
   {
     "id": 65,
     "module": "07-fintech",
-    "title": "FX, presentment и settlement currencies",
+    "title": "FX, presentment, and settlement currencies",
     "path": "roadmap/07-fintech/065-fx.md",
     "sources": [
       "stripe",
@@ -632,7 +632,7 @@
   {
     "id": 66,
     "module": "07-fintech",
-    "title": "Cutoff, закрытие дня и переиздание отчёта",
+    "title": "Cutoffs, daily close, and restatement",
     "path": "roadmap/07-fintech/066-cutoff-close.md",
     "sources": [
       "stripe",
@@ -642,7 +642,7 @@
   {
     "id": 67,
     "module": "07-fintech",
-    "title": "Кредитный lifecycle и витрины задолженности",
+    "title": "Credit lifecycles and debt marts",
     "path": "roadmap/07-fintech/067-credit.md",
     "sources": [
       "kimball",
@@ -652,7 +652,7 @@
   {
     "id": 68,
     "module": "07-fintech",
-    "title": "Антифрод, delayed labels и утечка будущего",
+    "title": "Fraud data, delayed labels, and leakage",
     "path": "roadmap/07-fintech/068-fraud-data.md",
     "sources": [
       "feast"
@@ -661,7 +661,7 @@
   {
     "id": 69,
     "module": "07-fintech",
-    "title": "KYC/AML данные и происхождение решений",
+    "title": "KYC/AML provenance and protected data",
     "path": "roadmap/07-fintech/069-kyc-data.md",
     "sources": [
       "aws",
@@ -671,7 +671,7 @@
   {
     "id": 70,
     "module": "07-fintech",
-    "title": "Финансовый data product: приёмка",
+    "title": "Financial data-product acceptance",
     "path": "roadmap/07-fintech/070-fintech-review.md",
     "sources": [
       "stripe",
@@ -681,7 +681,7 @@
   {
     "id": 71,
     "module": "08-reliability",
-    "title": "Полнота, точность, свежесть и согласованность",
+    "title": "Completeness, accuracy, freshness, and consistency",
     "path": "roadmap/08-reliability/071-quality-dimensions.md",
     "sources": [
       "dbt",
@@ -691,7 +691,7 @@
   {
     "id": 72,
     "module": "08-reliability",
-    "title": "Свежесть и percentiles задержки",
+    "title": "Freshness and latency percentiles",
     "path": "roadmap/08-reliability/072-freshness.md",
     "sources": [
       "opentelemetry",
@@ -701,7 +701,7 @@
   {
     "id": 73,
     "module": "08-reliability",
-    "title": "Logs, metrics, traces и data lineage",
+    "title": "Logs, metrics, traces, and lineage",
     "path": "roadmap/08-reliability/073-observability.md",
     "sources": [
       "opentelemetry"
@@ -710,7 +710,7 @@
   {
     "id": 74,
     "module": "08-reliability",
-    "title": "Алерты, владельцы и бюджет ошибок",
+    "title": "Alerts, owners, and error budgets",
     "path": "roadmap/08-reliability/074-alerts.md",
     "sources": [
       "opentelemetry",
@@ -720,7 +720,7 @@
   {
     "id": 75,
     "module": "08-reliability",
-    "title": "Расследование инцидента и containment",
+    "title": "Incident investigation and containment",
     "path": "roadmap/08-reliability/075-incident.md",
     "sources": [
       "opentelemetry",
@@ -730,7 +730,7 @@
   {
     "id": 76,
     "module": "08-reliability",
-    "title": "Lineage и оценка радиуса изменения",
+    "title": "Lineage and change impact",
     "path": "roadmap/08-reliability/076-lineage-impact.md",
     "sources": [
       "dbt",
@@ -740,7 +740,7 @@
   {
     "id": 77,
     "module": "08-reliability",
-    "title": "Backups, RPO, RTO и проверка восстановления",
+    "title": "Backups, RPO, RTO, and restore drills",
     "path": "roadmap/08-reliability/077-backup.md",
     "sources": [
       "sqlite",
@@ -750,7 +750,7 @@
   {
     "id": 78,
     "module": "08-reliability",
-    "title": "Производительность и capacity planning",
+    "title": "Performance and capacity planning",
     "path": "roadmap/08-reliability/078-performance-ops.md",
     "sources": [
       "spark",
@@ -760,7 +760,7 @@
   {
     "id": 79,
     "module": "08-reliability",
-    "title": "Fault injection и проверка recovery",
+    "title": "Fault injection and recovery verification",
     "path": "roadmap/08-reliability/079-chaos.md",
     "sources": [
       "python",
@@ -770,7 +770,7 @@
   {
     "id": 80,
     "module": "08-reliability",
-    "title": "Приёмка надёжности data product",
+    "title": "Data-product reliability acceptance",
     "path": "roadmap/08-reliability/080-reliability-review.md",
     "sources": [
       "aws",
@@ -780,7 +780,7 @@
   {
     "id": 81,
     "module": "09-platform",
-    "title": "IAM, least privilege и разделение ролей",
+    "title": "IAM, least privilege, and separated roles",
     "path": "roadmap/09-platform/081-iam.md",
     "sources": [
       "aws",
@@ -790,7 +790,7 @@
   {
     "id": 82,
     "module": "09-platform",
-    "title": "Минимизация персональных данных и tokenization",
+    "title": "Personal-data minimization and tokenization",
     "path": "roadmap/09-platform/082-pii.md",
     "sources": [
       "aws",
@@ -800,7 +800,7 @@
   {
     "id": 83,
     "module": "09-platform",
-    "title": "Секреты, ротация и диагностика",
+    "title": "Secrets, rotation, and diagnostics",
     "path": "roadmap/09-platform/083-secrets.md",
     "sources": [
       "aws",
@@ -810,7 +810,7 @@
   {
     "id": 84,
     "module": "09-platform",
-    "title": "Шифрование, ключи и границы доступа",
+    "title": "Encryption, keys, and access boundaries",
     "path": "roadmap/09-platform/084-encryption.md",
     "sources": [
       "aws"
@@ -819,7 +819,7 @@
   {
     "id": 85,
     "module": "09-platform",
-    "title": "Retention, deletion и legal hold как policy",
+    "title": "Retention, deletion, and holds",
     "path": "roadmap/09-platform/085-retention.md",
     "sources": [
       "aws",
@@ -829,7 +829,7 @@
   {
     "id": 86,
     "module": "09-platform",
-    "title": "Infrastructure as Code и безопасное изменение",
+    "title": "Infrastructure as Code and safe changes",
     "path": "roadmap/09-platform/086-iac.md",
     "sources": [
       "terraform"
@@ -838,7 +838,7 @@
   {
     "id": 87,
     "module": "09-platform",
-    "title": "FinOps и цена полезного результата",
+    "title": "FinOps and cost per useful result",
     "path": "roadmap/09-platform/087-cost.md",
     "sources": [
       "bigquery",
@@ -848,7 +848,7 @@
   {
     "id": 88,
     "module": "09-platform",
-    "title": "Платформа как продукт и ownership",
+    "title": "Platform as a product and ownership",
     "path": "roadmap/09-platform/088-ownership.md",
     "sources": [
       "dbt",
@@ -858,7 +858,7 @@
   {
     "id": 89,
     "module": "09-platform",
-    "title": "Access review, аудит и exports",
+    "title": "Access review, audit, and exports",
     "path": "roadmap/09-platform/089-access-review.md",
     "sources": [
       "aws",
@@ -868,7 +868,7 @@
   {
     "id": 90,
     "module": "09-platform",
-    "title": "Ревью платформы и план масштабирования",
+    "title": "Platform review and scaling plans",
     "path": "roadmap/09-platform/090-platform-review.md",
     "sources": [
       "aws",
@@ -878,7 +878,7 @@
   {
     "id": 91,
     "module": "10-ai-career",
-    "title": "ИИ как помощник инженера данных",
+    "title": "AI as a data-engineering assistant",
     "path": "roadmap/10-ai-career/091-ai-assistant.md",
     "sources": [
       "nist",
@@ -888,7 +888,7 @@
   {
     "id": 92,
     "module": "10-ai-career",
-    "title": "Text-to-SQL и ограниченный доступ",
+    "title": "Text-to-SQL and constrained access",
     "path": "roadmap/10-ai-career/092-text-to-sql.md",
     "sources": [
       "owasp",
@@ -898,7 +898,7 @@
   {
     "id": 93,
     "module": "10-ai-career",
-    "title": "RAG по каталогу данных и права документов",
+    "title": "RAG over the data catalog and document permissions",
     "path": "roadmap/10-ai-career/093-rag.md",
     "sources": [
       "owasp",
@@ -908,7 +908,7 @@
   {
     "id": 94,
     "module": "10-ai-career",
-    "title": "Prompt injection и недоверенные документы",
+    "title": "Prompt injection and untrusted documents",
     "path": "roadmap/10-ai-career/094-prompt-injection.md",
     "sources": [
       "owasp"
@@ -917,7 +917,7 @@
   {
     "id": 95,
     "module": "10-ai-career",
-    "title": "Evals: correctness, grounding и abstention",
+    "title": "AI evals: correctness, grounding, and abstention",
     "path": "roadmap/10-ai-career/095-ai-evals.md",
     "sources": [
       "nist",
@@ -927,7 +927,7 @@
   {
     "id": 96,
     "module": "10-ai-career",
-    "title": "Feature store и point-in-time корректность",
+    "title": "Feature stores and point-in-time correctness",
     "path": "roadmap/10-ai-career/096-feature-store.md",
     "sources": [
       "feast"
@@ -936,7 +936,7 @@
   {
     "id": 97,
     "module": "10-ai-career",
-    "title": "ML datasets, labels и версии эксперимента",
+    "title": "ML datasets, labels, and experiment versions",
     "path": "roadmap/10-ai-career/097-ml-pipelines.md",
     "sources": [
       "feast",
@@ -946,7 +946,7 @@
   {
     "id": 98,
     "module": "10-ai-career",
-    "title": "Системный дизайн финтех DWH на собеседовании",
+    "title": "Fintech DWH system-design interviews",
     "path": "roadmap/10-ai-career/098-system-design.md",
     "sources": [
       "aws",
@@ -957,7 +957,7 @@
   {
     "id": 99,
     "module": "10-ai-career",
-    "title": "Портфолио: доказательства вместо списка навыков",
+    "title": "Portfolio evidence instead of skill lists",
     "path": "roadmap/10-ai-career/099-portfolio.md",
     "sources": [
       "git",
@@ -967,7 +967,7 @@
   {
     "id": 100,
     "module": "10-ai-career",
-    "title": "Развитие проекта, сообщество и следующий шаг",
+    "title": "Project growth, community, and next steps",
     "path": "roadmap/10-ai-career/100-growth.md",
     "sources": [
       "git",

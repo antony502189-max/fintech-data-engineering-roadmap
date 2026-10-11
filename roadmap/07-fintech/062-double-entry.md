@@ -1,49 +1,49 @@
-# 062. Двойная запись и контроль сохранения суммы
+# 062. Double entry and conservation checks
 
-## Результат обучения
+## Learning outcome
 
-Построить парные проводки и проверить баланс по событию.
+Build paired postings and verify event-level balance.
 
-## Как это работает
+## How it works
 
-Учебный журнал хранит signed postings: сумма по event_id и currency равна нулю. Это техническая модель сохранения движения, не полный бухгалтерский план счетов. Баланс — необходимый, но недостаточный контроль: неверные счета или одинаково ошибочные суммы могут оставаться сбалансированными.
+The teaching journal uses signed postings summing to zero per event and currency. This is a conservation model, not a complete accounting chart. Balance is necessary but insufficient: wrong accounts or equally wrong amounts can remain balanced.
 
-## Пример из финтеха
+## Fintech example
 
-Capture дебетует processor_receivable и кредитует merchant_payable в условной схеме laboratory.
+The simplified capture increases processor_receivable and decreases merchant_payable.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови perspective ledger
-2. Запиши sign convention
-3. Построй postings
-4. Проверь баланс и независимый source total.
+1. Specify ledger perspective
+2. Document signs
+3. Generate postings
+4. Check balance and independent totals.
 
-## Практическое задание
+## Practical assignment
 
-Создай несбалансированную проводку и отдельно сбалансированную неверную сумму; сравни два уровня проверки.
+Create an imbalance, then a balanced incorrect amount. Compare the checks that detect them.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Зелёный sum=0 объявляют доказательством правильности финансового отчёта.
+Calling sum=0 proof of financial accuracy overlooks balanced errors.
 
-## Проверка результата
+## Verify the result
 
-Тест ловит imbalance; reconciliation ловит сумму, которую баланс пропустил.
+Balance tests detect imbalance; reconciliation detects an incorrect amount that conservation missed.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая ошибка остаётся возможной, если все проводки идеально сбалансированы?
+Which defects remain possible when every posting group balances?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/062-double-entry/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/062-double-entry/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/061-payment-lifecycle.md) · [Следующий шаг](../07-fintech/063-reconciliation.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/061-payment-lifecycle.md) · [Next step](../07-fintech/063-reconciliation.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

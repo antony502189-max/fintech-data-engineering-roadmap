@@ -1,48 +1,48 @@
-# 068. Антифрод, delayed labels и утечка будущего
+# 068. Fraud data, delayed labels, and leakage
 
-## Результат обучения
+## Learning outcome
 
-Подготовить признаки, доступные в момент принятия решения.
+Build features available when a decision was made.
 
-## Как это работает
+## How it works
 
-Fraud label может появиться спустя недели, поэтому время действия и время знания важны для train set. Признак должен использовать только сведения, доступные decision system тогда. Random split может смешать будущие patterns с прошлым; временные splits и label maturity требуют явного дизайна.
+Fraud labels may arrive weeks later, making business and knowledge time essential. Features must use information available to the decision system at that instant. Random splits can mix future patterns into past evaluation. Define temporal splits and label maturity explicitly.
 
-## Пример из финтеха
+## Fintech example
 
-Dispute в феврале сообщает о риске январского платежа; февральский статус нельзя включить в январский feature.
+A February dispute labels a January payment; its February status cannot be a January feature.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи decision_at
-2. Сохрани feature availability
-3. Назови label maturity
-4. Проверь temporal split.
+1. Define decision_at
+2. Track feature availability
+3. Specify label maturity
+4. Verify temporal splits.
 
-## Практическое задание
+## Practical assignment
 
-Используй capture_total_at для e6 и сравни decision до и после arrival; спроектируй label table.
+Compare capture_total_at for e6 before and after receipt, then design a label table.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Event_time filter проходит, но received_at не проверяется; позднее знание проникает в историю.
+Filtering event_time alone allows late knowledge into historical features.
 
-## Проверка результата
+## Verify the result
 
-До arrival feature p3=0, после=2500; training contract содержит knowledge cutoff.
+p3 is zero before arrival and 2500 afterward; training contracts include a knowledge cutoff.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как delayed label влияет на оценку последних недель модели?
+How do delayed labels affect evaluation of the most recent weeks?
 
-## Что читать дальше
+## Further reading
 
-- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/068-fraud-data/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/068-fraud-data/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/067-credit.md) · [Следующий шаг](../07-fintech/069-kyc-data.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/067-credit.md) · [Next step](../07-fintech/069-kyc-data.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

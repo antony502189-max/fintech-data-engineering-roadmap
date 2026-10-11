@@ -1,49 +1,49 @@
-# 100. Развитие проекта, сообщество и следующий шаг
+# 100. Project growth, community, and next steps
 
-## Результат обучения
+## Learning outcome
 
-Сделать полезный открытый проект удобным для повторного использования.
+Make an open project useful and easy to contribute to.
 
-## Как это работает
+## How it works
 
-Discoverability улучшают понятное название, topics, быстрый старт, примеры и предложения маленьких contributions. Stars отражают интерес, а не финансовую корректность. Продвижение полезно через конкретную демонстрацию результата и честное приглашение обратной связи. Регулярно обновляй ссылки и помечай устаревшие версии.
+Clear names, topics, quick starts, examples, and small contribution opportunities improve discovery. Stars show interest, not financial accuracy. Promote specific reproducible outcomes and invite feedback. Maintain resource links and version caveats.
 
-## Пример из финтеха
+## Fintech example
 
-Пост на форуме показывает, как replay сохраняет итог и как late event меняет старый день.
+A forum demonstration shows replay preserving totals and late data updating an earlier day.
 
-## Порядок реализации
+## Implementation steps
 
-1. Пройди clean start
-2. Проверь contribution template
-3. Выбери маленькую улучшалку
-4. Поделись проверяемым результатом.
+1. Try a clean start
+2. Review contribution guidance
+3. Select a small improvement
+4. Share verifiable output.
 
-## Практическое задание
+## Practical assignment
 
-Подготовь короткий пост по шаблону community/SHARING.md с одной командой и одним learning outcome.
+Draft a post from community/SHARING.md with one command and one learning outcome.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Публикуют длинный список технологий без runnable example; читатель не видит ценности.
+A long technology list without a runnable example obscures value.
 
-## Проверка результата
+## Verify the result
 
-Пост объясняет audience, результат и способ повторения; никаких обещаний stars.
+Explain audience, results, and reproduction without promising stars.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Что ты добавишь после первого внешнего bug report и как проверишь исправление?
+What should change after the first external bug report, and how will you verify it?
 
-## Что читать дальше
+## Further reading
 
-- [Pro Git book](https://git-scm.com/book/en/v2) — первичная документация; ищи раздел по теме урока.
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [Pro Git book](https://git-scm.com/book/en/v2) — primary documentation; find the section relevant to this lesson.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/100-growth/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/100-growth/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/099-portfolio.md) · [Следующий шаг](../../projects/README.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/099-portfolio.md) · [Next step](../../projects/README.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

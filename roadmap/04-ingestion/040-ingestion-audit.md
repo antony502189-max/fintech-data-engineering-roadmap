@@ -1,49 +1,49 @@
-# 040. Audit metadata и доказательство полноты
+# 040. Audit metadata and completeness evidence
 
-## Результат обучения
+## Learning outcome
 
-Сохранить достаточную информацию для расследования загрузки.
+Retain enough context to investigate ingestion.
 
-## Как это работает
+## How it works
 
-Run metadata связывает source partition, input hash, code revision, schema version, параметры, число принятых и rejected records. Audit полезен, если данные нельзя незаметно подменить и записи удерживаются нужный срок. Одного лог-файла без стабильного run_id недостаточно. Секреты и лишний payload в audit не нужны.
+Run metadata connects partitions, input hashes, code revisions, schema versions, parameters, accepted counts, and rejected records. Audit information needs stable identity, protection against silent alteration, and suitable retention. Do not place credentials or unnecessary payload in logs.
 
-## Пример из финтеха
+## Fintech example
 
-Финансовая команда спрашивает, почему p3 появился в отчёте позже: нужны event_time, received_at и run_id.
+Explaining p3's late appearance needs event_time, received_at, and the processing run.
 
-## Порядок реализации
+## Implementation steps
 
-1. Задай run schema
-2. Раздели operational и business totals
-3. Сохраняй rejected count
-4. Прикрепи manifest к published output.
+1. Define the run schema
+2. Separate technical and business totals
+3. Retain rejected counts
+4. Attach manifests to output.
 
-## Практическое задание
+## Practical assignment
 
-Создай sample manifest для лаборатории с 6 accepted, 0 rejected и 6 duplicate при replay.
+Create a lab manifest showing six accepted events, zero rejects, and six replay duplicates.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Логи содержат только duration и status=success; полноту денежных событий проверить нельзя.
+Duration and status=success alone cannot establish monetary completeness.
 
-## Проверка результата
+## Verify the result
 
-Для каждого итогового периода доступны hash входа, версия преобразования и контрольные суммы по валюте.
+Every output period has input hashes, transformation versions, and currency-specific controls.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как обнаружить «успешную» загрузку неполного файла?
+How would you detect a successful ingestion of an incomplete file?
 
-## Что читать дальше
+## Further reading
 
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/040-ingestion-audit/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/040-ingestion-audit/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/039-replay.md) · [Следующий шаг](../05-storage/041-columnar.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/039-replay.md) · [Next step](../05-storage/041-columnar.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

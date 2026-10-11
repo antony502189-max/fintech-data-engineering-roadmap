@@ -1,49 +1,49 @@
-# 097. ML datasets, labels и версии эксперимента
+# 097. ML datasets, labels, and experiment versions
 
-## Результат обучения
+## Learning outcome
 
-Сделать train dataset воспроизводимым и объяснимым.
+Make training data reproducible and explainable.
 
-## Как это работает
+## How it works
 
-Model version без data version не воспроизводит эксперимент. Dataset manifest фиксирует sources, cutoff, feature definitions, label maturity и split. Monitoring отслеживает coverage, distributions и delayed performance. Training code не должен незаметно переопределять бизнес-метрики источника.
+Model versions alone cannot reproduce experiments. Dataset manifests record sources, cutoffs, feature definitions, label maturity, and splits. Monitor coverage, distributions, and delayed performance. Training code should not silently redefine source business metrics.
 
-## Пример из финтеха
+## Fintech example
 
-Fraud model обучается на январских решениях с labels, известными к марту; это фиксированный horizon.
+A fraud model uses January decisions and labels known by March under a fixed horizon.
 
-## Порядок реализации
+## Implementation steps
 
-1. Сохрани dataset manifest
-2. Зафиксируй split
-3. Определи label maturity
-4. Добавь leakage checks.
+1. Save dataset manifests
+2. Fix temporal splits
+3. Specify label maturity
+4. Check leakage.
 
-## Практическое задание
+## Practical assignment
 
-Создай synthetic train manifest с temporal split и запиши, какие последние decisions исключены из-за незрелых labels.
+Build a synthetic training manifest and identify excluded decisions with immature labels.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Каждый retrain читает latest tables; изменение истории делает старые experiments неповторимыми.
+Reading latest tables on each retrain makes past experiments unreproducible after corrections.
 
-## Проверка результата
+## Verify the result
 
-Manifest позволяет получить тот же set entity/decision keys и labels.
+A manifest reproduces entity/decision keys and labels.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему version model artifact недостаточна для аудита ML решения?
+Why is a versioned model artifact insufficient for auditing a decision?
 
-## Что читать дальше
+## Further reading
 
-- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — первичная документация; ищи раздел по теме урока.
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
+- [Feast point in time joins](https://docs.feast.dev/getting-started/concepts/point-in-time-joins) — primary documentation; find the section relevant to this lesson.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/097-ml-pipelines/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/097-ml-pipelines/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/096-feature-store.md) · [Следующий шаг](../10-ai-career/098-system-design.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/096-feature-store.md) · [Next step](../10-ai-career/098-system-design.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

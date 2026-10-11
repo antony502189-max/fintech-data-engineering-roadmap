@@ -1,49 +1,49 @@
-# 019. SQL-проверки качества и контрольные итоги
+# 019. SQL quality checks and control totals
 
-## Результат обучения
+## Learning outcome
 
-Писать проверки, которые возвращают нарушающие строки.
+Write checks that return violating rows.
 
-## Как это работает
+## How it works
 
-Data test удобно выражать как запрос: успешный результат пуст, нарушение содержит ключ и причину. Проверяй not null, уникальность, связи, диапазоны и финансовые инварианты отдельно. Row count полезен для полноты, но одинаковое количество строк не доказывает равенство наборов или сумм.
+A data test can be a query whose successful result is empty and whose failures identify keys and reasons. Test nullability, uniqueness, relationships, ranges, and monetary invariants separately. Equal row counts do not prove identical records or amounts.
 
-## Пример из финтеха
+## Fintech example
 
-Две записи поменяли валюту местами: count тот же, итог USD и EUR неверен.
+Two records exchange currencies: count stays constant while USD and EUR totals become incorrect.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи invariant
-2. Напиши query violating rows
-3. Добавь fixture нарушения
-4. Убедись, что query его возвращает.
+1. Define the invariant
+2. Query violating rows
+3. Create a defective fixture
+4. Confirm detection.
 
-## Практическое задание
+## Practical assignment
 
-Выполни sql/solutions/05-ledger.sql, затем испорть одну запись в отдельной временной базе.
+Run sql/solutions/05-ledger.sql, then corrupt a posting in a separate temporary database.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Проверку ставят после публикации; потребитель уже успел забрать неверный набор.
+Running checks only after publication allows consumers to read invalid data first.
 
-## Проверка результата
+## Verify the result
 
-Качество проверяется до ready-marker, ошибка содержит event_id и currency.
+Quality gates precede readiness markers; failures identify event and currency.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие контрольные итоги нужны дополнительно к количеству строк для платёжной партии?
+Which controls beyond row count are needed for a payment batch?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/019-query-quality/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/019-query-quality/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/018-dedup-sql.md) · [Следующий шаг](../02-sql/020-sql-review.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/018-dedup-sql.md) · [Next step](../02-sql/020-sql-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

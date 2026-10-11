@@ -1,50 +1,50 @@
-# 098. Системный дизайн финтех DWH на собеседовании
+# 098. Fintech DWH system-design interviews
 
-## Результат обучения
+## Learning outcome
 
-Объяснить архитектуру через требования, инварианты и компромиссы.
+Explain designs through requirements, invariants, and tradeoffs.
 
-## Как это работает
+## How it works
 
-Начни с потребителей, объёма, latency, источников и бюджета. Затем опиши grain, ingestion guarantees, history, checks и recovery. Детальный список технологий без failure scenario слабее простой архитектуры с проверяемыми гарантиями. Укажи, какие требования неизвестны и как их выяснить.
+Begin with consumers, volume, latency, sources, and budgets. Then define grain, delivery guarantees, history, verification, and recovery. A tool list is weaker than a simple design with explicit failure behavior. Identify unknown requirements and how to resolve them.
 
-## Пример из финтеха
+## Fintech example
 
-Спроектируй daily settlement и near-real-time fraud, сохранив согласованную денежную историю.
+Design daily settlement and near-real-time fraud with consistent monetary history.
 
-## Порядок реализации
+## Implementation steps
 
-1. Уточни requirements
-2. Нарисуй data flow
-3. Разбери crash points
-4. Оцени cost и ownership.
+1. Clarify requirements
+2. Draw data flow
+3. Analyze crashes
+4. Estimate costs and ownership.
 
-## Практическое задание
+## Practical assignment
 
-Проведи 30-minute design interview с самим собой; запиши пять assumptions и три альтернативы.
+Conduct a thirty-minute mock interview. Record five assumptions and three alternatives.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Сразу рисуют Kafka→Spark→Snowflake и не объясняют, как обнаружится пропавший платёж.
+Drawing Kafka→Spark→Snowflake without explaining missing-payment detection leaves the central problem unanswered.
 
-## Проверка результата
+## Verify the result
 
-Ответ включает mismatch handling, late data, versioned publish и recovery drill.
+Cover discrepancies, late data, versioned publication, and recovery drills.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как поменяется дизайн при требовании восстановить прошлое знание, а не только текущую истину?
+How does the design change when past knowledge must be reconstructed?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — primary documentation; find the section relevant to this lesson.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/098-system-design/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/098-system-design/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/097-ml-pipelines.md) · [Следующий шаг](../10-ai-career/099-portfolio.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/097-ml-pipelines.md) · [Next step](../10-ai-career/099-portfolio.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

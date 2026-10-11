@@ -1,49 +1,49 @@
-# 026. Битемпоральность и «что мы знали тогда»
+# 026. Bitemporal data and past knowledge
 
-## Результат обучения
+## Learning outcome
 
-Разделять бизнес-время действия и время знания в DWH.
+Separate business validity from warehouse knowledge.
 
-## Как это работает
+## How it works
 
-Valid time описывает, когда факт считался действующим в предметной области. System time описывает, когда версия была известна хранилищу. SCD2 только с valid interval не восстанавливает прошлое знание после исправления. Для аудита нужны обе оси времени и явные правила query as-known-at.
+Valid time states when information applies to the business. System time states when the warehouse knew a version. Valid-time SCD2 cannot reconstruct old knowledge after correction. Audit queries require both time axes and an explicit as-known-at rule.
 
-## Пример из финтеха
+## Fintech example
 
-5 февраля исправили тариф, действовавший с 1 января. Отчёт, отправленный 31 января, должен оставаться воспроизводимым.
+A tariff applying since January 1 is corrected on February 5. The report sent January 31 must remain reproducible.
 
-## Порядок реализации
+## Implementation steps
 
-1. Добавь recorded_from и recorded_to
-2. Сохраняй прежнее знание
-3. Определи as-of query
-4. Раздели restated и original report.
+1. Add recorded intervals
+2. Preserve previous knowledge
+3. Define as-of queries
+4. Separate original and restated reports.
 
-## Практическое задание
+## Practical assignment
 
-Спроектируй таблицу tariff с двумя интервалами и три запроса: сейчас, на бизнес-дату, как знали на дату отправки.
+Design a tariff table with two intervals and queries for current truth, business-date truth, and knowledge at submission time.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Простую SCD2 лаборатории называют полноценным audit trail; прошлые исправления уже уничтожены.
+Calling the lab's simple SCD2 an audit trail ignores that earlier knowledge was replaced.
 
-## Проверка результата
+## Verify the result
 
-Запрос original возвращает старый тариф, restated — исправленный; оба имеют отдельную метку.
+Original reporting returns the earlier tariff; restated reporting returns the correction with a separate version.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как выбрать тариф, если effective date раньше момента его получения?
+How do you select a tariff whose effective date precedes its receipt?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/026-bitemporal/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/026-bitemporal/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/025-scd2.md) · [Следующий шаг](../03-modeling/027-data-vault.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/025-scd2.md) · [Next step](../03-modeling/027-data-vault.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

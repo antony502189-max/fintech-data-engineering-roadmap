@@ -1,49 +1,49 @@
-# 078. Производительность и capacity planning
+# 078. Performance and capacity planning
 
-## Результат обучения
+## Learning outcome
 
-Связать рост данных с временем готовности и стоимостью.
+Connect data growth to deadlines and costs.
 
-## Как это работает
+## How it works
 
-Capacity зависит от объёма, распределения ключей, ширины records, concurrency и worst-case backlog. Среднее число событий скрывает peaks. Предел throughput важен вместе с latency и recovery after outage. Benchmark должен описывать окружение и повторения, а не только удачное число одного запуска.
+Capacity depends on volume, key distribution, row width, concurrency, and backlog. Average rates hide peaks. Evaluate throughput together with latency and recovery after outages. Benchmarks must specify environments and repeated measurements rather than one favorable run.
 
-## Пример из финтеха
+## Fintech example
 
-После двухчасового outage backlog надо обработать до daily close, не перегрузив источник.
+A two-hour backlog must clear before close while new arrivals continue.
 
-## Порядок реализации
+## Implementation steps
 
-1. Измерь steady throughput
-2. Смоделируй peak
-3. Оцени backlog drain
-4. Проверь contention.
+1. Measure steady throughput
+2. Simulate peaks
+3. Estimate backlog draining
+4. Test contention.
 
-## Практическое задание
+## Practical assignment
 
-Построй таблицу для arrival rate 1000/s и processing 1500/s: как долго разгружать 2h backlog при продолжающемся потоке?
+Calculate recovery for arrival 1000/s and processing 1500/s after two hours of outage.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Делят backlog на общий processing rate, забывая новые arrivals; ETA слишком оптимистична.
+Dividing backlog by total processing rate ignores ongoing arrivals and understates recovery time.
 
-## Проверка результата
+## Verify the result
 
-Расчёт использует spare capacity и указывает, что при processing<=arrival backlog не сокращается.
+Use spare capacity; if processing does not exceed arrivals, backlog cannot shrink.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему doubling workers не гарантирует doubling useful throughput?
+Why does doubling workers not necessarily double useful throughput?
 
-## Что читать дальше
+## Further reading
 
-- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — primary documentation; find the section relevant to this lesson.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/078-performance-ops/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/078-performance-ops/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/077-backup.md) · [Следующий шаг](../08-reliability/079-chaos.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/077-backup.md) · [Next step](../08-reliability/079-chaos.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 016. Индексы и планы запросов
+# 016. Indexes and query plans
 
-## Результат обучения
+## Learning outcome
 
-Выбрать индекс по реальному фильтру и доказать эффект планом.
+Choose an index from the workload and measure its effect.
 
-## Как это работает
+## How it works
 
-Индекс ускоряет определённые пути доступа и увеличивает стоимость записи. Составной индекс зависит от порядка колонок и вида условий. EXPLAIN показывает план, а измерение на репрезентативных данных — время и объём чтения. На шести строках оптимизатор вправе выбрать полный scan; это не доказательство плохого индекса.
+Indexes improve particular access paths while increasing write cost. Composite index usefulness depends on column order and predicates. EXPLAIN describes a plan; representative data establishes runtime and reading cost. Scanning six rows may be a reasonable optimizer choice.
 
-## Пример из финтеха
+## Fintech example
 
-Сверка ищет event_id, а история платежа — payment_id плюс время. Один индекс не обязан оптимизировать оба сценария.
+Reconciliation looks up event_id, while payment history uses payment_id and time. One index need not optimize both.
 
-## Порядок реализации
+## Implementation steps
 
-1. Запиши workload
-2. Создай большую синтетическую фикстуру
-3. Сними baseline
-4. Добавь индекс и измерь запись и чтение.
+1. Describe queries
+2. Create a larger synthetic fixture
+3. Measure a baseline
+4. Add an index and compare reads and writes.
 
-## Практическое задание
+## Practical assignment
 
-Сравни поиск истории payment_id на 100000 событий с индексом и без него; сохрани EXPLAIN QUERY PLAN.
+Compare payment history retrieval on 100000 events with and without an index. Save EXPLAIN QUERY PLAN output.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Добавляют индекс на каждую колонку без проверки нагрузки; ingestion замедляется, а storage растёт.
+Indexing every column without workload evidence slows ingestion and enlarges storage.
 
-## Проверка результата
+## Verify the result
 
-Отчёт содержит размер набора, план, время нескольких запусков и цену записи.
+Record dataset size, plans, repeated timings, and write overhead.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему более быстрый запрос на маленьком dataset может быть медленнее на большом?
+Why can a query that is faster on a small dataset become slower on a larger one?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/016-indexes/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/016-indexes/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/015-transactions.md) · [Следующий шаг](../02-sql/017-incremental-sql.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/015-transactions.md) · [Next step](../02-sql/017-incremental-sql.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

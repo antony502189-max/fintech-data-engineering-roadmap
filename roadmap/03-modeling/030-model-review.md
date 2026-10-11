@@ -1,49 +1,49 @@
-# 030. Ревью модели и карта lineage
+# 030. Model review and lineage
 
-## Результат обучения
+## Learning outcome
 
-Проверить DWH модель по объяснимости и способности к пересчёту.
+Review explainability and rebuild capability.
 
-## Как это работает
+## How it works
 
-Lineage отвечает, какие источники и преобразования создали колонку. Полезная карта включает не только таблицы, но и версии правил, даты и контрольные итоги. Ревью оценивает grain, историчность, ключи, аддитивность, обработку неизвестного и право изменения закрытых периодов.
+Lineage identifies sources and transformations behind a column. Include rule versions, dates, and controls rather than just table arrows. Review grain, keys, historical behavior, additivity, unknown members, and permissions to change closed periods.
 
-## Пример из финтеха
+## Fintech example
 
-Чтобы объяснить расхождение p3, нужно пройти от settlement до raw capture и суммы проводок.
+Explaining p3 requires tracing settlement, raw capture, and posting amounts.
 
-## Порядок реализации
+## Implementation steps
 
-1. Выбери денежную колонку
-2. Проследи lineage
-3. Найди потерю истории
-4. Запиши процедуру rebuild.
+1. Choose a monetary column
+2. Follow its lineage
+3. Identify lost history
+4. Document the rebuild procedure.
 
-## Практическое задание
+## Practical assignment
 
-Составь dossier для mart_daily_cash: входные events, формула, checks, limitation, команда запуска.
+Create a mart_daily_cash dossier covering input events, formulas, checks, limits, and run commands.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Красивый ERD без grain и правил исправления создаёт видимость документированной системы.
+An attractive ERD without grain or correction policy gives false confidence.
 
-## Проверка результата
+## Verify the result
 
-Независимый читатель воспроизводит USD 12200 за 1 января по raw данным.
+An independent reader reconstructs January 1 USD 12200 from raw events.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая минимальная информация делает отчёт доказуемым спустя год?
+What minimum information makes a report explainable a year later?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/030-model-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/030-model-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/029-semantic.md) · [Следующий шаг](../04-ingestion/031-batch-ingestion.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/029-semantic.md) · [Next step](../04-ingestion/031-batch-ingestion.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

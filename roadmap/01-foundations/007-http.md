@@ -1,49 +1,49 @@
-# 007. HTTP, API и пагинация
+# 007. HTTP, APIs, and pagination
 
-## Результат обучения
+## Learning outcome
 
-Собрать полный набор событий API без потери страниц.
+Retrieve a complete API event set without losing pages.
 
-## Как это работает
+## How it works
 
-Ответ 200 доказывает успешную выдачу страницы, а не полноту набора. Cursor pagination связывает следующий запрос с позицией источника; offset pagination при изменяющихся данных может пропускать строки. Timeout не сообщает, выполнил ли сервер операцию. Retry требует понимания идемпотентности действия.
+A 200 response confirms page delivery, not dataset completeness. Cursor pagination records a source position; offset pagination over changing data can skip records. A timeout does not reveal whether the server completed an operation. Retry decisions depend on the operation's idempotency.
 
-## Пример из финтеха
+## Fintech example
 
-Провайдер возвращает 100 платежей на страницу, а один платёж появляется во время обхода. Нельзя считать длину первой страницы итогом дня.
+A provider returns 100 payments per page while new payments arrive during retrieval. The first page's length is not the daily total.
 
-## Порядок реализации
+## Implementation steps
 
-1. Прочитай контракт pagination
-2. Сохрани cursor и параметры
-3. Обработай rate limit
-4. Сверь число и сумму с независимым контрольным итогом.
+1. Read the pagination contract
+2. Persist the cursor and query parameters
+3. Handle rate limits
+4. Compare counts and amounts with independent controls.
 
-## Практическое задание
+## Practical assignment
 
-Смоделируй три страницы JSON и сбой после второй. Докажи, что возобновление не теряет третью и не удваивает первые две.
+Simulate three JSON pages and a failure after the second. Prove that resuming preserves the third page without doubling the first two.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Cursor сохраняют до фиксации данных страницы; падение между действиями пропускает необработанные строки.
+Saving a cursor before committing the page allows a crash to skip unprocessed records.
 
-## Проверка результата
+## Verify the result
 
-Набор event_id совпадает с эталоном после любого из трёх искусственных падений.
+After failures at each selected point, the final event ID set equals the reference set.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как изменится стратегия retry для GET и для POST, создающего платёж?
+How should retry behavior differ for a GET and a POST that creates a payment?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — primary documentation; find the section relevant to this lesson.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/007-http/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/007-http/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../01-foundations/006-testing.md) · [Следующий шаг](../01-foundations/008-containers.md) · [Вся карта](../README.md)
+[Previous step](../01-foundations/006-testing.md) · [Next step](../01-foundations/008-containers.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

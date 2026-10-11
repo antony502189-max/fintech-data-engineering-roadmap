@@ -1,49 +1,49 @@
-# 012. JOIN и размножение денежных сумм
+# 012. JOINs and monetary fanout
 
-## Результат обучения
+## Learning outcome
 
-Доказать кардинальность соединения до публикации суммы.
+Prove join cardinality before publishing a monetary sum.
 
-## Как это работает
+## How it works
 
-Many-to-one join безопасен только при уникальности правого ключа. Соединение двух таблиц one-to-many по payment_id создаёт произведение строк. Предварительная агрегация каждой стороны до целевого grain или bridge с правилами распределения предотвращает fanout. DISTINCT на готовом отчёте обычно скрывает дефект.
+A many-to-one join is safe only if the right-side key is unique. Joining two one-to-many tables on payment_id creates a cross-product. Aggregate both inputs to the required grain or use a bridge with allocation rules. DISTINCT on the final report usually conceals the defect.
 
-## Пример из финтеха
+## Fintech example
 
-Две попытки оплаты и три комиссии дают шесть строк после join. Capture 10000 повторяется несколько раз.
+Two payment attempts and three fees produce six joined rows, repeating capture amounts.
 
-## Порядок реализации
+## Implementation steps
 
-1. Проверь ключи обеих сторон
-2. Измерь число строк до и после
-3. Агрегируй fee отдельно
-4. Сверь контрольную сумму capture.
+1. Check keys on both sides
+2. Measure rows before and after
+3. Aggregate fees separately
+4. Reconcile the capture control total.
 
-## Практическое задание
+## Practical assignment
 
-Создай fixtures attempts и fees с кардинальностями 2 и 3. Напиши ошибочный и исправленный запрос.
+Build attempts and fees fixtures with cardinalities two and three. Compare an incorrect query with a corrected one.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-SUM(DISTINCT amount) удаляет одинаковые по сумме разные платежи вместе с дублями.
+SUM(DISTINCT amount) removes separate payments that happen to have equal amounts.
 
-## Проверка результата
+## Verify the result
 
-Два разных платежа по 10000 учитываются оба; adding fee не увеличивает gross capture.
+Two distinct captures of 10000 both count; adding fees does not inflate gross capture.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Чем join к историческому dimension отличается от join к текущему справочнику?
+How does joining a historical dimension differ from joining its current version?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/012-joins/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/012-joins/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/011-sql-grain.md) · [Следующий шаг](../02-sql/013-nulls.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/011-sql-grain.md) · [Next step](../02-sql/013-nulls.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 059. Миграции моделей и обратная совместимость
+# 059. Model migrations and compatibility
 
-## Результат обучения
+## Learning outcome
 
-Выпустить новую схему без одновременного отключения consumers.
+Release new schemas without breaking all consumers at once.
 
-## Как это работает
+## How it works
 
-Expand-contract добавляет новую форму, переводит consumers и затем удаляет старую. Длительность overlap определяется использованием и retention. Destructive schema change требует миграции данных и rollback strategy; revert кода не восстанавливает удалённые колонки. Versioned dataset облегчает сравнение.
+Expand-contract adds the new representation, migrates readers, and then retires the old one. Overlap depends on usage and retention. Destructive changes need data migration and recovery: reverting code cannot recreate deleted columns. Versioned datasets support comparison.
 
-## Пример из финтеха
+## Fintech example
 
-currency переименовывают в settlement_currency, потому что появляется presentment_currency.
+Introducing presentment_currency makes the former currency field ambiguous and motivates settlement_currency.
 
-## Порядок реализации
+## Implementation steps
 
-1. Добавь новую колонку
-2. Backfill old data
-3. Переведи consumers
-4. Удали old после проверки использования.
+1. Add the new field
+2. Backfill history
+3. Migrate readers
+4. Retire the old field after usage checks.
 
-## Практическое задание
+## Practical assignment
 
-Составь migration plan с шагами, acceptance и recoverability для двух валютных полей.
+Plan migration to two explicit currency fields with acceptance and recovery steps.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Ренейм колонок деплоят одним PR; внешние consumers, которых нет в DAG, падают.
+Renaming in one deployment breaks consumers outside the visible DAG.
 
-## Проверка результата
+## Verify the result
 
-Старый и новый reader работают в overlap; удаления имеют отдельное решение.
+Old and new readers work during overlap; removal is a distinct reviewed step.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда rollback deployment не может восстановить прежние данные?
+When can deployment rollback not recover the previous data?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/059-deployments/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/059-deployments/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/058-environments.md) · [Следующий шаг](../06-transformation/060-docs-ops.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/058-environments.md) · [Next step](../06-transformation/060-docs-ops.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

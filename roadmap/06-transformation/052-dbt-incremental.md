@@ -1,48 +1,48 @@
-# 052. dbt incremental, unique key и late updates
+# 052. dbt incremental models and late updates
 
-## Результат обучения
+## Learning outcome
 
-Спроектировать повторяемую incremental модель.
+Design a repeatable incremental model.
 
-## Как это работает
+## How it works
 
-unique_key задаёт match при поддерживаемой incremental strategy, но не заменяет тест уникальности входа. Append и merge имеют разные последствия при replay. Late arrivals требуют arrival-based selection или lookback плюс процедура глубокого backfill. Full refresh надо проверять на эквивалентность incremental output.
+A unique_key defines matching for supported strategies; it does not ensure unique source input. Append and merge behave differently under replay. Late data needs receipt-based selection or lookback plus deeper backfill. Compare full refresh with incremental results.
 
-## Пример из финтеха
+## Fintech example
 
-Late capture обновляет старый день; merge по сегодняшней дате его не исправляет.
+A late capture changes an old day that a today-only merge will miss.
 
-## Порядок реализации
+## Implementation steps
 
-1. Выбери strategy для adapter
-2. Назови unique_key
-3. Найди affected periods
-4. Проверь full refresh equivalence.
+1. Choose an adapter-supported strategy
+2. Define the unique key
+3. Identify affected periods
+4. Verify full-refresh equivalence.
 
-## Практическое задание
+## Practical assignment
 
-Напиши pseudo dbt model и тест-план для двух последовательных runs с e6.
+Write a model sketch and test plan for two successive runs with e6.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Дубликаты source приводят к неопределённому merge или ошибке; unique_key считают очисткой входа.
+Assuming unique_key cleans duplicate input causes ambiguous merges or failures.
 
-## Проверка результата
+## Verify the result
 
-На fixture incremental и full outputs совпадают после replay и late event.
+Incremental and full outputs agree after replay and late delivery.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда incremental_predicate может исключить нужную целевую строку из merge?
+When can an incremental predicate exclude the target row that needs updating?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/052-dbt-incremental/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/052-dbt-incremental/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/051-dbt-basics.md) · [Следующий шаг](../06-transformation/053-orchestration.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/051-dbt-basics.md) · [Next step](../06-transformation/053-orchestration.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

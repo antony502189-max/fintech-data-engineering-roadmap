@@ -1,48 +1,48 @@
-# 001. Роль инженера данных и границы DWH
+# 001. The data engineer's role and DWH boundaries
 
-## Результат обучения
+## Learning outcome
 
-Различать задачи data engineer, analytics engineer, аналитика и владельца финансового процесса.
+Distinguish the responsibilities of data engineers, analytics engineers, analysts, and financial process owners.
 
-## Как это работает
+## How it works
 
-Инженер данных обеспечивает доставку и воспроизводимость данных. Analytics engineer превращает их в согласованные модели. Аналитик отвечает на вопросы бизнеса. DWH хранит аналитическое представление, но не заменяет операционную систему платежей. Одна команда может совмещать роли; ответственность за денежный показатель всё равно должна быть названа явно.
+Data engineers make delivery and reproduction reliable. Analytics engineers turn inputs into agreed models; analysts answer business questions. A warehouse is an analytical representation, not a replacement for the operational payment system. A team may combine roles, but ownership of a financial definition must still be explicit.
 
-## Пример из финтеха
+## Fintech example
 
-Вопрос «сколько мы заработали вчера» требует определить выручку, комиссии, возвраты и дату признания. Число успешных авторизаций не даёт ответа.
+“How much did we earn yesterday?” requires definitions of revenue, fees, refunds, and recognition dates. Counting successful authorizations cannot answer it.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши потребителя и решение
-2. Уточни grain и денежное событие
-3. Назначь владельца определения
-4. Зафиксируй срок готовности данных.
+1. Identify the consumer and decision
+2. Specify the grain and monetary event
+3. Name the definition owner
+4. Agree on data availability deadlines.
 
-## Практическое задание
+## Practical assignment
 
-Составь RACI на пять действий: изменить источник, согласовать net revenue, исправить дубль, закрыть период, восстановить витрину.
+Create a RACI matrix for changing a source, approving net revenue, fixing duplicates, closing a period, and recovering a mart.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Наименование job owner принимают за владельца бизнес-смысла. В результате две исправные витрины публикуют разные финансовые итоги.
+Treating the job owner as the owner of business meaning produces two technically healthy marts with contradictory financial totals.
 
-## Проверка результата
+## Verify the result
 
-Для каждого действия есть ровно один accountable; отдельно указано, кто принимает результат сверки.
+Every activity has exactly one accountable owner. State separately who accepts the reconciliation result.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Кто должен разрешить переиздание закрытого финансового отчёта и почему инженеру недостаточно зелёного CI?
+Who can authorize reissuing a closed financial report, and why is a green CI run insufficient?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/001-roles/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/001-roles/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../../docs/START_HERE.md) · [Следующий шаг](../01-foundations/002-requirements.md) · [Вся карта](../README.md)
+[Previous step](../../docs/START_HERE.md) · [Next step](../01-foundations/002-requirements.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

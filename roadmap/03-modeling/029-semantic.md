@@ -1,49 +1,49 @@
-# 029. Семантический слой и единые показатели
+# 029. Semantic layers and shared metrics
 
-## Результат обучения
+## Learning outcome
 
-Зафиксировать определение gross, net, fees и revenue.
+Define gross, net, fees, and revenue explicitly.
 
-## Как это работает
+## How it works
 
-Название net без контекста неоднозначно: net cash, net sales и net revenue отличаются. Определение показателя включает grain, числитель, валюту, время и исключения. Семантический слой централизует формулы, но не заменяет согласование с владельцем процесса. Метрики должны иметь версии, если меняется смысл.
+“Net” may mean cash, sales, or revenue. A metric needs grain, numerator, currency, time, and exclusions. A semantic layer centralizes formulas but does not replace agreement with a process owner. Meaning changes require versioned definitions.
 
-## Пример из финтеха
+## Fintech example
 
-В лаборатории net_minor = captured - refunded - fee; это synthetic net cash, а не бухгалтерская выручка компании.
+The lab computes captured minus refunded minus fees: synthetic net cash, not company revenue.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши формулу словами
-2. Укажи sign convention
-3. Назови owner
-4. Добавь численный пример и исключения.
+1. Describe the formula
+2. State sign conventions
+3. Name the owner
+4. Include numerical examples and exclusions.
 
-## Практическое задание
+## Practical assignment
 
-Сделай metric contract для gross capture и net cash; отдельно опиши, почему revenue не реализован.
+Write metric contracts for gross capture and net cash. Explain separately why revenue is not implemented.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Учебную формулу net называют прибыльностью бизнеса без расходов, FX и правил признания.
+Calling a teaching cash formula profitability ignores costs, FX, and recognition rules.
 
-## Проверка результата
+## Verify the result
 
-Контракт не смешивает revenue и cash; численный пример совпадает с лабораторией.
+The contract separates cash from revenue and matches the lab's numerical output.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как изменить определение метрики и сохранить сравнимость исторических отчётов?
+How can a changed definition preserve useful historical comparisons?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/029-semantic/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/029-semantic/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/028-entity-events.md) · [Следующий шаг](../03-modeling/030-model-review.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/028-entity-events.md) · [Next step](../03-modeling/030-model-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

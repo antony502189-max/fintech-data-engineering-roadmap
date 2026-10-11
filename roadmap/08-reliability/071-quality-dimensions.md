@@ -1,49 +1,49 @@
-# 071. Полнота, точность, свежесть и согласованность
+# 071. Completeness, accuracy, freshness, and consistency
 
-## Результат обучения
+## Learning outcome
 
-Разделить независимые измерения качества данных.
+Separate independent quality dimensions.
 
-## Как это работает
+## How it works
 
-Freshness измеряет задержку, completeness — наличие ожидаемых данных, accuracy — соответствие действительности, consistency — согласованность представлений. Успех одной проверки не подтверждает остальные. Лучше иметь конкретный invariant и источник expected set, чем единый непрозрачный quality score.
+Freshness measures delay; completeness measures expected coverage; accuracy measures correctness; consistency compares representations. Passing one check says little about the others. Explicit invariants and an expected universe are more useful than an opaque aggregate score.
 
-## Пример из финтеха
+## Fintech example
 
-Своевременно загруженный файл может не содержать p3, а полный файл может иметь неверную сумму.
+A timely file can omit p3; a complete file can contain wrong amounts.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови expected universe
-2. Выбери checks
-3. Раздели critical и informational
-4. Определи publish gate.
+1. Define expected coverage
+2. Select checks
+3. Separate critical and informational outcomes
+4. Establish publication gates.
 
-## Практическое задание
+## Practical assignment
 
-Создай четыре нарушенные fixtures: late, missing, wrong amount, contradictory currency.
+Create late, missing, wrong-amount, and conflicting-currency fixtures.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Максимальный timestamp считают гарантией полноты; один свежий event скрывает тысячи пропущенных.
+Using the maximum timestamp as proof of completeness lets one fresh event hide many missing records.
 
-## Проверка результата
+## Verify the result
 
-Каждый fixture падает по соответствующей проверке и не маскируется общим score.
+Each fixture fails the relevant check instead of disappearing inside an average score.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как получить независимый expected set, если источник не публикует manifest?
+How can you establish expected coverage when the source supplies no manifest?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/071-quality-dimensions/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/071-quality-dimensions/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/070-fintech-review.md) · [Следующий шаг](../08-reliability/072-freshness.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/070-fintech-review.md) · [Next step](../08-reliability/072-freshness.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

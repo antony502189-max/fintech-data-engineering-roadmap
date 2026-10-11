@@ -1,49 +1,49 @@
-# 072. Свежесть и percentiles задержки
+# 072. Freshness and latency percentiles
 
-## Результат обучения
+## Learning outcome
 
-Измерить распределение latency по определённому набору событий.
+Measure latency over a defined event population.
 
-## Как это работает
+## How it works
 
-Latency имеет старт и конец: source time, received_at, transformed_at или published_at. Percentile требует конкретного определения и знаменателя. Максимальная event_time в таблице не показывает задержку каждой записи. Idle source нужно отличать от broken ingestion через heartbeat или expected volume.
+Latency requires explicit endpoints such as source, receipt, transformation, and publication time. Percentiles need a defined calculation and denominator. Maximum event time does not measure each event's delay. Distinguish an idle source from broken ingestion using heartbeats or expected volume.
 
-## Пример из финтеха
+## Fintech example
 
-Большинство платежей приходит за секунду, но e6 запаздывает на два дня.
+Most payments arrive quickly, but e6 is two days late.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи timestamps
-2. Нормализуй UTC
-3. Выбери percentile rule
-4. Раздели idle и failure.
+1. Define timestamps
+2. Normalize UTC
+3. Select the percentile method
+4. Distinguish idle and failed sources.
 
-## Практическое задание
+## Practical assignment
 
-Посчитай delays fixture и nearest-rank p95. Объясни, почему tiny dataset плохо оценивает production tail.
+Calculate fixture delays and nearest-rank p95. Explain the limitations of estimating production tails from tiny samples.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Смешивают business time и server-local time; негативную задержку заменяют нулём.
+Mixing business and local-server clocks, then clipping negative delay to zero, hides clock defects.
 
-## Проверка результата
+## Verify the result
 
-В отчёте указаны count, units, percentile method и отклонённые timestamps.
+Report count, units, percentile method, and invalid timestamps.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда отсутствие новых событий означает нормальное поведение источника?
+When is an absence of new events expected source behavior?
 
-## Что читать дальше
+## Further reading
 
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/072-freshness/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/072-freshness/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/071-quality-dimensions.md) · [Следующий шаг](../08-reliability/073-observability.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/071-quality-dimensions.md) · [Next step](../08-reliability/073-observability.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

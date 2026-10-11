@@ -1,49 +1,49 @@
-# 067. Кредитный lifecycle и витрины задолженности
+# 067. Credit lifecycles and debt marts
 
-## Результат обучения
+## Learning outcome
 
-Различать выдачу, начисление, оплату и остаток задолженности.
+Distinguish disbursements, accruals, repayments, and balances.
 
-## Как это работает
+## How it works
 
-Выдача создаёт поток и обязательство, начисления меняют компоненты долга, оплата распределяется по установленному waterfall. Остаток на дату — snapshot, а не сумма ежедневных остатков. Правила процентов и распределения зависят от продукта; учебный пример не определяет реальную кредитную политику.
+Disbursement creates a flow and obligation; accruals change debt components; repayments follow an agreed allocation waterfall. Dated outstanding balance is a snapshot, not a sum of daily states. Actual interest and allocation rules are product-specific; the example does not define lending policy.
 
-## Пример из финтеха
+## Fintech example
 
-Synthetic payment 1200 распределяется: fee 100, interest 200, principal 900 при заданном учебном порядке.
+Synthetic repayment 1200 allocates fee 100, interest 200, and principal 900 under the teaching order.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши loan events
-2. Зафиксируй waterfall
-3. Раздели balance components
-4. Проверь conservation of allocation.
+1. Define loan events
+2. Fix allocation order
+3. Separate components
+4. Verify conservation.
 
-## Практическое задание
+## Practical assignment
 
-Реализуй распределение платежа по заданным задолженностям; overflow сохрани отдельно как unallocated.
+Implement allocation against specified amounts due and preserve excess as unallocated.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Всю оплату вычитают из principal, игнорируя компоненты и согласованный порядок.
+Subtracting all repayments from principal ignores other components and policy.
 
-## Проверка результата
+## Verify the result
 
-Сумма allocations плюс unallocated равна payment, ни одна компонента не становится отрицательной.
+Allocations plus remainder equal payment; no debt component becomes negative.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему нельзя суммировать daily principal balance для получения месячной выдачи?
+Why is summing daily principal balances not a measure of monthly disbursement?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/067-credit/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/067-credit/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/066-cutoff-close.md) · [Следующий шаг](../07-fintech/068-fraud-data.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/066-cutoff-close.md) · [Next step](../07-fintech/068-fraud-data.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 044. Облачный DWH: стоимость, роли и эксплуатация
+# 044. Managed warehouses: cost, roles, and operation
 
-## Результат обучения
+## Learning outcome
 
-Сравнить managed warehouse по требованиям, а не по бренду.
+Compare warehouses against requirements rather than branding.
 
-## Как это работает
+## How it works
 
-Managed DWH снимает часть управления инфраструктурой, но оставляет modeling, permissions, workload isolation и cost control. Billing может зависеть от scanned data, compute duration или выделенной ёмкости. Выбор зависит от workload, региона, интеграций и требований команды; универсального победителя нет.
+Managed warehouses reduce infrastructure work but leave modeling, permissions, isolation, and cost control to users. Billing may depend on scans, compute time, or capacity. Choice depends on workload, region, integrations, and team needs; no option wins universally.
 
-## Пример из финтеха
+## Fintech example
 
-Ad-hoc запрос сканирует весь raw payload за год и расходует бюджет ежедневной сверки.
+An ad hoc yearly raw scan consumes resources needed for daily reconciliation.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши workload
-2. Выбери одну платформу для trial
-3. Установи budget alerts
-4. Измерь representative queries.
+1. Describe workload
+2. Select one platform to evaluate
+3. Establish budget controls
+4. Measure representative queries.
 
-## Практическое задание
+## Practical assignment
 
-Сделай таблицу BigQuery, Snowflake и PostgreSQL: latency, стоимость эксперимента, isolation, maintenance. Актуальные цены проверяй перед оплатой.
+Compare BigQuery, Snowflake, and PostgreSQL for latency, experiment cost, isolation, and maintenance. Check current prices before spending.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Ориентируются на бесплатный trial и переносят вывод на production объём без расчёта.
+Extrapolating a free trial to production ignores representative volume and workload.
 
-## Проверка результата
+## Verify the result
 
-Решение содержит явно оценённый dataset size и методы ограничения расходов.
+Record dataset-size assumptions and methods of limiting expenditure.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как отделить исследовательские запросы от обязательного ежедневного закрытия?
+How can research queries be isolated from mandatory daily close?
 
-## Что читать дальше
+## Further reading
 
-- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — первичная документация; ищи раздел по теме урока.
-- [Snowflake documentation](https://docs.snowflake.com/en/) — первичная документация; ищи раздел по теме урока.
+- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — primary documentation; find the section relevant to this lesson.
+- [Snowflake documentation](https://docs.snowflake.com/en/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/044-cloud-dwh/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/044-cloud-dwh/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/043-iceberg.md) · [Следующий шаг](../05-storage/045-spark.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/043-iceberg.md) · [Next step](../05-storage/045-spark.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

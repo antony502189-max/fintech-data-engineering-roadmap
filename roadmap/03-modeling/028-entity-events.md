@@ -1,49 +1,49 @@
-# 028. Состояние сущности и история событий
+# 028. Entity state and event history
 
-## Результат обучения
+## Learning outcome
 
-Моделировать платежный lifecycle без потери значимых переходов.
+Model payment transitions without losing meaningful changes.
 
-## Как это работает
+## How it works
 
-Текущая запись payment удобна для оперативного чтения, но стирает предыдущие состояния. Event log сохраняет переходы и допускает replay. События могут приходить вне порядка; latest arrival не равно latest business state. Коррекция и reversal — разные события с разными финансовыми последствиями.
+A current payment record is convenient but replaces earlier state. Event history retains transitions and supports replay. Out-of-order deliveries mean latest receipt is not necessarily latest business state. Corrections and reversals have different financial effects.
 
-## Пример из финтеха
+## Fintech example
 
-Refund может быть доставлен раньше capture. Временный статус не должен навсегда уничтожить будущую корректную историю.
+A refund arrives before its capture. Temporary missing context must not permanently destroy the eventual history.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши state machine
-2. Назови порядок источника
-3. Отдели financial events
-4. Определи обработку out-of-order.
+1. Define a state machine
+2. Specify source order
+3. Separate financial events
+4. Handle out-of-order delivery.
 
-## Практическое задание
+## Practical assignment
 
-Нарисуй переходы authorise, capture, partial refund, full refund; отметь, какие создают движение денег.
+Draw authorization, capture, partial-refund, and full-refund transitions. Mark which move money.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Последний received_at выбирают как финальный бизнес-статус; запоздавшая авторизация отменяет capture.
+Selecting final state by latest received_at lets a delayed authorization replace a capture.
 
-## Проверка результата
+## Verify the result
 
-Перестановка delivery order сохраняет итог денежных событий; невозможные переходы видны в quality report.
+Changing delivery order preserves monetary totals; invalid transitions appear in quality output.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему статус «успешно» недостаточен для вычисления движения денег?
+Why is a “successful” status insufficient to calculate money movement?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — primary documentation; find the section relevant to this lesson.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/028-entity-events/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/028-entity-events/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/027-data-vault.md) · [Следующий шаг](../03-modeling/029-semantic.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/027-data-vault.md) · [Next step](../03-modeling/029-semantic.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

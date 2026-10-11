@@ -1,48 +1,48 @@
-# 008. Контейнеры и локальное окружение
+# 008. Containers and local environments
 
-## Результат обучения
+## Learning outcome
 
-Объяснить, что фиксирует контейнер и что остаётся внешней зависимостью.
+Explain what a container fixes and what remains an external dependency.
 
-## Как это работает
+## How it works
 
-Образ задаёт файловую систему и runtime. Volume хранит данные вне слоя контейнера; удаление контейнера не обязано удалять volume. Переменные, сетевые сервисы и архитектура процессора остаются частью окружения. Контейнер не делает приложение автоматически безопасным или воспроизводимым при плавающих тегах.
+An image defines a filesystem and runtime. A volume stores data outside the container layer; deleting the container need not delete the volume. Configuration, network services, and processor architecture remain part of the environment. Floating tags do not make a deployment reproducible.
 
-## Пример из финтеха
+## Fintech example
 
-Разработчик проверил модель на SQLite, а команда использует PostgreSQL. Нужны тесты диалекта и поведения транзакций, даже если Python запускается из одного образа.
+A developer validates a model on SQLite while the team uses PostgreSQL. Sharing a Python image does not eliminate differences in SQL or transaction behavior.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи требуемый runtime
-2. Зафиксируй версию образа
-3. Отдели данные в volume
-4. Добавь healthcheck и команду проверки.
+1. Identify the runtime
+2. Pin the image version
+3. Separate persistent data
+4. Add a health check and verification command.
 
-## Практическое задание
+## Practical assignment
 
-Составь Dockerfile для лаборатории и сравни запуск с обычным python -m fintech_lab. Зафиксируй версии, не загружай реальные платёжные данные.
+Create a Dockerfile for the lab and compare it with python -m fintech_lab. Record versions and use synthetic data.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Тег latest меняется; новый runtime ломает загрузку в день финансового закрытия.
+A latest tag changes and introduces an incompatible runtime during financial close.
 
-## Проверка результата
+## Verify the result
 
-Окружение создаётся с нуля по инструкции; результаты фикстуры совпадают с эталоном.
+A clean environment can be created from the instructions and produces the expected fixture results.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему контейнер с сохранённым volume не равен чистому тестовому окружению?
+Why is a container with a retained volume not a clean test environment?
 
-## Что читать дальше
+## Further reading
 
-- [Docker documentation](https://docs.docker.com/get-started/) — первичная документация; ищи раздел по теме урока.
+- [Docker documentation](https://docs.docker.com/get-started/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/008-containers/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/008-containers/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../01-foundations/007-http.md) · [Следующий шаг](../01-foundations/009-time-money.md) · [Вся карта](../README.md)
+[Previous step](../01-foundations/007-http.md) · [Next step](../01-foundations/009-time-money.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

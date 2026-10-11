@@ -1,49 +1,49 @@
-# 020. Ревью SQL и переносимость диалектов
+# 020. SQL review and dialect portability
 
-## Результат обучения
+## Learning outcome
 
-Оценить модель по смыслу, производительности и совместимости.
+Review semantics, performance, and compatibility together.
 
-## Как это работает
+## How it works
 
-SQLite подходит для локального обучения, но типы, временные функции, блокировки и SQL конструкции отличаются от PostgreSQL и облачных DWH. Перенос требует явно проверить dialect и semantics. Ревью модели начинается с grain, затем проверяет joins, NULL, currency, boundaries, tests и plan.
+SQLite supports local learning, but types, time functions, locks, and SQL constructs differ from PostgreSQL and cloud warehouses. Porting requires explicit semantic verification. Review grain first, then joins, NULL, currencies, boundaries, tests, and rebuild plans.
 
-## Пример из финтеха
+## Fintech example
 
-QUALIFY работает в части DWH, но для SQLite нужен подзапрос с ROW_NUMBER. Учебный запрос нельзя просто выдать за production dbt model.
+QUALIFY is available in some warehouses; SQLite examples use a ROW_NUMBER subquery. A teaching query is not automatically a production dbt model.
 
-## Порядок реализации
+## Implementation steps
 
-1. Составь checklist
-2. Проверь ключи и суммы
-3. Отметь dialect-specific функции
-4. Объясни план пересчёта.
+1. Build a checklist
+2. Verify keys and totals
+3. Mark dialect-specific functions
+4. Explain historical recomputation.
 
-## Практическое задание
+## Practical assignment
 
-Портируй одну оконную задачу в PostgreSQL как проектное упражнение; укажи, запускал ли её реально.
+Port a window exercise to PostgreSQL as an extension. State whether you actually executed that version.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Используют implicit casts и местную timezone; после переноса результат меняется без синтаксической ошибки.
+Implicit casts and local timezones change results after migration without causing syntax errors.
 
-## Проверка результата
+## Verify the result
 
-Документ различает проверенный SQLite пример и непроверенный вариант другого движка.
+Clearly distinguish verified SQLite behavior from an unexecuted alternative.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как проверить семантику временного фильтра при переносе между двумя DWH?
+How can you verify temporal filter semantics when moving between warehouse engines?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/020-sql-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/020-sql-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/019-query-quality.md) · [Следующий шаг](../03-modeling/021-architecture.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/019-query-quality.md) · [Next step](../03-modeling/021-architecture.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

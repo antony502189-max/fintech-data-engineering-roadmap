@@ -1,49 +1,49 @@
-# 076. Lineage и оценка радиуса изменения
+# 076. Lineage and change impact
 
-## Результат обучения
+## Learning outcome
 
-Определить, какие consumers затронуты изменением колонки.
+Identify consumers affected by a column change.
 
-## Как это работает
+## How it works
 
-Табличный lineage даёт начальную карту зависимостей; column lineage точнее связывает формулы. Внешние exports, spreadsheets и ML datasets часто отсутствуют в автоматическом графе. Change impact требует metadata, owners и поиска фактического использования. Версии отчетов позволяют оценить ретроспективный ущерб.
+Table lineage gives a broad dependency map; column lineage ties specific formulas together. Exports, spreadsheets, and ML datasets may sit outside automatic graphs. Impact analysis needs metadata, owners, and actual usage. Versioned outputs support historical scoping.
 
-## Пример из финтеха
+## Fintech example
 
-Изменение fee sign затрагивает net cash, но не count distinct payments.
+Changing the fee sign affects net cash but not distinct payment counts.
 
-## Порядок реализации
+## Implementation steps
 
-1. Создай dependency graph
-2. Отметь metric columns
-3. Добавь внешние consumers
-4. Выдели affected versions.
+1. Map dependencies
+2. Identify metric columns
+3. Add external consumers
+4. Find affected versions.
 
-## Практическое задание
+## Practical assignment
 
-Построй reachability для raw fee → daily cash → report и независимой payment count ветки.
+Build reachability for fee→daily cash→report alongside an independent payment-count branch.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Любое изменение raw объявляют влияющим на всё либо доверяют неполному автоматическому graph.
+Declaring every source change affects everything, or trusting incomplete automatic lineage, produces poor scope.
 
-## Проверка результата
+## Verify the result
 
-Scope содержит прямо и косвенно затронутые продукты и явно неизвестные consumers.
+List direct and indirect effects and explicitly unknown consumers.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда table lineage слишком груб для планирования безопасного backfill?
+When is table-level lineage too coarse for a safe backfill?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/076-lineage-impact/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/076-lineage-impact/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/075-incident.md) · [Следующий шаг](../08-reliability/077-backup.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/075-incident.md) · [Next step](../08-reliability/077-backup.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

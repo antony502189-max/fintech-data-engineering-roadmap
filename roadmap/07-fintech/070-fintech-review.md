@@ -1,49 +1,49 @@
-# 070. Финансовый data product: приёмка
+# 070. Financial data-product acceptance
 
-## Результат обучения
+## Learning outcome
 
-Оценить готовность витрины по доказательствам, а не числу инструментов.
+Assess readiness through evidence rather than tool count.
 
-## Как это работает
+## How it works
 
-Приёмка требует scope, формулы, валюты, grain, completeness, timeliness, reconciliation и объяснимой истории исправлений. Согласованный net cash не доказывает revenue. Операционный SLA не заменяет финконтроль. Production launch должен иметь owners и recovery procedure.
+Acceptance needs scope, formulas, currency, grain, completeness, timeliness, reconciliation, and correction history. Net cash does not prove revenue. Operational SLOs do not replace financial controls. Launch requires owners and recovery procedures.
 
-## Пример из финтеха
+## Fintech example
 
-Fixture показывает matched p1,p2, mismatch p3 и unexpected p9; публикация final должна учитывать exceptions.
+The fixture has matched p1/p2, mismatched p3, and unexpected p9; final publication must consider exceptions.
 
-## Порядок реализации
+## Implementation steps
 
-1. Собери metric contract
-2. Выполни financial checks
-3. Классифицируй exceptions
-4. Реши provisional или blocked publish.
+1. Assemble metric contracts
+2. Run financial checks
+3. Classify exceptions
+4. Decide provisional or blocked publication.
 
-## Практическое задание
+## Practical assignment
 
-Подготовь acceptance dossier для synthetic daily cash и приложи две нерешённые причины из reconcile.
+Create a daily-cash acceptance dossier containing both unresolved reconciliation exceptions.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Отчёт выпускают потому, что код красивый и все инфраструктурные checks зелёные.
+Publishing because implementation quality and infrastructure checks look good ignores financial defects.
 
-## Проверка результата
+## Verify the result
 
-Dossier различает технические и финансовые проверки и содержит ограничения модели.
+Separate technical and financial evidence and state model limits.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какой набор доказательств нужен, чтобы снять блокировку final publication?
+Which evidence is required to unblock final publication?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/070-fintech-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/070-fintech-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/069-kyc-data.md) · [Следующий шаг](../08-reliability/071-quality-dimensions.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/069-kyc-data.md) · [Next step](../08-reliability/071-quality-dimensions.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 087. FinOps и цена полезного результата
+# 087. FinOps and cost per useful result
 
-## Результат обучения
+## Learning outcome
 
-Оценить затраты на workload и установить контроль расходов.
+Estimate workload cost and establish spending controls.
 
-## Как это работает
+## How it works
 
-Cost per run, per GB и per published dataset помогают связать технические расходы с полезной работой. Scanned bytes, compute duration, storage, egress и retries учитываются отдельно. Estimate использует явно заданные цены, а actual сверяется с billing. Учебные числа — сценарий, не текущие тарифы.
+Cost per run, GB, or published dataset links expense to useful output. Account for scans, compute, storage, egress, and retries separately. Estimates state prices explicitly and reconcile with actual billing. Teaching prices are scenarios, not current tariffs.
 
-## Пример из финтеха
+## Fintech example
 
-Backfill за год стоит больше обычного daily run и требует отдельного бюджета.
+A yearly backfill costs more than a daily run and needs a separate budget.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови cost components
-2. Подставь synthetic prices
-3. Рассчитай normal и backfill
-4. Добавь budget gate.
+1. Identify components
+2. Supply synthetic prices
+3. Compare normal and backfill cost
+4. Establish budget gates.
 
-## Практическое задание
+## Practical assignment
 
-Реализуй estimate при заданной цене за GB и compute hour; проверь units и rounding.
+Implement estimates from specified GB and compute-hour prices. Check units and rounding.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Бесплатный storage trial скрывает egress и постоянную вычислительную нагрузку.
+Free storage trials conceal egress and ongoing compute costs.
 
-## Проверка результата
+## Verify the result
 
-Расчёт содержит assumptions, currency и объём, а не «примерно дешево».
+Record assumptions, currency, and volume instead of describing the system as cheap.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему уменьшение runtime может увеличить стоимость при более дорогом compute tier?
+Why can reduced runtime still increase cost on a higher-priced compute tier?
 
-## Что читать дальше
+## Further reading
 
-- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — первичная документация; ищи раздел по теме урока.
-- [Snowflake documentation](https://docs.snowflake.com/en/) — первичная документация; ищи раздел по теме урока.
+- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — primary documentation; find the section relevant to this lesson.
+- [Snowflake documentation](https://docs.snowflake.com/en/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/087-cost/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/087-cost/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/086-iac.md) · [Следующий шаг](../09-platform/088-ownership.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/086-iac.md) · [Next step](../09-platform/088-ownership.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

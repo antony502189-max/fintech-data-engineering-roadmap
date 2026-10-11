@@ -1,48 +1,48 @@
-# 014. Оконные функции и детерминированный порядок
+# 014. Window functions and deterministic ordering
 
-## Результат обучения
+## Learning outcome
 
-Использовать ROW_NUMBER, LAG и накопительный итог без случайного выбора строки.
+Use ROW_NUMBER, LAG, and running totals without arbitrary selection.
 
-## Как это работает
+## How it works
 
-Оконная функция сохраняет строки и вычисляет значение по partition. Для latest record нужна полная сортировка: timestamp может совпасть, поэтому добавь стабильный sequence или event_id, если контракт разрешает его как tie-breaker. ROWS и RANGE имеют различную семантику при одинаковых ключах порядка.
+Window functions preserve rows while computing over a partition. A latest-record query needs complete ordering: timestamps may tie, so use a stable source sequence or a contract-approved tie-breaker. ROWS and RANGE behave differently when ordering values are equal.
 
-## Пример из финтеха
+## Fintech example
 
-Две версии статуса пришли в одну миллисекунду. Если выбрать только ORDER BY updated_at, результат между запусками может измениться.
+Two status versions arrive in the same millisecond. Sorting only by updated_at may select different records across executions.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови partition key
-2. Определи tie-breaker
-3. Зафиксируй оконный frame
-4. Проверь одинаковые timestamps.
+1. Choose the partition key
+2. Define the tie-breaker
+3. Specify the window frame
+4. Test equal timestamps.
 
-## Практическое задание
+## Practical assignment
 
-Напиши накопительный net по валюте с ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW; сравни с итогом GROUP BY.
+Compute cumulative net per currency with ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW; reconcile it with GROUP BY totals.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Порядок получения из файла принимают за бизнес-порядок событий.
+Treating file arrival order as business order creates unstable state.
 
-## Проверка результата
+## Verify the result
 
-Перестановка входных строк не меняет результат, если явно сохранён source sequence.
+Reordering deliveries does not change the result when the source sequence is preserved.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему max(timestamp) с последующим join может вернуть две «последние» строки?
+Why can MAX(timestamp) followed by a join return two “latest” rows?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/014-windows/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/014-windows/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/013-nulls.md) · [Следующий шаг](../02-sql/015-transactions.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/013-nulls.md) · [Next step](../02-sql/015-transactions.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

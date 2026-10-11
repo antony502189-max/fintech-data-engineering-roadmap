@@ -1,49 +1,49 @@
-# 039. Replay, backfill и исправление истории
+# 039. Replay, backfill, and historical corrections
 
-## Результат обучения
+## Learning outcome
 
-Сделать повторную обработку контролируемой операцией.
+Make repeated processing a controlled operation.
 
-## Как это работает
+## How it works
 
-Replay применяет сохранённый вход заново; backfill заполняет пропущенный период или пересчитывает его новой логикой. Нужны scope, версия кода, manifest, ограничение нагрузки и проверка результатов до переключения consumers. Повтор не должен зависеть от текущего wall clock или изменившегося справочника без версии.
+Replay processes retained input again. Backfill fills missing history or recomputes it under new logic. Define scope, code version, manifest, resource limits, and checks before consumer switching. Results must not silently depend on current clocks or unversioned reference data.
 
-## Пример из финтеха
+## Fintech example
 
-Исправлена ошибка комиссии за январь; пересчёт должен сохранить старый published dataset и показать diff.
+A fee bug affects January. Rebuild should preserve the old published dataset and show a candidate diff.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови affected partitions
-2. Создай shadow output
-3. Сверь totals
-4. Выполни controlled publish.
+1. Identify affected partitions
+2. Build shadow output
+3. Reconcile totals
+4. Publish under explicit controls.
 
-## Практическое задание
+## Practical assignment
 
-Напиши план backfill для e6 и отдельный план изменения sign fee. Для второго нужен новый dataset version.
+Write separate plans for late e6 and a changed fee sign. The latter needs a new dataset version.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Удаляют всю mart и начинают пересчёт под нагрузкой; читатели получают частичный месяц.
+Deleting the live mart before rebuilding exposes a partial month.
 
-## Проверка результата
+## Verify the result
 
-До публикации доступны old и candidate totals, критерии acceptance и rollback target.
+Old and candidate totals, acceptance criteria, and rollback targets exist before publication.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда replay прежнего входа всё равно даёт другой результат?
+When can replaying identical input still produce a different result?
 
-## Что читать дальше
+## Further reading
 
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/039-replay/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/039-replay/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/038-outbox.md) · [Следующий шаг](../04-ingestion/040-ingestion-audit.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/038-outbox.md) · [Next step](../04-ingestion/040-ingestion-audit.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

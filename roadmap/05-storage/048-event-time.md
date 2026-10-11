@@ -1,48 +1,48 @@
-# 048. Event time, watermarks и поздние события
+# 048. Event time, watermarks, and late data
 
-## Результат обучения
+## Learning outcome
 
-Различать временные окна и полноту результата.
+Separate window progress from data completeness.
 
-## Как это работает
+## How it works
 
-Event time описывает время действия, processing time — время обработки. Watermark оценивает прогресс времени по правилам stream, но не доказывает, что все события прибыли. Late events могут требовать update, retraction или отдельного correction stream. Финансовое закрытие нуждается в независимой полноте.
+Event time describes business activity; processing time describes execution. A watermark estimates temporal progress under stream rules and does not prove every event arrived. Late records may require updates, retractions, or corrections. Financial close still needs independent completeness evidence.
 
-## Пример из финтеха
+## Fintech example
 
-e6 приходит через два дня и относится к старому daily total; закрытое окно не делает его несуществующим.
+e6 arrives two days late and changes an earlier daily total; closing a stream window does not make it disappear.
 
-## Порядок реализации
+## Implementation steps
 
-1. Выбери allowed lateness
-2. Определи side output
-3. Назови correction policy
-4. Свяжи stream total с batch reconciliation.
+1. Choose lateness tolerance
+2. Define a side output
+3. Specify correction policy
+4. Reconcile stream and batch results.
 
-## Практическое задание
+## Practical assignment
 
-Нарисуй timeline e1 и e6; покажи provisional, updated и closed totals.
+Draw e1 and e6 timelines with provisional, updated, and closed totals.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Watermark называют гарантией отсутствия будущих событий и теряют поздние capture.
+Treating a watermark as proof of no future arrivals silently drops late captures.
 
-## Проверка результата
+## Verify the result
 
-Для события за пределом lateness есть проверяемый маршрут, а не silent drop.
+Events beyond allowed lateness have a verifiable processing route.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда допустимо оставить late event только в аналитическом correction report?
+When is a separate correction report an acceptable treatment of late events?
 
-## Что читать дальше
+## Further reading
 
-- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — первичная документация; ищи раздел по теме урока.
+- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/048-event-time/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/048-event-time/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/047-streaming.md) · [Следующий шаг](../05-storage/049-state-checkpoints.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/047-streaming.md) · [Next step](../05-storage/049-state-checkpoints.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

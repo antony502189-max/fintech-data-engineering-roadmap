@@ -1,48 +1,48 @@
-# 053. Оркестрация: dependencies и data intervals
+# 053. Orchestration dependencies and data intervals
 
-## Результат обучения
+## Learning outcome
 
-Определить DAG по готовности данных, а не только по расписанию.
+Design a DAG around data readiness rather than schedules alone.
 
-## Как это работает
+## How it works
 
-Orchestrator управляет зависимостями, retries, наблюдаемостью и запуском. Logical data interval задаёт обрабатываемый период; текущий wall clock не должен незаметно менять его. Schedule не доказывает наличие источника. Данные становятся ready после checks, а не после старта upstream job.
+Orchestrators manage dependencies, retries, observation, and execution. A logical data interval identifies the period; wall-clock time must not silently change it. A schedule does not prove that source data exists. Readiness follows successful checks, not merely upstream startup.
 
-## Пример из финтеха
+## Fintech example
 
-Daily mart за 1 января строится 3 января при backfill и должна сохранить январский interval.
+A January 1 mart rebuilt on January 3 must still process the January 1 interval.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи interval
-2. Вырази dependencies
-3. Добавь source-ready condition
-4. Передавай параметры явно.
+1. Define intervals
+2. Express dependencies
+3. Require source readiness
+4. Pass parameters explicitly.
 
-## Практическое задание
+## Practical assignment
 
-Нарисуй DAG ingest → checks → transform → reconciliation → publish, укажи входной период каждой задачи.
+Draw ingestion → checks → transformation → reconciliation → publication and specify each task's period.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Каждая task вычисляет yesterday от now; backfill пересчитывает один и тот же вчерашний день.
+Computing yesterday from now in every task makes backfill rebuild the same recent day.
 
-## Проверка результата
+## Verify the result
 
-Повтор запуска одного interval выбирает тот же input manifest и dataset scope.
+Repeated execution of an interval selects the same input manifest and scope.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Чем logical date отличается от фактического времени старта job?
+How does logical date differ from actual job start time?
 
-## Что читать дальше
+## Further reading
 
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/053-orchestration/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/053-orchestration/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/052-dbt-incremental.md) · [Следующий шаг](../06-transformation/054-retry-design.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/052-dbt-incremental.md) · [Next step](../06-transformation/054-retry-design.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

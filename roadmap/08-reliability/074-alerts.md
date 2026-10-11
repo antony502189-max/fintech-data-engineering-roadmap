@@ -1,49 +1,49 @@
-# 074. Алерты, владельцы и бюджет ошибок
+# 074. Alerts, owners, and error budgets
 
-## Результат обучения
+## Learning outcome
 
-Сделать сигнал полезным для конкретного действия.
+Make signals actionable for specific consumers.
 
-## Как это работает
+## How it works
 
-Alert должен указывать affected data product, impact, owner и первый diagnostic step. Warning статистического отклонения и critical financial mismatch требуют разных действий. Шумные алерты учат игнорировать сигнал. Error budget помогает обсуждать надёжность и темп изменений, но не оправдывает незамеченные денежные дефекты.
+An alert identifies the product, impact, owner, and first diagnostic step. Statistical warnings and critical monetary mismatches require different actions. Excessive noise teaches users to ignore alerts. Error budgets inform reliability tradeoffs, not permission to overlook money errors.
 
-## Пример из финтеха
+## Fintech example
 
-p3 mismatch на 100 minor units имеет конкретное денежное воздействие; падение dev notebook — другое.
+A p3 mismatch of 100 minor units has a specific impact unlike a failed development notebook.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи severity
-2. Назови owner
-3. Добавь runbook link
-4. Проверь false positive cases.
+1. Assign severity
+2. Name the owner
+3. Link a runbook
+4. Test false positives.
 
-## Практическое задание
+## Practical assignment
 
-Составь alert для missing settlement и amount mismatch с units и cutoffs.
+Write missing-settlement and mismatch alerts with units and cutoffs.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Алерт «job failed» не сообщает, какой период отчёта недоступен и кто страдает.
+“Job failed” does not tell an on-call engineer which period or consumer is affected.
 
-## Проверка результата
+## Verify the result
 
-Получатель понимает affected date/currency и действие без чтения всего DAG.
+The recipient knows the date, currency, and first action without reading the whole DAG.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему доля успешных tasks может улучшиться, а пользовательская надёжность ухудшиться?
+Why can task success rates improve while consumer reliability worsens?
 
-## Что читать дальше
+## Further reading
 
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/074-alerts/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/074-alerts/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/073-observability.md) · [Следующий шаг](../08-reliability/075-incident.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/073-observability.md) · [Next step](../08-reliability/075-incident.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

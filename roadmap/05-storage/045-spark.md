@@ -1,48 +1,48 @@
-# 045. Spark: partitions, shuffle и память
+# 045. Spark partitions, shuffle, and memory
 
-## Результат обучения
+## Learning outcome
 
-Понимать, какие операции перемещают данные между executors.
+Identify operations that move data between executors.
 
-## Как это работает
+## How it works
 
-Spark распараллеливает вычисления по partitions. Shuffle перемещает данные для join или aggregation и часто доминирует в стоимости. collect переносит результат на driver; большой набор может исчерпать память. Увеличение executors не устраняет skew или неверную архитектуру query.
+Spark distributes work across partitions. Joins and aggregations can shuffle data, often dominating cost. collect transfers results to the driver and can exhaust its memory. More executors do not automatically repair skew or an inefficient plan.
 
-## Пример из финтеха
+## Fintech example
 
-Один крупный merchant создаёт половину платежей и делает одну reduce task намного тяжелее остальных.
+One merchant generates half the payments and overloads a reduce task.
 
-## Порядок реализации
+## Implementation steps
 
-1. Прочитай physical plan
-2. Найди shuffle
-3. Измерь skew
-4. Сравни оптимизации на одной fixture.
+1. Inspect the physical plan
+2. Locate shuffles
+3. Measure skew
+4. Compare changes on one fixture.
 
-## Практическое задание
+## Practical assignment
 
-Создай design benchmark group by merchant и currency; для реального запуска расширения сохрани Spark version и task metrics.
+Design a merchant/currency aggregation benchmark. For an actual run, retain Spark version and task metrics.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-collect используют для удобства записи JSON; driver падает, хотя executors свободны.
+Collecting a large dataset to write convenient JSON crashes the driver while executors remain available.
 
-## Проверка результата
+## Verify the result
 
-Отчёт содержит partition sizes, shuffle bytes и max task duration.
+Report partition sizes, shuffle bytes, and longest task duration.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда repartition добавляет стоимость, не ускоряя вычисление?
+When does repartition add cost without improving useful computation?
 
-## Что читать дальше
+## Further reading
 
-- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/045-spark/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/045-spark/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/044-cloud-dwh.md) · [Следующий шаг](../05-storage/046-skew-joins.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/044-cloud-dwh.md) · [Next step](../05-storage/046-skew-joins.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 015. Транзакции и атомарность batch
+# 015. Transactions and batch atomicity
 
-## Результат обучения
+## Learning outcome
 
-Проверять, что данные и управляющее состояние фиксируются вместе.
+Verify that data and control state commit together.
 
-## Как это работает
+## How it works
 
-Транзакция объединяет изменения в атомарную единицу. При ошибке batch должен либо оставить целостный результат, либо откатиться. Граница транзакции — выбор архитектуры: огромный batch повышает время блокировок, отдельные строки усложняют контроль полноты. Внешний API и database transaction не становятся одной транзакцией автоматически.
+A transaction groups changes into an atomic unit. A failed batch must leave a consistent result or roll back. Choosing the unit is an architectural decision: very large batches hold resources longer, while row-level commits complicate completeness. An API and database transaction are not automatically one transaction.
 
-## Пример из финтеха
+## Fintech example
 
-Проводки записаны, а raw event потерян; сверка больше не может объяснить происхождение суммы.
+Postings exist but their raw event is missing, so the amount's provenance cannot be explained.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови атомарную единицу
-2. Помести raw и postings в одну transaction
-3. Смоделируй exception
-4. Проверь состояние после rollback.
+1. Define the atomic unit
+2. Write raw and postings in one transaction
+3. Inject an exception
+4. Inspect rollback state.
 
-## Практическое задание
+## Practical assignment
 
-Запусти test_conflict_rolls_back_batch. Добавь новый корректный event перед конфликтующим и проверь отсутствие частичной загрузки.
+Run test_conflict_rolls_back_batch. Place a valid new event before a conflicting one and verify that the new event is absent afterward.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Checkpoint обновляют в другой транзакции раньше данных; возобновление перескакивает незаписанный batch.
+Updating a checkpoint before data in another transaction skips unwritten records on restart.
 
-## Проверка результата
+## Verify the result
 
-После сбоя число событий и проводок равно снимку до batch.
+After failure, event and posting counts match the pre-batch snapshot.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда разумнее карантин строки, а когда требуется откат всей партии?
+When is row quarantine preferable, and when must the entire batch roll back?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/015-transactions/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/015-transactions/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/014-windows.md) · [Следующий шаг](../02-sql/016-indexes.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/014-windows.md) · [Next step](../02-sql/016-indexes.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

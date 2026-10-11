@@ -1,49 +1,49 @@
-# 069. KYC/AML данные и происхождение решений
+# 069. KYC/AML provenance and protected data
 
-## Результат обучения
+## Learning outcome
 
-Спроектировать защищённые данные проверки без выдуманной регуляторной логики.
+Design decision evidence without inventing legal requirements.
 
-## Как это работает
+## How it works
 
-Инженер хранит evidence provenance, версии правил и статусы проверки, а не самостоятельно определяет юридические требования. Сроки хранения, разрешённые доступы и исключения задаются применимой политикой. История решений нужна, чтобы объяснить, какие сведения были доступны на момент действия.
+Engineers preserve evidence origins, rule versions, and decision states; they do not independently establish legal obligations. Approved policy defines retention, access, and exceptions. Decision history explains what information was available when an action occurred.
 
-## Пример из финтеха
+## Fintech example
 
-Статус verified изменился после повторной проверки; старое решение следует связать со старой версией evidence.
+A verified status changes after rechecking. Earlier decisions must point to earlier evidence versions.
 
-## Порядок реализации
+## Implementation steps
 
-1. Минимизируй поля
-2. Раздели identifiers и evidence
-3. Назначь owner policy
-4. Сохрани version и decision time.
+1. Minimize fields
+2. Separate identifiers and evidence
+3. Name the policy owner
+4. Record version and decision time.
 
-## Практическое задание
+## Practical assignment
 
-Составь synthetic schema kyc_decisions без документов клиентов; добавь RBAC и retention matrix.
+Design synthetic kyc_decisions without real documents. Add access and retention matrices.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Копируют полный документ в raw, dev logs и LLM prompt ради удобства диагностики.
+Copying entire documents into raw, logs, and LLM prompts creates unnecessary exposure.
 
-## Проверка результата
+## Verify the result
 
-Каждое поле имеет purpose и access; отсутствуют реальные персональные сведения.
+Every field has a purpose and access rule, and no real personal information appears.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие вопросы должен решить compliance owner, прежде чем инженер настроит retention?
+Which questions must the compliance owner answer before retention is configured?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/069-kyc-data/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/069-kyc-data/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/068-fraud-data.md) · [Следующий шаг](../07-fintech/070-fintech-review.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/068-fraud-data.md) · [Next step](../07-fintech/070-fintech-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

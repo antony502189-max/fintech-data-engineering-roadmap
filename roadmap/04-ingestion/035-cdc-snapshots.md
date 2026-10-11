@@ -1,48 +1,48 @@
-# 035. Snapshot и переход к потоку
+# 035. Snapshots and the handoff to streaming
 
-## Результат обучения
+## Learning outcome
 
-Проверить полноту при bootstrap и восстановлении CDC.
+Verify bootstrap and CDC restart completeness.
 
-## Как это работает
+## How it works
 
-Согласованный snapshot даёт состояние на определённой границе журнала. Connector затем должен продолжить stream без пробела. Большой snapshot нагружает источник и может долго удерживать ресурсы. Restart после частичного snapshot требует понимать гарантию конкретного connector и режима, а не предполагать одинаковое поведение всех CDC.
+A consistent snapshot represents state at a log boundary. Streaming must continue without a gap. Large snapshots can stress the source and retain resources. Partial restart behavior depends on the connector and mode; do not assume all implementations behave alike.
 
-## Пример из финтеха
+## Fintech example
 
-Во время чтения merchant table меняется тариф; snapshot и stream должны дать объяснимую версию.
+The merchant tariff changes while its table is being scanned. Snapshot and stream must produce an explainable version.
 
-## Порядок реализации
+## Implementation steps
 
-1. Зафиксируй режим snapshot
-2. Сохрани позиции
-3. Измерь нагрузку source
-4. Смоделируй restart в середине.
+1. Choose snapshot mode
+2. Preserve positions
+3. Measure source impact
+4. Inject a mid-snapshot restart.
 
-## Практическое задание
+## Practical assignment
 
-Составь verification plan: количество ключей, контрольные суммы и изменения, сделанные во время snapshot.
+Plan verification using key counts, checksums, and changes made during the snapshot.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Snapshot запускают заново и смешивают старую и новую версии без обозначения generation.
+Mixing restarted snapshot generations without identification combines different states.
 
-## Проверка результата
+## Verify the result
 
-Результат сходится с контрольным source snapshot при заданной позиции; поколения raw различимы.
+The result reconciles to source state at the chosen position; raw generations are identifiable.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как доказать отсутствие пробела между последней snapshot строкой и первым change event?
+How do you prove there is no gap between snapshot and change stream?
 
-## Что читать дальше
+## Further reading
 
-- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/035-cdc-snapshots/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/035-cdc-snapshots/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/034-cdc-basics.md) · [Следующий шаг](../04-ingestion/036-cdc-deletes.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/034-cdc-basics.md) · [Next step](../04-ingestion/036-cdc-deletes.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

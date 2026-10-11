@@ -1,49 +1,49 @@
-# 058. Dev, stage и production данные
+# 058. Development, staging, and production
 
-## Результат обучения
+## Learning outcome
 
-Разделить окружения и минимизировать доступ для разработки.
+Separate environments and minimize development access.
 
-## Как это работает
+## How it works
 
-Окружения должны отличаться доступами, namespaces и published outputs. Dev на синтетике снижает риск и стоимость, но не заменяет performance tests на репрезентативном объёме. Masking должен учитывать reidentification через комбинации полей. Copy production для удобства — отдельное решение с требованиями владельца данных.
+Environments need distinct identities, namespaces, and published outputs. Synthetic development reduces risk and expense but does not replace representative performance tests. Masking must consider reidentification through combined fields. Copying production data is a governed decision.
 
-## Пример из финтеха
+## Fintech example
 
-Разработчик проверяет refund model без имён клиентов и реквизитов карт.
+A developer tests refunds without names or card details.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи dev dataset
-2. Установи namespace
-3. Назначь permissions
-4. Запрети случайную публикацию в prod.
+1. Define development data
+2. Separate namespaces
+3. Assign permissions
+4. Prevent accidental production publication.
 
-## Практическое задание
+## Practical assignment
 
-Напиши environment matrix: source, sink, identity, retention и разрешённые операции.
+Create an environment matrix with sources, sinks, identities, retention, and allowed actions.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Одна переменная schema случайно направляет dev job в production table.
+One schema variable points a development job at a production table.
 
-## Проверка результата
+## Verify the result
 
-Запуск без production identity не может записать production namespace.
+Without a production identity, the development run cannot write production output.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему masked dataset не обязательно является анонимным?
+Why is masked data not necessarily anonymous?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/058-environments/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/058-environments/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/057-ci-data.md) · [Следующий шаг](../06-transformation/059-deployments.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/057-ci-data.md) · [Next step](../06-transformation/059-deployments.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

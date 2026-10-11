@@ -1,49 +1,49 @@
-# 031. Batch ingestion и контроль партий
+# 031. Batch ingestion and batch controls
 
-## Результат обучения
+## Learning outcome
 
-Загрузить файл как идентифицируемую и проверяемую партию.
+Load a file as an identified, verified batch.
 
-## Как это работает
+## How it works
 
-Batch имеет устойчивый batch_id, источник, период покрытия и manifest. Имя файла не гарантирует уникальность: провайдер может переиздать тот же файл с другим содержимым. Хеш входа помогает отличать replay от replacement; замена требует согласованной политики. Ready marker публикуется только после проверки файла и результатов.
+A batch has a stable ID, source, coverage period, and manifest. Filenames do not ensure identity: a provider can reissue one with different content. Input hashes distinguish replay from replacement; replacement needs an agreed policy. Publish readiness only after input and output checks.
 
-## Пример из финтеха
+## Fintech example
 
-Settlement за 1 января поступает дважды: одинаковый файл — повтор, файл с исправленной комиссией — новая версия партии.
+A January 1 settlement file arrives twice. Identical content is replay; corrected fees create a new version.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи batch identity
-2. Сохрани hash и row count
-3. Проверь totals
-4. Зафиксируй ready после commit.
+1. Define batch identity
+2. Save hashes and counts
+3. Verify totals
+4. Publish readiness after commit.
 
-## Практическое задание
+## Practical assignment
 
-Спроектируй manifest с period, currency totals, content hash и version. Смоделируй повтор и исправление.
+Design a manifest with period, currency totals, content hash, and version. Simulate replay and correction.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Перезаписывают файл без истории; денежное расхождение нельзя связать с версией источника.
+Overwriting files without history prevents linking discrepancies to source versions.
 
-## Проверка результата
+## Verify the result
 
-Каждая версия имеет provenance; replay сохраняет итог и count без изменений.
+Every version retains provenance; replay leaves totals and counts unchanged.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда изменение content hash следует считать нарушением, а когда допустимым переизданием?
+When is a changed hash a violation, and when is it an allowed reissue?
 
-## Что читать дальше
+## Further reading
 
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/031-batch-ingestion/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/031-batch-ingestion/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/030-model-review.md) · [Следующий шаг](../04-ingestion/032-api-connectors.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/030-model-review.md) · [Next step](../04-ingestion/032-api-connectors.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

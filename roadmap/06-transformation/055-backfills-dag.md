@@ -1,49 +1,49 @@
-# 055. Оркестрация backfill и ресурсные лимиты
+# 055. Backfill orchestration and resource limits
 
-## Результат обучения
+## Learning outcome
 
-Пересчитать историю без вытеснения ежедневной критической нагрузки.
+Rebuild history without displacing critical daily work.
 
-## Как это работает
+## How it works
 
-Backfill создаёт конкуренцию за source, warehouse и scheduler. Pools, concurrency limits и отдельные workloads позволяют ограничить ущерб. Пересчёт следует публиковать целостными units, а не произвольными chunks. Можно начать с небольшого canary period и сравнить контрольные итоги.
+Backfills compete for source, warehouse, and scheduler capacity. Pools, concurrency limits, and isolated workloads reduce disruption. Publish complete agreed units rather than arbitrary chunks. Start with a canary period and compare control totals.
 
-## Пример из финтеха
+## Fintech example
 
-Месяц исправлений запускает 31 job и лишает ресурсов сегодняшний settlement.
+Thirty-one historical jobs consume resources needed for today's settlement.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови priority
-2. Ограничь concurrency
-3. Проверь canary day
-4. Публикуй по согласованному scope.
+1. Set priorities
+2. Bound concurrency
+3. Verify a canary day
+4. Publish an agreed scope.
 
-## Практическое задание
+## Practical assignment
 
-Составь run plan на месяц с batch size, stop condition и rollback dataset.
+Plan a monthly rebuild with batch sizes, stop conditions, and rollback datasets.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Backfill запускают с тем же SLA и unlimited parallelism; источник OLTP перегружается.
+Unlimited parallel backfill overloads OLTP sources and delays daily output.
 
-## Проверка результата
+## Verify the result
 
-Plan включает daily workload reservation, ETA assumption и измеримый abort threshold.
+Reserve daily capacity and state ETA assumptions and measurable abort thresholds.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда безопаснее сделать shadow rebuild, чем обновлять partitions на месте?
+When is a shadow rebuild safer than modifying live partitions?
 
-## Что читать дальше
+## Further reading
 
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/055-backfills-dag/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/055-backfills-dag/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/054-retry-design.md) · [Следующий шаг](../06-transformation/056-publish.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/054-retry-design.md) · [Next step](../06-transformation/056-publish.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

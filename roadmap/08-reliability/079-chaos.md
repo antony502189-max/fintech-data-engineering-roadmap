@@ -1,49 +1,49 @@
-# 079. Fault injection и проверка recovery
+# 079. Fault injection and recovery verification
 
-## Результат обучения
+## Learning outcome
 
-Воспроизвести отказ до того, как он произойдёт в работе.
+Reproduce failures before they affect operations.
 
-## Как это работает
+## How it works
 
-Fault injection выбирает конкретное нарушение: duplicate, missing, late, conflicting, timeout или partial write. На synthetic fixtures безопасно проверить механизм recovery и инварианты. Эксперимент должен иметь ожидаемый эффект, критерий прекращения и способ восстановления. Случайная поломка без измерений мало чему учит.
+Choose concrete faults: duplicate, missing, late, conflicting, timeout, or partial write. Synthetic fixtures safely exercise detection and recovery. Define expected effects, stop conditions, and restoration. Random damage without measurements teaches little.
 
-## Пример из финтеха
+## Fintech example
 
-После успешного insert повторяют тот же event и проверяют, изменились ли daily totals.
+Replay an inserted event and verify daily totals remain unchanged.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови failure point
-2. Сохрани baseline
-3. Внеси одно нарушение
-4. Проверь detection и recovery.
+1. Identify a failure point
+2. Save baseline
+3. Introduce one defect
+4. Verify detection and recovery.
 
-## Практическое задание
+## Practical assignment
 
-Пройди drills в labs/fault-drills.md и запиши before-after invariants.
+Complete labs/fault-drills.md and record before/after invariants.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Меняют несколько факторов одновременно; непонятно, что привело к обнаруженному результату.
+Changing several variables at once makes diagnosis ambiguous.
 
-## Проверка результата
+## Verify the result
 
-Для каждого drill есть failing check и подтверждённый восстановленный state.
+Every drill has a failing check and a confirmed restored state.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая неисправность в лаборатории останется незаметной без независимого источника?
+Which lab defect requires an independent source to detect?
 
-## Что читать дальше
+## Further reading
 
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/079-chaos/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/079-chaos/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/078-performance-ops.md) · [Следующий шаг](../08-reliability/080-reliability-review.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/078-performance-ops.md) · [Next step](../08-reliability/080-reliability-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

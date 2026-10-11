@@ -1,48 +1,48 @@
-# 073. Logs, metrics, traces и data lineage
+# 073. Logs, metrics, traces, and lineage
 
-## Результат обучения
+## Learning outcome
 
-Выбрать наблюдаемость для диагностики конкретного сбоя.
+Select observation methods for a concrete diagnosis.
 
-## Как это работает
+## How it works
 
-Logs дают детали события, metrics — агрегированные сигналы, traces — путь исполнения между компонентами. Data lineage связывает вход и выход модели. Ни один канал не заменяет все остальные. Correlation identifiers помогают связать run с batch и event, а чувствительные поля не должны попадать в диагностический поток.
+Logs describe events; metrics summarize signals; traces follow execution across components. Data lineage connects model inputs and outputs. No channel replaces all others. Correlation IDs join runs, batches, and events, while sensitive fields should stay out of diagnostics.
 
-## Пример из финтеха
+## Fintech example
 
-Mismatch p3 связывается с delivery e6, run_id и settlement file version.
+p3's discrepancy links to delivery e6, a run ID, and settlement-file version.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи correlation IDs
-2. Установи structured log schema
-3. Выдели финансовые metrics
-4. Добавь lineage reference.
+1. Choose correlation IDs
+2. Define structured logs
+3. Separate monetary metrics
+4. Include lineage references.
 
-## Практическое задание
+## Practical assignment
 
-Напиши sample JSON logs для ingest и reconcile без payment details сверх synthetic identifiers.
+Write synthetic ingestion and reconciliation log examples without unnecessary personal detail.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Логируют полный payload, включая реквизиты; диагностика создаёт новую утечку.
+Logging complete sensitive payloads makes diagnosis another exposure path.
 
-## Проверка результата
+## Verify the result
 
-По одному event_id можно найти run и input version; logs не содержат секретов.
+An event ID leads to its run and source version without exposing credentials.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему trace успешного HTTP запроса не доказывает completeness DWH?
+Why does a successful HTTP trace not prove warehouse completeness?
 
-## Что читать дальше
+## Further reading
 
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/073-observability/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/073-observability/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/072-freshness.md) · [Следующий шаг](../08-reliability/074-alerts.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/072-freshness.md) · [Next step](../08-reliability/074-alerts.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

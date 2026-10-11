@@ -1,49 +1,49 @@
-# 088. Платформа как продукт и ownership
+# 088. Platform as a product and ownership
 
-## Результат обучения
+## Learning outcome
 
-Определить self-service границы и обязанности доменных команд.
+Define self-service boundaries and domain responsibilities.
 
-## Как это работает
+## How it works
 
-Платформа предоставляет paved paths, общие contracts, observability и безопасные defaults. Доменные команды отвечают за смысл и качество своих моделей. Распределённое ownership требует discoverability и escalation. Каталог без актуальных owners не решает поддержку. Self-service не равен отсутствию review денежных изменений.
+Platforms provide standard paths, common contracts, observation, and safe defaults. Domain teams own business meaning and model quality. Distributed ownership requires discovery and escalation. An ownerless catalog cannot support users; self-service still needs financial review.
 
-## Пример из финтеха
+## Fintech example
 
-Finance team меняет метрику, platform team поддерживает CI и publish mechanism.
+Finance defines a metric while platform maintains CI and publication infrastructure.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови users платформы
-2. Определи standard path
-3. Установи ownership metadata
-4. Измерь usability.
+1. Identify platform users
+2. Define standard paths
+3. Record ownership metadata
+4. Measure usability.
 
-## Практическое задание
+## Practical assignment
 
-Напиши service catalog card для daily cash: owner, purpose, contract, dependencies и support.
+Write a daily-cash catalog entry with owner, purpose, contract, dependencies, and support.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Платформенная команда становится владельцем всех бизнес-определений и блокирует развитие.
+Making the platform team own every definition creates a bottleneck.
 
-## Проверка результата
+## Verify the result
 
-Потребитель находит owner и version без личного знакомства с авторами.
+Consumers find ownership and versions without knowing authors personally.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как определить, что self-service уменьшает нагрузку на поддержку, а не переносит её на пользователей?
+How can you show self-service reduces support burden rather than shifting it to users?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/088-ownership/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/088-ownership/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/087-cost.md) · [Следующий шаг](../09-platform/089-access-review.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/087-cost.md) · [Next step](../09-platform/089-access-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

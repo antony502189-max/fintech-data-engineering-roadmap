@@ -1,49 +1,49 @@
-# 037. Эволюция схемы и совместимость
+# 037. Schema evolution and compatibility
 
-## Результат обучения
+## Learning outcome
 
-Обработать изменение контракта до публикации повреждённых данных.
+Handle contract changes before corrupted data is published.
 
-## Как это работает
+## How it works
 
-Additive field может быть совместимым, но strict consumer должен явно решить, принимать ли неизвестные поля. Изменение типа amount или смысла currency — breaking change даже при прежнем имени. Contract version, dual read и период миграции позволяют изменить producer и consumers независимо.
+An additional field may be compatible, but a strict consumer needs an explicit unknown-field policy. Changing amount units or currency meaning is breaking even when the name stays unchanged. Contract versions, dual readers, and a migration window decouple producers and consumers.
 
-## Пример из финтеха
+## Fintech example
 
-Провайдер меняет amount с integer cents на decimal string major units; прежний код увеличивает или уменьшает суммы в сто раз.
+A provider changes integer cents to decimal major-unit strings. Old code introduces a hundredfold error.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши compatibility policy
-2. Добавь schema version
-3. Проверь старый и новый fixtures
-4. Запланируй switch и rollback.
+1. Define compatibility
+2. Add schema versions
+3. Test old and new fixtures
+4. Plan switching and rollback.
 
-## Практическое задание
+## Practical assignment
 
-Измени payload в копии validate и напиши migration plan для двух versions.
+Extend your validator copy and design migration between two payload versions.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Схему «лечат» автоматическим cast; потерянная точность и масштаб не замечены.
+Automatic casts conceal lost precision and changed units.
 
-## Проверка результата
+## Verify the result
 
-Неизвестная версия попадает в quarantine; обе поддержанные версии дают одинаковые minor units.
+Unknown versions are quarantined; supported versions produce equal minor-unit values.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему сохранение имени колонки не доказывает совместимость контракта?
+Why does an unchanged column name not prove compatibility?
 
-## Что читать дальше
+## Further reading
 
-- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/037-schema-evolution/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/037-schema-evolution/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/036-cdc-deletes.md) · [Следующий шаг](../04-ingestion/038-outbox.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/036-cdc-deletes.md) · [Next step](../04-ingestion/038-outbox.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

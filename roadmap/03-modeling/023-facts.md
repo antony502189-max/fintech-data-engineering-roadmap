@@ -1,48 +1,48 @@
-# 023. Факты: transaction, snapshot, accumulating
+# 023. Transaction, periodic, and accumulating facts
 
-## Результат обучения
+## Learning outcome
 
-Выбрать тип факт-таблицы под вопрос потребителя.
+Choose a fact-table type for the consumer's question.
 
-## Как это работает
+## How it works
 
-Transaction fact хранит отдельные события. Periodic snapshot фиксирует состояние на регулярную дату. Accumulating snapshot обновляет этапы процесса, например даты authorise, capture, settle. Их аддитивность различается: поток можно суммировать во времени, а остаток на конец дня — нельзя просто сложить за месяц.
+Transaction facts record events; periodic snapshots record state on a schedule; accumulating snapshots update process milestones. They have different additivity. Flows can be summed over time, while month-end balances cannot be calculated by summing daily balances.
 
-## Пример из финтеха
+## Fintech example
 
-Capture и refund — поток; merchant balance на каждую дату — состояние.
+Capture and refund are flows; merchant balance on a date is state.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи вопрос
-2. Назови grain каждого факта
-3. Опиши аддитивность
-4. Раздели суммы потока и остатка.
+1. Define the question
+2. Specify each fact's grain
+3. Describe additivity
+4. Separate flows from balances.
 
-## Практическое задание
+## Practical assignment
 
-Нарисуй три факт-таблицы для одного платежа; приведи запрос, где snapshot нельзя суммировать по дням.
+Design three fact tables for one payment. Show a query where summing snapshots across days is invalid.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Сумма ежедневных балансов публикуется как месячный денежный оборот.
+Publishing the sum of daily balances as monthly turnover invents monetary movement.
 
-## Проверка результата
+## Verify the result
 
-В документации указаны допустимые SUM dimensions и запрет суммирования balance по времени.
+State which dimensions permit SUM and why time aggregation of balances is restricted.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие вопросы accumulating snapshot не сможет ответить без event history?
+Which questions cannot be answered by an accumulating snapshot without an event history?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/023-facts/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/023-facts/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/022-layers.md) · [Следующий шаг](../03-modeling/024-dimensions.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/022-layers.md) · [Next step](../03-modeling/024-dimensions.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,48 +1,48 @@
-# 046. Skew, broadcast и стратегии JOIN
+# 046. Skew, broadcast, and join strategies
 
-## Результат обучения
+## Learning outcome
 
-Выбирать стратегию соединения с учётом размеров и распределения.
+Choose a join strategy from sizes and distributions.
 
-## Как это работает
+## How it works
 
-Broadcast отправляет маленькую сторону workers и уменьшает shuffle, но требует памяти и оценки размера. Skew означает неравномерность ключей; hot key может перегрузить одну task. Salting помогает в некоторых агрегациях, но требует корректного объединения и осторожности с joins.
+Broadcast distributes a small join side to workers, reducing shuffle but requiring memory and size estimates. Skew overloads partitions with hot keys. Salting can help selected workloads but needs correct recombination and compatible join rules.
 
-## Пример из финтеха
+## Fintech example
 
-Merchant «unknown» объединяет большой объём фактов и становится самым горячим ключом.
+The unknown merchant groups many facts and becomes the hottest key.
 
-## Порядок реализации
+## Implementation steps
 
-1. Оцени сторону dimension
-2. Найди top keys
-3. Проверь broadcast memory
-4. Измерь изменения плана.
+1. Estimate dimension size
+2. Identify frequent keys
+3. Check broadcast memory
+4. Measure the new plan.
 
-## Практическое задание
+## Practical assignment
 
-Составь варианты для справочника 1 MB и 5 GB; объясни, почему один broadcast threshold опасен для обоих.
+Compare strategies for 1 MB and 5 GB dimensions. Explain why one forced broadcast rule is unsuitable for both.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Принудительный broadcast большого справочника вызывает OOM на каждом executor.
+Broadcasting a large dimension causes memory failures across executors.
 
-## Проверка результата
+## Verify the result
 
-Решение содержит оценку памяти, distribution и результат на hot-key fixture.
+Document memory assumptions, key distribution, and hot-key test results.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему случайное salting фактов без соответствующего правила для dimension ломает join?
+Why does random fact salting without a matching dimension rule break joins?
 
-## Что читать дальше
+## Further reading
 
-- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/046-skew-joins/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/046-skew-joins/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/045-spark.md) · [Следующий шаг](../05-storage/047-streaming.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/045-spark.md) · [Next step](../05-storage/047-streaming.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

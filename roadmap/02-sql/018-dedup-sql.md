@@ -1,49 +1,49 @@
-# 018. Дедупликация и конфликтующие ключи
+# 018. Deduplication and conflicting keys
 
-## Результат обучения
+## Learning outcome
 
-Различать безопасный повтор и нарушение идентичности события.
+Distinguish a safe repeat from an identity violation.
 
-## Как это работает
+## How it works
 
-Дедупликация требует устойчивого ключа и правила сравнения payload. Event_id идентифицирует бизнес-событие; received_at описывает доставку. Одинаковый ключ с другой суммой — конфликт, который нельзя молча считать дублем. Хеш payload может ускорять проверку, но канонизация типов и порядка полей обязательна.
+Deduplication requires a stable key and payload comparison policy. Event_id identifies the business event; received_at describes delivery. A repeated key with a different amount is a conflict, not a harmless duplicate. Hashes require canonical types and field ordering.
 
-## Пример из финтеха
+## Fintech example
 
-Провайдер повторил e1 через сутки. Повтор допустим; e1 с суммой 10001 вместо 10000 требует расследования.
+The provider resends e1 a day later. That is safe; e1 with 10001 instead of 10000 needs investigation.
 
-## Порядок реализации
+## Implementation steps
 
-1. Нормализуй payload
-2. Исключи delivery metadata
-3. Проверь совпадение business fields
-4. Зафиксируй конфликт отдельно.
+1. Normalize payloads
+2. Exclude delivery metadata
+3. Compare business fields
+4. Make conflicts visible.
 
-## Практическое задание
+## Practical assignment
 
-Измени received_at и amount_minor по очереди. Объясни различие результатов ingest.
+Change received_at and amount_minor separately, then explain the different ingest outcomes.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-INSERT OR IGNORE проглатывает конфликт ключа и скрывает изменение суммы.
+INSERT OR IGNORE hides identity collisions and changed monetary values.
 
-## Проверка результата
+## Verify the result
 
-Повтор даёт duplicates=1; изменение business field вызывает исключение и rollback.
+Redelivery returns duplicates=1; a changed business field raises an error and rolls back the batch.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему payment_id недостаточен для дедупликации refund и fee?
+Why is payment_id insufficient to deduplicate both refunds and fees?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/018-dedup-sql/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/018-dedup-sql/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/017-incremental-sql.md) · [Следующий шаг](../02-sql/019-query-quality.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/017-incremental-sql.md) · [Next step](../02-sql/019-query-quality.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

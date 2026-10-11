@@ -1,49 +1,49 @@
-# 017. Инкрементальные модели и границы окна
+# 017. Incremental models and window boundaries
 
-## Результат обучения
+## Learning outcome
 
-Обеспечить эквивалентность incremental и полного пересчёта.
+Make incremental output equivalent to a full rebuild.
 
-## Как это работает
+## How it works
 
-Инкрементальная модель читает часть входа и обновляет затронутый результат. Watermark по event_time пропустит позднее событие с прежней датой. Watermark по received_at определит новую доставку, но требует пересчитать бизнес-дни затронутых событий. Lookback — ограниченная эвристика; для более старых исправлений нужен backfill.
+Incremental models read part of the input and update affected results. An event-time watermark misses late delivery of an old event. Receipt-time progress selects new deliveries, but their business dates determine which partitions need rebuilding. A lookback is bounded; older corrections need backfill.
 
-## Пример из финтеха
+## Fintech example
 
-Capture e6 относится к 1 января, но приходит 3 января. Запуск за 3 января должен изменить витрину 1 января.
+Capture e6 belongs to January 1 but arrives on January 3. The new run must update January 1.
 
-## Порядок реализации
+## Implementation steps
 
-1. Сохрани arrival checkpoint
-2. Найди затронутые event_date
-3. Пересчитай их атомарно
-4. Сравни с full rebuild.
+1. Persist receipt progress
+2. Identify affected event dates
+3. Recompute them atomically
+4. Compare with a full rebuild.
 
-## Практическое задание
+## Practical assignment
 
-Раздели payments() на раннюю и позднюю части. Реализуй пересчёт только затронутых дней в своём форке.
+Split payments() into early and late inputs. Implement affected-day recomputation in your fork.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Добавляют сегодняшние суммы к вчерашнему агрегату; replay каждый раз увеличивает итог.
+Adding today's totals to yesterday's aggregate increases the result on each replay.
 
-## Проверка результата
+## Verify the result
 
-После позднего события incremental и full дают USD 12200 за 1 января.
+Incremental and full outputs both produce USD 12200 for January 1 after the late event.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Что делать с исправлением, которое старше настроенного lookback?
+How should a correction older than the configured lookback be handled?
 
-## Что читать дальше
+## Further reading
 
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/017-incremental-sql/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/017-incremental-sql/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/016-indexes.md) · [Следующий шаг](../02-sql/018-dedup-sql.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/016-indexes.md) · [Next step](../02-sql/018-dedup-sql.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 064. Частичные возвраты, комиссии и reversals
+# 064. Partial refunds, fees, and reversals
 
-## Результат обучения
+## Learning outcome
 
-Не смешивать уменьшение cash с исправлением ранее неверной записи.
+Separate returning money from correcting a prior representation.
 
-## Как это работает
+## How it works
 
-Refund возвращает деньги клиенту; reversal компенсирует конкретную запись; correction меняет ошибочное представление. Комиссия может возвращаться полностью, частично или не возвращаться по договору. Глобальное правило refund=negative capture не описывает все случаи. Сохраняй связь с исходной операцией и причину.
+A refund returns funds, a reversal compensates a specific posting, and a correction repairs an incorrect representation. Fee refunds may be full, partial, or absent under the product agreement. A universal negative-capture rule is insufficient. Retain original-operation links and reasons.
 
-## Пример из финтеха
+## Fintech example
 
-Платёж 10000, комиссия 300 и refund 2000 дают synthetic net cash 7700; возврат fee не моделируется автоматически.
+Capture 10000, fee 300, and refund 2000 yield synthetic net cash 7700; fee refunds are not automatically modeled.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи event kinds
-2. Свяжи refund с capture
-3. Проверь cumulative refunded
-4. Объясни fee policy.
+1. Define event kinds
+2. Link refunds to captures
+3. Check cumulative refunds
+4. Document fee policy.
 
-## Практическое задание
+## Practical assignment
 
-Расширь проектную схему refund_id и original_capture_id; добавь два partial refunds и over-refund check.
+Add refund_id and original_capture_id to a proposed schema. Test two partial refunds and over-refund detection.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Refund и chargeback по одному основанию учитываются дважды; сумма уходящих денег завышена.
+Counting both refund and chargeback for one movement overstates outflows.
 
-## Проверка результата
+## Verify the result
 
-Сумма возвратов контролируется по capture и currency; новая policy version явно названа.
+Check refunds against capture and currency, and identify policy versions.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как отличить повтор доставки refund от двух одинаковых частичных возвратов?
+How do you distinguish repeated delivery from two equal partial refunds?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/064-refunds/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/064-refunds/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/063-reconciliation.md) · [Следующий шаг](../07-fintech/065-fx.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/063-reconciliation.md) · [Next step](../07-fintech/065-fx.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

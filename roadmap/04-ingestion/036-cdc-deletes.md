@@ -1,48 +1,48 @@
-# 036. Deletes, tombstones и retention
+# 036. Deletes, tombstones, and retention
 
-## Результат обучения
+## Learning outcome
 
-Задать отдельные правила для удаления state и сохранения истории.
+Separate current-state deletion from historical preservation.
 
-## Как это работает
+## How it works
 
-Delete event сообщает удаление строки. Tombstone может участвовать в log compaction; это не одно и то же с бизнес-событием возврата. Analytical current table обычно должна отражать удаление, а исторический журнал сохраняется или редактируется согласно утверждённой политике retention. Требования к персональным данным зависят от классификации и юрисдикции.
+A delete event reports removal of a row. A compaction tombstone is not a business refund. Current projections usually reflect deletion; historical records follow approved retention and protection policies. Personal-data handling depends on classification and jurisdiction.
 
-## Пример из финтеха
+## Fintech example
 
-Удаление клиентского профиля не должно автоматически превращать ранее проведённый платёж в refund.
+Deleting a customer profile must not invent a refund for a previously posted payment.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи current projection
-2. Раздели delete и reversal
-3. Проверь policy history
-4. Назови ключ lineage после удаления.
+1. Define current projection
+2. Separate deletion from reversal
+3. Check history policy
+4. Preserve appropriate lineage keys.
 
-## Практическое задание
+## Practical assignment
 
-Создай три сценария: hard delete profile, soft delete merchant, refund payment; опиши разные результаты в DWH.
+Compare hard profile deletion, soft merchant deletion, and payment refund. Specify different warehouse outcomes.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Каскадное удаление dimension уничтожает денежные факты; tombstone трактуют как нулевую сумму.
+Cascading dimension deletion destroys monetary facts; tombstones become fictitious zero amounts.
 
-## Проверка результата
+## Verify the result
 
-Current state корректен, финансовое событие не выдумано, политика обработки истории документирована.
+Current state is correct, no financial event is invented, and history policy is explicit.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как сохранять доказательство суммы, минимизируя персональные атрибуты?
+How can monetary evidence be retained while minimizing personal attributes?
 
-## Что читать дальше
+## Further reading
 
-- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/036-cdc-deletes/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/036-cdc-deletes/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/035-cdc-snapshots.md) · [Следующий шаг](../04-ingestion/037-schema-evolution.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/035-cdc-snapshots.md) · [Next step](../04-ingestion/037-schema-evolution.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

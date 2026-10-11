@@ -1,48 +1,48 @@
-# 013. NULL, отсутствующие события и неизвестные значения
+# 013. NULL, missing events, and unknown values
 
-## Результат обучения
+## Learning outcome
 
-Различать ноль, неизвестное и отсутствие строки.
+Distinguish zero, unknown values, and absent rows.
 
-## Как это работает
+## How it works
 
-NULL означает отсутствие значения, а не ноль. Сравнение с NULL использует IS NULL; обычные операции логики имеют третье состояние unknown. Агрегаты часто пропускают NULL, что может скрыть неполноту. LEFT JOIN с фильтром правой таблицы в WHERE может превратиться по смыслу в INNER JOIN.
+NULL represents missing information, not zero. Use IS NULL; comparisons otherwise involve an unknown logical state. Aggregates often ignore NULL, hiding incompleteness. A right-table filter in WHERE can turn a LEFT JOIN into an effective INNER JOIN.
 
-## Пример из финтеха
+## Fintech example
 
-Нет settlement строки — не то же, что settlement на ноль. Первый случай требует расследования полноты, второй может быть корректным возвратом.
+A missing settlement row differs from a confirmed zero settlement: one is a completeness problem, while the other may be valid.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши смысл NULL
-2. Сохрани missing status
-3. Перенеси нужный фильтр в ON
-4. Проверь агрегат вместе с count known.
+1. Define each NULL meaning
+2. Preserve missing status
+3. Put appropriate filters in ON
+4. Report aggregate and known-value count together.
 
-## Практическое задание
+## Practical assignment
 
-Расширь сверку нулевым итогом и отсутствующим payment_id. Сравни отчёт до и после COALESCE.
+Add both a zero settlement and a missing payment to the reconciliation example. Compare results before and after COALESCE.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-COALESCE(actual,0) делает отсутствующий файл похожим на подтверждённую нулевую выплату.
+COALESCE(actual,0) makes a missing file look like a confirmed zero payout.
 
-## Проверка результата
+## Verify the result
 
-Вывод различает matched zero, missing_external и amount_mismatch.
+The output distinguishes matched zero, missing_external, and amount_mismatch.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему отсутствие refund нельзя автоматически трактовать как окончательное отсутствие возврата?
+Why does a missing refund event not prove that no refund will ever occur?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/013-nulls/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/013-nulls/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../02-sql/012-joins.md) · [Следующий шаг](../02-sql/014-windows.md) · [Вся карта](../README.md)
+[Previous step](../02-sql/012-joins.md) · [Next step](../02-sql/014-windows.md) · [Full roadmap](../README.md)
 
-**Модуль:** SQL и базы данных. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** SQL and databases. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

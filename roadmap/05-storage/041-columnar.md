@@ -1,49 +1,49 @@
-# 041. Колончатое хранение и Parquet
+# 041. Columnar storage and Parquet
 
-## Результат обучения
+## Learning outcome
 
-Объяснить экономию чтения и роль статистики файлов.
+Explain reduced reading and file-statistics behavior.
 
-## Как это работает
+## How it works
 
-Columnar layout позволяет читать нужные колонки, а compression использует похожесть значений. Parquet хранит row groups и metadata statistics, которые помогают пропускать ненужные блоки. File format не управляет атомарностью таблицы, версионированием или конкурентными изменениями сам по себе.
+Columnar layouts let readers select needed columns; compression exploits similar values. Parquet row groups and metadata statistics can eliminate unnecessary reads. A file format alone does not provide table atomicity, versioning, or concurrency management.
 
-## Пример из финтеха
+## Fintech example
 
-Отчёту нужны date, currency и amount, а raw payload занимает большую часть данных.
+A report needs date, currency, and amount while raw payload accounts for most stored bytes.
 
-## Порядок реализации
+## Implementation steps
 
-1. Измерь ширину row
-2. Выбери колонки запроса
-3. Изучи row groups
-4. Сравни bytes read для одинакового workload.
+1. Measure row width
+2. Identify projected columns
+3. Inspect row groups
+4. Compare bytes read on the same workload.
 
-## Практическое задание
+## Practical assignment
 
-Подготовь проектный benchmark CSV и Parquet на синтетике; укажи библиотеку и версию, прежде чем запускать расширение.
+Design a CSV-versus-Parquet benchmark on synthetic data. Specify library and version before running the extension.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Считают Parquet полноценной transactional table; частично записанная партия становится видна читателю.
+Treating Parquet as a transactional table exposes partially written batches.
 
-## Проверка результата
+## Verify the result
 
-Отчёт различает file format и table format; измерены время, размер и scanned bytes.
+Distinguish file format from table format and measure size, runtime, and scanned bytes.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему маленькое число колонок запроса помогает columnar storage сильнее, чем SELECT *?
+Why does a narrow projection benefit columnar storage more than SELECT *?
 
-## Что читать дальше
+## Further reading
 
-- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
-- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — primary documentation; find the section relevant to this lesson.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/041-columnar/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/041-columnar/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/040-ingestion-audit.md) · [Следующий шаг](../05-storage/042-partitioning.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/040-ingestion-audit.md) · [Next step](../05-storage/042-partitioning.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

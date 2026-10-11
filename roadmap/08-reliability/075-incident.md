@@ -1,49 +1,49 @@
-# 075. Расследование инцидента и containment
+# 075. Incident investigation and containment
 
-## Результат обучения
+## Learning outcome
 
-Восстановить доверие к данным через scope и проверку исправления.
+Restore trust through impact scoping and verified repair.
 
-## Как это работает
+## How it works
 
-Сначала ограничь распространение неверного output и сохрани evidence. Затем определи affected periods, consumers и причины. Recovery должен проверяться по независимому эталону. Postmortem объясняет contributing factors, а не обвиняет человека. Исправление кода без пересчёта старых данных оставляет последствия.
+Contain invalid output and preserve evidence first. Identify affected periods, consumers, and causes. Recovery needs an independent comparison. Postmortems explain contributing factors instead of assigning blame. A code fix without historical repair leaves consequences intact.
 
-## Пример из финтеха
+## Fintech example
 
-Ошибочный знак fee опубликован в течение недели; нужно найти все report versions и downstream extracts.
+A wrong fee sign is published for a week; identify affected report versions and exports.
 
-## Порядок реализации
+## Implementation steps
 
-1. Заморозь affected publish
-2. Зафиксируй scope
-3. Построй shadow correction
-4. Проверь и сообщи владельцам.
+1. Stop affected publication
+2. Record scope
+3. Build a shadow correction
+4. Verify and inform process owners.
 
-## Практическое задание
+## Practical assignment
 
-Напиши incident timeline для sign bug, включая обнаружение, containment, repair и verification.
+Write a sign-bug timeline covering discovery, containment, repair, and validation.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-После deploy fix считают инцидент закрытым; старые выгрузки остаются неверными.
+Closing the incident after deployment leaves previous incorrect extracts untouched.
 
-## Проверка результата
+## Verify the result
 
-Есть affected consumer list, before-after totals и проверка восстановленного периода.
+Retain affected consumers, before/after totals, and repaired-period checks.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как различить root cause и событие, которое лишь обнаружило ошибку?
+How does a root cause differ from the event that exposed the problem?
 
-## Что читать дальше
+## Further reading
 
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/075-incident/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/075-incident/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/074-alerts.md) · [Следующий шаг](../08-reliability/076-lineage-impact.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/074-alerts.md) · [Next step](../08-reliability/076-lineage-impact.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

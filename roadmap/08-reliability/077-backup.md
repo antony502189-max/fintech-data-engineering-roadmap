@@ -1,49 +1,49 @@
-# 077. Backups, RPO, RTO и проверка восстановления
+# 077. Backups, RPO, RTO, and restore drills
 
-## Результат обучения
+## Learning outcome
 
-Доказать, что резервная копия пригодна для возврата к работе.
+Demonstrate that backups can restore useful operation.
 
-## Как это работает
+## How it works
 
-RPO ограничивает допустимую потерю данных во времени, RTO — время восстановления сервиса. Backup без restore drill не доказывает recoverability. Нужны metadata, schema, permissions и ключи доступа, а не только data files. Recovery должен сверить totals и определить replay после backup boundary.
+RPO limits acceptable time-based data loss; RTO targets restoration time. A backup without a restore drill proves little. Recovery needs metadata, schemas, permissions, and keys as well as files. Reconcile restored totals and replay after the recovery boundary.
 
-## Пример из финтеха
+## Fintech example
 
-После backup e1-e5 пришёл e6; restore требует безопасного replay e6.
+The backup contains e1–e5; restoring must safely add e6.
 
-## Порядок реализации
+## Implementation steps
 
-1. Зафиксируй recovery point
-2. Восстанови в отдельном namespace
-3. Применяй журнал после boundary
-4. Сверь итог.
+1. Record the recovery point
+2. Restore separately
+3. Replay later events
+4. Reconcile results.
 
-## Практическое задание
+## Practical assignment
 
-Скопируй synthetic SQLite DB безопасным sqlite backup API, добавь e6 и восстанови с replay в отдельный файл.
+Use SQLite's backup API on synthetic data, then restore with replay into another file.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Копируют активный DB file произвольно, игнорируя journal/WAL и consistency.
+Copying an active database while ignoring WAL and journals risks inconsistency.
 
-## Проверка результата
+## Verify the result
 
-Восстановленный dataset равен эталону, время drill и остаточная потеря измерены.
+The restored dataset equals the reference; measure drill duration and remaining loss.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие metadata могут сделать сохранённые data files практически бесполезными?
+Which missing metadata could make retained data files unusable?
 
-## Что читать дальше
+## Further reading
 
-- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — первичная документация; ищи раздел по теме урока.
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
+- [Python sqlite3](https://docs.python.org/3.12/library/sqlite3.html) — primary documentation; find the section relevant to this lesson.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/077-backup/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/077-backup/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/076-lineage-impact.md) · [Следующий шаг](../08-reliability/078-performance-ops.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/076-lineage-impact.md) · [Next step](../08-reliability/078-performance-ops.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

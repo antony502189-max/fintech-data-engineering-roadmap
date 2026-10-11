@@ -1,49 +1,49 @@
-# 032. Коннекторы API и backpressure
+# 032. API connectors and backpressure
 
-## Результат обучения
+## Learning outcome
 
-Ограничить скорость загрузки без потери полноты.
+Limit ingestion speed without sacrificing completeness.
 
-## Как это работает
+## How it works
 
-Connector должен соблюдать лимиты, timeout и retry policy источника. Exponential backoff с jitter уменьшает синхронные повторы множества workers. Backpressure замедляет чтение при перегруженном sink; бесконечная очередь в памяти лишь откладывает падение. Для полноты нужны cursor persistence и независимые контрольные итоги.
+Connectors must respect limits, timeouts, and source retry policies. Exponential backoff with jitter reduces synchronized retry storms. Backpressure slows reads when the sink is overloaded; an unbounded memory queue only postpones failure. Completeness also needs cursor persistence and independent controls.
 
-## Пример из финтеха
+## Fintech example
 
-Тысячи merchants опрашиваются каждый час; после outage все workers одновременно начинают retry.
+Thousands of hourly merchant polls restart together after an outage.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови rate limit
-2. Ограничь concurrency
-3. Добавь bounded queue
-4. Сохраняй cursor после записи.
+1. Identify rate limits
+2. Bound concurrency
+3. Use a bounded queue
+4. Save cursors after persistence.
 
-## Практическое задание
+## Practical assignment
 
-На mock API воспроизведи 429 и timeout. Запиши число попыток, максимальную очередь и итоговый набор ключей.
+Simulate 429 responses and timeouts in a mock API. Record attempts, maximum queue size, and final keys.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Retry без максимального бюджета бесконечно блокирует одну партию и скрывает отсутствие свежих данных.
+Unlimited retries permanently block a batch and obscure stale output.
 
-## Проверка результата
+## Verify the result
 
-Лимит соблюдён, очередь ограничена, истощение retry возвращает проверяемый failure.
+The rate limit is respected, the queue bounded, and exhausted retries produce a visible failure.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему увеличение числа workers может уменьшить полезную пропускную способность?
+Why can more workers reduce useful throughput?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — primary documentation; find the section relevant to this lesson.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/032-api-connectors/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/032-api-connectors/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/031-batch-ingestion.md) · [Следующий шаг](../04-ingestion/033-webhooks.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/031-batch-ingestion.md) · [Next step](../04-ingestion/033-webhooks.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

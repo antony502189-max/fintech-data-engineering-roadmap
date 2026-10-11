@@ -1,49 +1,49 @@
-# 033. Webhooks: подпись, повтор и порядок
+# 033. Webhooks: signatures, repeats, and ordering
 
-## Результат обучения
+## Learning outcome
 
-Спроектировать приём событий с безопасным подтверждением.
+Design reception with safe acknowledgments.
 
-## Как это работает
+## How it works
 
-Webhook endpoint проверяет подпись по исходным bytes и секрету, затем надёжно сохраняет событие или очередь перед успешным ответом. Дубликаты и out-of-order считаются нормальным сценарием. Подпись подтверждает источник payload, но не полноту всех событий. Событийный поток полезно сверять с API или settlement.
+Verify signatures against original bytes, then durably save the event or enqueue it before returning success. Duplicates and out-of-order delivery are normal. A signature authenticates payload origin but does not prove the complete event set. Reconcile with API or settlement evidence.
 
-## Пример из финтеха
+## Fintech example
 
-Провайдер повторяет e1 после потери ответа; endpoint должен подтвердить сохранённый event без второго движения денег.
+The provider repeats e1 after losing the response. Acknowledgment must not create another monetary movement.
 
-## Порядок реализации
+## Implementation steps
 
-1. Проверь signature до parse
-2. Сохрани delivery metadata
-3. Сделай durable enqueue
-4. Дедуплицируй business event.
+1. Verify before parsing
+2. Retain delivery metadata
+3. Enqueue durably
+4. Deduplicate business identity.
 
-## Практическое задание
+## Practical assignment
 
-Напиши sequence diagram для timeout после enqueue. Реальный HTTP endpoint не входит в лабораторию; разработай его как расширение.
+Draw a timeout-after-enqueue sequence. Implement a real HTTP endpoint only as an extension; the lab does not include one.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Отправляют 200 до durable write; сбой процесса после ответа теряет платёж навсегда.
+Returning 200 before durable storage can lose an event permanently after a crash.
 
-## Проверка результата
+## Verify the result
 
-В crash matrix после любого 200 событие присутствует в устойчивом хранилище.
+Every acknowledged event exists durably in the crash matrix.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему валидная подпись не означает, что событие следует применить повторно?
+Why does a valid signature not authorize applying a repeat again?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — первичная документация; ищи раздел по теме урока.
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [Stripe webhook delivery](https://docs.stripe.com/webhooks) — primary documentation; find the section relevant to this lesson.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/033-webhooks/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/033-webhooks/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/032-api-connectors.md) · [Следующий шаг](../04-ingestion/034-cdc-basics.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/032-api-connectors.md) · [Next step](../04-ingestion/034-cdc-basics.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 080. Приёмка надёжности data product
+# 080. Data-product reliability acceptance
 
-## Результат обучения
+## Learning outcome
 
-Собрать доказательства эксплуатации и назвать непроверенные свойства.
+Gather operational evidence and name untested properties.
 
-## Как это работает
+## How it works
 
-Надёжность включает правильность, полноту, своевременность и способность восстанавливаться. Unit tests и tiny fixture не доказывают нагрузочную устойчивость, распределённую атомарность или compliance. Readiness review связывает требования с проверками и owners. Непроверенное следует явно обозначить как риск или последующую работу.
+Reliability includes correctness, completeness, timeliness, and recovery. Tiny fixtures do not prove load tolerance, distributed atomicity, or compliance. Readiness reviews map requirements to checks and owners. Explicitly identify missing evidence and planned follow-up.
 
-## Пример из финтеха
+## Fintech example
 
-Local lab проходит tests, но не тестирует реальный webhook signature, Kafka rebalance и cloud permissions.
+The lab passes tests without verifying real webhook signatures, Kafka rebalance, or cloud access.
 
-## Порядок реализации
+## Implementation steps
 
-1. Сопоставь requirements и evidence
-2. Назови missing checks
-3. Определи owner каждого gap
-4. Реши учебный или operational status.
+1. Map requirements to evidence
+2. Identify missing checks
+3. Assign owners
+4. State educational or operational status.
 
-## Практическое задание
+## Practical assignment
 
-Составь readiness matrix для capstone с колонками requirement, evidence, scope и limitation.
+Build a capstone readiness matrix with requirement, evidence, scope, and limitation columns.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-README называет систему production-ready только потому, что CI зелёный.
+Calling a system production-ready because CI is green exaggerates its tested scope.
 
-## Проверка результата
+## Verify the result
 
-Матрица различает local verified, simulated и design-only capabilities.
+Distinguish locally verified, simulated, and design-only capabilities.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Что нужно дополнительно проверить перед запуском такого pipeline на реальных платежах?
+What else must be checked before using this pipeline with real payments?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/080-reliability-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/080-reliability-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../08-reliability/079-chaos.md) · [Следующий шаг](../09-platform/081-iam.md) · [Вся карта](../README.md)
+[Previous step](../08-reliability/079-chaos.md) · [Next step](../09-platform/081-iam.md) · [Full roadmap](../README.md)
 
-**Модуль:** Качество и эксплуатация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Quality and reliability. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

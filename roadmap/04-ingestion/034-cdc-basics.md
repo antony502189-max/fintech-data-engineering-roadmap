@@ -1,48 +1,48 @@
-# 034. CDC, WAL и изменения состояния
+# 034. CDC, WAL, and state changes
 
-## Результат обучения
+## Learning outcome
 
-Различать snapshot, change event и business event.
+Distinguish snapshots, row changes, and business events.
 
-## Как это работает
+## How it works
 
-CDC считывает изменения database log, включая insert, update и delete. WAL position задаёт порядок изменения базы, но не обязательно бизнес-время платежа. Row update может менять технический атрибут, не создавая денежного события. Начальный snapshot и последующий stream требуют согласованной границы.
+CDC reads database changes, including inserts, updates, and deletes. WAL positions order database modifications, not necessarily payment business time. Updating a technical column need not create a financial event. Initial snapshot and streaming require a consistent boundary.
 
-## Пример из финтеха
+## Fintech example
 
-Update статуса payment не равен новой capture проводке. Иначе каждая служебная правка увеличит оборот.
+Changing payment status is not another capture posting; otherwise maintenance updates inflate turnover.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови source tables
-2. Определи snapshot boundary
-3. Сохраняй operation и source position
-4. Раздели CDC state и domain events.
+1. Identify source tables
+2. Define the snapshot boundary
+3. Retain operations and positions
+4. Separate state CDC from domain events.
 
-## Практическое задание
+## Practical assignment
 
-Нарисуй поток PostgreSQL → Debezium → Kafka → raw. Для каждого поля укажи source или delivery semantics.
+Draw PostgreSQL → Debezium → Kafka → raw. Identify source and delivery semantics for each field.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Все CDC inserts принимают за новые платежи, включая snapshot существующих записей.
+Treating all CDC inserts as new payments counts existing snapshot records again.
 
-## Проверка результата
+## Verify the result
 
-Документ объясняет, как snapshot не создаёт двойной счёт, и как delete меняет current state.
+Explain how snapshot records avoid double counting and how deletion changes current state.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда CDC не может восстановить всю бизнес-историю из текущей OLTP таблицы?
+When can CDC not recover the entire business history from a current OLTP table?
 
-## Что читать дальше
+## Further reading
 
-- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — первичная документация; ищи раздел по теме урока.
+- [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/034-cdc-basics/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/034-cdc-basics/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/033-webhooks.md) · [Следующий шаг](../04-ingestion/035-cdc-snapshots.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/033-webhooks.md) · [Next step](../04-ingestion/035-cdc-snapshots.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

@@ -1,49 +1,49 @@
-# 083. Секреты, ротация и диагностика
+# 083. Secrets, rotation, and diagnostics
 
-## Результат обучения
+## Learning outcome
 
-Отделить credentials от кода, fixtures и логов.
+Keep credentials outside code, fixtures, and logs.
 
-## Как это работает
+## How it works
 
-Секреты выдаются identity через одобренный механизм и имеют жизненный цикл. Environment variables удобны для локального примера, но не полноценная стратегия защиты сами по себе. Ротация требует проверить consumers и overlap. После утечки удаления строки из последнего коммита недостаточно: credential нужно отозвать.
+Secrets have owners and lifecycles and should be delivered through an approved mechanism. Environment variables can help local setup but are not a complete protection strategy. Rotation needs consumer verification and overlap rules. After exposure, deleting a line from the latest commit is insufficient; revoke the credential.
 
-## Пример из финтеха
+## Fintech example
 
-Webhook signing secret и API key не должны появляться в issue reproduction.
+Webhook signing secrets and API keys never belong in issue reproductions.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови secret owner
-2. Определи retrieval
-3. Проверь redaction
-4. Составь rotation sequence.
+1. Name owners
+2. Define retrieval
+3. Verify redaction
+4. Plan rotation.
 
-## Практическое задание
+## Practical assignment
 
-Сделай synthetic config schema с именами переменных без значений; проверь exception logging.
+Create a synthetic configuration schema listing variable names without values. Inspect exception logging.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Печатают полный requests object с headers; authorization попадает в общий лог.
+Printing a request object with authorization headers leaks credentials into shared diagnostics.
 
-## Проверка результата
+## Verify the result
 
-Repo и sample logs содержат только placeholders; rotation не зависит от одного ручного шага.
+Examples contain placeholders only; rotation has verifiable steps.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему скрытие секрета в UI логов не отменяет его попадание в backend storage?
+Why does hiding a secret in a log viewer not remove it from underlying storage?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [Pro Git book](https://git-scm.com/book/en/v2) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [Pro Git book](https://git-scm.com/book/en/v2) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/083-secrets/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/083-secrets/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/082-pii.md) · [Следующий шаг](../09-platform/084-encryption.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/082-pii.md) · [Next step](../09-platform/084-encryption.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

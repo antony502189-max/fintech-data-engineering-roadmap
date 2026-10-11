@@ -1,49 +1,49 @@
-# 010. Распределённые системы без магии
+# 010. Distributed systems without magic
 
-## Результат обучения
+## Learning outcome
 
-Описать границы гарантий доставки и фиксации результата.
+Describe the boundaries of delivery and persistence guarantees.
 
-## Как это работает
+## How it works
 
-Сеть может потерять ответ после успешной записи. Поэтому клиент видит неопределённость, а не доказательство отката. At-least-once допускает повтор; at-most-once допускает потерю. Exactly-once требует определить границу системы и механизм атомарности. Транзакция брокера не покрывает произвольную внешнюю базу автоматически.
+The network can lose a response after a successful write, leaving the client uncertain. At-least-once permits repeats; at-most-once permits loss. Exactly-once claims need a defined boundary and atomicity mechanism. A broker transaction does not automatically include an arbitrary external database.
 
-## Пример из финтеха
+## Fintech example
 
-Consumer записал платёж в DWH и упал до подтверждения offset. Повторная доставка должна встретить ключ дедупликации.
+A consumer writes a payment to the warehouse and crashes before acknowledging the offset. Redelivery must encounter a durable deduplication key.
 
-## Порядок реализации
+## Implementation steps
 
-1. Нарисуй точки фиксации
-2. Перечисли места падения
-3. Назови допустимые повторы
-4. Выбери ключ и транзакционную границу.
+1. Mark commit points
+2. Enumerate crash locations
+3. Define permitted repeats
+4. Choose identity and transaction boundaries.
 
-## Практическое задание
+## Practical assignment
 
-Составь таблицу crash matrix для четырёх точек: до insert, после insert, после commit, после ack.
+Build a crash matrix covering before insert, after insert, after commit, and after acknowledgment.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Заявляют exactly-once для всей цепочки, опираясь только на настройки Kafka producer.
+Claiming end-to-end exactly-once from producer configuration alone ignores external side effects.
 
-## Проверка результата
+## Verify the result
 
-Для каждой точки описаны состояние sink, повторная доставка и результат восстановления.
+For each failure point, specify sink state, redelivery behavior, and the recovery result.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какое дополнительное условие нужно, чтобы обработка повтора была безопасна при изменённом payload?
+What additional condition makes replay safe when a repeated ID carries a changed payload?
 
-## Что читать дальше
+## Further reading
 
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — primary documentation; find the section relevant to this lesson.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/010-systems/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/010-systems/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../01-foundations/009-time-money.md) · [Следующий шаг](../02-sql/011-sql-grain.md) · [Вся карта](../README.md)
+[Previous step](../01-foundations/009-time-money.md) · [Next step](../02-sql/011-sql-grain.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

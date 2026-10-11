@@ -1,49 +1,49 @@
-# 089. Access review, аудит и exports
+# 089. Access review, audit, and exports
 
-## Результат обучения
+## Learning outcome
 
-Проверить доступ по всему пути данных, включая выгрузки.
+Review the entire data path, including downloaded copies.
 
-## Как это работает
+## How it works
 
-Правила warehouse не защищают скачанный CSV автоматически. Exports создают новые copies с отдельными readers и retention. Access audit должен видеть identities, действия и resources, но не записывать секреты. Периодический review проверяет актуальность роли и необходимость доступа.
+Warehouse permissions do not automatically protect exported CSVs. Each export creates another copy with readers and retention. Audit should record identities, actions, and resources without secrets. Periodic reviews check whether access remains necessary.
 
-## Пример из финтеха
+## Fintech example
 
-Reader создал full raw export в публично доступном bucket, обходя смысл restricted mart.
+A raw export in a public bucket bypasses the purpose of a restricted mart.
 
-## Порядок реализации
+## Implementation steps
 
-1. Перечисли export paths
-2. Назначь owners
-3. Ограничь destination
-4. Проверь lifecycle копий.
+1. Inventory export paths
+2. Assign owners
+3. Limit destinations
+4. Manage copy lifecycles.
 
-## Практическое задание
+## Practical assignment
 
-Сделай data-flow inventory для warehouse, notebook, CSV и BI extract; отметь каждую новую копию.
+Map warehouse, notebooks, CSVs, and BI extracts; mark every new copy.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Проверяют только IAM в DWH и забывают публичные URLs выгрузок.
+Reviewing warehouse IAM alone misses public export links.
 
-## Проверка результата
+## Verify the result
 
-Для всех destination есть access policy и retention; неучтённые exports видны как gap.
+All destinations have access and retention rules; untracked exports are explicit gaps.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Как отзывать доступ к уже скопированным данным и какие ограничения у этого действия?
+What are the limitations of revoking access after data has been copied?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/089-access-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/089-access-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/088-ownership.md) · [Следующий шаг](../09-platform/090-platform-review.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/088-ownership.md) · [Next step](../09-platform/090-platform-review.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

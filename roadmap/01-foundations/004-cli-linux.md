@@ -1,48 +1,48 @@
-# 004. Терминал, процессы и коды завершения
+# 004. Terminals, processes, and exit codes
 
-## Результат обучения
+## Learning outcome
 
-Диагностировать упавший batch job по коду возврата и потоку ошибок.
+Diagnose a failed batch job using its exit code and error stream.
 
-## Как это работает
+## How it works
 
-CLI — интерфейс автоматизации. stdout отдаёт результат, stderr объясняет ошибки, exit code сообщает успех оркестратору. Переменные окружения меняют поведение процесса; рабочий каталог определяет относительные пути. Команда, которая печатает ошибку и возвращает ноль, вводит планировщик в заблуждение.
+A CLI is an automation interface. Standard output carries results, standard error explains problems, and the exit code tells the scheduler whether execution succeeded. Environment variables change process behavior, while the working directory controls relative paths. Printing an error and returning zero misleads automation.
 
-## Пример из финтеха
+## Fintech example
 
-Job может создать пустой settlement.csv и завершиться успешно. Следующая задача закроет день на нуле, если не проверит размер и контракт файла.
+A job creates an empty settlement.csv and exits successfully. The next task can close the day at zero unless it verifies the file contract.
 
-## Порядок реализации
+## Implementation steps
 
-1. Запиши абсолютный путь входа
-2. Проверь существование и формат
-3. Верни ненулевой код при ошибке
-4. Сохрани структурированную причину.
+1. Use an explicit input path
+2. Check existence and format
+3. Return a nonzero code on failure
+4. Preserve a structured explanation.
 
-## Практическое задание
+## Practical assignment
 
-Создай CLI-обёртку, принимающую дату и путь. Проверь отсутствующий файл, пустой файл и неверную дату в Bash или PowerShell.
+Build a CLI accepting a date and file path. Test missing files, empty files, and invalid dates in Bash or PowerShell.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Проверяют только текст лога. Автоматизация не умеет отличить сообщение «failed» от настоящего ненулевого кода.
+Checking log text alone cannot reliably distinguish the word “failed” from an actual failed process.
 
-## Проверка результата
+## Verify the result
 
-Для трёх плохих входов код ненулевой; корректный вход даёт ноль и проверяемый артефакт.
+All three invalid inputs return nonzero. A valid input returns zero and creates a verifiable artifact.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему успешный процесс и готовый набор данных — разные утверждения?
+Why are a successful process and a ready dataset different claims?
 
-## Что читать дальше
+## Further reading
 
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/004-cli-linux/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/004-cli-linux/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../01-foundations/003-python.md) · [Следующий шаг](../01-foundations/005-git.md) · [Вся карта](../README.md)
+[Previous step](../01-foundations/003-python.md) · [Next step](../01-foundations/005-git.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

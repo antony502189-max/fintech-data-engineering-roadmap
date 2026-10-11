@@ -1,49 +1,49 @@
-# 092. Text-to-SQL и ограниченный доступ
+# 092. Text-to-SQL and constrained access
 
-## Результат обучения
+## Learning outcome
 
-Спроектировать аналитический запрос с контролем полномочий и стоимости.
+Design query execution with permission and cost controls.
 
-## Как это работает
+## How it works
 
-LLM output — недоверенный текст. Production query execution требует parser/AST controls, read-only identity, allowlisted schema, timeout и resource budget. Простое регулярное выражение SELECT недостаточно для безопасности. Семантические определения должны ограничивать двусмысленность вопросов; unknown answer лучше выдуманной метрики.
+Model output is untrusted text. Execution needs parsing or AST controls, a read-only identity, approved schemas, timeouts, and resource budgets. A SELECT regex is not a sufficient boundary. Semantic definitions prevent ambiguous requests from becoming invented metrics.
 
-## Пример из финтеха
+## Fintech example
 
-Пользователь спрашивает «прибыль», а доступна только mart net cash; система должна уточнить смысл или отказать в таком расчёте.
+A user asks for profit while the only available measure is net cash. Clarify or abstain rather than invent profitability.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови разрешённые metrics
-2. Ограничь database identity
-3. Валидируй AST
-4. Выполни bounded query.
+1. Define allowed metrics
+2. Scope database identity
+3. Validate syntax trees
+4. Execute within limits.
 
-## Практическое задание
+## Practical assignment
 
-Создай design spec и adversarial test list; не запускай произвольные AI SQL в своей базе.
+Write a design and adversarial test list. Do not run arbitrary generated SQL against production.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Зелёный read-only query всё равно раскрывает raw PII и сканирует огромный набор.
+A read-only query can still disclose raw personal data or scan enormous tables.
 
-## Проверка результата
+## Verify the result
 
-Tests покрывают unknown metric, forbidden table, expensive query и unsupported statement.
+Cover unknown metrics, forbidden tables, expensive queries, and unsupported statements.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему read-only identity не защищает от раскрытия лишних данных?
+Why does read-only access not prevent excess disclosure?
 
-## Что читать дальше
+## Further reading
 
-- [OWASP LLM applications project](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — первичная документация; ищи раздел по теме урока.
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — первичная документация; ищи раздел по теме урока.
+- [OWASP LLM applications project](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — primary documentation; find the section relevant to this lesson.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/092-text-to-sql/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/092-text-to-sql/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/091-ai-assistant.md) · [Следующий шаг](../10-ai-career/093-rag.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/091-ai-assistant.md) · [Next step](../10-ai-career/093-rag.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

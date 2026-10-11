@@ -1,49 +1,49 @@
-# 009. Время, валюты и единицы измерения
+# 009. Time, currencies, and units
 
-## Результат обучения
+## Learning outcome
 
-Задать явные правила для денежных сумм и временных границ.
+Define explicit monetary and temporal boundary rules.
 
-## Как это работает
+## How it works
 
-Деньги храни как decimal фиксированного масштаба или целые minor units с валютой. Масштаб различается по валюте; два знака не универсальны. UTC удобен для событий, но бухгалтерский день определяется бизнес-календарём. Интервалы [start,end) исключают двойной учёт на границе.
+Store money as fixed-scale decimals or integer minor units with currency. Currency exponents vary; two decimal places are not universal. UTC is useful for events, but a financial day depends on the business calendar. Half-open intervals [start,end) prevent counting a boundary twice.
 
-## Пример из финтеха
+## Fintech example
 
-Платёж в 23:30 UTC попадает на следующий локальный день. USD 100 и JPY 100 означают разные масштабы; складывать их без FX нельзя.
+An event at 23:30 UTC belongs to the next local day. USD 100 and JPY 100 use different scales and cannot be summed without an FX rule.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови валюту и exponent
-2. Зафиксируй timezone отчёта
-3. Нормализуй timestamp
-4. Протестируй границу суток.
+1. Specify currency and exponent
+2. Define the reporting timezone
+3. Normalize timestamps
+4. Test a day boundary.
 
-## Практическое задание
+## Practical assignment
 
-Запусти тесты money и history. Добавь пример платежа на границе локального дня и опиши правило отнесения к периоду.
+Run money and history tests. Add a payment at a local-day boundary and document which period receives it.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Дату берут из сервера, а сумму делят на 100 для каждой валюты. Ошибки выглядят правдоподобно на USD.
+Using the server date and dividing every currency by 100 creates plausible-looking errors.
 
-## Проверка результата
+## Verify the result
 
-Одинаковый instant с разными offset даёт одинаковый результат; валюта с exponent=0 проходит без деления.
+Equivalent instants with different offsets agree; an exponent-zero currency works without division.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Чем время события отличается от времени получения и времени признания дохода?
+How do event time, receipt time, and revenue recognition time differ?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [Python Tutorial](https://docs.python.org/3.12/tutorial/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/009-time-money/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/009-time-money/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../01-foundations/008-containers.md) · [Следующий шаг](../01-foundations/010-systems.md) · [Вся карта](../README.md)
+[Previous step](../01-foundations/008-containers.md) · [Next step](../01-foundations/010-systems.md) · [Full roadmap](../README.md)
 
-**Модуль:** Инженерная база. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Engineering foundations. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

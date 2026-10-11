@@ -1,49 +1,49 @@
-# 042. Партиционирование и правильный ключ
+# 042. Partitioning and key selection
 
-## Результат обучения
+## Learning outcome
 
-Выбрать partition strategy под реальные запросы.
+Choose partitions from actual query patterns.
 
-## Как это работает
+## How it works
 
-Partitioning делит набор по значениям и позволяет pruning, если фильтры совместимы. Высокая кардинальность создаёт много мелких файлов или partitions. Ключ события и ключ доставки решают разные задачи: отчёт фильтрует event_date, ingestion следит за received_at. Изменение стратегии может потребовать rewrite.
+Partitioning splits data by values and enables pruning when filters are compatible. High-cardinality keys generate excessive partitions or small files. Event dates support business reporting; receipt progress supports ingestion. Changing strategy may require rewriting history.
 
-## Пример из финтеха
+## Fintech example
 
-Partition по merchant_id создаёт тысячи маленьких файлов; отчёт за день всё равно касается всех merchants.
+Partitioning by merchant creates thousands of tiny files while a daily report still touches all merchants.
 
-## Порядок реализации
+## Implementation steps
 
-1. Собери query patterns
-2. Оцени кардинальность
-3. Выбери умеренный temporal partition
-4. Проверь late data update.
+1. Collect query patterns
+2. Estimate cardinality
+3. Choose a moderate time partition
+4. Test late updates.
 
-## Практическое задание
+## Practical assignment
 
-Для 10000 merchants и 365 дней сравни число partitions для day, merchant и day+merchant.
+Compare partition counts for day, merchant, and day-plus-merchant across 10000 merchants and 365 days.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Партиционируют по каждому уникальному payment_id; metadata overhead доминирует над полезным чтением.
+Partitioning by unique payment IDs lets metadata overhead dominate useful reads.
 
-## Проверка результата
+## Verify the result
 
-Decision содержит ожидаемые bytes per partition, pruning и процедуру пересчёта старого дня.
+Document bytes per partition, pruning behavior, and historical-day repair.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Что произойдёт с pruning, если фильтр оборачивает partition column неподдерживаемой функцией?
+What happens if a filter wraps a partition column in an unsupported function?
 
-## Что читать дальше
+## Further reading
 
-- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — первичная документация; ищи раздел по теме урока.
-- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — первичная документация; ищи раздел по теме урока.
+- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/) — primary documentation; find the section relevant to this lesson.
+- [BigQuery documentation](https://cloud.google.com/bigquery/docs) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/042-partitioning/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/042-partitioning/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/041-columnar.md) · [Следующий шаг](../05-storage/043-iceberg.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/041-columnar.md) · [Next step](../05-storage/043-iceberg.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

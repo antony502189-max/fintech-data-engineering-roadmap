@@ -1,48 +1,48 @@
-# 024. Измерения, ключи и неизвестный участник
+# 024. Dimensions, keys, and unknown members
 
-## Результат обучения
+## Learning outcome
 
-Спроектировать dimension без потери фактов при позднем справочнике.
+Keep facts when reference data arrives late.
 
-## Как это работает
+## How it works
 
-Natural key приходит из источника, surrogate key задаётся в DWH. Натуральные ключи разных систем могут совпадать, поэтому нужен source namespace. Unknown member позволяет сохранить факт до доставки dimension; позже связь исправляется по явному правилу. Неизвестный участник и анонимизированный участник имеют разные смыслы.
+Natural keys come from sources; surrogate keys belong to the warehouse. Source namespaces prevent collisions between systems. An unknown member retains a fact until the dimension arrives, after which an explicit repair rule updates the relationship. Unknown and anonymized members have different meanings.
 
-## Пример из финтеха
+## Fintech example
 
-Capture пришёл раньше профиля merchant. INNER JOIN не должен выбросить денежное событие.
+A capture precedes the merchant profile. An INNER JOIN must not remove that money.
 
-## Порядок реализации
+## Implementation steps
 
-1. Назови namespace
-2. Выбери surrogate key
-3. Определи unknown member
-4. Добавь процедуру late dimension repair.
+1. Define the namespace
+2. Choose surrogate keys
+3. Define the unknown member
+4. Plan late-dimension repair.
 
-## Практическое задание
+## Practical assignment
 
-Смоделируй отсутствующего merchant в справочнике и докажи сохранение денежного итога.
+Simulate a missing merchant and prove the monetary total survives the dimension join.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Справочник используют как фильтр допустимых денег; временно отсутствующая запись уменьшает оборот.
+Using a dimension as a filter discards valid money during temporary reference-data gaps.
 
-## Проверка результата
+## Verify the result
 
-Контрольный итог фактов до и после dimension join одинаков; unknown виден отдельно.
+Fact totals agree before and after the join; unknown members are visible separately.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему общий merchant_id из двух провайдеров не обязательно идентифицирует одного merchant?
+Why do identical merchant IDs from two providers not necessarily identify one merchant?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/024-dimensions/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/024-dimensions/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/023-facts.md) · [Следующий шаг](../03-modeling/025-scd2.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/023-facts.md) · [Next step](../03-modeling/025-scd2.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

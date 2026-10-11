@@ -1,49 +1,49 @@
-# 090. Ревью платформы и план масштабирования
+# 090. Platform review and scaling plans
 
-## Результат обучения
+## Learning outcome
 
-Сопоставить требования с выбранными компонентами и эксплуатационной ценой.
+Match requirements to components and operational cost.
 
-## Как это работает
+## How it works
 
-Architecture review оценивает failure modes, ownership, security, cost и migration path. Больше инструментов означает больше интеграций и версий. Платформа должна иметь минимальную достаточную форму и критерий, по которому её пора усложнять. Local lab подтверждает принципы, но не заменяет cloud validation.
+Architecture review considers failures, ownership, security, cost, and migration. More tools mean more integrations and version combinations. Begin with the smallest sufficient platform and measurable reasons to expand it. Local tests confirm principles, not cloud behavior.
 
-## Пример из финтеха
+## Fintech example
 
-Batch SQLite достаточен для обучения; реальная multi-tenant платформа требует другого isolation и масштабирования.
+SQLite batch is useful for learning; multi-tenant production needs different isolation and scale.
 
-## Порядок реализации
+## Implementation steps
 
-1. Запиши ADR
-2. Назови assumptions
-3. Выдели measured и untested
-4. Определи следующий scaling trigger.
+1. Write an ADR
+2. State assumptions
+3. Separate measured and untested claims
+4. Define scaling triggers.
 
-## Практическое задание
+## Practical assignment
 
-Составь plan перехода synthetic lab→PostgreSQL→managed DWH по измеримым ограничениям.
+Plan synthetic lab→PostgreSQL→managed warehouse transitions using measured limitations.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Сразу внедряют Kubernetes, Kafka и lakehouse без команды эксплуатации и требований latency.
+Deploying Kubernetes, Kafka, and lakehouse together without operating capacity creates avoidable complexity.
 
-## Проверка результата
+## Verify the result
 
-ADR содержит условия перехода, cost, migration scope и проверяемый rollback plan.
+The ADR defines transition conditions, costs, migration scope, and recovery.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какое измерение докажет, что именно compute стал bottleneck, а не источник или sink?
+Which measurement proves compute is the bottleneck rather than source or sink?
 
-## Что читать дальше
+## Further reading
 
-- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — первичная документация; ищи раздел по теме урока.
-- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — первичная документация; ищи раздел по теме урока.
+- [AWS Well Architected](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — primary documentation; find the section relevant to this lesson.
+- [Spark SQL performance tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/090-platform-review/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/090-platform-review/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../09-platform/089-access-review.md) · [Следующий шаг](../10-ai-career/091-ai-assistant.md) · [Вся карта](../README.md)
+[Previous step](../09-platform/089-access-review.md) · [Next step](../10-ai-career/091-ai-assistant.md) · [Full roadmap](../README.md)
 
-**Модуль:** Платформа и безопасность. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Platform and security. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

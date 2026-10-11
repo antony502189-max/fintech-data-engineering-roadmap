@@ -1,49 +1,49 @@
-# 063. Сверка внутренних и внешних денег
+# 063. Internal and external reconciliation
 
-## Результат обучения
+## Learning outcome
 
-Сопоставить две независимые стороны по согласованному grain.
+Match independent monetary records at an agreed grain.
 
-## Как это работает
+## How it works
 
-Reconciliation связывает ожидаемое движение с внешним подтверждением. Нужны валюты, ключи, cutoff и sign convention. Inner join скрывает отсутствующие и неожиданные записи, поэтому сохраняй обе стороны. Tolerance должна иметь утверждённое основание; для точных minor units по одной валюте часто нужен ноль.
+Reconciliation connects expected movement with external confirmation. Agree on currency, identity, cutoff, and signs. An inner join hides missing and unexpected records; preserve both sides. Tolerances require an approved justification, while exact minor-unit comparisons often use zero.
 
-## Пример из финтеха
+## Fintech example
 
-p3 ожидает 2500, внешний файл содержит 2400; p9 есть только снаружи.
+p3 expects 2500 but receives 2400 externally; p9 exists only externally.
 
-## Порядок реализации
+## Implementation steps
 
-1. Согласуй grain
-2. Проверь уникальность внешних ключей
-3. Сделай full outer match
-4. Классифицируй исключения.
+1. Agree on grain
+2. Check external uniqueness
+3. Match the union of keys
+4. Classify exceptions.
 
-## Практическое задание
+## Practical assignment
 
-Запусти reconcile; исправь p3 в копии external fixture и посмотри, почему p9 остаётся исключением.
+Run reconciliation, correct p3 in a personal external fixture, and explain why p9 still remains an exception.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Неточные match по сумме объединяют два разных платежа одного размера.
+Matching only by amount combines separate equal-value payments.
 
-## Проверка результата
+## Verify the result
 
-Отчёт содержит matched, mismatch, missing и unexpected без потери строк.
+Report matched, mismatch, missing, and unexpected records without dropping either side.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Когда одно внешнее payout требует many-to-many allocation вместо match payment_id?
+When does a payout require many-to-many allocation rather than a payment-ID match?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/063-reconciliation/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/063-reconciliation/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/062-double-entry.md) · [Следующий шаг](../07-fintech/064-refunds.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/062-double-entry.md) · [Next step](../07-fintech/064-refunds.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

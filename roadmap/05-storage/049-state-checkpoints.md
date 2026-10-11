@@ -1,49 +1,49 @@
-# 049. Состояние stream и checkpoint recovery
+# 049. Stream state and checkpoint recovery
 
-## Результат обучения
+## Learning outcome
 
-Объяснить, что восстанавливается из checkpoint и где заканчивается гарантия.
+Explain checkpoint recovery and its guarantee boundary.
 
-## Как это работает
+## How it works
 
-Stateful processor хранит агрегаты, timers и progress. Consistent checkpoint связывает состояние с позициями источника. Sink должен поддерживать нужную commit semantics, иначе checkpoint не предотвращает повтор внешней записи. Retention state и ключей дедупликации ограничивает горизонт безопасного replay.
+Stateful processing stores aggregates, timers, and progress. A consistent checkpoint links state with source positions. External sinks need compatible commit semantics; checkpoints alone cannot prevent repeated side effects. Deduplication retention limits the safe replay horizon.
 
-## Пример из финтеха
+## Fintech example
 
-Consumer восстановился из вчерашнего checkpoint, но external settlement email уже был отправлен.
+A consumer restores yesterday's state, but an external settlement notification was already sent.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши state
-2. Назови durable checkpoint storage
-3. Проверь sink protocol
-4. Смоделируй replay за retention.
+1. Describe state
+2. Choose durable checkpoint storage
+3. Verify sink protocol
+4. Test replay beyond retention.
 
-## Практическое задание
+## Practical assignment
 
-Составь state lifecycle для dedup event_id с TTL 7 дней и replay за 30 дней.
+Design event-ID deduplication with a seven-day TTL and a thirty-day replay request.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-TTL удаляет ключи раньше допустимого replay; старые capture учитываются повторно.
+Expiring identity keys before the replay horizon lets old captures count again.
 
-## Проверка результата
+## Verify the result
 
-План связывает TTL с replay horizon или сохраняет persistent sink uniqueness.
+Align TTL with replay horizons or retain durable uniqueness in the sink.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какие внешние side effects не покрывает восстановление streaming state?
+Which external side effects are not covered by restoring stream state?
 
-## Что читать дальше
+## Further reading
 
-- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — первичная документация; ищи раздел по теме урока.
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
+- [Flink event time](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/time/) — primary documentation; find the section relevant to this lesson.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/049-state-checkpoints/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/049-state-checkpoints/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/048-event-time.md) · [Следующий шаг](../05-storage/050-storage-decision.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/048-event-time.md) · [Next step](../05-storage/050-storage-decision.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

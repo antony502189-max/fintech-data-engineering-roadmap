@@ -1,49 +1,49 @@
-# 038. Transactional outbox и публикация событий
+# 038. Transactional outbox
 
-## Результат обучения
+## Learning outcome
 
-Объяснить атомарность записи бизнес-состояния и намерения публикации.
+Explain atomic state changes and publication intent.
 
-## Как это работает
+## How it works
 
-Outbox записывается в той же database transaction, что и бизнес-изменение. Отдельный relay публикует записи и допускает повтор. Это закрывает окно между commit OLTP и отправкой сообщения, но не отменяет необходимость consumer dedup. Порядок событий требует sequence и partition policy.
+Write an outbox entry in the same database transaction as the business change. A relay publishes it and may repeat delivery. This closes the gap between OLTP commit and message publication but does not remove consumer deduplication requirements. Ordering needs explicit sequence and partition rules.
 
-## Пример из финтеха
+## Fintech example
 
-Payment capture фиксируется вместе с outbox entry; падение relay не теряет намерение сообщить о capture.
+Capture commits with its outbox entry; a relay crash does not lose publication intent.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи outbox schema
-2. Запиши в одной transaction
-3. Сделай relay retryable
-4. Добавь consumer identity check.
+1. Define the outbox schema
+2. Commit it with business state
+3. Make the relay retryable
+4. Validate consumer identity.
 
-## Практическое задание
+## Practical assignment
 
-Составь SQL transaction и crash matrix для publish-before-mark и mark-before-publish.
+Write the transaction and a crash matrix for publish-before-mark and mark-before-publish.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Сначала ставят published=true, потом отправляют; сбой между действиями теряет событие.
+Marking an entry published before sending loses it if the relay crashes between steps.
 
-## Проверка результата
+## Verify the result
 
-Публикация может повторяться, но успешный бизнес commit не остаётся без outbox entry.
+Publication can repeat, but a business commit cannot lack its required outbox entry.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему outbox не даёт автоматическое exactly-once во внешнем sink?
+Why does outbox not guarantee exactly-once in an external sink?
 
-## Что читать дальше
+## Further reading
 
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/038-outbox/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/038-outbox/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../04-ingestion/037-schema-evolution.md) · [Следующий шаг](../04-ingestion/039-replay.md) · [Вся карта](../README.md)
+[Previous step](../04-ingestion/037-schema-evolution.md) · [Next step](../04-ingestion/039-replay.md) · [Full roadmap](../README.md)
 
-**Модуль:** Загрузка и CDC. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Ingestion and CDC. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

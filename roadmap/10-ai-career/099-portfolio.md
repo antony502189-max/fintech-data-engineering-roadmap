@@ -1,49 +1,49 @@
-# 099. Портфолио: доказательства вместо списка навыков
+# 099. Portfolio evidence instead of skill lists
 
-## Результат обучения
+## Learning outcome
 
-Подготовить проект, который независимый читатель может проверить.
+Build a project another person can verify.
 
-## Как это работает
+## How it works
 
-Сильное портфолио показывает проблему, работающий минимум, tests, failure recovery и объяснение компромиссов. Скриншот dashboard без исходных данных и команд слабее воспроизводимого результата. Разделяй implemented, simulated и proposed. Не заявляй масштаб, которого не измерял.
+Good portfolios present a problem, working minimum, tests, failure recovery, and decisions. A dashboard screenshot without data or commands proves less than reproducible output. Separate implemented, simulated, and proposed capabilities. Do not claim unmeasured scale.
 
-## Пример из финтеха
+## Fintech example
 
-Synthetic payments project объясняет e6 late arrival, p3 mismatch и exact money, а не имитирует настоящий банк.
+A synthetic payment project explains e6 lateness, p3 mismatch, and exact amounts rather than pretending to be a bank.
 
-## Порядок реализации
+## Implementation steps
 
-1. Выбери capstone
-2. Добавь reproducible commands
-3. Сохрани expected output
-4. Напиши limitations.
+1. Select a capstone
+2. Provide reproduction commands
+3. Retain expected output
+4. State limitations.
 
-## Практическое задание
+## Practical assignment
 
-Собери portfolio README из projects rubric и приложи один fault drill с восстановлением.
+Build a portfolio README from the project rubric and include a fault-and-recovery demonstration.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Пишут «обрабатывает миллиарды событий», хотя проверили только шесть строк.
+Claiming billions of events after testing six records misrepresents scope.
 
-## Проверка результата
+## Verify the result
 
-Другой человек запускает проект, видит ожидаемые исключения и понимает ограничения.
+A reader runs the project, sees expected exceptions, and understands boundaries.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая демонстрация лучше доказывает надёжность, чем число badges в README?
+Which demonstration proves reliability better than a badge count?
 
-## Что читать дальше
+## Further reading
 
-- [Pro Git book](https://git-scm.com/book/en/v2) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Pro Git book](https://git-scm.com/book/en/v2) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/099-portfolio/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/099-portfolio/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../10-ai-career/098-system-design.md) · [Следующий шаг](../10-ai-career/100-growth.md) · [Вся карта](../README.md)
+[Previous step](../10-ai-career/098-system-design.md) · [Next step](../10-ai-career/100-growth.md) · [Full roadmap](../README.md)
 
-**Модуль:** ИИ, ML и портфолио. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** AI, ML and portfolio. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

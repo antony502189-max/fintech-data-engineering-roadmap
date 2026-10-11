@@ -1,49 +1,49 @@
-# 066. Cutoff, закрытие дня и переиздание отчёта
+# 066. Cutoffs, daily close, and restatement
 
-## Результат обучения
+## Learning outcome
 
-Разделить provisional, complete и closed dataset.
+Separate provisional, complete, and closed output.
 
-## Как это работает
+## How it works
 
-Cutoff определяет границу бизнес-периода, completeness — наличие ожидаемого входа, close — решение о фиксации результата. Поздние события после close требуют adjustment или restatement по правилам владельца процесса. Нельзя скрыто переписывать уже отправленный отчёт и сохранять прежний version_id.
+Cutoff defines period boundaries; completeness establishes expected input; close is the decision to freeze results. Later events require adjustments or restatements under owner-approved rules. Do not silently replace a submitted report while retaining its version ID.
 
-## Пример из финтеха
+## Fintech example
 
-e6 пришёл 3 января; отчёт 1 января изменяется только через объяснимую процедуру correction.
+e6 arrives on January 3; changing January 1 after close needs an explainable correction process.
 
-## Порядок реализации
+## Implementation steps
 
-1. Определи business calendar
-2. Назови expected inputs
-3. Зафиксируй close approval
-4. Сохрани original и restated versions.
+1. Define the calendar
+2. Identify expected inputs
+3. Record close authorization
+4. Preserve original and restated versions.
 
-## Практическое задание
+## Practical assignment
 
-Напиши publish policy для двух сценариев: ещё открытый день и уже закрытый месяц.
+Write publication rules for an open day and a closed month.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Job success принимают за completeness; отсутствующий provider file проходит как нулевой.
+Treating job success as completeness converts a missing provider file into zero.
 
-## Проверка результата
+## Verify the result
 
-Closed report имеет input manifest, report version, timestamp и отдельную correction trail.
+A closed report has a manifest, version, timestamp, and correction trail.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему календарный день источника может отличаться от дня финансового признания?
+Why can source calendar date differ from financial recognition date?
 
-## Что читать дальше
+## Further reading
 
-- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — первичная документация; ищи раздел по теме урока.
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [Stripe balance transaction types](https://docs.stripe.com/reports/balance-transaction-types) — primary documentation; find the section relevant to this lesson.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/066-cutoff-close/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/066-cutoff-close/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../07-fintech/065-fx.md) · [Следующий шаг](../07-fintech/067-credit.md) · [Вся карта](../README.md)
+[Previous step](../07-fintech/065-fx.md) · [Next step](../07-fintech/067-credit.md) · [Full roadmap](../README.md)
 
-**Модуль:** Финтех и движение денег. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Financial data and money movement. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

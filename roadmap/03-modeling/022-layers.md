@@ -1,49 +1,49 @@
-# 022. Raw, staging, core и marts
+# 022. Raw, staging, core, and marts
 
-## Результат обучения
+## Learning outcome
 
-Назначить каждому слою конкретную ответственность.
+Give each layer a specific responsibility.
 
-## Как это работает
+## How it works
 
-Raw сохраняет доказательство получения; staging нормализует поля и типы; core описывает устойчивые сущности и события; marts отвечают на потребительские вопросы. Число слоёв вторично. Для каждого преобразования должны быть понятны вход, версия правила и возможность воспроизведения. Raw не освобождается от требований защиты и retention.
+Raw preserves evidence of receipt; staging normalizes types; core models durable entities and events; marts answer consumer questions. Layer count matters less than clear input, rule version, and reproduction paths. Raw data still requires protection and retention controls.
 
-## Пример из финтеха
+## Fintech example
 
-Из raw provider event получают типизированный capture, затем journal entries и daily net cash.
+A provider event becomes a typed capture, then journal entries and daily net cash.
 
-## Порядок реализации
+## Implementation steps
 
-1. Опиши ответственность слоёв
-2. Назови ключи
-3. Определи политику сохранения raw
-4. Нарисуй lineage до отчёта.
+1. Define layer responsibilities
+2. Name keys
+3. Specify raw retention
+4. Trace lineage to the report.
 
-## Практическое задание
+## Practical assignment
 
-Сопоставь raw_events, ledger_entries и mart_daily_cash с архитектурой; укажи, какой слой лаборатория упрощает.
+Map raw_events, ledger_entries, and mart_daily_cash to the architecture. Identify the layer the lab simplifies.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Одинаковая формула копируется в staging и marts; исправление расходится между потребителями.
+Copying a formula into staging and marts makes corrections diverge between consumers.
 
-## Проверка результата
+## Verify the result
 
-Для net_minor есть один путь происхождения и одно место определения знака события.
+A net_minor value has one explainable provenance path and an explicit sign rule.
 
-## Вопрос для самопроверки
+## Self-check question
 
-В каком слое следует хранить бизнес-правило комиссии и почему?
+Where should a fee rule live, and why?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/022-layers/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/022-layers/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/021-architecture.md) · [Следующий шаг](../03-modeling/023-facts.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/021-architecture.md) · [Next step](../03-modeling/023-facts.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

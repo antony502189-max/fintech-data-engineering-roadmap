@@ -1,49 +1,49 @@
-# 027. Data Vault: hubs, links и satellites
+# 027. Data Vault: hubs, links, and satellites
 
-## Результат обучения
+## Learning outcome
 
-Объяснить пользу и эксплуатационную цену Data Vault.
+Explain Data Vault's benefits and operating cost.
 
-## Как это работает
+## How it works
 
-Hub хранит business key, link — связь, satellite — описательные изменения и provenance. Raw Vault старается сохранить историю источников; Business Vault применяет согласованные правила. Это не автоматическая замена dimensional marts: потребителю обычно нужна удобная модель. Hash keys требуют единой канонизации входа и контроля коллизий.
+A hub holds business keys, a link relationships, and a satellite descriptive changes and provenance. Raw Vault preserves source history; Business Vault applies agreed rules. Consumer marts still need useful analytical models. Hash keys require consistent canonicalization and collision handling.
 
-## Пример из финтеха
+## Fintech example
 
-Merchant из CRM и процессинга имеет разные ключи и меняющиеся связи с договорами.
+CRM and processing systems identify merchants differently and maintain changing contract relationships.
 
-## Порядок реализации
+## Implementation steps
 
-1. Нарисуй hubs
-2. Определи link grain
-3. Раздели satellites по источникам
-4. Покажи выходную dimensional mart.
+1. Design hubs
+2. Define link grain
+3. Separate source satellites
+4. Show a dimensional output mart.
 
-## Практическое задание
+## Practical assignment
 
-Сравни star и vault для трёх меняющихся источников; запиши стоимость новых joins и правила identity resolution.
+Compare star and vault designs for three evolving sources. Document extra joins and identity-resolution rules.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Хешируют строковую конкатенацию без разделителей и нормализации NULL; разные ключи могут совпасть на входе хеша.
+Concatenating keys without separators or NULL normalization creates ambiguous hash input.
 
-## Проверка результата
+## Verify the result
 
-Модель сохраняет source и load time; указано, как аналитик получит понятную витрину.
+Preserve source and load time, and show how analysts reach an understandable mart.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какая проблема оправдывает Vault именно в твоём проекте, а не вообще?
+Which specific problem in your project justifies Vault?
 
-## Что читать дальше
+## Further reading
 
-- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — первичная документация; ищи раздел по теме урока.
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — первичная документация; ищи раздел по теме урока.
+- [Kimball dimensional modeling techniques](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/) — primary documentation; find the section relevant to this lesson.
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/027-data-vault/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/027-data-vault/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../03-modeling/026-bitemporal.md) · [Следующий шаг](../03-modeling/028-entity-events.md) · [Вся карта](../README.md)
+[Previous step](../03-modeling/026-bitemporal.md) · [Next step](../03-modeling/028-entity-events.md) · [Full roadmap](../README.md)
 
-**Модуль:** Моделирование DWH. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** DWH modeling. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

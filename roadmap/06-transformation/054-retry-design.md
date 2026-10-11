@@ -1,49 +1,49 @@
-# 054. Retries, timeouts и идемпотентные задачи
+# 054. Retries, timeouts, and idempotent tasks
 
-## Результат обучения
+## Learning outcome
 
-Настроить retry по типу ошибки и бюджету времени.
+Assign retries by failure class and time budget.
 
-## Как это работает
+## How it works
 
-Retry полезен для временного сбоя и опасен для постоянного нарушения контракта. Timeout ограничивает длительность попытки, retry budget — общую задержку. Task должна безопасно переживать повтор после неопределённого результата записи. Различай retry загрузки, пересчёт данных и исправление бизнес-правила.
+Retries help temporary failures but cannot repair invalid contracts. Attempt timeouts limit execution; a retry budget limits total delay. Tasks must survive repeats after uncertain commit results. Retrying ingestion differs from rebuilding data or changing a business rule.
 
-## Пример из финтеха
+## Fintech example
 
-SQL task завершила insert, но worker потерял соединение до получения подтверждения.
+A SQL insert succeeds but the worker loses the acknowledgment.
 
-## Порядок реализации
+## Implementation steps
 
-1. Классифицируй errors
-2. Определи attempt timeout
-3. Добавь bounded backoff
-4. Проверь post-commit retry.
+1. Classify failures
+2. Define attempt timeouts
+3. Bound backoff
+4. Test post-commit replay.
 
-## Практическое задание
+## Practical assignment
 
-Для пяти ошибок выбери retry, quarantine или fail: 429, invalid currency, deadlock, missing file, conflicting event_id.
+Choose retry, quarantine, or fail for rate limit, invalid currency, deadlock, missing file, and identity collision.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Любой exception повторяют десять раз; контрактная ошибка блокирует очередь и увеличивает нагрузку.
+Retrying every exception repeatedly blocks work and increases load.
 
-## Проверка результата
+## Verify the result
 
-Каждая ошибка имеет действие, максимальный бюджет и сигнал владельцу.
+Every error has an action, a maximum budget, and an owner-facing signal.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Почему retry при неизвестном результате COMMIT требует идемпотентного sink?
+Why does an unknown COMMIT outcome require sink idempotency?
 
-## Что читать дальше
+## Further reading
 
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
-- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — первичная документация; ищи раздел по теме урока.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/054-retry-design/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/054-retry-design/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../06-transformation/053-orchestration.md) · [Следующий шаг](../06-transformation/055-backfills-dag.md) · [Вся карта](../README.md)
+[Previous step](../06-transformation/053-orchestration.md) · [Next step](../06-transformation/055-backfills-dag.md) · [Full roadmap](../README.md)
 
-**Модуль:** Трансформации и оркестрация. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Transformations and orchestration. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).

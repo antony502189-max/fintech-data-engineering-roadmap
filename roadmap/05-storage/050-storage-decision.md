@@ -1,49 +1,49 @@
-# 050. Выбор batch или stream без переусложнения
+# 050. Choosing batch or streaming
 
-## Результат обучения
+## Learning outcome
 
-Связать архитектуру со сроком решения и ценой эксплуатации.
+Connect architecture to decision deadlines and operating cost.
 
-## Как это работает
+## How it works
 
-Batch проще пересчитывать и сверять; stream быстрее обновляет результат и требует работы со state, late data и непрерывной эксплуатацией. Иногда достаточен frequent microbatch. Смешанная архитектура оправданна, если обязанности разделены: оперативный provisional output и проверенный financial output.
+Batch is often simpler to rebuild and reconcile. Streaming reduces latency while adding state, lateness, and continuous-operation requirements. Frequent microbatches may suffice. Mixed architectures need explicit responsibilities for provisional operations and verified financial output.
 
-## Пример из финтеха
+## Fintech example
 
-Антифрод читает секунды, daily settlement сверяется после cutoff. Один pipeline может не удовлетворить оба процесса одинаково.
+Fraud needs seconds; daily settlement waits for a cutoff. One path may not serve both equally.
 
-## Порядок реализации
+## Implementation steps
 
-1. Уточни latency budget
-2. Назови источник полноты
-3. Оцени on-call
-4. Выбери минимальную достаточную систему.
+1. Clarify latency budget
+2. Define completeness evidence
+3. Estimate on-call cost
+4. Choose the smallest sufficient design.
 
-## Практическое задание
+## Practical assignment
 
-Напиши ADR для daily finance и online fraud, включая, что происходит при stream outage.
+Write an ADR for daily finance and online fraud, including behavior during a stream outage.
 
-## Типичная ошибка и её последствия
+## Common mistake and its consequences
 
-Строят два независимых «истинных» net показателя без процедуры согласования.
+Maintaining two independent authoritative net metrics without reconciliation creates competing truths.
 
-## Проверка результата
+## Verify the result
 
-ADR содержит критерий выбора и способ сверки provisional и final results.
+The ADR states selection criteria and how provisional and final outputs reconcile.
 
-## Вопрос для самопроверки
+## Self-check question
 
-Какой измеримый эффект оправдает переход с hourly batch на stream?
+What measured benefit would justify moving hourly batch processing to streaming?
 
-## Что читать дальше
+## Further reading
 
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — первичная документация; ищи раздел по теме урока.
-- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — первичная документация; ищи раздел по теме урока.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — primary documentation; find the section relevant to this lesson.
+- [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html) — primary documentation; find the section relevant to this lesson.
 
-## Артефакт и маршрут
+## Deliverable and navigation
 
-Сохрани решение в своём форке: `portfolio/050-storage-decision/`. Включи постановку, минимальный пример, проверку из раздела «Проверка результата» и вывод по вопросу для самопроверки. Для проектных уроков допустимы ADR, схема и таблица экспериментов; не выдавай проект за работающий сервис.
+Save your solution in your own fork under `portfolio/050-storage-decision/`. Include the problem, a minimal example, the check from “Verify the result,” and your answer to the self-check question. Design exercises may produce an ADR, diagram, or experiment table; distinguish a proposal from an implemented service.
 
-[Предыдущий шаг](../05-storage/049-state-checkpoints.md) · [Следующий шаг](../06-transformation/051-dbt-basics.md) · [Вся карта](../README.md)
+[Previous step](../05-storage/049-state-checkpoints.md) · [Next step](../06-transformation/051-dbt-basics.md) · [Full roadmap](../README.md)
 
-**Модуль:** Хранилища и вычисления. **Оценка времени:** 2–4 часа на первый проход; углубление и проект требуют дополнительного времени. Предыдущий шаг задаёт последовательность чтения, а не означает, что все темы одинаково обязательны: см. [маршруты](../../docs/LEARNING_PATHS.md).
+**Module:** Storage and processing. **Estimated time:** 2–4 hours for a first pass; deeper practice and a project take additional time. The previous step defines reading order, not an equally mandatory prerequisite for every learner: see the [learning paths](../../docs/LEARNING_PATHS.md).
