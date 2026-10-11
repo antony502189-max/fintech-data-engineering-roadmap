@@ -71,7 +71,7 @@ python scripts/check_docs.py
 python scripts/check_sql.py
 ```
 
-CI запускает проверки на Windows и Ubuntu, Python 3.12 и 3.14. `verify` проверяет эталоны, а `grade` — личное решение. Стартеры намеренно незавершённые.
+CI запускает проверки на Windows и Ubuntu, Python 3.12 и 3.14. `verify` проверяет эталоны, а `grade` — личное решение. Стартеры намеренно незавершённые. [Результаты локальной проверки](docs/VALIDATION.md).
 
 ## Границы и прозрачность
 
