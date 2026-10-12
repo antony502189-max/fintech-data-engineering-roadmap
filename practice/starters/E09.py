@@ -1,4 +1,4 @@
-"""E09: SCD2 на границе. Implement solve(data), then run the grader."""
+"""E09: SCD2 boundary lookup. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

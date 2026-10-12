@@ -1,4 +1,4 @@
-"""E28: Распределение оплаты кредита. Implement solve(data), then run the grader."""
+"""E28: Loan-payment allocation. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

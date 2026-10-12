@@ -1,4 +1,4 @@
-"""E15: Пагинация без пробела. Implement solve(data), then run the grader."""
+"""E15: Complete pagination. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

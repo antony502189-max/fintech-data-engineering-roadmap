@@ -1,4 +1,4 @@
-"""E31: Checks при неполном входе. Implement solve(data), then run the grader."""
+"""E31: Quality with incomplete input. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

@@ -1,4 +1,4 @@
-"""E38: AI eval scorecard. Implement solve(data), then run the grader."""
+"""E38: AI evaluation scorecard. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

@@ -1,4 +1,4 @@
-"""E18: Small files: packing. Implement solve(data), then run the grader."""
+"""E18: Small-file packing. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

@@ -1,4 +1,4 @@
-"""E36: Retention и hold. Implement solve(data), then run the grader."""
+"""E36: Retention and holds. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

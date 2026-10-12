@@ -1,4 +1,4 @@
-"""E08: SQL: нарушители уникальности. Implement solve(data), then run the grader."""
+"""E08: SQL: uniqueness violations. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

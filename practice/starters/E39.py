@@ -1,4 +1,4 @@
-"""E39: RAG с ACL. Implement solve(data), then run the grader."""
+"""E39: RAG access filtering. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

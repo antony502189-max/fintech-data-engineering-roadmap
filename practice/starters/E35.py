@@ -1,4 +1,4 @@
-"""E35: Сценарная стоимость. Implement solve(data), then run the grader."""
+"""E35: Scenario cost. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

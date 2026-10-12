@@ -1,4 +1,4 @@
-"""E16: Миграция amount schema. Implement solve(data), then run the grader."""
+"""E16: Amount-schema migration. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

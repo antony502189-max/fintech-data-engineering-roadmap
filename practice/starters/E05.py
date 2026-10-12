@@ -1,4 +1,4 @@
-"""E05: SQL: события и платежи. Implement solve(data), then run the grader."""
+"""E05: SQL: events and payments. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

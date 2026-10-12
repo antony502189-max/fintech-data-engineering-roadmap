@@ -1,4 +1,4 @@
-"""E07: SQL: последняя версия. Implement solve(data), then run the grader."""
+"""E07: SQL: latest version. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

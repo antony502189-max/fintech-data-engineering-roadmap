@@ -1,4 +1,4 @@
-"""E11: Unknown dimension. Implement solve(data), then run the grader."""
+"""E11: Unknown dimension member. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

@@ -1,4 +1,4 @@
-"""E01: Точные деньги. Implement solve(data), then run the grader."""
+"""E01: Exact money. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

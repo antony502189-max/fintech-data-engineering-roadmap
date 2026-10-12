@@ -1,4 +1,4 @@
-"""E23: Затронутые дни incremental. Implement solve(data), then run the grader."""
+"""E23: Affected incremental days. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

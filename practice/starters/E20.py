@@ -1,4 +1,4 @@
-"""E20: Watermark и late side output. Implement solve(data), then run the grader."""
+"""E20: Watermarks and late output. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

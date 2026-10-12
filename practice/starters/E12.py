@@ -1,4 +1,4 @@
-"""E12: Бизнес-время и время знания. Implement solve(data), then run the grader."""
+"""E12: Business time and knowledge time. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

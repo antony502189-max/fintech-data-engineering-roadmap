@@ -1,4 +1,4 @@
-"""E04: Manifest полноты. Implement solve(data), then run the grader."""
+"""E04: Completeness manifest. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

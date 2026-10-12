@@ -1,4 +1,4 @@
-"""E27: FX с явным масштабом. Implement solve(data), then run the grader."""
+"""E27: FX with explicit scale. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

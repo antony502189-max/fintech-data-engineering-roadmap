@@ -1,4 +1,4 @@
-"""E34: PII allowlist projection. Implement solve(data), then run the grader."""
+"""E34: Personal-data allowlist. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

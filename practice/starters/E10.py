@@ -1,4 +1,4 @@
-"""E10: Поток и остаток. Implement solve(data), then run the grader."""
+"""E10: Flow and closing balance. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

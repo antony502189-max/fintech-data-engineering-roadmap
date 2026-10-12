@@ -1,6 +1,6 @@
-# Практикум: 40 готовых заданий
+# Practice: 40 ready-to-solve exercises
 
-Четыре задания на каждый модуль. Все стартуют локально без network, API key и платного cloud. Реальные SQL выполняется в SQLite; платформенные и ИИ-принципы проверяются offline симуляциями.
+Four exercises per module. All run locally without network access, API keys, or paid cloud services. SQL exercises execute real SQLite queries; platform and AI exercises use offline simulations.
 
 ```bash
 python practice/run.py init E01
@@ -9,76 +9,76 @@ python practice/run.py reference E01
 python practice/run.py verify
 ```
 
-`grade` проверяет твою копию, `reference` — эталон; `verify` проверяет все эталоны. Успешный `verify` не означает, что ты решил задания.
+`grade` checks your answer, `reference` runs the reference, and `verify` validates all references. Passing `verify` does not mean you have solved the exercises.
 
-## Инженерная база
+## Engineering foundations
 
-- [ ] [E01. Точные деньги](E01.md)
-- [ ] [E02. День в UTC](E02.md)
-- [ ] [E03. Контракт на границе](E03.md)
-- [ ] [E04. Manifest полноты](E04.md)
+- [ ] [E01. Exact money](E01.md)
+- [ ] [E02. UTC business date](E02.md)
+- [ ] [E03. Boundary contract](E03.md)
+- [ ] [E04. Completeness manifest](E04.md)
 
-## SQL и базы данных
+## SQL and databases
 
-- [ ] [E05. SQL: события и платежи](E05.md)
-- [ ] [E06. SQL: net cash по валюте](E06.md)
-- [ ] [E07. SQL: последняя версия](E07.md)
-- [ ] [E08. SQL: нарушители уникальности](E08.md)
+- [ ] [E05. SQL: events and payments](E05.md)
+- [ ] [E06. SQL: net cash by currency](E06.md)
+- [ ] [E07. SQL: latest version](E07.md)
+- [ ] [E08. SQL: uniqueness violations](E08.md)
 
-## Моделирование DWH
+## DWH modeling
 
-- [ ] [E09. SCD2 на границе](E09.md)
-- [ ] [E10. Поток и остаток](E10.md)
-- [ ] [E11. Unknown dimension](E11.md)
-- [ ] [E12. Бизнес-время и время знания](E12.md)
+- [ ] [E09. SCD2 boundary lookup](E09.md)
+- [ ] [E10. Flow and closing balance](E10.md)
+- [ ] [E11. Unknown dimension member](E11.md)
+- [ ] [E12. Business time and knowledge time](E12.md)
 
-## Загрузка и CDC
+## Ingestion and CDC
 
-- [ ] [E13. Повторы и конфликты](E13.md)
-- [ ] [E14. CDC projection](E14.md)
-- [ ] [E15. Пагинация без пробела](E15.md)
-- [ ] [E16. Миграция amount schema](E16.md)
+- [ ] [E13. Duplicates and identity conflicts](E13.md)
+- [ ] [E14. CDC current projection](E14.md)
+- [ ] [E15. Complete pagination](E15.md)
+- [ ] [E16. Amount-schema migration](E16.md)
 
-## Хранилища и вычисления
+## Storage and processing
 
 - [ ] [E17. Partition pruning](E17.md)
-- [ ] [E18. Small files: packing](E18.md)
-- [ ] [E19. Hot key и skew](E19.md)
-- [ ] [E20. Watermark и late side output](E20.md)
+- [ ] [E18. Small-file packing](E18.md)
+- [ ] [E19. Hot keys and skew](E19.md)
+- [ ] [E20. Watermarks and late output](E20.md)
 
-## Трансформации и оркестрация
+## Transformations and orchestration
 
-- [ ] [E21. DAG и цикл](E21.md)
+- [ ] [E21. DAG ordering and cycles](E21.md)
 - [ ] [E22. Retry policy](E22.md)
-- [ ] [E23. Затронутые дни incremental](E23.md)
-- [ ] [E24. Publish gate](E24.md)
+- [ ] [E23. Affected incremental days](E23.md)
+- [ ] [E24. Publication gate](E24.md)
 
-## Финтех и движение денег
+## Financial data and money movement
 
-- [ ] [E25. Баланс проводок](E25.md)
-- [ ] [E26. Полная сверка](E26.md)
-- [ ] [E27. FX с явным масштабом](E27.md)
-- [ ] [E28. Распределение оплаты кредита](E28.md)
+- [ ] [E25. Posting balance](E25.md)
+- [ ] [E26. Full reconciliation](E26.md)
+- [ ] [E27. FX with explicit scale](E27.md)
+- [ ] [E28. Loan-payment allocation](E28.md)
 
-## Качество и эксплуатация
+## Quality and reliability
 
 - [ ] [E29. P95 latency](E29.md)
-- [ ] [E30. Радиус инцидента](E30.md)
-- [ ] [E31. Checks при неполном входе](E31.md)
-- [ ] [E32. Восстановление после backup](E32.md)
+- [ ] [E30. Incident impact](E30.md)
+- [ ] [E31. Quality with incomplete input](E31.md)
+- [ ] [E32. Backup restoration and replay](E32.md)
 
-## Платформа и безопасность
+## Platform and security
 
-- [ ] [E33. RBAC deny by default](E33.md)
-- [ ] [E34. PII allowlist projection](E34.md)
-- [ ] [E35. Сценарная стоимость](E35.md)
-- [ ] [E36. Retention и hold](E36.md)
+- [ ] [E33. RBAC: deny by default](E33.md)
+- [ ] [E34. Personal-data allowlist](E34.md)
+- [ ] [E35. Scenario cost](E35.md)
+- [ ] [E36. Retention and holds](E36.md)
 
-## ИИ, ML и портфолио
+## AI, ML and portfolio
 
 - [ ] [E37. Point-in-time feature](E37.md)
-- [ ] [E38. AI eval scorecard](E38.md)
-- [ ] [E39. RAG с ACL](E39.md)
-- [ ] [E40. Capstone: report contract](E40.md)
+- [ ] [E38. AI evaluation scorecard](E38.md)
+- [ ] [E39. RAG access filtering](E39.md)
+- [ ] [E40. Capstone report contract](E40.md)
 
-После практикума собери один из [capstone проектов](../projects/README.md).
+After the exercises, build a [capstone project](../projects/README.md).

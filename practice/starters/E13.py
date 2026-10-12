@@ -1,4 +1,4 @@
-"""E13: Повторы и конфликты. Implement solve(data), then run the grader."""
+"""E13: Duplicates and identity conflicts. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

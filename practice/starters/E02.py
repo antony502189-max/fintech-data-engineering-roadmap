@@ -1,4 +1,4 @@
-"""E02: День в UTC. Implement solve(data), then run the grader."""
+"""E02: UTC business date. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

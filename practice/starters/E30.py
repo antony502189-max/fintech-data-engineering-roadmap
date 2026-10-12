@@ -1,4 +1,4 @@
-"""E30: Радиус инцидента. Implement solve(data), then run the grader."""
+"""E30: Incident impact. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

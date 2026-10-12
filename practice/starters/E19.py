@@ -1,4 +1,4 @@
-"""E19: Hot key и skew. Implement solve(data), then run the grader."""
+"""E19: Hot keys and skew. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

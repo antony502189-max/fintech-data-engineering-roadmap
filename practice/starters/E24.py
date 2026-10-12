@@ -1,4 +1,4 @@
-"""E24: Publish gate. Implement solve(data), then run the grader."""
+"""E24: Publication gate. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

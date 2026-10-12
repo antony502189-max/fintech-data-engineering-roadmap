@@ -1,4 +1,4 @@
-"""E21: DAG и цикл. Implement solve(data), then run the grader."""
+"""E21: DAG ordering and cycles. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.

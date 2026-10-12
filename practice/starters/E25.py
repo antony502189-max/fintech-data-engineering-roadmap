@@ -1,4 +1,4 @@
-"""E25: Баланс проводок. Implement solve(data), then run the grader."""
+"""E25: Posting balance. Implement solve(data), then run the grader."""
 
 def solve(data):
     # TODO: return a JSON-compatible answer without changing input.
