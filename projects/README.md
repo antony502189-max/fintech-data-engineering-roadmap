@@ -2,6 +2,8 @@
 
 Choose a project and implement it in your fork or a separate repository. These are specifications and acceptance criteria, not delivered production services.
 
+Use the [scenario labs](../challenges/README.md) as a bridge from individual functions to independent projects: C01/C03/C04/C06/C07 prepare settlement, C02/C05 prepare historical models, and C08 prepares fraud datasets.
+
 | Project | Outcome | Prerequisites |
 |---|---|---|
 | [Settlement warehouse](SETTLEMENT.md) | Ingestion, history, and reconciliation | Lessons 001–080, E01–E32 |

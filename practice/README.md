@@ -81,4 +81,4 @@ python practice/run.py verify
 - [ ] [E39. RAG access filtering](E39.md)
 - [ ] [E40. Capstone report contract](E40.md)
 
-After the exercises, build a [capstone project](../projects/README.md).
+After the exercises, complete the [eight scenario labs](../challenges/README.md), then build a [capstone project](../projects/README.md).

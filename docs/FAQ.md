@@ -6,6 +6,8 @@
 
 **Where are SQL tasks?** E05–E08 execute SQL in memory. The additional journal task is `sql/exercises/05-ledger.sql`, with a reference in `sql/solutions/05-ledger.sql`. SQL lessons include further assignments.
 
+**What comes after the small exercises?** Use [C01–C08](../challenges/README.md): multi-stage ingestion, historical joins, payout reconciliation, schema migration, bitemporal reporting, real backup recovery, a runnable SQL bug hunt, and training-data assembly. C07 asks you to repair an incorrect query rather than fill in a blank function.
+
 **Why does grade fail after init?** `solve` intentionally contains TODO. Implement it; `reference` executes the provided solution instead of assessing your work.
 
 **Can I open solutions immediately?** Yes, but attempt the task first. After reading a reference, add a new negative case and explain it independently.

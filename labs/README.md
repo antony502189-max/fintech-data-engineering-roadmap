@@ -20,3 +20,5 @@ The demo writes a SQLite database and JSON report. Use a new output directory fo
 Keep personal scripts under `work/`, import lab functions, and use separate temporary databases. Do not modify public fixtures merely to pass checks.
 
 [Fault drills](fault-drills.md) provide snippets; [forty exercises](../practice/README.md) provide starters and grading; [extensions](STACK_EXTENSIONS.md) connect principles with real tools.
+
+For longer workflows, use the [scenario labs](../challenges/README.md). They combine transaction boundaries, historical lookup, reconciliation, backup recovery, and training-data availability rather than testing one rule at a time.

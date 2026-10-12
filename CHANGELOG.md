@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-10-12
+
+- Added eight intermediate/advanced scenario labs with starters, references, and 28 independently specified cases.
+- Added real SQLite temporal joins, bitemporal queries, transactional checkpoint recovery, and backup restoration exercises.
+- Added a runnable SQL bug hunt covering fanout, equal-value distinct events, missing joins, and currencies.
+- Added grouped payout reconciliation and leakage-safe training data with delayed labels.
+- Integrated the scenario grader into CI and linked the path from foundation exercises to capstones.
+
 ## History metadata update — 2026-10-12
 
 - Rescheduled author and committer timestamps across January 1–October 12, 2026, at the maintainer's request.

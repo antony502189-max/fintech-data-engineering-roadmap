@@ -4,7 +4,7 @@ Before posting, verify clean startup and links and choose one demonstration. Res
 
 ## Short post
 
-> An open fintech data engineering roadmap: 100 English lessons, 40 graded exercises, and an offline synthetic payments lab. Practice exact money, duplicate-safe replay, late data, reconciliation, and point-in-time features. Core examples use Python's standard library, with no paid cloud or API keys. Includes engineering articles, YouTube resources, and AI workflows. Reproducible feedback and meaningful edge cases are welcome. Star it if it helps you learn or teach.
+> An open fintech data engineering roadmap: 100 English lessons, 40 foundation exercises, 8 scenario labs, and offline synthetic payments. Practice exact money, replay, historical joins, payout reconciliation, real SQLite backup recovery, and leakage-safe features. One lab starts with runnable incorrect SQL for you to debug. Core examples need no paid cloud or API keys. Includes articles, YouTube resources, and AI workflows. Reproducible feedback and meaningful edge cases are welcome.
 >
 > [Repository](https://github.com/antony502189-max/fintech-data-engineering-roadmap)
 

@@ -13,6 +13,8 @@ Baseline local environment: Windows, CPython 3.14.3, standard library, October 1
 
 Version 1.1.0 additionally runs `python scripts/check_english.py` across tracked and unignored text. It rejects Cyrillic characters; manual review supplies the English translation itself. Identifiers, fixtures, expected outputs, and executable reference behavior are preserved.
 
+Version 1.2.0 adds `python challenges/run.py verify`: eight references and 28 independently authored scenario cases. The unit suite now has 48 tests, including a real backup reference, retained source evidence after schema rejection, and negative checks for unfinished workflows and runnable defective SQL. These scenarios verify the supplied learning contracts, not every possible input or a distributed production system.
+
 ## Meaningful checks
 
 Money tests reject floats, nonfinite values, excess precision, long near-cent values, and extreme exponents. Ingestion tests cover duplicates, collisions, rollback, schema errors, naive timestamps, and equivalent offsets. Financial checks cover imbalance, missing journals, currencies, and reconciliation classifications. History tests cover boundaries and late changes. Feature tests constrain receipt-time knowledge. CLI tests reject unfinished starters and booleans pretending to be integer answers.

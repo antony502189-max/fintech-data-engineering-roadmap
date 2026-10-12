@@ -22,7 +22,7 @@ Allow roughly 2–4 hours for a first pass; real Spark workloads, distributed re
 
 After SQL, explain grain, fanout, NULL, and boundaries. After modeling, choose facts and dimension history. After ingestion, explain replay, conflicts, snapshots, and deletes. After fintech, distinguish balance, reconciliation, currencies, and close. After AI, identify executable verification and permission boundaries.
 
-The [practice guide](../practice/README.md) has four exercises per module; lesson assignments extend them into designs and integrations. Finish with a [capstone](../projects/README.md) rather than merely running references.
+The [practice guide](../practice/README.md) has four exercises per module; lesson assignments extend them into designs and integrations. Then complete the [eight scenario labs](../challenges/README.md) with multi-stage fixtures, including a runnable SQL bug hunt and real SQLite restoration. Finish with a [capstone](../projects/README.md) rather than merely running references.
 
 ## When stuck
 

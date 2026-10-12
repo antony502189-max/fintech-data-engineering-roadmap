@@ -21,4 +21,5 @@ jobs:
       - run: python scripts/check_english.py
       - run: python scripts/check_sql.py
       - run: python practice/run.py verify
+      - run: python challenges/run.py verify
       - run: python -m fintech_lab --out work/ci-demo

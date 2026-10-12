@@ -2,9 +2,9 @@
 
 # Fintech Data Engineering Roadmap
 
-**From your first SQL query to an explainable fintech warehouse: 100 lessons, 40 graded exercises, and a runnable payments lab.**
+**From your first SQL query to an explainable fintech warehouse: 100 lessons, 40 foundation exercises, 8 scenario labs, and runnable payment examples.**
 
-[Start learning](docs/START_HERE.md) · [100-step roadmap](roadmap/README.md) · [Practice](practice/README.md) · [Videos](resources/VIDEOS.md) · [Articles](resources/ARTICLES.md)
+[Start learning](docs/START_HERE.md) · [100-step roadmap](roadmap/README.md) · [Practice](practice/README.md) · [Scenario labs](challenges/README.md) · [Videos](resources/VIDEOS.md) · [Articles](resources/ARTICLES.md)
 
 An open learning path for data engineering, DWH, and financial data. Learn what to study, why it matters, how to implement a principle, and how to detect mistakes. Core themes include exact amounts, change history, repeated delivery, late events, reconciliation, and recovery. A dedicated module covers AI assistants, RAG, Text-to-SQL, and ML features. All repository content is in English.
 
@@ -38,6 +38,7 @@ Reusing the output directory retains the database, so even the first ingestion s
 |---|---|
 | [100 lessons](roadmap/README.md) | Concepts, fintech examples, implementation steps, tasks, failure modes, acceptance checks, and primary sources |
 | [40 exercises](practice/README.md) | Forty starters, forty references, ninety verification cases, and a grading CLI |
+| [8 scenario labs](challenges/README.md) | Multi-batch rollback, temporal joins, payout allocation, schema migration, bitemporal reports, real backup recovery, a SQL bug hunt, and leakage-safe training data |
 | [Payments lab](labs/README.md) | SQLite, synthetic events, exact money, idempotency, journal checks, reconciliation, SCD2, and point-in-time features |
 | [Architecture](docs/ARCHITECTURE.md) | Data flow, transaction boundaries, and teaching-model limitations |
 | [Resources](resources/README.md) | YouTube, official documentation, and engineering articles from Stripe, Monzo, and Uber |
@@ -67,12 +68,17 @@ Choose a [learning path](docs/LEARNING_PATHS.md) for beginners, analysts, backen
 ```bash
 python -m unittest discover -s tests -v
 python practice/run.py verify
+python challenges/run.py verify
 python scripts/check_docs.py
 python scripts/check_sql.py
 python scripts/check_english.py
 ```
 
 CI checks Windows and Ubuntu with Python 3.12 and 3.14. `verify` validates references; `grade` checks your solution. Starters intentionally fail before implementation. See [verification evidence](docs/VALIDATION.md) and [GitHub Actions](https://github.com/antony502189-max/fintech-data-engineering-roadmap/actions).
+
+## After the foundation exercises
+
+Work through the [eight scenario labs](challenges/README.md) before your capstone. They include 28 independently specified cases and observable multi-stage results. C07 begins with runnable incorrect SQL: find the monetary bug and repair it. Other starters require an implementation. Initialize with `python challenges/run.py init C01` and test with `python challenges/run.py grade C01`.
 
 ## Scope and provenance
 

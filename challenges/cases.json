@@ -1,0 +1,1924 @@
+{
+  "C01": {
+    "title": "Multi-batch payments, replay, and rollback",
+    "cases": [
+      {
+        "name": "late-replay-conflict",
+        "input": {
+          "batches": [
+            [
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": 10000,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e2",
+                "payment_id": "p1",
+                "kind": "fee",
+                "amount_minor": 300,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e3",
+                "payment_id": "p1",
+                "kind": "refunded",
+                "amount_minor": 2000,
+                "currency": "USD",
+                "event_time": "2026-01-02T12:00:00+00:00",
+                "received_at": "2026-01-02T12:00:00+00:00"
+              },
+              {
+                "event_id": "e4",
+                "payment_id": "p2",
+                "kind": "captured",
+                "amount_minor": 5000,
+                "currency": "EUR",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e5",
+                "payment_id": "p2",
+                "kind": "fee",
+                "amount_minor": 100,
+                "currency": "EUR",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              }
+            ],
+            [
+              {
+                "event_id": "e6",
+                "payment_id": "p3",
+                "kind": "captured",
+                "amount_minor": 2500,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-03T12:00:00+00:00"
+              }
+            ],
+            [
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": 10000,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e2",
+                "payment_id": "p1",
+                "kind": "fee",
+                "amount_minor": 300,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e3",
+                "payment_id": "p1",
+                "kind": "refunded",
+                "amount_minor": 2000,
+                "currency": "USD",
+                "event_time": "2026-01-02T12:00:00+00:00",
+                "received_at": "2026-01-02T12:00:00+00:00"
+              },
+              {
+                "event_id": "e4",
+                "payment_id": "p2",
+                "kind": "captured",
+                "amount_minor": 5000,
+                "currency": "EUR",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e5",
+                "payment_id": "p2",
+                "kind": "fee",
+                "amount_minor": 100,
+                "currency": "EUR",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e6",
+                "payment_id": "p3",
+                "kind": "captured",
+                "amount_minor": 2500,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-03T12:00:00+00:00"
+              }
+            ],
+            [
+              {
+                "event_id": "e7",
+                "payment_id": "p4",
+                "kind": "captured",
+                "amount_minor": 100,
+                "currency": "USD",
+                "event_time": "2026-01-04T12:00:00+00:00",
+                "received_at": "2026-01-04T12:00:00+00:00"
+              },
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": true,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              },
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": 10001,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "steps": [
+            {
+              "status": "committed",
+              "inserted": 5,
+              "duplicates": 0,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "EUR",
+                  "net_minor": 4900,
+                  "event_count": 2
+                },
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 9700,
+                  "event_count": 2
+                },
+                {
+                  "event_date": "2026-01-02",
+                  "currency": "USD",
+                  "net_minor": -2000,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "committed",
+              "inserted": 1,
+              "duplicates": 0,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "EUR",
+                  "net_minor": 4900,
+                  "event_count": 2
+                },
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 12200,
+                  "event_count": 3
+                },
+                {
+                  "event_date": "2026-01-02",
+                  "currency": "USD",
+                  "net_minor": -2000,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "committed",
+              "inserted": 0,
+              "duplicates": 6,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "EUR",
+                  "net_minor": 4900,
+                  "event_count": 2
+                },
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 12200,
+                  "event_count": 3
+                },
+                {
+                  "event_date": "2026-01-02",
+                  "currency": "USD",
+                  "net_minor": -2000,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "conflict",
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "EUR",
+                  "net_minor": 4900,
+                  "event_count": 2
+                },
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 12200,
+                  "event_count": 3
+                },
+                {
+                  "event_date": "2026-01-02",
+                  "currency": "USD",
+                  "net_minor": -2000,
+                  "event_count": 1
+                }
+              ]
+            }
+          ],
+          "event_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4",
+            "e5",
+            "e6"
+          ],
+          "posting_count": 12,
+          "quarantine_count": 0
+        }
+      },
+      {
+        "name": "quarantine-and-new-delivery",
+        "input": {
+          "batches": [
+            [
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": true,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              }
+            ],
+            [
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": 10000,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00"
+              }
+            ],
+            [
+              {
+                "event_id": "e1",
+                "payment_id": "p1",
+                "kind": "captured",
+                "amount_minor": 10000,
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-04T00:00:00Z"
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "steps": [
+            {
+              "status": "committed",
+              "inserted": 0,
+              "duplicates": 0,
+              "quarantined": 1,
+              "daily": []
+            },
+            {
+              "status": "committed",
+              "inserted": 1,
+              "duplicates": 0,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 10000,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "committed",
+              "inserted": 0,
+              "duplicates": 1,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 10000,
+                  "event_count": 1
+                }
+              ]
+            }
+          ],
+          "event_ids": [
+            "e1"
+          ],
+          "posting_count": 2,
+          "quarantine_count": 1
+        }
+      },
+      {
+        "name": "empty-workflow",
+        "input": {
+          "batches": []
+        },
+        "expected": {
+          "steps": [],
+          "event_ids": [],
+          "posting_count": 0,
+          "quarantine_count": 0
+        }
+      }
+    ]
+  },
+  "C02": {
+    "title": "Late dimensions and a historical SQL join",
+    "cases": [
+      {
+        "name": "late-interval-split",
+        "input": {
+          "changes": [
+            {
+              "customer": "c",
+              "tier": "basic",
+              "effective_at": "2026-01-01T00:00:00Z"
+            },
+            {
+              "customer": "c",
+              "tier": "premium",
+              "effective_at": "2026-01-03T00:00:00Z"
+            },
+            {
+              "customer": "c",
+              "tier": "plus",
+              "effective_at": "2026-01-02T00:00:00Z"
+            }
+          ],
+          "facts": [
+            {
+              "id": "f1",
+              "customer": "c",
+              "at": "2026-01-01T00:00:00Z",
+              "amount": 100,
+              "currency": "USD"
+            },
+            {
+              "id": "f2",
+              "customer": "c",
+              "at": "2026-01-02T00:00:00Z",
+              "amount": 200,
+              "currency": "USD"
+            },
+            {
+              "id": "f3",
+              "customer": "c",
+              "at": "2026-01-03T00:00:00Z",
+              "amount": 300,
+              "currency": "USD"
+            }
+          ]
+        },
+        "expected": {
+          "facts": [
+            {
+              "id": "f1",
+              "tier": "basic",
+              "amount": 100,
+              "currency": "USD"
+            },
+            {
+              "id": "f2",
+              "tier": "plus",
+              "amount": 200,
+              "currency": "USD"
+            },
+            {
+              "id": "f3",
+              "tier": "premium",
+              "amount": 300,
+              "currency": "USD"
+            }
+          ],
+          "totals": [
+            {
+              "tier": "basic",
+              "currency": "USD",
+              "amount": 100
+            },
+            {
+              "tier": "plus",
+              "currency": "USD",
+              "amount": 200
+            },
+            {
+              "tier": "premium",
+              "currency": "USD",
+              "amount": 300
+            }
+          ]
+        }
+      },
+      {
+        "name": "offset-boundary-unknown-repeat",
+        "input": {
+          "changes": [
+            {
+              "customer": "c",
+              "tier": "basic",
+              "effective_at": "2026-01-01T03:00:00+03:00"
+            },
+            {
+              "customer": "c",
+              "tier": "basic",
+              "effective_at": "2026-01-01T00:00:00Z"
+            },
+            {
+              "customer": "c",
+              "tier": "premium",
+              "effective_at": "2026-01-02T00:00:00Z"
+            }
+          ],
+          "facts": [
+            {
+              "id": "a",
+              "customer": "c",
+              "at": "2026-01-02T03:00:00+03:00",
+              "amount": 100,
+              "currency": "USD"
+            },
+            {
+              "id": "b",
+              "customer": "missing",
+              "at": "2026-01-02T00:00:00Z",
+              "amount": 100,
+              "currency": "EUR"
+            }
+          ]
+        },
+        "expected": {
+          "facts": [
+            {
+              "id": "a",
+              "tier": "premium",
+              "amount": 100,
+              "currency": "USD"
+            },
+            {
+              "id": "b",
+              "tier": "UNKNOWN",
+              "amount": 100,
+              "currency": "EUR"
+            }
+          ],
+          "totals": [
+            {
+              "tier": "UNKNOWN",
+              "currency": "EUR",
+              "amount": 100
+            },
+            {
+              "tier": "premium",
+              "currency": "USD",
+              "amount": 100
+            }
+          ]
+        }
+      },
+      {
+        "name": "conflicting-effective-change",
+        "input": {
+          "changes": [
+            {
+              "customer": "c",
+              "tier": "basic",
+              "effective_at": "2026-01-01T00:00:00Z"
+            },
+            {
+              "customer": "c",
+              "tier": "other",
+              "effective_at": "2026-01-01T00:00:00Z"
+            }
+          ],
+          "facts": []
+        },
+        "expected": {
+          "status": "conflict"
+        }
+      }
+    ]
+  },
+  "C03": {
+    "title": "Grouped payouts and independent reconciliation",
+    "cases": [
+      {
+        "name": "grouped-mismatch-and-unallocated",
+        "input": {
+          "ledger": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 7700
+            },
+            {
+              "provider": "a",
+              "payment": "p2",
+              "currency": "USD",
+              "net_minor": 2300
+            },
+            {
+              "provider": "b",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 4900
+            },
+            {
+              "provider": "a",
+              "payment": "p3",
+              "currency": "USD",
+              "net_minor": 1000
+            }
+          ],
+          "membership": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "x"
+            },
+            {
+              "provider": "a",
+              "payment": "p2",
+              "currency": "USD",
+              "payout": "x"
+            },
+            {
+              "provider": "b",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "x"
+            }
+          ],
+          "statements": [
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "USD",
+              "net_minor": 9990
+            },
+            {
+              "provider": "b",
+              "payout": "x",
+              "currency": "USD",
+              "net_minor": 4900
+            },
+            {
+              "provider": "a",
+              "payout": "z",
+              "currency": "USD",
+              "net_minor": 250
+            }
+          ]
+        },
+        "expected": {
+          "payouts": [
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "USD",
+              "expected_minor": 10000,
+              "actual_minor": 9990,
+              "delta_minor": -10,
+              "status": "amount_mismatch"
+            },
+            {
+              "provider": "a",
+              "payout": "z",
+              "currency": "USD",
+              "expected_minor": null,
+              "actual_minor": 250,
+              "delta_minor": null,
+              "status": "unexpected_external"
+            },
+            {
+              "provider": "b",
+              "payout": "x",
+              "currency": "USD",
+              "expected_minor": 4900,
+              "actual_minor": 4900,
+              "delta_minor": 0,
+              "status": "matched"
+            }
+          ],
+          "unallocated": [
+            [
+              "a",
+              "p3",
+              "USD"
+            ]
+          ]
+        }
+      },
+      {
+        "name": "zero-is-not-missing",
+        "input": {
+          "ledger": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 0
+            }
+          ],
+          "membership": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "x"
+            }
+          ],
+          "statements": [
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "EUR",
+              "net_minor": 0
+            }
+          ]
+        },
+        "expected": {
+          "payouts": [
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "EUR",
+              "expected_minor": null,
+              "actual_minor": 0,
+              "delta_minor": null,
+              "status": "unexpected_external"
+            },
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "USD",
+              "expected_minor": 0,
+              "actual_minor": null,
+              "delta_minor": null,
+              "status": "missing_external"
+            }
+          ],
+          "unallocated": []
+        }
+      },
+      {
+        "name": "duplicate-allocation",
+        "input": {
+          "ledger": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 7700
+            },
+            {
+              "provider": "a",
+              "payment": "p2",
+              "currency": "USD",
+              "net_minor": 2300
+            },
+            {
+              "provider": "b",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 4900
+            },
+            {
+              "provider": "a",
+              "payment": "p3",
+              "currency": "USD",
+              "net_minor": 1000
+            }
+          ],
+          "membership": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "x"
+            },
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "another"
+            }
+          ],
+          "statements": []
+        },
+        "expected": {
+          "error": "duplicate_allocation"
+        }
+      },
+      {
+        "name": "duplicate-statement",
+        "input": {
+          "ledger": [],
+          "membership": [],
+          "statements": [
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "USD",
+              "net_minor": 1
+            },
+            {
+              "provider": "a",
+              "payout": "x",
+              "currency": "USD",
+              "net_minor": 1
+            }
+          ]
+        },
+        "expected": {
+          "error": "duplicate_statement"
+        }
+      },
+      {
+        "name": "unknown-member",
+        "input": {
+          "ledger": [],
+          "membership": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "payout": "x"
+            }
+          ],
+          "statements": []
+        },
+        "expected": {
+          "error": "unknown_payment"
+        }
+      },
+      {
+        "name": "duplicate-ledger",
+        "input": {
+          "ledger": [
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 7700
+            },
+            {
+              "provider": "a",
+              "payment": "p1",
+              "currency": "USD",
+              "net_minor": 7700
+            }
+          ],
+          "membership": [],
+          "statements": []
+        },
+        "expected": {
+          "error": "duplicate_ledger"
+        }
+      }
+    ]
+  },
+  "C04": {
+    "title": "Dual schema migration without double counting",
+    "cases": [
+      {
+        "name": "equivalent-versions-and-collision",
+        "input": {
+          "batches": [
+            [
+              {
+                "event_id": "a",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 1,
+                "amount": 123
+              }
+            ],
+            [
+              {
+                "event_id": "a",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "1.23"
+              }
+            ],
+            [
+              {
+                "event_id": "b",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "2.00"
+              },
+              {
+                "event_id": "a",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "1.24"
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "steps": [
+            {
+              "status": "committed",
+              "inserted": 1,
+              "duplicates": 0,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 123,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "committed",
+              "inserted": 0,
+              "duplicates": 1,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 123,
+                  "event_count": 1
+                }
+              ]
+            },
+            {
+              "status": "conflict",
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 123,
+                  "event_count": 1
+                }
+              ]
+            }
+          ],
+          "event_ids": [
+            "a"
+          ],
+          "posting_count": 2,
+          "quarantine_count": 0
+        }
+      },
+      {
+        "name": "invalid-and-valid-contracts",
+        "input": {
+          "batches": [
+            [
+              {
+                "event_id": "b",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": true,
+                "amount": 100
+              },
+              {
+                "event_id": "c",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 3,
+                "amount": "1.23"
+              },
+              {
+                "event_id": "d",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "1.001"
+              },
+              {
+                "event_id": "e",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 1,
+                "amount": true
+              },
+              {
+                "event_id": "f",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 1,
+                "amount": 100,
+                "pii": "SYNTHETIC"
+              },
+              {
+                "event_id": "ok",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "USD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "1.24"
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "steps": [
+            {
+              "status": "committed",
+              "inserted": 1,
+              "duplicates": 0,
+              "quarantined": 5,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "USD",
+                  "net_minor": 124,
+                  "event_count": 1
+                }
+              ]
+            }
+          ],
+          "event_ids": [
+            "ok"
+          ],
+          "posting_count": 2,
+          "quarantine_count": 5
+        }
+      },
+      {
+        "name": "currency-exponents",
+        "input": {
+          "batches": [
+            [
+              {
+                "event_id": "j",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "JPY",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "100"
+              },
+              {
+                "event_id": "k",
+                "payment_id": "p",
+                "kind": "captured",
+                "currency": "KWD",
+                "event_time": "2026-01-01T12:00:00+00:00",
+                "received_at": "2026-01-01T12:00:00+00:00",
+                "version": 2,
+                "amount": "1.234"
+              }
+            ]
+          ]
+        },
+        "expected": {
+          "steps": [
+            {
+              "status": "committed",
+              "inserted": 2,
+              "duplicates": 0,
+              "quarantined": 0,
+              "daily": [
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "JPY",
+                  "net_minor": 100,
+                  "event_count": 1
+                },
+                {
+                  "event_date": "2026-01-01",
+                  "currency": "KWD",
+                  "net_minor": 1234,
+                  "event_count": 1
+                }
+              ]
+            }
+          ],
+          "event_ids": [
+            "j",
+            "k"
+          ],
+          "posting_count": 4,
+          "quarantine_count": 0
+        }
+      }
+    ]
+  },
+  "C05": {
+    "title": "Original and restated bitemporal reports",
+    "cases": [
+      {
+        "name": "original-restated-and-boundary",
+        "input": {
+          "records": [
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-01-01T00:00:00Z",
+              "recorded_to": "2026-02-05T00:00:00Z"
+            },
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": "2026-01-15T00:00:00Z",
+              "recorded_from": "2026-02-05T00:00:00Z",
+              "recorded_to": null
+            },
+            {
+              "entity": "c",
+              "value": "premium",
+              "valid_from": "2026-01-15T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-02-05T00:00:00Z",
+              "recorded_to": null
+            }
+          ],
+          "queries": [
+            {
+              "id": "original",
+              "entity": "c",
+              "business_at": "2026-01-20T00:00:00Z",
+              "known_at": "2026-01-31T00:00:00Z"
+            },
+            {
+              "id": "restated",
+              "entity": "c",
+              "business_at": "2026-01-20T00:00:00Z",
+              "known_at": "2026-02-06T00:00:00Z"
+            },
+            {
+              "id": "early",
+              "entity": "c",
+              "business_at": "2026-01-10T00:00:00Z",
+              "known_at": "2026-02-06T00:00:00Z"
+            },
+            {
+              "id": "boundary",
+              "entity": "c",
+              "business_at": "2026-01-15T00:00:00Z",
+              "known_at": "2026-02-05T00:00:00Z"
+            },
+            {
+              "id": "unknown",
+              "entity": "c",
+              "business_at": "2026-01-15T00:00:00Z",
+              "known_at": "2025-12-31T00:00:00Z"
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": "original",
+            "value": "basic"
+          },
+          {
+            "id": "restated",
+            "value": "premium"
+          },
+          {
+            "id": "early",
+            "value": "basic"
+          },
+          {
+            "id": "boundary",
+            "value": "premium"
+          },
+          {
+            "id": "unknown",
+            "value": null
+          }
+        ]
+      },
+      {
+        "name": "offset-boundary",
+        "input": {
+          "records": [
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-01-01T00:00:00Z",
+              "recorded_to": "2026-02-05T00:00:00Z"
+            },
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": "2026-01-15T00:00:00Z",
+              "recorded_from": "2026-02-05T00:00:00Z",
+              "recorded_to": null
+            },
+            {
+              "entity": "c",
+              "value": "premium",
+              "valid_from": "2026-01-15T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-02-05T00:00:00Z",
+              "recorded_to": null
+            }
+          ],
+          "queries": [
+            {
+              "id": "offset",
+              "entity": "c",
+              "business_at": "2026-01-15T03:00:00+03:00",
+              "known_at": "2026-02-05T03:00:00+03:00"
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": "offset",
+            "value": "premium"
+          }
+        ]
+      },
+      {
+        "name": "overlap-is-not-latest",
+        "input": {
+          "records": [
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-01-01T00:00:00Z",
+              "recorded_to": "2026-02-05T00:00:00Z"
+            },
+            {
+              "entity": "c",
+              "value": "basic",
+              "valid_from": "2026-01-01T00:00:00Z",
+              "valid_to": null,
+              "recorded_from": "2026-01-01T00:00:00Z",
+              "recorded_to": "2026-02-05T00:00:00Z"
+            }
+          ],
+          "queries": [
+            {
+              "id": "bad",
+              "entity": "c",
+              "business_at": "2026-01-20T00:00:00Z",
+              "known_at": "2026-01-31T00:00:00Z"
+            }
+          ]
+        },
+        "expected": [
+          {
+            "id": "bad",
+            "error": "overlap"
+          }
+        ]
+      }
+    ]
+  },
+  "C06": {
+    "title": "Backup restore with an atomic checkpoint",
+    "cases": [
+      {
+        "name": "crash-rollback-restore",
+        "input": {
+          "backup_after": 1,
+          "batches": [
+            {
+              "end_seq": 1,
+              "events": [
+                [
+                  "a",
+                  100
+                ]
+              ]
+            },
+            {
+              "end_seq": 2,
+              "events": [
+                [
+                  "a",
+                  100
+                ],
+                [
+                  "b",
+                  50
+                ]
+              ],
+              "crash_before_checkpoint": true
+            },
+            {
+              "end_seq": 3,
+              "events": [
+                [
+                  "b",
+                  50
+                ],
+                [
+                  "c",
+                  25
+                ]
+              ]
+            }
+          ]
+        },
+        "expected": {
+          "attempts": [
+            {
+              "batch": 1,
+              "attempt": 1,
+              "status": "committed",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            },
+            {
+              "batch": 2,
+              "attempt": 1,
+              "status": "rolled_back",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            },
+            {
+              "batch": 2,
+              "attempt": 2,
+              "status": "committed",
+              "checkpoint": 2,
+              "ids": [
+                "a",
+                "b"
+              ],
+              "total_minor": 150
+            },
+            {
+              "batch": 3,
+              "attempt": 1,
+              "status": "committed",
+              "checkpoint": 3,
+              "ids": [
+                "a",
+                "b",
+                "c"
+              ],
+              "total_minor": 175
+            }
+          ],
+          "live": {
+            "checkpoint": 3,
+            "ids": [
+              "a",
+              "b",
+              "c"
+            ],
+            "total_minor": 175
+          },
+          "restored": {
+            "checkpoint": 3,
+            "ids": [
+              "a",
+              "b",
+              "c"
+            ],
+            "total_minor": 175
+          },
+          "equal": true
+        }
+      },
+      {
+        "name": "conflict-blocks-progress",
+        "input": {
+          "backup_after": 1,
+          "batches": [
+            {
+              "end_seq": 1,
+              "events": [
+                [
+                  "a",
+                  100
+                ]
+              ]
+            },
+            {
+              "end_seq": 2,
+              "events": [
+                [
+                  "b",
+                  50
+                ],
+                [
+                  "a",
+                  101
+                ]
+              ]
+            },
+            {
+              "end_seq": 3,
+              "events": [
+                [
+                  "c",
+                  25
+                ]
+              ]
+            }
+          ]
+        },
+        "expected": {
+          "attempts": [
+            {
+              "batch": 1,
+              "attempt": 1,
+              "status": "committed",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            },
+            {
+              "batch": 2,
+              "attempt": 1,
+              "status": "conflict",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            }
+          ],
+          "live": {
+            "checkpoint": 1,
+            "ids": [
+              "a"
+            ],
+            "total_minor": 100
+          },
+          "restored": {
+            "checkpoint": 1,
+            "ids": [
+              "a"
+            ],
+            "total_minor": 100
+          },
+          "equal": true
+        }
+      },
+      {
+        "name": "acknowledged-replay-is-skipped",
+        "input": {
+          "backup_after": 1,
+          "batches": [
+            {
+              "end_seq": 1,
+              "events": [
+                [
+                  "a",
+                  100
+                ]
+              ]
+            },
+            {
+              "end_seq": 1,
+              "events": [
+                [
+                  "a",
+                  100
+                ]
+              ],
+              "crash_before_checkpoint": true
+            }
+          ]
+        },
+        "expected": {
+          "attempts": [
+            {
+              "batch": 1,
+              "attempt": 1,
+              "status": "committed",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            },
+            {
+              "batch": 2,
+              "attempt": 1,
+              "status": "skipped",
+              "checkpoint": 1,
+              "ids": [
+                "a"
+              ],
+              "total_minor": 100
+            }
+          ],
+          "live": {
+            "checkpoint": 1,
+            "ids": [
+              "a"
+            ],
+            "total_minor": 100
+          },
+          "restored": {
+            "checkpoint": 1,
+            "ids": [
+              "a"
+            ],
+            "total_minor": 100
+          },
+          "equal": true
+        }
+      },
+      {
+        "name": "empty-restore",
+        "input": {
+          "backup_after": 0,
+          "batches": []
+        },
+        "expected": {
+          "attempts": [],
+          "live": {
+            "checkpoint": 0,
+            "ids": [],
+            "total_minor": 0
+          },
+          "restored": {
+            "checkpoint": 0,
+            "ids": [],
+            "total_minor": 0
+          },
+          "equal": true
+        }
+      }
+    ]
+  },
+  "C07": {
+    "title": "Debug a plausible but wrong SQL report",
+    "cases": [
+      {
+        "name": "same-value-distinct-events",
+        "input": {
+          "captures": [
+            [
+              "c1",
+              "p",
+              "USD",
+              100
+            ],
+            [
+              "c2",
+              "p",
+              "USD",
+              100
+            ]
+          ],
+          "fees": [
+            [
+              "f1",
+              "p",
+              "USD",
+              10
+            ],
+            [
+              "f2",
+              "p",
+              "USD",
+              10
+            ]
+          ],
+          "attempts": [
+            [
+              "a1",
+              "p"
+            ],
+            [
+              "a2",
+              "p"
+            ],
+            [
+              "a3",
+              "p"
+            ]
+          ]
+        },
+        "expected": [
+          [
+            "p",
+            "USD",
+            200,
+            180,
+            3
+          ]
+        ]
+      },
+      {
+        "name": "missing-dimension-and-currencies",
+        "input": {
+          "captures": [
+            [
+              "c1",
+              "p",
+              "EUR",
+              100
+            ],
+            [
+              "c2",
+              "p",
+              "USD",
+              200
+            ],
+            [
+              "c3",
+              "q",
+              "USD",
+              300
+            ]
+          ],
+          "fees": [
+            [
+              "f1",
+              "p",
+              "USD",
+              20
+            ]
+          ],
+          "attempts": [
+            [
+              "a1",
+              "p"
+            ]
+          ]
+        },
+        "expected": [
+          [
+            "p",
+            "EUR",
+            100,
+            100,
+            1
+          ],
+          [
+            "p",
+            "USD",
+            200,
+            180,
+            1
+          ],
+          [
+            "q",
+            "USD",
+            300,
+            300,
+            0
+          ]
+        ]
+      },
+      {
+        "name": "empty-capture-population",
+        "input": {
+          "captures": [],
+          "fees": [
+            [
+              "f1",
+              "p",
+              "USD",
+              10
+            ]
+          ],
+          "attempts": []
+        },
+        "expected": []
+      }
+    ]
+  },
+  "C08": {
+    "title": "Leakage-safe training data with delayed labels",
+    "cases": [
+      {
+        "name": "knowledge-window-and-currency",
+        "input": {
+          "training_as_of": "2026-02-01T00:00:00Z",
+          "maturity_days": 10,
+          "window_seconds": 3600,
+          "train_end": "2026-01-10T00:00:00Z",
+          "validation_end": "2026-01-20T00:00:00Z",
+          "decisions": [
+            {
+              "id": "d",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-02T12:00:00Z"
+            }
+          ],
+          "labels": [
+            {
+              "decision": "d",
+              "value": 1,
+              "known_at": "2026-01-25T00:00:00Z"
+            }
+          ],
+          "events": [
+            {
+              "id": "ok",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 100,
+              "event_time": "2026-01-02T11:30:00Z",
+              "received_at": "2026-01-02T11:31:00Z"
+            },
+            {
+              "id": "late",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 200,
+              "event_time": "2026-01-02T11:20:00Z",
+              "received_at": "2026-01-03T00:00:00Z"
+            },
+            {
+              "id": "start",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 25,
+              "event_time": "2026-01-02T11:00:00Z",
+              "received_at": "2026-01-02T11:01:00Z"
+            },
+            {
+              "id": "known-boundary",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 5,
+              "event_time": "2026-01-02T11:59:00Z",
+              "received_at": "2026-01-02T12:00:00Z"
+            },
+            {
+              "id": "offset",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 7,
+              "event_time": "2026-01-02T14:40:00+03:00",
+              "received_at": "2026-01-02T14:41:00+03:00"
+            },
+            {
+              "id": "too-old",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 50,
+              "event_time": "2026-01-02T10:59:59Z",
+              "received_at": "2026-01-02T11:01:00Z"
+            },
+            {
+              "id": "at-decision",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 99,
+              "event_time": "2026-01-02T12:00:00Z",
+              "received_at": "2026-01-02T12:00:00Z"
+            },
+            {
+              "id": "eur",
+              "entity": "m",
+              "currency": "EUR",
+              "kind": "captured",
+              "amount_minor": 300,
+              "event_time": "2026-01-02T11:30:00Z",
+              "received_at": "2026-01-02T11:31:00Z"
+            },
+            {
+              "id": "other",
+              "entity": "n",
+              "currency": "USD",
+              "kind": "captured",
+              "amount_minor": 400,
+              "event_time": "2026-01-02T11:30:00Z",
+              "received_at": "2026-01-02T11:31:00Z"
+            },
+            {
+              "id": "refund",
+              "entity": "m",
+              "currency": "USD",
+              "kind": "refunded",
+              "amount_minor": 10,
+              "event_time": "2026-01-02T11:30:00Z",
+              "received_at": "2026-01-02T11:31:00Z"
+            }
+          ]
+        },
+        "expected": {
+          "included": [
+            {
+              "id": "d",
+              "split": "train",
+              "label": 1,
+              "capture_minor": 137,
+              "event_ids": [
+                "known-boundary",
+                "offset",
+                "ok",
+                "start"
+              ]
+            }
+          ],
+          "excluded": []
+        }
+      },
+      {
+        "name": "label-maturity-and-priority",
+        "input": {
+          "training_as_of": "2026-02-01T00:00:00Z",
+          "maturity_days": 10,
+          "window_seconds": 3600,
+          "train_end": "2026-01-10T00:00:00Z",
+          "validation_end": "2026-01-20T00:00:00Z",
+          "decisions": [
+            {
+              "id": "immature",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-28T00:00:00Z"
+            },
+            {
+              "id": "missing",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-01T00:00:00Z"
+            },
+            {
+              "id": "future-label",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-01T00:00:00Z"
+            }
+          ],
+          "labels": [
+            {
+              "decision": "future-label",
+              "value": 0,
+              "known_at": "2026-02-02T00:00:00Z"
+            }
+          ],
+          "events": []
+        },
+        "expected": {
+          "included": [],
+          "excluded": [
+            {
+              "id": "future-label",
+              "reason": "label_not_yet_known"
+            },
+            {
+              "id": "immature",
+              "reason": "immature"
+            },
+            {
+              "id": "missing",
+              "reason": "missing_label"
+            }
+          ]
+        }
+      },
+      {
+        "name": "exact-split-and-maturity-boundaries",
+        "input": {
+          "training_as_of": "2026-02-01T00:00:00Z",
+          "maturity_days": 10,
+          "window_seconds": 3600,
+          "train_end": "2026-01-10T00:00:00Z",
+          "validation_end": "2026-01-20T00:00:00Z",
+          "decisions": [
+            {
+              "id": "a",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-10T03:00:00+03:00"
+            },
+            {
+              "id": "b",
+              "entity": "m",
+              "currency": "USD",
+              "at": "2026-01-22T00:00:00Z"
+            }
+          ],
+          "labels": [
+            {
+              "decision": "a",
+              "value": 0,
+              "known_at": "2026-02-01T00:00:00Z"
+            },
+            {
+              "decision": "b",
+              "value": 1,
+              "known_at": "2026-02-01T00:00:00Z"
+            }
+          ],
+          "events": []
+        },
+        "expected": {
+          "included": [
+            {
+              "id": "a",
+              "split": "validation",
+              "label": 0,
+              "capture_minor": 0,
+              "event_ids": []
+            },
+            {
+              "id": "b",
+              "split": "test",
+              "label": 1,
+              "capture_minor": 0,
+              "event_ids": []
+            }
+          ],
+          "excluded": []
+        }
+      }
+    ]
+  }
+}
