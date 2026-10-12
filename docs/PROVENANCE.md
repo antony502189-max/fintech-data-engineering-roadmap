@@ -6,7 +6,7 @@ Related projects informed structure: learning sequences, practical projects, res
 
 ## What the commit history means
 
-Initial history records small substantive construction steps: files, lesson sections, question/reading groups, and verified artifacts. Dates are real and no empty commits were used. It records first-edition construction rather than years of production work. Historical snapshots preserve earlier versions, including the initial language; current materials and new commit messages are English.
+Initial history records small substantive construction steps: files, lesson sections, question/reading groups, and verified artifacts. No empty commits were used. At the maintainer's request, author and committer timestamps were rescheduled from January 1 through October 12, 2026, at three or four commits per day. This is an intentional metadata schedule, not evidence that development occurred on those dates or that GitHub created the repository in January. Historical snapshots preserve earlier versions, including the initial language; current materials and new commit messages are English.
 
 ## Verification scope
 

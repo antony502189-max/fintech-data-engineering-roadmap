@@ -78,7 +78,7 @@ CI checks Windows and Ubuntu with Python 3.12 and 3.14. `verify` validates refer
 
 All payment data is synthetic. The lab uses simplified signed accounting and does not implement real bank settlement, production Kafka, cloud IAM, or regulatory certification. Platform and AI exercises simulate principles locally; [stack extensions](labs/STACK_EXTENSIONS.md) describe further integration work. Retention examples do not establish legal requirements.
 
-The first edition was authored with AI assistance, with executable examples checked and external resources attributed. [Provenance](docs/PROVENANCE.md) explains the commit history: real dates and substantive construction steps, not a claim of years of development.
+The first edition was authored with AI assistance, with executable examples checked and external resources attributed. [Provenance](docs/PROVENANCE.md) explains the substantive construction steps and maintainer-requested January–October 2026 commit schedule. Scheduled timestamps do not establish when the work actually occurred.
 
 ## Help improve the project
 

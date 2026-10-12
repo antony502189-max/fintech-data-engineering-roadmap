@@ -1,5 +1,10 @@
 # Changelog
 
+## History metadata update — 2026-10-12
+
+- Rescheduled author and committer timestamps across January 1–October 12, 2026, at the maintainer's request.
+- Preserved commit contents and ordering; corrected provenance wording and retained a pre-rewrite backup.
+
 ## 1.1.0 — 2026-10-12
 
 - Converted all 100 lessons, 40 exercise guides, starter descriptions, and curriculum metadata to English.
