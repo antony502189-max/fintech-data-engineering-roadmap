@@ -1,6 +1,6 @@
-# Семь безопасных fault drills
+# Seven safe fault drills
 
-Сохрани каждый snippet в `work/drill.py` и запусти `python work/drill.py` из root. Используй только синтетику. После каждого опыта запиши baseline, нарушение, detector и recovery.
+Save snippets as `work/drill.py` and run from the root. Use synthetic input only. Record baseline, defect, detector, and recovery for each experiment.
 
 ## 1. Replay
 
@@ -15,9 +15,9 @@ assert daily(db)==before
 db.close()
 ```
 
-Ожидается inserted=0, duplicates=6; totals прежние.
+Expect zero inserts, six duplicates, and unchanged totals.
 
-## 2. Conflict после частичного batch
+## 2. Conflict after a new event
 
 ```python
 from fintech_lab.warehouse import connect,ingest,ConflictingEvent
@@ -32,9 +32,9 @@ assert db.execute('SELECT count(*) FROM raw_events').fetchone()[0]==1
 db.close()
 ```
 
-Новая запись `new` должна откатиться вместе с конфликтующим batch.
+The new event must roll back with the conflicting batch.
 
-## 3. Потерянный journal
+## 3. Missing journal
 
 ```python
 from fintech_lab.warehouse import connect,ingest,assert_balanced
@@ -51,20 +51,20 @@ assert_balanced(db)
 db.close()
 ```
 
-Один sum=0 query не обнаружил бы полностью удалённое событие.
+A group-only sum check would miss an entirely removed event.
 
 ## 4. Late arrival
 
-Загрузи `payments()[:-1]`, сохрани daily totals, затем `payments()[-1:]`. До late delivery USD за 1 января=9700; после=12200. Day 3 января не появляется в event-time mart. Сверь с полным rebuild в другой базе.
+Ingest `payments()[:-1]`, record daily totals, then ingest `payments()[-1:]`. January 1 USD changes from 9700 to 12200. January 3 does not appear as an event-time day. Compare against a separate full rebuild.
 
 ## 5. Quarantine
 
-Передай `dict(payments()[0], amount_minor=True)`. Ожидается quarantined=1, raw count=0, postings count=0. Исправление входа новой корректной delivery допускается; rejected row остаётся evidence.
+Pass `dict(payments()[0], amount_minor=True)`. Expect one quarantined record, no raw event, and no postings. A later valid delivery can be accepted; the rejected row remains evidence.
 
 ## 6. Feature leakage
 
-После полного ingest вызови `capture_total_at(db,'p3','USD','2026-01-02T00:00:00Z')`: 0. На `2026-01-04T00:00:00Z`: 2500. Удали received_at condition в личной копии и убедись, что negative test обнаруживает утечку.
+After full ingestion, p3 at `2026-01-02T00:00:00Z` has feature zero; at `2026-01-04T00:00:00Z` it has 2500. Remove the receipt constraint in a personal implementation and confirm a negative test detects leakage.
 
-## 7. Backup и replay
+## 7. Backup and replay
 
-Используй `db.backup(target_db)` из sqlite3, сохрани fixture e1–e5. После восстановления replay все шесть events; пять повторов и один insert должны дать full baseline totals. Копирование активного DB file не заменяет согласованный backup API. Выполняй в отдельных synthetic paths.
+Use `db.backup(target_db)` to preserve e1–e5. Restore separately and replay six events: five duplicates plus one insert must recover baseline totals. Arbitrary active-file copying does not replace a consistent backup API.

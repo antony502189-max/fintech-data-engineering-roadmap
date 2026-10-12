@@ -1,4 +1,4 @@
-# Архитектура учебного DWH
+# Teaching warehouse architecture
 
 ```mermaid
 flowchart LR
@@ -13,37 +13,35 @@ flowchart LR
     X --> I[Exceptions for investigation]
 ```
 
-## Данные и границы
+## Data and boundaries
 
-`synthetic.py` предоставляет фиксированные fixtures; network отсутствует. `contracts.py` проверяет поля и UTC timestamps. `warehouse.py` в одной SQLite transaction сохраняет принятый raw event и две signed postings. `daily` читает view: данные не копируются в отдельную физическую mart, поэтому stale materialization в основной lab не моделируется.
+`synthetic.py` defines fixed inputs; there is no network. `contracts.py` validates fields and normalizes UTC timestamps. `warehouse.py` persists raw events and two postings in one SQLite transaction. Daily output is a view, not a separately materialized mart; stale physical materialization is outside the baseline.
 
-Invalid schema сохраняется в quarantine и не создаёт проводки. Одинаковый event_id с одинаковым business payload считается duplicate, даже если delivery timestamp отличается. Одинаковый event_id с иной суммой вызывает exception и откат текущей партии. Оригинальные принятые события сохраняются; corrections должны приходить отдельной моделью событий, которая здесь не реализована.
+Invalid schemas go to quarantine without postings. Identical business payloads under one event ID are duplicates despite changed delivery timestamps. A changed amount under an accepted ID raises a conflict and rolls back the batch. Accepted events are retained; business corrections need a separate model not implemented here.
 
-## Денежная модель
+## Monetary perspective
 
-Capture создаёт `+processor_receivable` и `-merchant_payable`. Refund меняет эти знаки. Fee создаёт `-processor_receivable` и `+processing_expense`. Это упрощённая signed модель для объяснения balance; она не определяет план счетов реального бизнеса.
+Capture produces `+processor_receivable` and `-merchant_payable`; refund reverses these signs. Fees produce `-processor_receivable` and `+processing_expense`. This signed teaching model does not define a real business's chart of accounts.
 
-`assert_balanced` проверяет sum=0 и две postings по event/currency, а также отсутствие raw events без journal. Финансовая сверка независимо сравнивает payment/currency net с external fixture. Сбалансированная неверная сумма может пройти ledger check и провалить reconciliation.
+`assert_balanced` checks zero sums and two postings per event/currency, plus raw events lacking a journal. Independent reconciliation compares payment/currency net against external fixtures. Balanced wrong amounts can pass conservation but fail reconciliation.
 
-## Время и история
+## Time and history
 
-Денежная mart группирует по UTC event_date. Late e6 приходит 3 января, относится к 1 января и учитывается там. View пересчитывает результат при чтении; incremental update exercise описывает отдельную физическую реализацию.
+The mart groups UTC event dates. e6 arrives January 3 but belongs to January 1. The view computes current results on reading; physical incremental updates are a separate exercise.
 
-`scd.py` хранит valid-time intervals [from,to). Late change разрезает соседние интервалы. Старое знание о корректировке не сохраняется: это **SCD2 valid-time**, не bitemporal audit. `features.py` проверяет event_time < decision_at и received_at <= decision_at; он иллюстрирует защиту от знания будущего для неизменяемых событий.
+`scd.py` maintains valid intervals [from,to); late changes split intervals. It replaces prior knowledge and is not bitemporal audit. `features.py` requires event_time < decision_at and received_at <= decision_at, illustrating knowledge-time constraints for immutable events.
 
-## Повтор и сбой
-
-| Сценарий | Результат |
+| Scenario | Behavior |
 |---|---|
-| Same ID, same payload | Duplicate; нет новых денег |
-| Same ID, different amount | Conflict; rollback batch |
-| Missing field или wrong type | Quarantine row |
-| Exception после новых вставок до commit | Новые вставки batch откатываются |
-| Late event | Business date остаётся исходной |
-| Missing external payment | Отдельная exception, не ноль |
+| Same ID and business payload | Duplicate, no extra money |
+| Same ID and different amount | Conflict, batch rollback |
+| Missing field or wrong type | Row quarantine |
+| Exception before batch commit | New batch writes roll back |
+| Late event | Original business date retained |
+| Missing external payment | Exception, not a confirmed zero |
 
-## Чего реализация не доказывает
+## Untested boundaries
 
-Нет HTTP receiver, реальной signature verification, Kafka offsets, distributed checkpointing, production IAM, encryption configuration, real PCI scope, независимого банковского settlement и materialized marts. Refund может прийти без capture, cumulative refund validation не встроен. Полный ledger chart, FX, credit и AI policies вынесены в упражнения и capstone.
+No HTTP receiver, signatures, Kafka offsets, distributed checkpoints, production IAM, encryption configuration, PCI scope, bank settlement, or physical marts are implemented. Refunds can arrive without capture; cumulative-refund checks are not built in. FX, credit, and AI policies are exercises and capstones.
 
-SQLite имеет собственные typing и transaction semantics. Перенос в PostgreSQL, dbt или lakehouse требует проверки dialect, decimal overflow, concurrency и publish guarantees. Практическое продолжение — [Stack extensions](../labs/STACK_EXTENSIONS.md).
+SQLite has its own typing and transaction behavior. Porting needs dialect, overflow, concurrency, and publication checks. Continue with [stack extensions](../labs/STACK_EXTENSIONS.md).

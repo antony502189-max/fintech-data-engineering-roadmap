@@ -1,15 +1,15 @@
-# ИИ в работе инженера
+# AI in data-engineering work
 
-## Безопасный учебный workflow
+## A verifiable teaching workflow
 
-1. Дай модели synthetic schema, grain, sign convention, dialect и expected examples.
-2. Попроси назвать assumptions и недостающие business definitions.
-3. Получи SQL или test draft, прочитай его как недоверенный вклад.
-4. Запусти на positive и negative fixtures. Проверь одинаковые суммы разных платежей, late arrival, NULL, две валюты и exact boundary.
-5. Сравни с independent expected result и проверь query plan на большом наборе.
-6. Сохрани model/prompt version, результат проверки и ручное решение по diff.
+1. Supply synthetic schema, grain, signs, dialect, and expected examples.
+2. Ask for assumptions and missing business definitions.
+3. Review generated SQL or tests as an untrusted contribution.
+4. Run positive and negative fixtures: equal amounts on different payments, late delivery, NULL, currencies, and boundaries.
+5. Compare with independent expected output and inspect plans on larger datasets.
+6. Retain model/prompt versions, evidence, and the reviewed decision.
 
-## Пример prompt для JOIN review
+## Example join-review prompt
 
 ```text
 Dialect: SQLite. Facts grain: one financial event per event_id.
@@ -21,18 +21,18 @@ Give one minimal counterexample and a corrected query.
 Mark unverified assumptions explicitly.
 ```
 
-Текст model answer не доказывает правильность. Counterexample с двумя одинаковыми capture ловит опасное предложение SUM(DISTINCT amount), даже если объяснение выглядит убедительно.
+A convincing answer is not proof. Two equal captures expose the unsafe SUM(DISTINCT amount) workaround.
 
 ## Text-to-SQL
 
-Система должна иметь ограниченную identity, allowlisted semantic metrics, AST validation, timeout и budget. Даже SELECT может раскрыть лишние данные и дорого сканировать таблицы. Regex check в toy example не является security boundary. Не подключай произвольный model output к production warehouse.
+Use a scoped identity, approved metrics, AST validation, timeouts, and budgets. SELECT can disclose unnecessary data or scan enormous tables. Regex checks are not a security boundary. Do not execute arbitrary generated SQL on production data.
 
-## RAG и injection
+## RAG and injection
 
-Document ACL применяется до передачи context. Документ не может выдавать новые полномочия tool или identity. Citation должна ссылаться на retrieved fragment и его version. Удаление документа требует обновления индекса и caches. Если подтверждения нет, система должна сказать, что не знает.
+Apply ACLs before context construction. Documents cannot grant tool authority. Citations must identify actual fragments and versions. Deletion must propagate to indexes and caches. Unsupported answers should abstain.
 
 ## Evals
 
-Разделяй financial correctness, grounding, abstention, forbidden disclosure и cost. Один average скрывает critical failures. E38 показывает offline scorecard; E39 — ACL фильтрацию. Полноценная реализация потребует adversarial evaluation, provider/version records и real access integration.
+Report financial correctness, grounding, abstention, forbidden disclosure, and cost separately. E38 provides an offline scorecard; E39 filters document access. Full systems need adversarial evaluations and real permission integration.
 
-Ориентиры для дальнейшей работы: [OWASP LLM project](https://owasp.org/projects/top-10-for-large-language-model-applications) и [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework). Здесь нет вызовов платной модели и не нужен API key.
+Use [OWASP's LLM project](https://owasp.org/projects/top-10-for-large-language-model-applications) and [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) for further study. The baseline makes no paid model calls.

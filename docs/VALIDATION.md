@@ -1,24 +1,24 @@
-# Проверка первого издания
+# Verification evidence
 
-Дата local run: 2026-10-12. Среда: Windows, CPython 3.14.3, стандартная библиотека; network не нужен для учебного кода.
+Baseline local environment: Windows, CPython 3.14.3, standard library, October 12, 2026. Learning code does not need network access.
 
-| Проверка | Результат |
+| Check | Baseline result |
 |---|---|
 | `python -m unittest discover -s tests -v` | 44 tests passed |
-| `python practice/run.py verify` | 40 references, 90 cases passed |
-| `python scripts/check_sql.py` | Valid, imbalanced и полностью missing journal cases passed |
-| `python scripts/check_docs.py` | 177 Markdown files, 100 lessons, local paths и SQL solution pairs checked до добавления этого отчёта |
-| `python -m fintech_lab --out work/verified-demo` | Expected currency totals, duplicate-safe replay, deliberate mismatch/unexpected cases |
-| История первого издания до этого отчёта | 1089 commits; 0 commits с деревом, идентичным parent |
+| `python practice/run.py verify` | Forty references and ninety cases passed |
+| `python scripts/check_sql.py` | Valid, imbalanced, and wholly missing journals verified |
+| `python scripts/check_docs.py` | One hundred lessons, local paths, and solution pairs checked |
+| `python -m fintech_lab --out work/verified-demo` | Expected totals, safe replay, and intentional reconciliation exceptions |
+| Initial construction history | 1089 commits before its validation report; zero unchanged-tree commits |
 
-Roadmap содержит 26559 слов по простой whitespace оценке, 100 уроков по 244–287 слов с навигацией и reading lists. Это структурированные focused lessons; глубокая практика дополняется упражнениями, guides и capstone.
+Version 1.1.0 additionally runs `python scripts/check_english.py` across tracked and unignored text. It rejects Cyrillic characters; manual review supplies the English translation itself. Identifiers, fixtures, expected outputs, and executable reference behavior are preserved.
 
-## Что ловят meaningful checks
+## Meaningful checks
 
-Float, nonfinite и чрезмерная precision денег; длинные Decimal strings и крайние exponents; duplicate delivery и payload collision; rollback новых событий batch; missing/extra schema fields; naive timestamps и normalization offset; unbalanced и полностью потерянные postings; mixed currencies; mismatch/missing/unexpected settlement; SCD2 exact boundary и late change; feature leakage по received_at; unfinished starter и bool вместо integer answer.
+Money tests reject floats, nonfinite values, excess precision, long near-cent values, and extreme exponents. Ingestion tests cover duplicates, collisions, rollback, schema errors, naive timestamps, and equivalent offsets. Financial checks cover imbalance, missing journals, currencies, and reconciliation classifications. History tests cover boundaries and late changes. Feature tests constrain receipt-time knowledge. CLI tests reject unfinished starters and booleans pretending to be integer answers.
 
-## Remote и непроверенные свойства
+## Remote evidence and untested properties
 
-Remote matrix настроена для Windows/Ubuntu, Python 3.12/3.14. Её фактический результат находится в [GitHub Actions](https://github.com/antony502189-max/fintech-data-engineering-roadmap/actions). Этот local отчёт не подменяет remote status.
+[GitHub Actions](https://github.com/antony502189-max/fintech-data-engineering-roadmap/actions) reports actual Windows/Ubuntu and Python 3.12/3.14 matrix results. The initial publication passed all four combinations; subsequent versions have their own runs.
 
-Не проверены настоящие Kafka/CDC/Spark/cloud/LLM integrations, производственная нагрузка, регуляторный scope и реальное бухгалтерское закрытие. Exercises моделируют часть принципов; [расширения](../labs/STACK_EXTENSIONS.md) задают следующий уровень. External YouTube playback не проверен, ссылки атрибутированы официальным course pages и авторами.
+Real Kafka, CDC, Spark, cloud, and LLM integrations, production load, regulatory scope, and financial close are outside the verified baseline. [Stack extensions](../labs/STACK_EXTENSIONS.md) define further work. YouTube playback has not been checked; links are attributed to course pages and authors.

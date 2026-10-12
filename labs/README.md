@@ -1,22 +1,22 @@
-# Рабочая payments lab
+# Runnable payments lab
 
 ```bash
 python -m fintech_lab --out work/lab-first-run
 python -m unittest discover -s tests -v
 ```
 
-Demo сохраняет SQLite database и JSON report. Для нового baseline используй новый output directory. Повтор в ту же базу намеренно даёт duplicates. По [dictionary](../docs/DATA_DICTIONARY.md) проследи p1, p2, p3 и p9, затем сравни их с [денежным разбором](../docs/MONEY_CORRECTNESS.md).
+The demo writes a SQLite database and JSON report. Use a new output directory for a clean baseline; repeats deliberately show duplicates. Trace p1, p2, p3, and p9 through the [dictionary](../docs/DATA_DICTIONARY.md) and [monetary walkthrough](../docs/MONEY_CORRECTNESS.md).
 
-## Что можно делать руками
+## Try these changes
 
-- Добавить late event и посмотреть изменение старого event day.
-- Повторить event с новым received_at и убедиться, что сумма прежняя.
-- Изменить amount существующего ID и увидеть rollback.
-- Удалить одну posting и получить failed invariant.
-- Вставить late SCD2 change и проверить boundary.
-- Изменить external statement и сравнить mismatch/missing/unexpected.
-- Проверить ML feature до и после knowledge time.
+- Add a late event and observe its old business day.
+- Repeat an event with a new receipt timestamp and verify unchanged amounts.
+- Change an accepted ID's amount and observe rollback.
+- Delete a posting and trigger a failed invariant.
+- Insert a late SCD2 change and inspect boundaries.
+- Change external confirmation and compare mismatch, missing, and unexpected outcomes.
+- Compare feature values before and after knowledge time.
 
-Чтобы провести опыт, используй короткий Python script в `work/`, импортируй функции из `fintech_lab` и отдельную temporary database. Не меняй публичные эталонные fixtures ради прохождения checks.
+Keep personal scripts under `work/`, import lab functions, and use separate temporary databases. Do not modify public fixtures merely to pass checks.
 
-[Fault drills](fault-drills.md) дают конкретные snippets. [40 заданий](../practice/README.md) предлагают starters и grading. [Stack extensions](STACK_EXTENSIONS.md) связывают освоенные инварианты с настоящими инструментами.
+[Fault drills](fault-drills.md) provide snippets; [forty exercises](../practice/README.md) provide starters and grading; [extensions](STACK_EXTENSIONS.md) connect principles with real tools.

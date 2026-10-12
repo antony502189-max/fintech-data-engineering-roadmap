@@ -1,11 +1,11 @@
-# Материалы с понятной целью
+# Resources with a learning purpose
 
-[YouTube и курсы](VIDEOS.md) · [Статьи](ARTICLES.md) · [Первичная документация](SOURCES.md) · [Исследование аналогов](RESEARCH_NOTES.md)
+[YouTube and courses](VIDEOS.md) · [Engineering articles](ARTICLES.md) · [Primary documentation](SOURCES.md) · [Related projects](RESEARCH_NOTES.md)
 
-Выбирай материал по ближайшему упражнению. Посмотрел тему SQL windows — реши E07; прочитал Ledger — сломай balance и reconciliation; изучил Monzo incremental — добавь late event в старый день.
+Choose the resource supporting your next exercise. After SQL windows, solve E07. After Ledger, break conservation and reconciliation. After incremental modeling, add a late event to an old day.
 
-Большинство внешних материалов на английском. Учебные тексты маршрута на русском связывают механизм с практикой. Видео старых лет полезны для принципов, но команды, интерфейсы и версии следует сверять с актуальными docs.
+The repository is entirely English. Older external videos remain useful for mechanisms but may use outdated interfaces; verify commands and versions in current primary documentation.
 
-Дата первоначального поиска: 2026-10-12. Для YouTube проверено происхождение links из официального курса или индексируемого описания; не заявляется полный просмотр каждого видео. Для статьи указаны авторская площадка и вопрос для разбора. Автоматический CI проверяет local paths, а не доступность или достоверность всего интернета.
+Initial research date: 2026-10-12. YouTube links were identified through official course pages or indexed descriptions; full playback was not verified. Article entries name the authoring organization and a practical review question. CI checks local paths, not the entire internet's availability or accuracy.
 
-Чтобы добавить ресурс, используй [resource issue template](../.github/ISSUE_TEMPLATE/resource.yml): URL, автор, формат, язык, связанные уроки и конкретный результат обучения. Affiliate links, перепечатки чужих материалов и сомнительные обещания дохода не нужны.
+Use the [resource template](../.github/ISSUE_TEMPLATE/resource.yml) to propose an author, URL, format, language, lessons, and outcome. Avoid copied restricted materials and unsupported career or income claims.

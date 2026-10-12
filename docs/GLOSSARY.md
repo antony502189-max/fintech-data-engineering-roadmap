@@ -1,31 +1,31 @@
-# Термины
+# Glossary
 
-| Термин | Значение |
+| Term | Meaning |
 |---|---|
-| Grain | Что представляет одна строка |
-| Fact | Измеримое событие или состояние |
-| Dimension | Контекст для описания и фильтрации фактов |
-| CDC | Изменения базы, полученные из журнала или другого change mechanism |
-| WAL | Write-ahead log; не автоматически business event log |
-| Idempotency | Повтор операции не меняет результат сверх первого применения |
-| Deduplication | Устранение повторов по заданной identity policy |
-| Outbox | Намерение публикации, записанное атомарно с business transaction |
-| Watermark | Оценка временного прогресса stream, не доказательство полноты |
-| Backfill | Заполнение или пересчёт исторического scope |
-| Replay | Повторная обработка сохранённого входа |
-| SCD2 | История версий атрибута по valid intervals |
-| Bitemporal | Две оси: бизнес-время и время знания системы |
-| Minor unit | Минимальная decimal единица по заданному currency exponent |
-| Ledger | Журнал проводок с явно заданной перспективой и счетами |
-| Reconciliation | Сопоставление независимых представлений движения |
-| Cutoff | Граница бизнес-периода или приёма входа |
-| Restatement | Переиздание прежнего результата с новой версией |
-| SLI / SLO / SLA | Измерение / цель / внешнее обязательство |
-| RPO / RTO | Допустимая потеря по времени / целевое время восстановления |
-| Lineage | Происхождение данных и путь преобразований |
-| Point-in-time join | Join с временным ограничением доступного знания |
-| Leakage | Использование сведений, недоступных на момент решения |
-| RAG | Retrieval документов для ответа модели |
-| Abstention | Отказ выдумывать неподтверждённый ответ |
-| FinOps | Управление стоимостью облачных workloads |
-| ADR | Запись архитектурного решения и его причин |
+| Grain | What one row represents |
+| Fact | Measurable event or state |
+| Dimension | Context for describing and filtering facts |
+| CDC | Changes obtained from a database log or another change mechanism |
+| WAL | Write-ahead log; not automatically a business event log |
+| Idempotency | Repeating an operation has no extra effect beyond the first application |
+| Deduplication | Removing repeats under a defined identity policy |
+| Outbox | Publication intent committed with the business transaction |
+| Watermark | Estimated stream-time progress, not completeness evidence |
+| Backfill | Filling or recomputing historical scope |
+| Replay | Processing retained input again |
+| SCD2 | Attribute versions over valid intervals |
+| Bitemporal | Business time and system knowledge time |
+| Minor unit | Decimal unit determined by a currency exponent |
+| Ledger | Posting journal with explicit perspective and accounts |
+| Reconciliation | Comparison of independent monetary representations |
+| Cutoff | Business-period or input-receipt boundary |
+| Restatement | A newly versioned previous result |
+| SLI / SLO / SLA | Measurement / target / external commitment |
+| RPO / RTO | Acceptable time-based loss / target restoration time |
+| Lineage | Origins and transformation paths |
+| Point-in-time join | Joining under temporal availability constraints |
+| Leakage | Using information unavailable at decision time |
+| RAG | Retrieval of documents for model answers |
+| Abstention | Refusing to invent unsupported answers |
+| FinOps | Managing cloud workload costs |
+| ADR | Architectural decision and its reasoning |

@@ -1,26 +1,26 @@
-# Проект 1: settlement warehouse
+# Capstone 1: settlement warehouse
 
-## Постановка
+## Problem
 
-Три synthetic providers присылают capture, refund, fee и settlement files. Доставка содержит повторы, поздние события, отсутствующий файл и исправленный batch. Finance нужен ежедневный net cash с доказательством полноты и исключениями.
+Three synthetic providers deliver capture, refund, fee, and settlement data with duplicates, lateness, missing files, and revised batches. Finance needs daily net cash with completeness evidence and explainable exceptions.
 
 ## Milestones
 
-1. Contract events и batch manifest: identity, version, hash, count, totals by currency.
-2. Raw/staging/core: сохраняй original accepted payload и normalized values; карантин schema defects.
-3. Ledger и payment/currency net; проверяй completeness, conservation и independent match.
-4. Physical daily mart с affected partitions incremental; full rebuild equivalence.
-5. Candidate publish с gate и previous version, original/restated report trail.
-6. Runbook missing file, mismatch, late event и duplicate collision.
+1. Define event and batch contracts: identity, version, hash, counts, and currency totals.
+2. Build raw/staging/core with original evidence and normalized fields; quarantine schema defects.
+3. Produce postings and payment/currency net; check completeness, conservation, and independent matching.
+4. Materialize daily output with affected-day incremental updates and full-rebuild equivalence.
+5. Publish gated candidates with previous versions and original/restated reports.
+6. Write runbooks for missing files, mismatch, lateness, and collisions.
 
-## Готовые сценарии входа
+## Scenarios
 
-Расширь `payments()` до 10000 событий deterministic seed. Внешний fixture создавай отдельно с явными expected totals. Сценарии: replay всех events; late event старого дня; conflicting ID; отсутствующий provider batch; две одинаковые суммы разных платежей; исправленный settlement version; refund без capture.
+Expand payments() to 10000 deterministic events. Specify external expectations independently. Test full replay, an old-day late event, conflicting identity, missing provider batch, equal-value distinct payments, revised settlement, and refund without capture.
 
-## Приёмка
+## Acceptance
 
-Replay не меняет сумму. Conflict не делает silent overwrite. Incremental и full совпадают после late data. Missing batch блокирует final publish. Каждое исключение имеет ключ, валюту, delta и owner. Published version имеет source manifest и code revision. Перед исправлением закрытого периода сохранён original report.
+Replay leaves amounts unchanged. Conflicts never silently overwrite. Full and incremental outputs agree after lateness. Missing batches block final publication. Exceptions have identity, currency, delta, and ownership. Published versions link manifests and code revisions; original closed reports survive correction.
 
-## Расширение
+## Extension
 
-Перенеси в PostgreSQL, затем выбранный dbt adapter. Добавь source-position ingest и настоящий orchestrator только после baseline. Benchmark на большом synthetic dataset должен фиксировать runtime, hardware и distribution. Не заявляй production readiness по tiny sample.
+Port to PostgreSQL and a supported dbt adapter, then add source positions and orchestration. Benchmarks record runtime, hardware, and distribution. Tiny fixtures do not prove production readiness.

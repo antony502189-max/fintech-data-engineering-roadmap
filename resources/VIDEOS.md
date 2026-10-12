@@ -1,27 +1,27 @@
-# YouTube: смотри и сразу проверяй руками
+# YouTube: watch, then build
 
-Все материалы ниже — EN. Links CMU получены из [официального расписания Fall 2024](https://15445.courses.cs.cmu.edu/fall2024/schedule.html), DE Zoomcamp playlist — из [README авторов](https://github.com/DataTalksClub/data-engineering-zoomcamp). Доступность playback может зависеть от региона; это не заявление полного просмотра.
+Resources are in English. CMU links come from its [official Fall 2024 schedule](https://15445.courses.cs.cmu.edu/fall2024/schedule.html); the Zoomcamp playlist comes from the [authors' README](https://github.com/DataTalksClub/data-engineering-zoomcamp). Playback may vary by region and was not checked in full.
 
-| Материал и автор | Что разбирать | После просмотра |
+| Resource and author | Focus | Practice afterward |
 |---|---|---|
-| [Data Engineering Zoomcamp — playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb), DataTalks.Club | End-to-end ingestion, warehouse, transformations, batch, streaming | Выбери один блок, сделай собственный mini pipeline и сравни с нашей synthetic lab |
-| [Modern SQL](https://www.youtube.com/watch?v=MzigBKf84aY), CMU Database Group, 2024 | Реляционные запросы и SQL semantics | E05–E08; объясни event grain |
-| [Storage Models & Compression](https://www.youtube.com/watch?v=nhlpwmOBEiE), CMU Database Group, 2024 | Row/column layouts и стоимость чтения | E17–E18; подготовь file-format benchmark |
-| [Indexes & Filters I](https://www.youtube.com/watch?v=scUtG_6M_lU), CMU Database Group, 2024 | Индексные структуры и доступ | Урок 016: измерь EXPLAIN и время на большой синтетике |
-| [Join Algorithms](https://www.youtube.com/watch?v=MFazkaZKs1s), CMU Database Group, 2024 | Физическая стоимость соединения | Урок 012: воспроизведи fanout и отличи semantic error от performance issue |
-| [Concurrency Control Theory](https://www.youtube.com/watch?v=4y656idl8ZU), CMU Database Group, 2024 | Конкуренция и isolation | Урок 015: crash matrix и rollback |
-| [Database Logging](https://www.youtube.com/watch?v=mbelzgz-97s), CMU Database Group, 2024 | Журнал изменений и durability | Уроки 034–035: объясни snapshot→stream boundary |
-| [Database Recovery](https://www.youtube.com/watch?v=yVpzHdAP0TY), CMU Database Group, 2024 | Восстановление состояния | E32 плюс SQLite backup drill |
-| [Distributed OLAP Database Systems](https://www.youtube.com/watch?v=L6E75IyBgpk), CMU Database Group, 2024 | Аналитические workloads в распределённой системе | Напиши ADR batch/stream и budget assumptions |
-| [Ask Confluent #6: Kafka, Partitions, and Exactly Once](https://www.youtube.com/watch?v=CeDivZQvdcs), Confluent, 2018 | Порядок partitions и область гарантий | Уроки 047–049: sink/offset crash matrix; настройки сверяй с нынешними Kafka docs |
-| [Exactly-Once Semantics — preview](https://www.youtube.com/watch?v=JPcT1GGzszA), Matthias Sax / Confluent, 2018 | Историческое введение в transactional processing | Короткий preview, не полный курс; объясни, почему внешний sink требует своего protocol |
+| [Data Engineering Zoomcamp playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb), DataTalks.Club | Ingestion, warehouses, transformations, batch, streaming | Build a small pipeline and compare with the synthetic lab |
+| [Modern SQL](https://www.youtube.com/watch?v=MzigBKf84aY), CMU, 2024 | Relational query semantics | E05–E08 and event grain |
+| [Storage Models & Compression](https://www.youtube.com/watch?v=nhlpwmOBEiE), CMU, 2024 | Row/column layouts and reading cost | E17–E18 and a format benchmark |
+| [Indexes & Filters I](https://www.youtube.com/watch?v=scUtG_6M_lU), CMU, 2024 | Indexes and access paths | Lesson 016 with larger synthetic data |
+| [Join Algorithms](https://www.youtube.com/watch?v=MFazkaZKs1s), CMU, 2024 | Physical join cost | Lesson 012; separate fanout from performance |
+| [Concurrency Control Theory](https://www.youtube.com/watch?v=4y656idl8ZU), CMU, 2024 | Isolation and concurrency | Lesson 015 rollback and crash matrix |
+| [Database Logging](https://www.youtube.com/watch?v=mbelzgz-97s), CMU, 2024 | Logs and durability | Lessons 034–035 snapshot/stream boundaries |
+| [Database Recovery](https://www.youtube.com/watch?v=yVpzHdAP0TY), CMU, 2024 | Recovery mechanisms | E32 and SQLite backup drill |
+| [Distributed OLAP Database Systems](https://www.youtube.com/watch?v=L6E75IyBgpk), CMU, 2024 | Analytical distribution | Batch/stream ADR with costs |
+| [Ask Confluent #6: Kafka, Partitions, and Exactly Once](https://www.youtube.com/watch?v=CeDivZQvdcs), Confluent, 2018 | Ordering and guarantee scope | Lessons 047–049 sink/offset crash matrix; verify current settings |
+| [Exactly-Once Semantics preview](https://www.youtube.com/watch?v=JPcT1GGzszA), Matthias Sax / Confluent, 2018 | Historical transaction introduction | A preview, not a full course; explain external-sink protocols |
 
-## Как проходить DE Zoomcamp вместе с этим roadmap
+## Pairing Zoomcamp with this roadmap
 
-Используй Zoomcamp для настоящего tool stack и самостоятельного project; наш маршрут — для финансовых инвариантов, истории, сверки и failure drills. В [официальном repository](https://github.com/DataTalksClub/data-engineering-zoomcamp) есть modules и homework. Названия tools и структуры меняются между cohorts; не привязывай все нынешние команды к старому playlist.
+Use Zoomcamp for real tools and independent projects; this roadmap emphasizes money, history, reconciliation, and failure behavior. The [official repository](https://github.com/DataTalksClub/data-engineering-zoomcamp) contains modules and homework. Tools and folders vary by cohort; do not assume old videos describe current commands.
 
-Для dbt после warehouse блока возьми [официальные data tests docs](https://docs.getdbt.com/docs/build/data-tests) и E21–E24. Для ML point-in-time сначала реши E37, затем читай Feast. Для AI safety сначала создай negative cases E38–E39; видео общего знакомства с LLM не заменяет проверку доступа и финансовой формулы.
+After warehouse material, study [dbt tests](https://docs.getdbt.com/docs/build/data-tests) and E21–E24. Solve E37 before feature-store reading. Build negative cases in E38–E39 before deeper AI systems: introductory videos cannot substitute for access and financial checks.
 
-## Правило одного артефакта
+## One artifact per video
 
-После каждого видео оставляй query, fixture, ADR или failing test. В README своей работы укажи тему, ссылку, что проверил и какие assumptions остались. «Посмотрел 10 часов» не является критерием освоения.
+Retain a query, fixture, ADR, or failing test after each resource. Explain what you checked and what remains assumed. Watching hours alone is not a mastery criterion.

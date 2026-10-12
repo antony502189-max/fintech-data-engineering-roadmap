@@ -1,18 +1,18 @@
-# Runbook: конкретный сигнал
+# Runbook: concrete signal
 
 **Alert:** ... **Severity:** ... **Owner:** ... **Affected product/period:** ...
 
-## Диагностика
+## Diagnosis
 
-1. Зафиксировать report/input versions и время обнаружения.
-2. Выполнить точную diagnostic command/query в правильном namespace.
-3. Сравнить expected/actual control totals и ключи.
-4. Установить boundary ошибки: source, ingestion, model, publish или consumer.
+1. Record report/input versions and discovery time.
+2. Run an exact diagnostic query or command in the appropriate namespace.
+3. Compare expected and actual totals and identities.
+4. Locate the faulty boundary: source, ingestion, model, publication, or consumer.
 
-## Containment и восстановление
+## Containment and recovery
 
-Publish rule, candidate scope, права на correction, rollback target, replay budget и независимая проверка результата. Не выполняй destructive action по неуточнённому пути.
+Define publication rules, candidate scope, correction permissions, rollback targets, replay budget, and independent verification. Never run destructive actions against ambiguous paths.
 
-## Завершение
+## Completion
 
-Evidence исправленного состояния, affected consumers, owner decision, follow-up с измеримым acceptance и дата следующей проверки runbook.
+Retain evidence of repaired state, affected consumers, the owner's decision, measurable follow-up acceptance, and the next runbook review date.

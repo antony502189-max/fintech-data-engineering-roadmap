@@ -1,8 +1,8 @@
-# SQL patterns для денежных данных
+# SQL patterns for financial data
 
-Все запросы ниже проверяются на SQLite fixture. Перенос в другой warehouse требует проверки dialect и временных функций.
+Examples use SQLite fixtures. Other warehouses require dialect and temporal-function verification.
 
-## Grain и независимые агрегаты
+## Grain and independent aggregation
 
 ```sql
 SELECT payment_id, currency,
@@ -12,9 +12,9 @@ FROM raw_events
 GROUP BY payment_id, currency;
 ```
 
-Это event→payment aggregation. Если присоединить attempts one-to-many до SUM, суммы размножатся. Сначала агрегируй каждую сторону до payment/currency, затем соединяй. SUM(DISTINCT amount_minor) не исправляет fanout: два разных платежа одинаковой суммы должны учитываться оба.
+This converts event grain to payment/currency grain. Joining one-to-many attempts before SUM multiplies amounts. Aggregate each input to the target grain first. SUM(DISTINCT amount_minor) does not fix fanout: distinct equal-value payments must both count.
 
-## Missing и zero
+## Missing versus zero
 
 ```sql
 SELECT payment_id, COUNT(*) AS events,
@@ -23,9 +23,9 @@ FROM raw_events
 GROUP BY payment_id;
 ```
 
-Нулевая сумма известного набора — другое утверждение, чем отсутствие набора. Сверка в `reconcile.py` сохраняет missing/unexpected стороны. SQLite поддержка FULL OUTER JOIN зависит от version; локальная lab использует явное объединение keys в Python и не полагается на неизвестный runtime dialect.
+A zero amount over known records differs from missing data. `reconcile.py` preserves missing and unexpected sides. SQLite FULL OUTER JOIN support depends on runtime version; the lab explicitly unions keys in Python instead of assuming a dialect version.
 
-## Детерминированная последняя запись
+## Deterministic latest record
 
 ```sql
 SELECT * FROM (
@@ -37,9 +37,9 @@ SELECT * FROM (
 ) WHERE rn=1;
 ```
 
-Этот query выбирает последнюю строку по **заданному техническому порядку**, а не универсально правильный business state. Для production lifecycle нужен source sequence и правила переходов. Event_id tie-breaker допустим только если контракт разрешает такую интерпретацию.
+This selects the last row under a stated technical order, not a universally correct business state. A lifecycle needs source sequence and transition rules. Event-ID tie-breaking is valid only when the contract permits that interpretation.
 
-## SCD2 join
+## SCD2 lookup
 
 ```sql
 SELECT customer_id, tier FROM customers_history
@@ -47,9 +47,9 @@ WHERE customer_id = ? AND valid_from <= ?
   AND (valid_to IS NULL OR ? < valid_to);
 ```
 
-Граница `[from,to)` предотвращает две versions на одном instant. Перед join проверяй overlap; иначе факты размножаются. Valid-time SCD2 не сохраняет прошлое system knowledge после коррекции.
+[from,to) prevents two versions at one transition instant. Check overlap before joining or facts can multiply. Valid-time SCD2 does not preserve historical system knowledge after corrections.
 
-## Violating-row check
+## Violating-row checks
 
 ```sql
 SELECT event_id, currency
@@ -58,4 +58,4 @@ GROUP BY event_id, currency
 HAVING SUM(signed_minor) <> 0 OR COUNT(*) <> 2;
 ```
 
-Этот запрос не видит полностью потерянный journal. Дополнительный anti-join raw→postings необходим. В [SQL задании](../sql/exercises/05-ledger.sql) реализуй оба условия.
+Entirely missing journals do not appear in this query. Add a raw-to-postings anti-join. Implement both conditions in the [ledger exercise](../sql/exercises/05-ledger.sql).

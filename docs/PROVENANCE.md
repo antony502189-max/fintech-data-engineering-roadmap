@@ -1,21 +1,21 @@
-# Происхождение и история
+# Provenance and history
 
-Первое издание создано 12 октября 2026 года для открытого обучения DWH и data engineering в финтехе. Maintainer — Anton Gameza. Тексты, fixtures, код лаборатории и упражнения подготовлены с помощью ИИ и проверены доступными автоматическими проверками. Это прозрачная отправная точка для последующего человеческого review и contributions.
+The first edition was created on October 12, 2026 for open learning about fintech DWH and data engineering. Maintainer: Anton Gameza. Text, fixtures, code, and exercises were authored with AI assistance and verified through available automated checks. Version 1.1.0 converts the current repository content entirely to English.
 
-Аналоги исследованы для выбора полезной структуры: последовательность обучения, hands-on projects, каталог материалов и понятный quick start. Их тексты, изображения и задания не перенесены в репозиторий. Внешние URLs атрибутированы; права на материалы остаются у авторов.
+Related projects informed structure: learning sequences, practical projects, resource organization, and quick starts. Their prose, images, and assignments were not copied. External resources are attributed and retain their own rights.
 
-## Что означает много коммитов
+## What the commit history means
 
-История состоит из небольших содержательных изменений: добавление файла, раздела урока, вопроса с reading list, практического артефакта и результата review. Даты не задним числом, empty commits не используются. Это история сборки первого издания, а не доказательство многолетней разработки или production adoption.
+Initial history records small substantive construction steps: files, lesson sections, question/reading groups, and verified artifacts. Dates are real and no empty commits were used. It records first-edition construction rather than years of production work. Historical snapshots preserve earlier versions, including the initial language; current materials and new commit messages are English.
 
-## Что проверено
+## Verification scope
 
-Local checks: money precision, replay, conflicting duplicate rollback, invalid contract quarantine, ledger completeness/balance, reconciliation, SCD2 boundaries, late feature availability; эталонные решения 40 упражнений; SQL expected outputs; local Markdown paths и lesson structure.
+Checks cover money precision, replay, collision rollback, quarantine, journal completeness and balance, reconciliation, SCD2 boundaries, late-feature availability, forty references, SQL expectations, local paths, lesson structure, and English-content policy.
 
-CI configuration предусмотрена для Windows/Ubuntu и Python 3.12/3.14. Успех remote matrix подтверждается только фактическим run. Local execution не позволяет заявлять, что все платформы уже проверены.
+The matrix supports Windows/Ubuntu and Python 3.12/3.14. Actual remote status is available in Actions; local execution does not establish every supported environment.
 
-## Ограничения источников
+## Source limitations
 
-Официальная документация может меняться, старые видео могут использовать прежние версии. Video links получены из источников курса и поисковых результатов; playback каждого видео не проверялся. Источники не означают endorsement этого проекта. Ссылки с датой review в каталоге проверены на наличие/релевантность страницы или указание официальным автором; это не claim полного просмотра.
+Documentation changes and older videos may use older interfaces. Links come from author pages or indexed descriptions; full playback was not checked. Inclusion does not imply endorsement. Resource review establishes source existence or author attribution, not complete viewing of every course.
 
-Материалы не обещают трудоустройство, stars, финансовую корректность реальной системы или нормативное соответствие. Проверяемые outcomes, ошибки и scope важнее размера истории.
+This material does not promise employment, stars, correctness of a real financial system, or regulatory compliance. Verifiable outcomes and clear scope matter more than history size.

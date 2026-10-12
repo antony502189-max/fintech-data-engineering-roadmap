@@ -1,15 +1,15 @@
-# Как внести вклад
+# Contributing
 
-1. Сделай fork и отдельную ветку для изменения.
-2. Объясни проблему на synthetic fixture или укажи точную ссылку на урок.
-3. Добавь минимальное исправление и meaningful check, если меняется поведение кода или финансовая формула.
-4. Запусти команды проверки из [README](README.md).
-5. Открой PR: проблема, итоговое поведение, evidence и ограничения.
+1. Fork the repository and create a branch for one change.
+2. Explain the problem using a synthetic fixture or an exact lesson link.
+3. Make a focused correction and add a meaningful check when code behavior or monetary formulas change.
+4. Run the verification commands in the [README](README.md).
+5. Open a PR describing the problem, resulting behavior, evidence, and limitations.
 
-Для нового упражнения нужны условие, контракт, starter, reference solution, positive и negative cases. Не делай тест, который только повторяет реализацию. Суммы должны иметь валюту, время — timezone, а SQL — указанный dialect. Стартер обязан падать до реализации; эталон обязан проходить.
+New exercises need a task, contract, starter, reference, and positive and negative cases. Do not merely restate the implementation in a test. Specify currencies for amounts, timezones for times, and dialects for SQL. A starter must fail before implementation; a reference must pass.
 
-Для материалов укажи автора, ссылку, формат, язык, релевантные уроки и конкретный learning outcome. Предпочитай первичные источники. Не копируй чужие статьи, схемы, видео или платные задания; лицензия этого репозитория не распространяется на внешние материалы.
+Resource contributions need author, URL, format, language, related lessons, and a practical learning outcome. Prefer primary sources. Do not copy restricted articles, diagrams, videos, or paid assignments; this repository's license does not cover external material.
 
-Для переводов сохраняй номера уроков, смысл формулы и примеры. Не переводи identifiers в коде. AI-assisted вклад допустим: автор отвечает за фактическую проверку, существование ссылок и отсутствие credentials/real personal data.
+Write repository content, code comments, examples, and templates in English. Preserve lesson numbers, identifiers, monetary meaning, and numerical examples. AI-assisted contributions are welcome; authors remain responsible for factual verification, valid links, and absence of credentials or real personal data.
 
-Хорошие первые contributions: дополнительный negative case к E09; проверка другого offset к E02; расширение dictionary; перевод одного урока; исправление устаревшего resource с проверенным replacement. Не отправляй реальные платёжные payload даже как bug reproduction.
+Good first contributions: another E09 boundary case, an E02 offset test, a glossary improvement, or a verified resource replacement. Never attach real payment payloads to issues.

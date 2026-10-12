@@ -1,35 +1,35 @@
-# Маршруты по исходному опыту
+# Learning paths
 
-## С нуля: 24 недели по 10–15 часов
+## Beginner: a sample 24-week schedule
 
-| Недели | Основной фокус | Готовый результат |
+| Weeks | Focus | Deliverable |
 |---|---|---|
-| 1–3 | Уроки 001–010 | E01–E04; функции, тесты, время, деньги, Git |
-| 4–6 | 011–020 | E05–E08; объяснение grain, JOIN и incremental |
-| 7–9 | 021–030 | E09–E12; модель facts/dimensions и история |
-| 10–12 | 031–040 | E13–E16; контракт загрузки и recovery matrix |
-| 13–15 | 041–050 | E17–E20; выбор storage, partition и late policy |
-| 16–17 | 051–060 | E21–E24; DAG, retries, publish, migration |
-| 18–20 | 061–080 | E25–E32; деньги, сверка, quality, incidents |
-| 21–22 | 081–100 | E33–E40; доступы, ИИ, point-in-time, портфолио |
-| 23–24 | Capstone | Самостоятельный код, evidence, recovery, limitations |
+| 1–3 | Lessons 001–010 | E01–E04: functions, tests, time, money, Git |
+| 4–6 | 011–020 | E05–E08: grain, joins, incremental behavior |
+| 7–9 | 021–030 | E09–E12: facts, dimensions, history |
+| 10–12 | 031–040 | E13–E16: contracts and recovery matrices |
+| 13–15 | 041–050 | E17–E20: storage, partitions, lateness |
+| 16–17 | 051–060 | E21–E24: DAGs, retries, publication, migration |
+| 18–20 | 061–080 | E25–E32: money, reconciliation, quality, incidents |
+| 21–22 | 081–100 | E33–E40: access, AI, point-in-time features |
+| 23–24 | Capstone | Independent code, evidence, recovery, limitations |
 
-Темп примерный: 100 уроков могут занять 200–400 часов, плюс практика и проекты. При 10 часах в неделю верхняя граница потребует больше 24 недель. Корректируй план по выполненным артефактам.
+The pace is illustrative. A first pass may take 200–400 hours, with projects requiring more. At ten hours a week, the upper bound exceeds 24 weeks. Adjust the schedule using completed artifacts rather than elapsed weeks.
 
-## Аналитик → analytics/data engineer
+## Analyst to analytics/data engineer
 
-Проверь E05–E08, даже если пишешь SQL каждый день. Затем 021–040 и 051–080. База Python и tests обязательна: E01–E04 плюс уроки 003, 006, 009, 010. Storage и platform сначала изучай на уровне решения и эксплуатации, потом углубляй выбранный стек. Рекомендуемый capstone — settlement warehouse.
+Start with E05–E08 even if you write SQL daily, then lessons 021–040 and 051–080. Python and tests remain essential: E01–E04 and lessons 003, 006, 009, 010. Understand storage and platform decisions before specializing in a stack. Settlement is a suitable capstone.
 
-## Backend-разработчик → data engineer
+## Backend engineer to data engineer
 
-Начни с SQL semantics и facts: 011–030. Затем CDC, outbox, replay, Kafka и checkpoint boundaries: 031–050. В distributed systems знания HTTP и transactions не заменяют grain и финансовую аддитивность. Пройди 061–080 и сделай settlement или fraud feature capstone.
+Begin with SQL semantics and facts, lessons 011–030, then CDC, outbox, replay, Kafka, and checkpoints in 031–050. HTTP and transaction experience does not replace understanding financial additivity. Complete 061–080 and build settlement or fraud data.
 
-## Действующий DE → финтех
+## Experienced data engineer to fintech
 
-Начни с 061–070, E25–E28 и [Money correctness](MONEY_CORRECTNESS.md). Пройди бивремя 026, point-in-time 096 и publish/close 056,066. Проверь reliability 071–080 и ownership 088. Сравни с собственными assumptions о revenue, cutoff, FX и независимой полноте.
+Start with 061–070, E25–E28, and [money correctness](MONEY_CORRECTNESS.md). Include bitemporal lesson 026, point-in-time lesson 096, and publication/close lessons 056 and 066. Review 071–080 and ownership 088. Challenge assumptions about revenue, cutoffs, FX, and completeness.
 
-## Что обязательно, а что углубление
+## Essential versus deeper specialization
 
-Обязательно: Python, SQL, grain, история, exact money, idempotency, independent reconciliation, tests, recovery, permissions. Один warehouse и один orchestrator достаточно для первого capstone.
+Essential: Python, SQL, grain, history, exact money, idempotency, independent reconciliation, tests, recovery, and permissions. One warehouse and one orchestrator suffice for a first capstone.
 
-Углубление по потребности: Data Vault, Iceberg, Spark internals, Kafka/Flink production state, Terraform, полноценный feature store, RAG service. Изучай механизм и ограничения до выбора продукта. Certification может быть дополнительным путём, но не заменяет проверяемый проект.
+Specialize when needed in Vault, Iceberg, Spark internals, Kafka/Flink state, Terraform, feature stores, or RAG. Learn mechanisms and limits before choosing products. Certifications can complement, but not replace, a verifiable project.

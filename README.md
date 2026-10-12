@@ -1,16 +1,16 @@
-<p align="center"><img src="assets/cover.svg" alt="Fintech Data Engineering Roadmap: от источников к доказуемым денежным данным" width="100%"></p>
+<p align="center"><img src="assets/cover.svg" alt="Fintech Data Engineering Roadmap: from sources to explainable money" width="100%"></p>
 
 # Fintech Data Engineering Roadmap
 
-**От первого SQL до объяснимого DWH в финтехе: 100 уроков, 40 заданий с проверкой и рабочая лаборатория платежей.**
+**From your first SQL query to an explainable fintech warehouse: 100 lessons, 40 graded exercises, and a runnable payments lab.**
 
-[Начать обучение](docs/START_HERE.md) · [Карта из 100 уроков](roadmap/README.md) · [Практикум](practice/README.md) · [Видео](resources/VIDEOS.md) · [English](README_EN.md)
+[Start learning](docs/START_HERE.md) · [100-step roadmap](roadmap/README.md) · [Practice](practice/README.md) · [Videos](resources/VIDEOS.md) · [Articles](resources/ARTICLES.md)
 
-Это открытый учебный маршрут по data engineering, DWH и денежным данным. Здесь разбираем, **что учить, зачем это нужно, как реализовать принцип и как обнаружить ошибку**. Центральные темы — точные суммы, история изменений, повторная доставка, поздние события, сверка и восстановление. Есть отдельный блок про ИИ, RAG, Text-to-SQL и ML-признаки.
+An open learning path for data engineering, DWH, and financial data. Learn what to study, why it matters, how to implement a principle, and how to detect mistakes. Core themes include exact amounts, change history, repeated delivery, late events, reconciliation, and recovery. A dedicated module covers AI assistants, RAG, Text-to-SQL, and ML features. All repository content is in English.
 
-## Попробуй за пять минут
+## Try it in five minutes
 
-Требуется Python 3.12+ с модулем `sqlite3` и Git. Основная лаборатория и все 40 заданий работают на стандартной библиотеке. Команды одинаковы для PowerShell, Bash и macOS Terminal; запускай их из корня клонированного репозитория.
+Requires Git and Python 3.12+ with `sqlite3`. The lab and all 40 exercises use the standard library. Run from the repository root in PowerShell, Bash, or macOS Terminal.
 
 ```bash
 git clone https://github.com/antony502189-max/fintech-data-engineering-roadmap.git
@@ -21,66 +21,67 @@ python practice/run.py init E01
 python practice/run.py grade E01
 ```
 
-Последняя команда сначала падает: в личной копии задания находится `TODO`. Открой `work/answers/E01.py`, реализуй `solve(data)` и запусти проверку снова. На Windows, если команда `python` недоступна, используй `py -3` вместо неё.
+The final command initially fails because the personal starter contains `TODO`. Implement `solve(data)` in `work/answers/E01.py`, then grade again. On Windows, use `py -3` instead of `python` if needed. No paid cloud or API key is required.
 
-Лаборатория создаёт `work/demo/warehouse.db` и `report.json`. В первом чистом запуске получишь:
+The first clean demo writes `work/demo/warehouse.db` and `report.json` with:
 
-- 6 принятых событий; повтор загрузки даёт 6 дублей и 0 новых записей.
-- Daily net cash за 1 января: USD 12200 и EUR 4900 minor units; за 2 января: USD −2000.
-- Две совпавшие сверки, расхождение p3 на −100 USD minor units и неожиданную внешнюю запись p9.
-- Для позднего p3: исторический feature равен 0 до получения события и 2500 после.
+- Six accepted events; replay inserts zero events and reports six duplicates.
+- January 1 net cash: USD 12200 and EUR 4900 minor units; January 2: USD −2000.
+- Two matches, a p3 discrepancy of −100 USD minor units, and an unexpected external p9.
+- A late p3 feature equal to zero before receipt and 2500 afterward.
 
-Повтор запуска в ту же базу даёт `inserted=0, duplicates=6` уже на первом шаге. Для чистого опыта выбери новый `--out`. Учебные несовпадения в сверке сделаны намеренно.
+Reusing the output directory retains the database, so even the first ingestion step then reports duplicates. Choose a new `--out` for a clean experiment. Reconciliation exceptions are intentional.
 
-## Что внутри
+## What you will build
 
-| Раздел | Результат |
+| Section | Outcome |
 |---|---|
-| [100 уроков](roadmap/README.md) | Последовательность, объяснения, примеры, задания, ошибки, критерии проверки и первичные источники |
-| [40 готовых заданий](practice/README.md) | 40 starters, 40 решений, 90 проверочных cases, CLI для самостоятельной работы |
-| [Лаборатория](labs/README.md) | SQLite DWH, synthetic events, exact money, idempotency, ledger, reconciliation, SCD2, point-in-time features |
-| [Архитектура](docs/ARCHITECTURE.md) | Путь данных, транзакционные границы и ограничения учебной реализации |
-| [Материалы](resources/README.md) | YouTube, официальная документация и разборы Stripe, Monzo, Uber |
-| [Capstone](projects/README.md) | Четыре самостоятельных проекта и рубрика приёмки |
-| [ИИ](docs/AI_WORKFLOW.md) | Проверка SQL, доступы RAG, injection, evals и использование синтетики |
-| [Эксплуатация](docs/INCIDENT_RUNBOOKS.md) | Диагностика пропущенных, поздних и неверных денежных событий |
+| [100 lessons](roadmap/README.md) | Concepts, fintech examples, implementation steps, tasks, failure modes, acceptance checks, and primary sources |
+| [40 exercises](practice/README.md) | Forty starters, forty references, ninety verification cases, and a grading CLI |
+| [Payments lab](labs/README.md) | SQLite, synthetic events, exact money, idempotency, journal checks, reconciliation, SCD2, and point-in-time features |
+| [Architecture](docs/ARCHITECTURE.md) | Data flow, transaction boundaries, and teaching-model limitations |
+| [Resources](resources/README.md) | YouTube, official documentation, and engineering articles from Stripe, Monzo, and Uber |
+| [Capstone projects](projects/README.md) | Four project specifications and an acceptance rubric |
+| [AI workflow](docs/AI_WORKFLOW.md) | SQL verification, RAG permissions, injection, evaluation, and synthetic inputs |
+| [Operations](docs/INCIDENT_RUNBOOKS.md) | Investigation of missing, late, and incorrect monetary events |
 
-## Маршрут
+## Learning sequence
 
-| Модуль | Темы | Практика |
+| Module | Focus | Practice |
 |---|---|---|
-| 01. База | Python, Git, тесты, API, контейнеры, время и деньги | E01–E04 |
-| 02. SQL | Grain, JOIN, NULL, windows, transactions, indexes, incremental | E05–E08 |
-| 03. DWH | Слои, facts, dimensions, SCD2, бивремя, Vault, метрики | E09–E12 |
+| 01. Foundations | Python, Git, tests, APIs, containers, time, and money | E01–E04 |
+| 02. SQL | Grain, joins, NULL, windows, transactions, indexes, incremental models | E05–E08 |
+| 03. Modeling | Layers, facts, dimensions, SCD2, bitemporal history, Vault, metrics | E09–E12 |
 | 04. Ingestion | Batch, webhooks, CDC, schema evolution, outbox, replay | E13–E16 |
-| 05. Storage | Parquet, partitions, Iceberg, DWH, Spark, Kafka, event time | E17–E20 |
-| 06. Transform | dbt, DAG, retries, backfill, publish, CI, migrations | E21–E24 |
+| 05. Storage | Parquet, partitions, Iceberg, warehouses, Spark, Kafka, event time | E17–E20 |
+| 06. Transformation | dbt, DAGs, retries, backfill, publication, CI, migrations | E21–E24 |
 | 07. Fintech | Lifecycle, ledger, reconciliation, refunds, FX, credit, fraud | E25–E28 |
-| 08. Надёжность | Quality, latency, observability, incidents, backups, drills | E29–E32 |
-| 09. Platform | IAM, PII, secrets, encryption, retention, IaC, FinOps | E33–E36 |
-| 10. ИИ и рост | SQL assistant, RAG, injection, evals, feature store, portfolio | E37–E40 |
+| 08. Reliability | Quality, latency, observation, incidents, backups, drills | E29–E32 |
+| 09. Platform | IAM, personal data, secrets, encryption, retention, IaC, FinOps | E33–E36 |
+| 10. AI and growth | Assistants, RAG, injection, evals, features, portfolio | E37–E40 |
 
-Новичку подойдёт [маршрут с нуля](docs/LEARNING_PATHS.md), аналитику — переход через SQL и моделирование, backend-разработчику — через delivery guarantees и историю. Первый проход всех уроков оценивается в 200–400 часов; capstone и реальный стек требуют дополнительного времени. Это ориентир, а не обещание трудоустройства.
+Choose a [learning path](docs/LEARNING_PATHS.md) for beginners, analysts, backend engineers, or experienced data engineers. A first pass may take 200–400 hours; deeper tool integrations and capstones take additional time. Progress is measured by verifiable artifacts, not video hours.
 
-## Проверка репозитория
+## Verify the repository
 
 ```bash
 python -m unittest discover -s tests -v
 python practice/run.py verify
 python scripts/check_docs.py
 python scripts/check_sql.py
+python scripts/check_english.py
 ```
 
-CI запускает проверки на Windows и Ubuntu, Python 3.12 и 3.14. `verify` проверяет эталоны, а `grade` — личное решение. Стартеры намеренно незавершённые. [Результаты локальной проверки](docs/VALIDATION.md).
+CI checks Windows and Ubuntu with Python 3.12 and 3.14. `verify` validates references; `grade` checks your solution. Starters intentionally fail before implementation. See [verification evidence](docs/VALIDATION.md) and [GitHub Actions](https://github.com/antony502189-max/fintech-data-engineering-roadmap/actions).
 
-## Границы и прозрачность
+## Scope and provenance
 
-Вся платёжная информация синтетическая. Лаборатория упрощает accounting perspective, не моделирует банковский settlement protocol, compliance certification, реальный Kafka cluster и cloud IAM. Задания по платформе и ИИ запускают локальные симуляции принципов; [расширения стека](labs/STACK_EXTENSIONS.md) описывают дальнейшую практику. Материалы по политике хранения не устанавливают юридические сроки.
+All payment data is synthetic. The lab uses simplified signed accounting and does not implement real bank settlement, production Kafka, cloud IAM, or regulatory certification. Platform and AI exercises simulate principles locally; [stack extensions](labs/STACK_EXTENSIONS.md) describe further integration work. Retention examples do not establish legal requirements.
 
-Первое издание подготовлено с помощью ИИ: код и examples проверены автоматическими проверками, внешние материалы атрибутированы. Подробности и смысл истории коммитов — в [PROVENANCE](docs/PROVENANCE.md). Даты коммитов реальные; большое число небольших изменений не означает годы разработки.
+The first edition was authored with AI assistance, with executable examples checked and external resources attributed. [Provenance](docs/PROVENANCE.md) explains the commit history: real dates and substantive construction steps, not a claim of years of development.
 
-## Помочь проекту
+## Help improve the project
 
-Если пригодилось — поставь ⭐, чтобы сохранить маршрут, и покажи конкретный урок или упражнение коллегам. Особенно полезны bug reports с воспроизводимым примером, новые edge cases, исправления ссылок и English translations. Начни с [CONTRIBUTING](CONTRIBUTING.md). Для публикации на форумах есть [короткие тексты и demo](community/SHARING.md).
+Star the repository if it helps you learn or teach. Useful contributions include reproducible bugs, additional edge cases, clearer explanations, and updated sources. Read [CONTRIBUTING](CONTRIBUTING.md). For sharing, use the [post and demo guide](community/SHARING.md).
 
-MIT license. Ссылки на внешние материалы не меняют их лицензии. [Источники и аналоги](resources/RESEARCH_NOTES.md).
+MIT license. External materials retain their own licenses. [Research and related projects](resources/RESEARCH_NOTES.md).

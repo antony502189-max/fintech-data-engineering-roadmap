@@ -1,34 +1,34 @@
-# Runbooks для синтетического DWH
+# Synthetic DWH incident runbooks
 
-## amount_mismatch
+## Amount mismatch
 
-**Сигнал:** p3, USD, expected=2500, actual=2400, delta=−100. **Impact:** final settlement result не подтверждён.
+Signal: p3, USD, expected=2500, actual=2400, delta=−100. Impact: final settlement is unconfirmed.
 
-1. Зафиксируй report version и оба input manifests.
-2. Проверь grain payment/currency, sign convention и cutoff.
-3. Выполни query ниже и сравни raw events с external statement.
-4. Проверь, fee/partial settlement не был исключён из одной стороны.
-5. Не исправляй сумму вручную для получения зелёного результата. Создай synthetic correction scenario; для настоящей системы решение принимает financial owner.
+1. Record report versions and both input manifests.
+2. Verify payment/currency grain, sign conventions, and cutoff.
+3. Run the query below and compare raw events with the statement.
+4. Check whether fees or partial settlement are excluded on one side.
+5. Do not edit amounts merely to obtain green checks. Use a synthetic correction scenario; real decisions belong to financial owners.
 
 ```sql
 SELECT event_id,kind,amount_minor,currency,event_time,received_at
 FROM raw_events WHERE payment_id='p3' ORDER BY event_time,event_id;
 ```
 
-## missing_external / unexpected_external
+## Missing or unexpected external records
 
-**Первые вопросы:** полный ли файл, совпадает ли период, известны ли все expected providers, была ли смена IDs? Не заменяй missing amount нулём. p9 требует отдельного поиска происхождения; удаление строки из external fixture лишь скрывает исключение.
+Check file completeness, period alignment, expected providers, and identity changes. Missing amounts are not zero. p9 needs provenance investigation; deleting it from the external fixture conceals the exception.
 
-**Publish:** provisional output может показывать exception count; final output блокируется согласно своему contract. Tutorial demo намеренно сохраняет отчёт с исключениями и не выдаёт его за закрытый финансовый день.
+Provisional output may expose exception counts. Final publication follows its contract and may be blocked. The demo intentionally writes a report with exceptions rather than claiming financial close.
 
-## conflicting event identity
+## Conflicting event identity
 
-**Сигнал:** `ConflictingEvent`. Сохрани accepted original и conflicting payload на разрешённом synthetic наборе. Убедись, что batch откатился. Проверь producer identity, replay logic и schema version. Если это business correction, введи отдельный version/correction contract; не превращай конфликт в INSERT OR IGNORE.
+Preserve the accepted original and conflicting synthetic input, and confirm rollback. Check producer identity, replay rules, and schema versions. A legitimate correction needs an explicit versioned contract, not INSERT OR IGNORE.
 
-## Late arrival
+## Late delivery
 
-e6 получен 3 января и относится к 1 января. Найди affected event_date, пересчитай candidate, сравни full/incremental и выясни, был ли день закрыт. Open period можно обновить по contract; closed требует versioned restatement или adjustment. Для ML cutoff нельзя использовать событие до received_at.
+e6 arrives January 3 but belongs to January 1. Identify affected dates, rebuild a candidate, compare full and incremental results, and determine whether the period is closed. Open periods follow update policy; closed periods need versioned restatement or adjustment. ML features cannot use the event before receipt.
 
-## Восстановление
+## Recovery
 
-Сохрани baseline. Восстанавливай backup в отдельное пространство, replay journal после recovery point, запусти balance и reconciliation. Сравни контрольные итоги и version metadata. Код без исправленной истории не завершает recovery. Шаблон — [RUNBOOK](../templates/RUNBOOK.md); безопасные эксперименты — [fault drills](../labs/fault-drills.md).
+Retain a baseline. Restore separately, replay after the recovery point, run balance and reconciliation, and compare controls and versions. A code fix without repaired history does not complete recovery. Use the [runbook template](../templates/RUNBOOK.md) and [fault drills](../labs/fault-drills.md).

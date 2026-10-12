@@ -1,29 +1,29 @@
-# Начни здесь
+# Start here
 
-Цель маршрута — уметь объяснить каждую сумму в аналитическом наборе: откуда она пришла, по какому правилу изменена, что произошло при повторе или опоздании и как проверить итог.
+The goal is to explain every amount in an analytical dataset: its source, transformation rule, behavior under replay or lateness, and verification.
 
-## Первый вечер
+## Your first session
 
-1. Прочитай [README](../README.md) и запусти laboratory demo.
-2. Открой `work/demo/report.json`. Найди p3 и p9: это специально созданные нарушения сверки.
-3. Запусти `python practice/run.py init E01`, реализуй решение, затем `grade E01`.
-4. Пройди [E05](../practice/E05.md): различие событий и платежей — основа дальнейших метрик.
-5. Выбери [маршрут](LEARNING_PATHS.md) и сохрани progress checklist в своём fork.
+1. Read the [README](../README.md) and run the lab demo.
+2. Open `work/demo/report.json` and find p3 and p9: deliberate reconciliation defects.
+3. Initialize E01, implement its function, and grade it.
+4. Complete [E05](../practice/E05.md): events and payments have different grains.
+5. Choose a [learning path](LEARNING_PATHS.md) and keep a progress checklist in your fork.
 
-Для демо не нужен pip install: стандартная библиотека уже содержит Decimal, sqlite3, unittest, json и datetime. Если sqlite3 отсутствует в установленном Python, используй дистрибутив CPython с этим модулем.
+No pip installation is needed for the baseline: Decimal, sqlite3, unittest, json, and datetime are standard-library modules. If sqlite3 is missing, use a CPython distribution that includes it.
 
-## Как работать с уроком
+## Working through a lesson
 
-Сначала сформулируй результат своими словами. Разбери пример и типичную ошибку, затем выполни задание. Не считай просмотр видео выполнением практики. Сохрани минимальный воспроизводимый артефакт, проверку и объяснение компромисса. В конце ответь на вопрос, не подглядывая в материалы.
+Restate the outcome in your own words. Inspect the example and failure mode, then complete the task. Watching a video is not completing the exercise. Retain a reproducible artifact, verification, and tradeoff explanation. Answer the self-check without looking at the reading.
 
-Каждый урок занимает ориентировочно 2–4 часа первого прохода. Для некоторых тем нужно больше времени: реальный Spark workload, streaming recovery или security review нельзя освоить одним tiny fixture. При пропуске темы запиши, какое понимание уже подтверждено своим проектом.
+Allow roughly 2–4 hours for a first pass; real Spark workloads, distributed recovery, and security reviews require more than a tiny fixture. If skipping a topic, record what evidence from your existing work establishes the required understanding.
 
-## Критерии перехода
+## Progress gates
 
-После SQL ты объясняешь grain, fanout, NULL и window boundary. После modeling — выбор факта и историю dimension. После ingestion — replay, conflict, snapshot и delete. После fintech — баланс, независимую сверку, валюты и cutoff. После AI — где недоверенный ответ проверяется кодом и где ограничиваются права.
+After SQL, explain grain, fanout, NULL, and boundaries. After modeling, choose facts and dimension history. After ingestion, explain replay, conflicts, snapshots, and deletes. After fintech, distinguish balance, reconciliation, currencies, and close. After AI, identify executable verification and permission boundaries.
 
-В [практикуме](../practice/README.md) четыре задачи на модуль. Он покрывает основные инварианты; задания внутри 100 уроков расширяют их до designs и интеграционных экспериментов. После десяти модулей нужен [capstone](../projects/README.md) с самостоятельной реализацией, а не просто запуск эталонов.
+The [practice guide](../practice/README.md) has four exercises per module; lesson assignments extend them into designs and integrations. Finish with a [capstone](../projects/README.md) rather than merely running references.
 
-## Если застрял
+## When stuck
 
-Сократи вход до двух событий. Выпиши ожидаемый результат вручную. Найди первую границу, где результат изменился: parsing, join, filtering, aggregation или publish. Сверь с [dictionary](DATA_DICTIONARY.md), [SQL patterns](SQL_PATTERNS.md) и [FAQ](FAQ.md). Для issue прикладывай только синтетику, команду, Python version и expected/actual.
+Reduce the input to two events and calculate the expected answer manually. Locate the first difference in parsing, joins, filters, aggregation, or publication. Consult the [dictionary](DATA_DICTIONARY.md), [SQL patterns](SQL_PATTERNS.md), and [FAQ](FAQ.md). Issues should contain synthetic data, an exact command, Python version, and expected versus actual output.

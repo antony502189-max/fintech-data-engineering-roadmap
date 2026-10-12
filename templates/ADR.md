@@ -1,22 +1,22 @@
-# ADR: название решения
+# ADR: decision title
 
-**Status:** proposed / accepted / superseded. **Owner:** ... **Дата:** ...
+**Status:** proposed / accepted / superseded. **Owner:** ... **Date:** ...
 
-## Проблема и требования
+## Problem and requirements
 
-Кто принимает решение по данным? Каковы grain, latency, полнота, объём, бюджет и consequences ошибки?
+Who consumes the data? Define grain, latency, completeness, volume, budget, and error consequences.
 
-## Рассмотренные варианты
+## Alternatives
 
-| Вариант | Польза | Цена эксплуатации | Failure mode |
+| Option | Benefit | Operating cost | Failure mode |
 |---|---|---|---|
 | A | ... | ... | ... |
 | B | ... | ... | ... |
 
-## Решение
+## Decision
 
-Что выбрано, какие assumptions подтверждены измерениями, что остаётся неизвестным? Какова область гарантии?
+State the choice, measured assumptions, unknowns, and guarantee boundary.
 
-## Проверка и переход
+## Verification and migration
 
-Команда/experiment, acceptance, rollback, migration scope и критерий, при котором решение нужно пересмотреть. Не называй diagram готовой реализацией.
+Record experiment commands, acceptance, rollback, migration scope, and conditions for reconsideration. A diagram is not an implemented service.

@@ -1,11 +1,18 @@
-# Изменения
+# Changelog
+
+## 1.1.0 — 2026-10-12
+
+- Converted all 100 lessons, 40 exercise guides, starter descriptions, and curriculum metadata to English.
+- Converted guides, project specifications, resources, templates, and community material to English.
+- Made README.md the canonical English entry point; preserved README_EN.md as a compatibility link.
+- Added an English-content check to CI while retaining existing behavior and fixture expectations.
 
 ## 1.0.0 — 2026-10-12
 
-- Первое издание: 100 уроков в 10 модулях.
-- 40 самостоятельных заданий, starters, решения и 90 проверочных случаев.
-- Локальная payments warehouse lab с idempotent ingestion, точными суммами, signed ledger, reconciliation, SCD2 и feature cutoff.
-- Материалы по SQL, CDC, DWH, эксплуатации, финтеху и ИИ.
-- Capstone проекты, templates, CI и инструкция для contributions.
+- Initial edition: 100 lessons across ten modules.
+- Forty exercises with starters, references, and ninety verification cases.
+- Offline payments lab with idempotency, exact money, signed journal, reconciliation, SCD2, and feature availability.
+- SQL, CDC, DWH, operations, financial data, and AI material.
+- Capstone specifications, templates, CI, and contribution guidance.
 
-Дата обозначает первое издание. Маленькие коммиты отражают его сборку; это не заявление о многолетней истории.
+Dates describe publication, not a claim of a long development history.

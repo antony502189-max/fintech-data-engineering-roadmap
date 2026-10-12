@@ -1,35 +1,35 @@
-# Следующий уровень: настоящие инструменты
+# Next level: real tools
 
-Основные 40 exercises offline и проверены на standard-library runtime. Ниже **specifications для самостоятельных integrations**, а не уже протестированная полная platform. Указывай реальные installed versions и запускай meaningful checks; не называй sketch работающим сервисом.
+Core exercises are verified offline standard-library implementations. These are independent integration specifications, not a prevalidated full platform. Record installed versions, execute meaningful checks, and separate proposals from working services.
 
 ## PostgreSQL
 
-Создай локальную database по [официальной инструкции](https://www.postgresql.org/docs/current/tutorial.html). Портируй schema: денежные amounts BIGINT или согласованный NUMERIC, timestamps TIMESTAMPTZ, PK event_id. Повтори ingestion/rollback fixtures, проверь concurrent duplicate writers и isolation. Acceptance: при двух workers один ID создаёт ровно одну пару postings, conflict виден; full/incremental totals совпадают. Сохрани команды создания учебной базы и cleanup отдельно от production.
+Create a local database using [official instructions](https://www.postgresql.org/docs/current/tutorial.html). Port monetary fields to BIGINT or an agreed NUMERIC scale, timestamps to TIMESTAMPTZ, and event identity to a primary key. Repeat rollback tests and concurrent duplicate writes. Require one journal pair per accepted ID and explicit conflicts. Compare full/incremental totals. Keep teaching-database creation and cleanup separate from production.
 
 ## dbt
 
-Выбери поддерживаемую пару dbt Core/adapter и warehouse. Создай sources/raw_events, staging, fact_events и daily_cash. Используй references, unique/not_null tests и custom balance/completeness query. Добавь late input, run incremental, full refresh в другом namespace и сравни наборы. Acceptance: identical outputs и blocked publish при failed tests. [Data tests docs](https://docs.getdbt.com/docs/build/data-tests).
+Select a supported Core/adapter pair. Define raw sources, staging, event facts, and daily cash. Add references, uniqueness/null tests, and custom conservation/completeness tests. Run incremental after late data and compare with full refresh in another namespace. Require equal results and blocked publication on failure. [Data tests](https://docs.getdbt.com/docs/build/data-tests).
 
-## Kafka + Debezium
+## Kafka and Debezium
 
-По официальным setup instructions подними локальный PostgreSQL source и совместимые Kafka/Connect/Debezium versions. Зафиксируй configuration без secrets. Создай snapshot, update, delete и source restart; сохраняй source position и op. Acceptance: snapshot→stream не имеет gaps, delete меняет current projection, domain capture не создаётся из каждого technical update. Consumer crash после sink commit должен приводить к replay без удвоения. [Debezium](https://debezium.io/documentation/reference/stable/connectors/postgresql.html), [Kafka](https://kafka.apache.org/documentation/).
+Use compatible local PostgreSQL, Kafka, Connect, and Debezium versions. Retain configuration without secrets. Exercise snapshot, update, delete, and restart with source positions. Require no snapshot-to-stream gaps, correct current-state deletion, and no fictitious capture from technical updates. Crash after sink commit and confirm replay does not double money. [Debezium](https://debezium.io/documentation/reference/stable/connectors/postgresql.html), [Kafka](https://kafka.apache.org/documentation/).
 
-## Spark + Parquet
+## Spark and Parquet
 
-Сгенерируй большой deterministic dataset, укажи Spark/Java/library versions. Измерь CSV/Parquet projection, partition pruning, hot-key group by и join dimension. Сохраняй physical plans, scanned/shuffle bytes, peak task duration и repeated timings. Acceptance: ускорение подтверждено на declared workload, financial total одинаков, driver collect большого набора не используется. [Spark tuning](https://spark.apache.org/docs/latest/sql-performance-tuning.html).
+Generate larger deterministic data and record Spark/Java/library versions. Compare projections, pruning, hot-key aggregation, and joins. Retain plans, scanned and shuffled bytes, task durations, and repeated timings. Require identical financial totals and avoid large driver collection. [Performance documentation](https://spark.apache.org/docs/latest/sql-performance-tuning.html).
 
-## Airflow или другой orchestrator
+## Orchestration
 
-Подними выбранную поддерживаемую версию по docs. DAG: ingestion → quality → transforms → reconciliation → candidate publish. Передавай data interval; wall clock не определяет backfill period. Acceptance: retries и restart безопасны, missing batch blocks final, canary backfill не вытесняет daily workload. [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html).
+Build ingestion → quality → transformation → reconciliation → candidate publication. Pass data intervals explicitly. Require safe retries, missing-input blocks, and canary backfill that respects daily workloads. [Airflow best practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html).
 
-## Iceberg и object storage
+## Iceberg
 
-Выбери совместимые catalog и engines; зафиксируй table format version. Напиши raw→candidate→snapshot publish, late partition rewrite и snapshot retention experiment. Acceptance: читатель видит целостный old/new snapshot и documented time-travel boundary. Maintenance не выполняется ручным удалением неизвестных files. [Iceberg docs](https://iceberg.apache.org/docs/latest/).
+Choose compatible catalogs and engines and pin table format. Test candidate/snapshot publication, late partition updates, and retention. Readers must see complete versions; document time-travel limits. Never maintain tables by manually deleting unidentified files. [Iceberg](https://iceberg.apache.org/docs/latest/).
 
-## Облако и IaC
+## Cloud and IaC
 
-Cloud exercise начинается с budget, отдельного учебного namespace и scoped identity. Актуальные цены и правила региона проверь в primary provider docs. Покажи IaC plan, denied access cases, query budget и resource inventory; не публикуй state или credentials. Удаление ресурсов не восстанавливает их данные; cleanup выполняй только для своих явно идентифицированных учебных resources.
+Begin with a budget, separate teaching namespace, and scoped identity. Verify current prices and regional requirements in provider documentation. Review plans, denied-access cases, query limits, and resource inventory. Keep state and credentials outside Git. Deleting infrastructure does not restore its data; cleanup must target only identified teaching resources.
 
-## Реальная LLM
+## A real LLM
 
-Сначала сохрани offline eval baseline. Затем подключи модель только к synthetic docs, ограничь tools и budget. Acceptance: ACL before retrieval, citations only from actual context, unknown metric abstention, critical failures отдельно от average. Реальный Text-to-SQL требует AST enforcement и scoped database identity; простой Python filter из упражнений его не реализует.
+Retain an offline evaluation baseline before integration. Use synthetic documents, constrained tools, and cost limits. Require ACLs before context, valid citations, abstention for unknown metrics, and separate critical-failure scoring. Real Text-to-SQL needs AST enforcement and database identity constraints; exercise filters do not implement them.

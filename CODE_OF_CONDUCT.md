@@ -1,7 +1,7 @@
-# Правила общения
+# Community guidelines
 
-Обсуждай идеи и воспроизводимые результаты уважительно. Новичкам можно задавать базовые вопросы. Не допускаются оскорбления, преследование, публикация чужих личных данных и спам.
+Discuss ideas and reproducible results respectfully. Beginners may ask basic questions. Harassment, insults, personal-data exposure, and spam are not acceptable.
 
-Сначала объясняй ошибку и способ её проверить, затем предлагай изменение. Разница в опыте, языке и выборе инструментов не повод унижать участника. Maintainer может закрыть off-topic discussion, удалить нарушающий комментарий или ограничить участие.
+Explain a defect and how to verify it before proposing a change. Differences in experience, language, or tool choice do not justify disrespect. Maintainers may close unrelated discussions, remove harmful comments, or restrict participation.
 
-Если нужно сообщить о проблемном общении, свяжись с владельцем через доступные контакты [GitHub profile](https://github.com/antony502189-max), не публикуя личные данные в issue.
+Report interpersonal concerns through available contacts on the owner's [GitHub profile](https://github.com/antony502189-max), without publishing private information in an issue.

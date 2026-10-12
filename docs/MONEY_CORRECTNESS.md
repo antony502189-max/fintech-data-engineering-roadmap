@@ -1,33 +1,33 @@
-# Доказуемые денежные данные
+# Explainable monetary data
 
-## Пять уровней проверки
+## Five verification layers
 
-1. **Контракт:** тип, валюта, масштаб, timestamps и identity допустимы.
-2. **Доставка:** каждая ожидаемая запись получена; replay не создаёт второе движение.
-3. **Модель:** grain и joins сохраняют сумму; правила знака согласованы.
-4. **Журнал:** postings полны и balanced на уровне event/currency.
-5. **Независимая сверка:** internal movement совпадает с внешним подтверждением при одинаковом scope.
+1. **Contract:** types, currency, scale, timestamps, and identity are valid.
+2. **Delivery:** expected records arrive; replay adds no second movement.
+3. **Model:** grain and joins preserve amounts; signs follow agreed rules.
+4. **Journal:** postings are complete and balanced by event/currency.
+5. **Independent reconciliation:** internal movement agrees with external confirmation for the same scope.
 
-Ни один уровень не заменяет остальные. Правильно подписанный webhook может быть неполным набором. Идеально сбалансированный журнал может использовать неверные amounts. Matching total может скрыть два взаимно компенсирующихся ошибочных платежа.
+No layer replaces another. A signed webhook need not represent a complete set. Balanced postings may contain wrong amounts. Matching total sums may hide compensating errors across individual payments.
 
-## Численный разбор
+## Numerical walkthrough
 
-Для p1: capture 10000 − fee 300 − refund 2000 = 7700 USD minor. За 1 января daily USD = p1 capture 10000 − fee 300 + p3 capture 2500 = 12200. Refund p1 относится ко 2 января, поэтому там −2000. Сумма USD across days = 10200; EUR отдельно = 4900.
+p1: capture 10000 − fee 300 − refund 2000 = 7700 USD minor. January 1 USD = 10000 − 300 + p3 capture 2500 = 12200. The refund belongs to January 2, whose total is −2000. USD across both days is 10200; EUR remains separate at 4900.
 
-Внешняя сторона подтверждает p1=7700, p2=4900, но p3=2400. Delta задана как actual−expected и равна −100. p9 — unexpected_external. Inner join оставил бы p9 за пределами расследования. Подмена NULL нулём сделала бы отсутствующую запись похожей на подтверждённый нулевой settlement.
+External data confirms p1=7700 and p2=4900 but p3=2400. Delta is actual−expected, giving −100. p9 is unexpected_external. An inner join would hide it; substituting zero for NULL would disguise missing confirmation.
 
-## Почему это не revenue
+## Cash is not revenue
 
-Net cash описывает заданный поток capture/refund/fee. Revenue зависит от бизнес-модели, правил признания и компонентов, которых нет в fixture. Прибыль требует ещё расходов. DWH engineer согласует определение с финансовым владельцем и хранит versioned contract. Название колонки не делает её бухгалтерским показателем.
+Net cash describes the specified capture/refund/fee flow. Revenue depends on business model, recognition, and components absent here. Profit also requires expenses. Agree on definitions with financial owners and keep versioned contracts; column names do not establish accounting meaning.
 
-## Коррекции
+## Corrections
 
-Одинаковый ID с изменённой суммой не следует молча upsert. Можно сохранить correction event с ссылкой на original, или поддержать versioned source record с явной политикой restatement. Выбор определяется source contract и financial process. Старый published report сохраняется; новый содержит reason, source version и affected scope.
+Do not silently upsert a different amount under an existing event ID. A correction can be a linked event or a versioned source record with explicit restatement rules. Preserve previous published reports and record reasons, source versions, and affected scope.
 
-## Валюты и округление
+## FX and rounding
 
-Не передавай float в money parser. Курс хранится Decimal string с направлением и временем. Сначала переведи from minor→major, примени курс, затем to major→minor; округление задаётся policy. В E27 ROUND_HALF_EVEN выбран только для учебного контракта. Округление реального продукта согласуется отдельно.
+Do not pass floats into monetary parsing. Preserve Decimal rate strings with direction and time. Convert source minor→major, apply the rate, then target major→minor. E27 uses ROUND_HALF_EVEN under a teaching contract; actual product rounding needs separate approval.
 
-## Минимум для финансового ревью
+## Financial review evidence
 
-Нужны grain, sign convention, валюты, даты признания, source coverage, independent control totals, exception ownership, cutoff и procedure correction. Пример такого мышления — [Stripe Ledger engineering article](https://stripe.com/blog/ledger-stripe-system-for-tracking-and-validating-money-movement); наш код не является реализацией Stripe Ledger.
+Require grain, signs, currency, recognition dates, coverage, independent controls, exception owners, cutoffs, and correction procedures. [Stripe's Ledger article](https://stripe.com/blog/ledger-stripe-system-for-tracking-and-validating-money-movement) provides a related engineering case; this code is not Stripe Ledger.

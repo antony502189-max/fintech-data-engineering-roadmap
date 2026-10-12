@@ -1,23 +1,23 @@
-# Частые вопросы
+# Frequently asked questions
 
-**Нужно ли платить за cloud?** Нет. Основной lab и E01–E40 offline. Для настоящего managed DWH актуальные тарифы, лимиты и права проверяются перед экспериментом; extensions не запускают облачные resources автоматически.
+**Do I need paid cloud services?** No. The baseline and E01–E40 work offline. Check actual prices, limits, and permissions before managed-warehouse experiments; extensions do not provision resources automatically.
 
-**Почему SQLite?** Чтобы базовые денежные инварианты проверялись одной командой. Здесь не измеряются production throughput, distributed consistency и vendor IAM.
+**Why SQLite?** It makes financial invariants executable with one command. It does not measure production throughput, distributed consistency, or cloud IAM.
 
-**Где SQL задачи?** E05–E08 выполняют реальный SQL in-memory. Отдельное ledger упражнение — `sql/exercises/05-ledger.sql`, решение — `sql/solutions/05-ledger.sql`. Дополнительные задания есть в уроках SQL.
+**Where are SQL tasks?** E05–E08 execute SQL in memory. The additional journal task is `sql/exercises/05-ledger.sql`, with a reference in `sql/solutions/05-ledger.sql`. SQL lessons include further assignments.
 
-**Почему grade падает после init?** Это ожидаемо: `solve` содержит TODO. Реализуй функцию. `reference` запускает готовый эталон и не проверяет твоё решение.
+**Why does grade fail after init?** `solve` intentionally contains TODO. Implement it; `reference` executes the provided solution instead of assessing your work.
 
-**Можно ли сразу открыть solutions?** Можно, но сначала сделай попытку. После чтения решения создай собственный negative case и объясни его без подглядывания.
+**Can I open solutions immediately?** Yes, but attempt the task first. After reading a reference, add a new negative case and explain it independently.
 
-**Почему Python grade не запускает Kafka?** Платформенные задания моделируют принцип локально. Реальные tool integrations описаны в [extensions](../labs/STACK_EXTENSIONS.md). Они требуют отдельного runtime и проверки.
+**Why do Python exercises not start Kafka?** Platform tasks model principles offline. [Extensions](../labs/STACK_EXTENSIONS.md) describe integrations requiring their own runtime and verification.
 
-**Почему повтор demo меняет ingestion stats?** База сохраняется в `--out`. После первого запуска события уже есть. Для baseline используй новый output directory; денежные итоги должны остаться одинаковыми.
+**Why do demo ingestion statistics change on replay?** The database persists under `--out`. Use a fresh directory for baseline statistics; monetary totals should stay unchanged.
 
-**Можно ли добавить реальные банковские данные?** Учебный репозиторий для синтетики. Не публикуй реальные реквизиты, KYC документы, credentials или production payload.
+**Can I publish real banking data?** Use synthetic examples. Do not publish customer records, card details, documents, credentials, or production payloads.
 
-**Это полный бухгалтерский ledger?** Нет. Signed postings — учебная conservation model. Полный chart, balances, settlement protocols, permissions и accounting policy требуют отдельного проектирования.
+**Is this a complete accounting ledger?** No. Signed postings demonstrate conservation. Full accounts, balances, settlement protocols, permissions, and accounting policy require separate design.
 
-**Это заменяет документацию инструментов?** Нет. Материалы объясняют механизм и связывают с практикой; версию и точные настройки проверяй в первичных docs.
+**Does this replace tool documentation?** No. Lessons explain mechanisms and practice; verify exact versions and settings in primary documentation.
 
-**Как обновлять внешние links?** Resource PR должен указывать старый и новый URL, автора и причину замены. Автоматический local link checker не проверяет качество интернет-источников.
+**How should links be updated?** Resource PRs identify old and replacement URLs, authors, and reasons. Local path checks do not validate internet content quality.

@@ -1,7 +1,7 @@
-# Сообщение о проблемах
+# Reporting problems
 
-Лаборатория работает offline на синтетике и не требует credentials. Не подключай учебные starters к production источникам. Grader выполняет выбранный Python файл: запускай только свой код или код, который прочитал и которому доверяешь.
+The offline lab uses synthetic data and requires no credentials. Do not connect teaching starters to production sources. The grader executes the selected Python file: run only your own code or code you have reviewed and trust.
 
-Для ошибки финансовой логики открой issue с минимальным синтетическим примером и ожидаемым итогом. Для утечки credentials или персональных данных не публикуй их в issue. Отзови затронутый credential и используй private vulnerability reporting в GitHub, если оно доступно, либо доступный приватный контакт владельца.
+Report financial-logic defects with a minimal synthetic example and expected result. Do not publish exposed credentials or personal information in issues. Revoke compromised credentials and use GitHub private vulnerability reporting if available, or an available private owner contact.
 
-Поддерживается текущая версия default branch. Исправление в учебном проекте не является сертификацией безопасности или соответствия нормативам.
+The current default branch is supported. A correction here does not certify security or regulatory compliance.
