@@ -60,6 +60,16 @@ project-sharing thread when required. Publish only after checking the commands
 against the default branch. The [launch plan](GROWTH_PLAN.md) defines a weekly
 record and follow-up work; these drafts are not evidence that posts were published.
 
+**Channel constraints checked 2026-10-22:** Do not reuse this AI-assisted text
+in r/dataengineering; its current rules prohibit AI-generated or AI-assisted
+post text, limit promotion to once per month, require relationship disclosure
+and a Brand Affiliate flag for promotional posts, and reject generic feedback
+requests. DEV's current disclosure options include AI-Assisted and Fully
+Autonomous. Its AI-assisted article guidelines prohibit promotion of a business,
+program, or course, so these campaign drafts are not suitable as a DEV promo.
+See [`growth/OPPORTUNITIES.md`](../growth/OPPORTUNITIES.md) before preparing
+channel-specific material, and recheck the live rules before publication.
+
 ## Feedback
 
 Collect confusing tasks, startup failures, and edge cases. Record accepted fixes in the changelog. Posting remains the owner's action; this template does not imply an automated broadcast.
