@@ -4,8 +4,8 @@ The goal is to explain every amount in an analytical dataset: its source, transf
 
 ## Your first session
 
-1. Read the [README](../README.md) and run the lab demo.
-2. Open `work/demo/report.json` and find p3 and p9: deliberate reconciliation defects.
+1. Complete the [five-minute experiment](FIRST_WIN.md): replay payments and explain a missing dollar.
+2. Run `python -m fintech_lab --out work/demo`, then open `work/demo/report.json` and find p3 and p9: deliberate reconciliation defects.
 3. Initialize E01, implement its function, and grade it.
 4. Complete [E05](../practice/E05.md): events and payments have different grains.
 5. Choose a [learning path](LEARNING_PATHS.md) and keep a progress checklist in your fork.

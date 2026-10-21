@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added a repeatable, in-memory quickstart showing replay safety and settlement exceptions.
+- Added a first-win walkthrough and placed the successful experiment before unfinished exercises in the README.
+- Added a measured community launch plan and channel-specific sharing drafts.
+
 ## 1.2.0 — 2026-10-12
 
 - Added eight intermediate/advanced scenario labs with starters, references, and 28 independently specified cases.
