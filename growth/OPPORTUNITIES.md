@@ -43,6 +43,24 @@ actions, whether automated or manual, and notes that community promotion rules
 differ. Do not generalize r/dataengineering's rule to other subreddits; check each
 community separately.
 
+## Reddit: r/Python
+
+Rules checked on 2026-10-22. A project post must be a text post with the
+Showcase flair, explain what the project does and how Python is relevant, link
+to source, and include the required **What My Project Does**, **Target
+Audience**, and **Comparison** sections. The rules route showcases featuring AI
+content to the monthly showcase or daily thread. The prepared draft focuses on
+the local Python payments lab, not the repository's AI workflow module; if the
+maintainer believes the project as a whole falls under the AI showcase rule, use
+the designated thread or skip the post. Attach the project image and recheck the
+live rules before posting. See the [r/Python rules](https://www.reddit.com/r/Python/about/rules.json).
+
+Other checked communities are poor fits for this repo promotion: r/learnpython
+prohibits advertising guides and tutorials, r/SQL disallows links to basic SQL
+tutorials, and r/opensource says AI-generated content is low-effort and
+ban-worthy. These findings apply to the checked communities only; do not
+generalize them to Reddit as a whole.
+
 ## DEV Community
 
 DEV's current editor offers Hand Written, AI-Assisted, and Fully Autonomous
@@ -64,6 +82,10 @@ generate or automate comments.
 - [LinkedIn: Page posts FAQ](https://www.linkedin.com/help/linkedin/answer/a567075)
 - [LinkedIn: How to maximize AI visibility for posts](https://www.linkedin.com/business/marketing/blog/ai-search/how-to-maximize-ai-visibility-for-your-linkedin-posts)
 - [Reddit: r/dataengineering community rules](https://www.reddit.com/r/dataengineering/about/rules.json)
+- [Reddit: r/Python community rules](https://www.reddit.com/r/Python/about/rules.json)
+- [Reddit: r/learnpython community rules](https://www.reddit.com/r/learnpython/about/rules.json)
+- [Reddit: r/SQL community rules](https://www.reddit.com/r/SQL/about/rules.json)
+- [Reddit: r/opensource community rules](https://www.reddit.com/r/opensource/about/rules.json)
 - [Reddit Help: How do I keep spam out of my community?](https://support.reddithelp.com/hc/en-us/articles/28012014962580-How-do-I-keep-spam-out-of-my-community)
 - [DEV: AI disclosure tiers](https://dev.to/devteam/introducing-ai-disclosure-on-dev-tools-for-nuance-clarity-and-better-feeds-34mk/)
 - [DEV: AI-assisted article guidelines](https://dev.to/guidelines-for-ai-assisted-articles-on-dev/)
