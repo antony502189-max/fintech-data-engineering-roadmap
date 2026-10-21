@@ -21,7 +21,7 @@ Do not describe the local simulations as deployed Kafka, dbt, or banking systems
 |---|---|---|
 | Days 1-3 | Merge and check the first-win experience; record a 45-60 second terminal demo | Can someone reproduce the result using only the README? |
 | Days 4-7 | Human-review and publish one LinkedIn post using the campaign drafts, if the owner chooses | Which questions or startup problems do readers report? |
-| Week 2 | Share a technical explanation only in a community whose current rules allow the post's authorship and project disclosure | Does the channel permit this content and is it useful to that audience? |
+| Week 2 | Consider the r/Python text-showcase draft only after maintainer review of the live rules and AI-showcase classification; otherwise skip or choose a community whose rules fit | Does the channel permit this content and is it useful to that audience? |
 | Week 3 | Prepare a C07 worked example with the wrong SQL and corrected totals; publish only if a human author can stand behind it and the channel rules permit its creation and purpose | Do readers continue from the demo to an exercise? |
 | Week 4 | Fix the top onboarding problems and publish a short changelog with verified examples | Did feedback produce a better learning experience? |
 
@@ -36,8 +36,12 @@ and prohibits AI-generated or AI-assisted post text; do not use the generic
 AI-assisted community draft there. DEV requires an accurate AI disclosure and
 its AI-assisted article guidance prohibits using such posts to promote a
 business, program, or course. Do not repurpose the campaign drafts as a DEV
-promotion. See [`growth/OPPORTUNITIES.md`](../growth/OPPORTUNITIES.md) for source
-links and the channel-specific guidance.
+promotion. r/Python has a specific project-showcase format; the draft follows
+its required sections but needs a human decision on whether the repository's AI
+lesson qualifies as AI showcase content. r/learnpython, r/SQL, and r/opensource
+are not suitable for this campaign's current promotional drafts. See
+[`growth/OPPORTUNITIES.md`](../growth/OPPORTUNITIES.md) for source links and
+channel-specific guidance.
 
 ## A weekly record
 
