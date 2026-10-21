@@ -19,8 +19,8 @@ Build genuine awareness and qualified discovery for the [Fintech Data Engineerin
 - GitHub social preview: PNG prepared; repository setting remains on GitHub's generated preview until the maintainer uploads the asset.
 - Publishing access: Metricool is listed in LinkedIn's official Marketing Partner directory and an available workspace connector supports LinkedIn publishing, but it is not installed or connected. The account connection requires a paid Metricool plan. Drafts only until the maintainer reviews each post and connects the authorized route.
 - Repo work: submitted in [PR #3](https://github.com/antony502189-max/fintech-data-engineering-roadmap/pull/3) on branch `codex/linkedin-growth-campaign`; open, ready for review, and not merged.
-- Latest CI verified before the current draft update: all four Windows/Ubuntu jobs on Python 3.12/3.14 passed on head `a6688744f546f9f1d11860e48402bfcceb71cd0d`. Check CI again after adding GH-01.
-- Latest traffic analytics: no newer snapshot verified; the GitHub connector rejects traffic endpoints, and the read-only browser check stopped at a URL-confidence safety boundary. Carry forward only the older, dated Oct 7–20 UTC snapshot in the growth plan.
+- Latest CI verified: all four Windows/Ubuntu jobs on Python 3.12/3.14 passed on current campaign head `593c8ccdc059391c7815742675003424f4b15d3b` (workflow `39681936556`).
+- Latest GitHub Insights traffic window (2026-10-07–20 UTC): 9 views, 5 unique visitors, 79 clones, 31 unique cloners. `reddit.com` was the only displayed referring site (2 views, 1 unique visitor); no LinkedIn row was displayed. No LinkedIn campaign post is published, so the referral is not attributed to this campaign. Full snapshot is in [metrics](METRICS.md).
 
 ## Current next action
 
