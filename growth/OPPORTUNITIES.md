@@ -19,7 +19,7 @@ and check that channel's current rules. See [sharing guidance](../community/SHAR
 
 The public repository currently returns GitHub's generated Open Graph image.
 A project-specific 1280 × 640 preview is prepared at
-[`assets/social-preview.png`](assets/social-preview.png). After the PR is merged,
+[`assets/social-preview.png`](../assets/social-preview.png). After the PR is merged,
 the maintainer can upload it under repository Settings → Social preview. The
 image can make the project easier to recognize when its URL is shared; it is
 not evidence of improved reach or star conversion. See
