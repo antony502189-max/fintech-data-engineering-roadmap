@@ -12,9 +12,17 @@
 
 ## Latest live repository check
 
-| Observed | Stars | Forks | Open issues | Source |
-|---|---:|---:|---:|---|
-| 2026-10-21 | 2 | 0 | 0 | GitHub REST repository metadata (`stargazers_count`, `forks_count`, `open_issues_count`) |
+| Observed | Stars | Forks | Open issues | Open PRs | Source |
+|---|---:|---:|---:|---:|---|
+| 2026-10-21 | 2 | 0 | 0 | 0 | GitHub REST repository metadata and public repo state |
+| 2026-10-22 | 2 | 0 | 0 | 1 (draft PR #3) | GitHub REST metadata (`stargazers_count`: 2, `forks_count`: 0, `open_issues_count`: 1); separate issue search found 0 open issues and PR search found draft PR #3 |
+
+The metadata `open_issues_count` is 1 on Oct 22; the separate issue search
+confirmed that the one open item is PR #3 rather than a standalone issue. GitHub
+traffic endpoints could not be read through the connected tool, and the browser
+check was stopped at a URL-confidence safety boundary. No current views or
+clones are claimed. The last traffic snapshot remains the dated observation in
+`community/GROWTH_PLAN.md`.
 
 ## Post log
 
