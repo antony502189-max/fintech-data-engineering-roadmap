@@ -19,3 +19,6 @@ Drafts are AI-assisted and require maintainer review; do not represent them as
 handwritten. First-person project-maintainer statements are limited to facts
 corroborated by the repository. No personal work anecdotes are asserted.
 
+LI-01's publication-ready document carousel is in
+`growth/assets/linkedin/LI-01-balanced-ledger-carousel.pdf`.
+
