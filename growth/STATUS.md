@@ -13,11 +13,11 @@ Build genuine awareness and qualified discovery for the [Fintech Data Engineerin
 - LinkedIn post URLs and performance: none recorded.
 - Ten LinkedIn drafts: prepared for human review; see [campaign](LINKEDIN_CAMPAIGN.md).
 - Publishing access: no LinkedIn publishing integration is connected in this workspace. Drafts only.
-- Repo work: LinkedIn campaign records and cross-channel links added locally; not committed or published.
+- Repo work: submitted in [draft PR #3](https://github.com/antony502189-max/fintech-data-engineering-roadmap/pull/3) on branch `codex/linkedin-growth-campaign`; open and not merged.
 
 ## Current next action
 
-Maintainer reviews and approves the first post and its format, then publishes it manually or via an authorized integration. Record the exact post URL and observation date in [metrics](METRICS.md). Keep one post per week and adapt based on meaningful discussion and verified referral data.
+Maintainer reviews the draft PR and the first post and its format. If approved, publish it manually or via an authorized integration. Record the exact post URL and observation date in [metrics](METRICS.md). Keep one post per week and adapt based on meaningful discussion and verified referral data.
 
 ## Guardrails
 
