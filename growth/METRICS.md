@@ -10,6 +10,12 @@
 | LinkedIn profile visits | Unknown | No campaign publication yet |
 | GitHub traffic | Existing growth-plan snapshot: 5 unique visitors, 31 unique cloners | GitHub daily buckets Oct 7–20, 2026 UTC, as recorded in `community/GROWTH_PLAN.md`; not a LinkedIn baseline and not evidence of learner counts |
 
+## Latest live repository check
+
+| Observed | Stars | Forks | Open issues | Source |
+|---|---:|---:|---:|---|
+| 2026-10-21 | 2 | 0 | 0 | GitHub REST repository metadata (`stargazers_count`, `forks_count`, `open_issues_count`) |
+
 ## Post log
 
 | Post ID | Published URL | Published at (local time) | Impressions | Reactions | Comments | Reposts | Profile visits | GitHub referral evidence | Star count observation | Technical discussion / follow-up |
