@@ -124,4 +124,4 @@ The `DataTalksClub/data-engineering-zoomcamp` repository's [`awesome-data-engine
 * [Fintech Data Engineering Roadmap](https://github.com/antony502189-max/fintech-data-engineering-roadmap) by Anton Gameza (free, self-paced Python and SQL learning path with 100 lessons, 40 exercises, and 8 fintech scenario labs)
 ```
 
-This is one relevant resource proposal with no star request. It has not been submitted. Because it publicly proposes the maintainer's own resource, approval is needed before creating the upstream pull request through the GitHub UI. Recheck the list and its rules at submission time.
+This single-entry proposal was submitted as [DataTalksClub PR #866](https://github.com/DataTalksClub/data-engineering-zoomcamp/pull/866) on 2026-10-22. It is open and pending maintainer review. The PR discloses the maintainer relationship and AI assistance and makes no star request. GitHub reported no workflow runs on the submitted head. Do not send a follow-up unless maintainers request one or offer substantive feedback.
