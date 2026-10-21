@@ -102,3 +102,11 @@ Do not generate or automate comments.
 Platform guidance is not a performance guarantee. Recheck rules and any
 third-party publisher's authorization at publication time.
 
+## GitHub Discussions
+
+Checked the public repository Discussions page on 2026-10-22. It showed one
+existing maintainer announcement about practicing fintech DWH locally; no
+community questions or resource requests were visible. The page also reported
+an error while loading its filters, so this is a snapshot of the visible listing,
+not proof that no older or filtered discussion exists. No discussion was
+created and no comment was added. Recheck when a genuine user question appears.
