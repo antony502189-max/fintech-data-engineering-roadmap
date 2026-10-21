@@ -12,6 +12,7 @@
 | LI-08 | From SQL Beginner to Fintech Data Engineer | Learning-path carousel | Draft; human review | 2026-12-15 | Learning-path link | Record URL and learner feedback |
 | LI-09 | I Built a Free 100-Lesson Fintech Data Engineering Roadmap | Open-source announcement | Draft; human review | 2026-12-22 | Direct repo link | Record URL, impressions, qualified clicks if measurable |
 | LI-10 | The SQL Query Runs. The Payment Totals Are Still Wrong. | Scenario case study / code snippet | Draft; human review | 2026-12-29 | C07 link | Record URL and reproducible feedback |
+| DEV-01 | Your Payment Journal Balances. Why Is Settlement Still Short by $1? | Standalone technical tutorial | Fully Autonomous draft; maintainer subject-matter review required | Unscheduled | No repository link or CTA | If approved and published, record exact URL and actual discussion; do not claim referral attribution |
 
 All dates are proposed, one post per week, and move if human review or project
 verification is pending. Do not publish all posts during the initial sprint.
@@ -21,4 +22,9 @@ corroborated by the repository. No personal work anecdotes are asserted.
 
 LI-01's publication-ready document carousel is in
 `growth/assets/linkedin/LI-01-balanced-ledger-carousel.pdf`.
+
+DEV-01 is a separate no-promotion draft at `articles/DEV_BALANCED_LEDGER.md`.
+It is not scheduled or published; the maintainer must verify the technical
+explanations and select the truthful DEV AI disclosure tier before any
+publication.
 

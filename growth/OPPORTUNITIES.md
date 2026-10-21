@@ -69,10 +69,13 @@ copy as handwritten. DEV's guidance also requires substantive, accurate content
 and says AI-assisted or AI-generated articles should not promote a business,
 program, or course, or mainly serve personal-brand or backlink goals. The roadmap
 is an educational program, so do not use the AI-assisted campaign drafts as a
-DEV promotional article. A future DEV contribution should be an independently
-useful tutorial the maintainer can personally stand behind, with the disclosure
-that matches the actual writing process and without a repo-promotion CTA. Do not
-generate or automate comments.
+DEV promotional article. A standalone, no-promotion draft about ledger balance
+and settlement reconciliation is prepared at
+[`articles/DEV_BALANCED_LEDGER.md`](articles/DEV_BALANCED_LEDGER.md). It is Fully
+Autonomous AI-generated copy and is not ready to publish until a maintainer with
+relevant subject-matter knowledge verifies it and can stand behind the material.
+Keep the article free of repository links, star requests, and promotional CTAs.
+Do not generate or automate comments.
 
 ## Sources checked 2026-10-22
 
