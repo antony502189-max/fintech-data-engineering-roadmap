@@ -4,17 +4,36 @@
 
 **From your first SQL query to an explainable fintech warehouse: 100 lessons, 40 foundation exercises, 8 scenario labs, and runnable payment examples.**
 
-[Start learning](docs/START_HERE.md) · [100-step roadmap](roadmap/README.md) · [Practice](practice/README.md) · [Scenario labs](challenges/README.md) · [Videos](resources/VIDEOS.md) · [Articles](resources/ARTICLES.md)
+[Five-minute experiment](docs/FIRST_WIN.md) · [Start learning](docs/START_HERE.md) · [100-step roadmap](roadmap/README.md) · [Practice](practice/README.md) · [Scenario labs](challenges/README.md) · [Videos](resources/VIDEOS.md) · [Articles](resources/ARTICLES.md)
 
 An open learning path for data engineering, DWH, and financial data. Learn what to study, why it matters, how to implement a principle, and how to detect mistakes. Core themes include exact amounts, change history, repeated delivery, late events, reconciliation, and recovery. A dedicated module covers AI assistants, RAG, Text-to-SQL, and ML features. All repository content is in English.
 
-## Try it in five minutes
+## Find a missing dollar in five minutes
 
-Requires Git and Python 3.12+ with `sqlite3`. The lab and all 40 exercises use the standard library. Run from the repository root in PowerShell, Bash, or macOS Terminal.
+**A balanced journal can still disagree with the processor. Can you explain why?**
+
+Requires Git and Python 3.12+ with `sqlite3`. No package installation, paid cloud,
+or API key is needed.
 
 ```bash
 git clone https://github.com/antony502189-max/fintech-data-engineering-roadmap.git
 cd fintech-data-engineering-roadmap
+python -m fintech_lab.quickstart
+```
+
+You will see six events inserted, zero inserted on replay, and six duplicates.
+The journal balances, but p3 is short by $1.00 and p9 has no internal payment.
+Every run starts fresh in memory and writes no files. On Windows, use `py -3`
+instead of `python` if needed.
+
+Follow the [first-win walkthrough](docs/FIRST_WIN.md) to explain the amounts and
+change one input. If it helps, star the repository to bookmark the learning path.
+
+## Save the full demo and start practicing
+
+Requires Git and Python 3.12+ with `sqlite3`. The lab and all 40 exercises use the standard library. Run from the repository root in PowerShell, Bash, or macOS Terminal.
+
+```bash
 python -m fintech_lab --out work/demo
 python -m unittest discover -s tests -v
 python practice/run.py init E01
