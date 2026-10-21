@@ -24,6 +24,16 @@
 
 **Carousel panels:** (1) “Balanced ≠ reconciled”; (2) six events → replay → 0 inserted / 6 duplicates; (3) p3 expected 2500, external 2400, delta −100 cents; (4) p9 external-only, expected = unknown; (5) name the three checks and link the runnable experiment. Label all amounts USD minor units and fixture data synthetic.
 
+**LI-01 text alternative, slide by slide:**
+
+1. A journal can balance internally and still disagree with a processor's settlement.
+2. Six synthetic events are ingested; replaying them adds zero rows and identifies six duplicates.
+3. For p3, the expected amount is 2,500 USD cents and the settlement reports 2,400 cents, a 100-cent ($1) shortfall.
+4. For p9, the settlement contains $5 with no internal payment; the expected amount is unknown, not zero.
+5. Replay safety, journal balance, and external reconciliation are separate checks. The local experiment uses synthetic data and needs no paid cloud service.
+
+Keep this transcript with the carousel during human review. If a publishing tool offers a suitable accessibility field for the document, use it; otherwise retain the explanation in the post text so the key findings do not depend on reading the slides visually.
+
 ## 2. 5 Data Engineering Mistakes That Break Payment Systems
 
 **Format:** checklist carousel. **Link:** optional, on final panel.
