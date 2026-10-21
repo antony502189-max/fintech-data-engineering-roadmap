@@ -5,7 +5,7 @@
 - Audience fit: data engineers, analytics engineers, fintech and backend developers, architects, and technical educators.
 - Useful formats to test: concise technical breakdowns, code snippets, question-led posts, and document carousels that teach a complete idea. LinkedIn's official materials recommend educational, relevant content and a clear opening; test formats with this audience rather than assuming reach.
 - Cadence: one reviewed post weekly for ten weeks. Use the post analytics actually available to the account; there is no verified performance baseline.
-- Publishing rules: LinkedIn's Help Center says third-party software/extensions that scrape or automate activity on its website are prohibited. No authorized LinkedIn publishing tool is connected in this workspace. Keep these drafts for human publication unless the owner connects a specifically authorized route and its terms permit the intended use.
+- Publishing rules: LinkedIn prohibits third-party browser software that scrapes or automates activity on its website. Metricool is listed in LinkedIn's official Marketing Partner directory; its LinkedIn integration schedules and publishes through the platform connection, and its help says LinkedIn profile connection requires a paid plan. The Metricool connector is available in the workspace plugin catalog but is not installed or connected. Do not schedule or publish until the maintainer has reviewed the specific post and the account is connected through this authorized route. Never use browser automation, scraping, bulk messaging, or automated comments.
 - Authenticity: no automated comments, scraping, engagement pods, bulk messaging, or connection-request bots. Do not invent personal experience or project outcomes. The repository states that its first edition was created with AI assistance.
 
 ## Cross-channel continuity
@@ -88,6 +88,8 @@ Do not generate or automate comments.
 - [LinkedIn: Automated activity on LinkedIn](https://www.linkedin.com/help/linkedin/answer/a1341543)
 - [LinkedIn: Professional Community Policies](https://www.linkedin.com/legal/professional-community-policies)
 - [LinkedIn: Page posts FAQ](https://www.linkedin.com/help/linkedin/answer/a567075)
+- [LinkedIn Marketing Partner directory: Metricool](https://business.linkedin.com/advertise/partners/find-a-partner/metricool)
+- [Metricool: Schedule and publish on LinkedIn](https://help.metricool.com/schedule-and-publish-on-linkedin-2seid)
 - [LinkedIn: How to maximize AI visibility for posts](https://www.linkedin.com/business/marketing/blog/ai-search/how-to-maximize-ai-visibility-for-your-linkedin-posts)
 - [Reddit: r/dataengineering community rules](https://www.reddit.com/r/dataengineering/about/rules.json)
 - [Reddit: r/Python community rules](https://www.reddit.com/r/Python/about/rules.json)
