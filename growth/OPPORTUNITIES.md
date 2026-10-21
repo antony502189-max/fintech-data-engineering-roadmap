@@ -15,6 +15,17 @@ LinkedIn extends, rather than replaces, the existing community and DEV plans in
 demonstration only when the target community welcomes it; adapt the explanation
 and check that channel's current rules. See [sharing guidance](../community/SHARING.md).
 
+## GitHub repository link preview
+
+The public repository currently returns GitHub's generated Open Graph image.
+A project-specific 1280 × 640 preview is prepared at
+[`assets/social-preview.png`](assets/social-preview.png). After the PR is merged,
+the maintainer can upload it under repository Settings → Social preview. The
+image can make the project easier to recognize when its URL is shared; it is
+not evidence of improved reach or star conversion. See
+[`SOCIAL_PREVIEW.md`](SOCIAL_PREVIEW.md) for the checked state and exact upload
+steps.
+
 ## Reddit: r/dataengineering
 
 Rules checked on 2026-10-22 at the community's live rules endpoint. The subreddit

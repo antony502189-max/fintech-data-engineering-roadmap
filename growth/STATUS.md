@@ -14,6 +14,7 @@ Build genuine awareness and qualified discovery for the [Fintech Data Engineerin
 - LinkedIn posts published by this campaign: **0 verified**.
 - LinkedIn post URLs and performance: none recorded.
 - Ten LinkedIn drafts: prepared for human review; see [campaign](LINKEDIN_CAMPAIGN.md).
+- GitHub social preview: PNG prepared; repository setting remains on GitHub's generated preview until the maintainer uploads the asset.
 - Publishing access: no LinkedIn publishing integration is connected in this workspace. Drafts only.
 - Repo work: submitted in [PR #3](https://github.com/antony502189-max/fintech-data-engineering-roadmap/pull/3) on branch `codex/linkedin-growth-campaign`; open, ready for review, and not merged.
 - Latest traffic analytics: no newer snapshot verified; the GitHub connector rejects traffic endpoints, and the read-only browser check stopped at a URL-confidence safety boundary. Carry forward only the older, dated Oct 7–20 UTC snapshot in the growth plan.
