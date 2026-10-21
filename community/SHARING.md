@@ -63,3 +63,13 @@ record and follow-up work; these drafts are not evidence that posts were publish
 ## Feedback
 
 Collect confusing tasks, startup failures, and edge cases. Record accepted fixes in the changelog. Posting remains the owner's action; this template does not imply an automated broadcast.
+
+## LinkedIn series
+
+The ten-post LinkedIn series, weekly calendar, carousel outlines, policy notes,
+and measurement fields are in [`growth/LINKEDIN_CAMPAIGN.md`](../growth/LINKEDIN_CAMPAIGN.md).
+Treat every item as a draft until the maintainer verifies the live repository,
+reviews the copy, and publishes it through LinkedIn directly or a specifically
+authorized, compliant publishing integration. Never use browser automation,
+scraping, automated comments, engagement pods, or connection-request bots.
+
