@@ -77,6 +77,11 @@ relevant subject-matter knowledge verifies it and can stand behind the material.
 Keep the article free of repository links, star requests, and promotional CTAs.
 Do not generate or automate comments.
 
+## GitHub curated resource lists
+
+- [`gunnarmorling/awesome-opensource-data-engineering`](https://github.com/gunnarmorling/awesome-opensource-data-engineering) invites contributions, but its scope is open-source data-engineering projects and its [contribution guide](https://github.com/gunnarmorling/awesome-opensource-data-engineering/blob/master/CONTRIBUTING.md) requires active maintenance and some adoption. A standalone learning roadmap with two stars does not clearly meet that bar, so do not submit it.
+- [`brandonhimpfen/awesome-fintech`](https://github.com/brandonhimpfen/awesome-fintech) has a relevant Learning Resources category and [welcomes contributions](https://github.com/brandonhimpfen/awesome-fintech/blob/main/CONTRIBUTING.md), but the guide says inclusion is selective and rejects entries added primarily for promotion. Because this campaign's purpose is repository discovery, do not self-submit there. Revisit only if maintainers explicitly invite the resource or its fit changes independently of promotion.
+
 ## Sources checked 2026-10-22
 
 - [LinkedIn: Best practices for sharing content](https://www.linkedin.com/help/linkedin/answer/a523414)
