@@ -94,6 +94,8 @@ exercises, and 8 scenario labs; cloud tools appear only as later learning topics
 
 Source: https://github.com/antony502189-max/fintech-data-engineering-roadmap
 
+Disclosure: I maintain this repository.
+
 **Editor notes:** This is an AI-assisted draft for human review. If used, post as
 a text post with the Showcase flair, attach `assets/social-preview.png`, and
 recheck the current rules. If the moderators would classify the project as an
