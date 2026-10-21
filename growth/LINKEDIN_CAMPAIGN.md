@@ -36,7 +36,7 @@ Keep this transcript with the carousel during human review. If a publishing tool
 
 ## 2. 5 Data Engineering Mistakes That Break Payment Systems
 
-**Format:** checklist carousel. **Link:** optional, on final panel.
+**Format:** technical checklist + six-slide document carousel. **Link:** optional, on final panel.
 
 > Five small data mistakes can turn a payment report into a confident wrong answer:
 >
@@ -52,7 +52,18 @@ Keep this transcript with the carousel during human review. If a publishing tool
 >
 > Which one has caused the most confusing dashboard discrepancy for you?
 
-**Carousel panels:** one mistake per slide with symptom and prevention; last slide asks the grain question. Keep the last-panel project link optional and disclose the examples are educational simulations.
+**Carousel panels:** (1) title and five categories; (2) decimal text to integer minor units; (3) join fan-out and why `SUM(DISTINCT)` fails; (4) duplicate delivery and idempotency; (5) event time vs received time; (6) unknown expected amount vs zero. Keep the project link optional and disclose the examples are educational simulations.
+
+**LI-02 text alternative, slide by slide:**
+
+1. Five data mistakes can distort payment truth even when a query runs and a journal balances: precision, grain, replay, time, and missing versus zero.
+2. Accept money as decimal text and convert it with the repository's `to_minor` helper. Validate the currency scale and reject excess fractional digits rather than silently rounding.
+3. Two capture rows joined to two fee rows create four combinations. Aggregate each source at payment plus currency grain before joining. `SUM(DISTINCT amount)` is unsafe because equal-valued legitimate rows can be collapsed.
+4. Webhooks and batches can be retried. A repeated event with a stable idempotency key should add zero new rows and be reported as a duplicate.
+5. An event can have an event timestamp of January 1 and arrive on January 3. Keep both timestamps to answer what happened by a time and what had arrived by a cutoff.
+6. In a synthetic USD example, payment p9 has a settlement amount of 500 cents but no internal expected amount. Its expected value is unknown, not zero; classify it as unexpected external.
+
+Keep this transcript with the carousel during review. If LinkedIn's publishing tool provides a suitable accessibility field, use it; otherwise keep the key findings in the post text.
 
 ## 3. Python Money: Parse Decimal Strings into Minor Units
 
