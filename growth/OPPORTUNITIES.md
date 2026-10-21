@@ -112,3 +112,16 @@ community questions or resource requests were visible. The page also reported
 an error while loading its filters, so this is a snapshot of the visible listing,
 not proof that no older or filtered discussion exists. No discussion was
 created and no comment was added. Recheck when a genuine user question appears.
+
+
+## DataTalksClub data engineering resources
+
+The `DataTalksClub/data-engineering-zoomcamp` repository's [`awesome-data-engineering.md`](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/awesome-data-engineering.md) invites useful data engineering resources. Its **Learning Data Engineering > Courses** section lists free courses and self-paced learning paths, making the free, fintech-focused roadmap a direct subject and format fit. The list has a CC BY 4.0 notice and a recent accepted change adding the Data Engineer Handbook to resource aggregators ([PR #744](https://github.com/DataTalksClub/data-engineering-zoomcamp/pull/744)). The current file has no entry for this roadmap, and the open-PR list has no matching proposal. GitHub returned 404 for `CONTRIBUTING.md`; any submission should follow the file's existing format and disclose the maintainer relationship.
+
+**Proposed entry:**
+
+```markdown
+* [Fintech Data Engineering Roadmap](https://github.com/antony502189-max/fintech-data-engineering-roadmap) by Anton Gameza (free, self-paced Python and SQL learning path with 100 lessons, 40 exercises, and 8 fintech scenario labs)
+```
+
+This is one relevant resource proposal with no star request. It has not been submitted. Because it publicly proposes the maintainer's own resource, approval is needed before creating the upstream pull request through the GitHub UI. Recheck the list and its rules at submission time.
