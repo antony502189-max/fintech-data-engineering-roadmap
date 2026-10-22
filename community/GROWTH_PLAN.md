@@ -20,15 +20,28 @@ Do not describe the local simulations as deployed Kafka, dbt, or banking systems
 | Window | Deliverable | What to learn |
 |---|---|---|
 | Days 1-3 | Merge and check the first-win experience; record a 45-60 second terminal demo | Can someone reproduce the result using only the README? |
-| Days 4-7 | Publish one personal LinkedIn or DEV post using the sharing drafts | Which questions or startup problems do readers report? |
-| Week 2 | Share a technical explanation in one relevant community that permits project sharing | Is the problem useful to that audience? |
-| Week 3 | Publish a second worked example from C07, including the wrong SQL and its corrected totals | Do readers continue from the demo to an exercise? |
+| Days 4-7 | Human-review and publish one LinkedIn post using the campaign drafts, if the owner chooses | Which questions or startup problems do readers report? |
+| Week 2 | Consider the r/Python text-showcase draft only after maintainer review of the live rules and AI-showcase classification; otherwise skip or choose a community whose rules fit | Does the channel permit this content and is it useful to that audience? |
+| Week 3 | Prepare a C07 worked example with the wrong SQL and corrected totals; publish only if a human author can stand behind it and the channel rules permit its creation and purpose | Do readers continue from the demo to an exercise? |
 | Week 4 | Fix the top onboarding problems and publish a short changelog with verified examples | Did feedback produce a better learning experience? |
 
 The owner chooses channels and posts. Check each community's current rules before
 sharing. Answer questions with useful technical detail; avoid repeating the same
 link across unrelated threads. Ask before quoting someone's feedback publicly.
 Do not buy stars, exchange stars, send unsolicited bulk messages, or invent users.
+
+Channel rules checked on 2026-10-22 materially constrain the current Reddit and
+DEV drafts. r/dataengineering currently permits self-promotion only once monthly
+and prohibits AI-generated or AI-assisted post text; do not use the generic
+AI-assisted community draft there. DEV requires an accurate AI disclosure and
+its AI-assisted article guidance prohibits using such posts to promote a
+business, program, or course. Do not repurpose the campaign drafts as a DEV
+promotion. r/Python has a specific project-showcase format; the draft follows
+its required sections but needs a human decision on whether the repository's AI
+lesson qualifies as AI showcase content. r/learnpython, r/SQL, and r/opensource
+are not suitable for this campaign's current promotional drafts. See
+[`growth/OPPORTUNITIES.md`](../growth/OPPORTUNITIES.md) for source links and
+channel-specific guidance.
 
 ## A weekly record
 
@@ -63,5 +76,9 @@ not promised outcomes or deadlines.
 - Demo runs but learners get stuck: improve that task's contract and error explanation.
 - Useful feedback: ship a focused fix and link the resulting changelog from the next post.
 
-See [sharing drafts](SHARING.md). Update the baseline with real observations;
-leave unknown values blank or explicitly unknown.
+See [sharing drafts](SHARING.md) and the [LinkedIn campaign](../growth/LINKEDIN_CAMPAIGN.md).
+LinkedIn is one weekly post over ten weeks; the initial sprint prepares drafts and
+measurement, it does not publish the series. Update the baseline with real
+observations; leave unknown values blank or explicitly unknown. Durable records
+live in [`growth/`](../growth/STATUS.md).
+
