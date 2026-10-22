@@ -50,3 +50,8 @@ engagement have different populations and time windows. Prefer meaningful
 technical questions, reproducible bug reports, contributions, and learning
 feedback over raw reactions.
 
+## GitHub community discussion log
+
+| Published | Discussion | Replies observed on first recheck | Referral / star attribution |
+|---|---|---:|---|
+| 2026-10-22 | [GH-01: Payment reconciliation Q&A](https://github.com/antony502189-max/fintech-data-engineering-roadmap/discussions/4) | 0 | Unknown; do not infer from aggregate repository metrics |

@@ -12,7 +12,7 @@
 | LI-08 | From SQL Beginner to Fintech Data Engineer | Learning-path carousel | Draft; human review | 2026-12-15 | Learning-path link | Record URL and learner feedback |
 | LI-09 | I Built a Free 100-Lesson Fintech Data Engineering Roadmap | Open-source announcement | Draft; human review | 2026-12-22 | Direct repo link | Record URL, impressions, qualified clicks if measurable |
 | LI-10 | The SQL Query Runs. The Payment Totals Are Still Wrong. | Scenario case study / code snippet | Draft; human review | 2026-12-29 | C07 link | Record URL and reproducible feedback |
-| GH-01 | Payment reconciliation: how should a settlement row with no internal payment be represented? | GitHub Q&A discussion | Draft; maintainer approval before posting | Unscheduled | First-win guide | If posted, record public URL and meaningful technical replies |
+| GH-01 | Payment reconciliation: how should a settlement row with no internal payment be represented? | GitHub Q&A discussion | Published 2026-10-22; [Discussion #4](https://github.com/antony502189-max/fintech-data-engineering-roadmap/discussions/4) | Published | First-win guide | Monitor for meaningful technical replies; 0 replies when rechecked on 2026-10-22 |
 | DEV-01 | Your Payment Journal Balances. Why Is Settlement Still Short by $1? | Standalone technical tutorial | Fully Autonomous draft; maintainer subject-matter review required | Unscheduled | No repository link or CTA | If approved and published, record exact URL and actual discussion; do not claim referral attribution |
 
 All dates are proposed, one post per week, and move if human review or project
@@ -26,8 +26,9 @@ LI-01's publication-ready document carousel is in
 `growth/assets/linkedin/LI-02-five-data-engineering-mistakes-carousel.pdf`; its slide-by-slide
 text alternative is in `LINKEDIN_CAMPAIGN.md`.
 
-GH-01 is an unpublished discussion draft at `GITHUB_DISCUSSION_DRAFT.md`. It
-requires maintainer approval before posting.
+GH-01's approved copy is archived at `GITHUB_DISCUSSION_DRAFT.md`; it was
+published in the Q&A category as [Discussion #4](https://github.com/antony502189-max/fintech-data-engineering-roadmap/discussions/4). It had 0 replies
+when rechecked on 2026-10-22.
 
 DEV-01 is a separate no-promotion draft at
 `../dev-community/BALANCED_LEDGER_ARTICLE.md`. It is not scheduled or published;

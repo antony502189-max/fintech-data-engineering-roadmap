@@ -1,6 +1,6 @@
-# GitHub Discussion draft: When expected payment amount is unknown
+# Published GitHub discussion: When expected payment amount is unknown
 
-**Status:** AI-assisted draft for maintainer review. Not published.
+**Status:** Published 2026-10-22 after maintainer approval: [Discussion #4](https://github.com/antony502189-max/fintech-data-engineering-roadmap/discussions/4).
 **Proposed category:** Q&A
 
 ## Title
@@ -31,4 +31,4 @@ These examples use synthetic teaching data. The local walkthrough is in the [fiv
 - Keep the example labeled synthetic; it is not a production accounting specification.
 - Check the example still matches the default branch before posting.
 - No star request, promotional CTA, invented maintainer anecdote, or claim of reader feedback.
-- Post only after maintainer approval; use the Q&A category if still available and appropriate.
+- Published in Q&A after maintainer approval. Discussion #4 had 0 replies when rechecked on 2026-10-22.

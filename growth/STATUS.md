@@ -14,7 +14,7 @@ Build genuine awareness and qualified discovery for the [Fintech Data Engineerin
 - LinkedIn posts published by this campaign: **0 verified**.
 - DEV articles published for this campaign: **0 verified**; one standalone AI-generated tutorial draft awaits maintainer subject-matter review.
 - LinkedIn post URLs and performance: none recorded.
-- GitHub Discussions: one substantive Q&A draft prepared for maintainer review; none posted.
+- GitHub Discussions: GH-01 was published in Q&A after maintainer approval as [Discussion #4](https://github.com/antony502189-max/fintech-data-engineering-roadmap/discussions/4) on 2026-10-22. It had 0 replies when rechecked the same day; no discussion-level traffic or star attribution is available.
 - Ten LinkedIn drafts: prepared for human review; see [campaign](LINKEDIN_CAMPAIGN.md).
 - Two publication-ready carousel PDFs are prepared for LI-01 and LI-02, with slide-by-slide text alternatives in the campaign file; both still require maintainer review.
 - GitHub social preview: PNG prepared; repository setting remains on GitHub's generated preview until the maintainer uploads the asset.
@@ -27,7 +27,7 @@ Build genuine awareness and qualified discovery for the [Fintech Data Engineerin
 
 ## Current next action
 
-Maintainer reviews PR #3, the first LinkedIn post, and GH-01 before any publication. Metricool publishing requires a connected account; GH-01 requires explicit approval before posting. Record exact post URLs and observed metrics only after publication; keep the weekly cadence and adapt to meaningful discussion and reliable referral data.
+Monitor Discussion #4 for substantive technical replies and record them only when observed. LinkedIn remains unpublished pending an authorized publishing route and human review of LI-01; PR #3 remains open for maintainer review. Record post URLs and observed metrics only after publication; keep the weekly cadence and adapt to meaningful discussion and reliable referral data.
 
 ## Guardrails
 
